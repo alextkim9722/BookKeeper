@@ -1,0 +1,26 @@
+﻿@using MainProject.ViewModels
+@model ShelfViewModel
+
+@{
+	var imagePath = Model.profilePicture;
+}
+
+<div class="container-xl h-100">
+	<div class="row h-100">
+		<div class="col-xl-3 text-bg-primary h-100">
+			<div class="row text-bg-secondary" style="height:400px">
+				@if(imagePath != "")
+				{
+					<img src="@imagePath" class="rounded-circle" />
+				}
+			</div>
+			<div class="row h-100">
+				desc
+			</div>
+		</div>
+
+		<div class="col h-100">
+			shelf
+		</div>
+	</div>
+</div>

@@ -1,0 +1,28 @@
+﻿@*
+	This is the _Layout.cshtml file
+
+	If you want something consistent across all pages on your website,
+	then this is the place to set up the Layout. :D
+*@
+
+
+<!DOCTYPE html>
+<html lang="en" class="h-100">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="~/bootstrap/css/bootstrap.css" />
+
+		<title>Bookkeeper</title>
+	</head>
+	<body class="h-100">
+		<nav class="navbar bg-dark border-bottom border-body" data-bs-theme="dark">
+			<div class="container-xl">
+				<a class="navbar-brand" href="#">
+					BookKeeper
+				</a>
+			</div>
+		</nav>
+		@RenderBody()
+	</body>
+</html>
