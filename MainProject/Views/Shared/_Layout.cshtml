@@ -7,22 +7,27 @@
 
 
 <!DOCTYPE html>
-<html lang="en" class="h-100">
+<html class="h-100" lang="en">
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="stylesheet" href="~/bootstrap/css/bootstrap.css" />
+		<link rel="stylesheet" href="~/custom/shelf-style-sheet.css" />
+		<link rel="stylesheet" href="~/custom/layout-style-sheet.css" />
 
 		<title>Bookkeeper</title>
 	</head>
 	<body class="h-100">
-		<nav class="navbar bg-dark border-bottom border-body" data-bs-theme="dark">
+		<nav class="navbar navbar-custom fixed-top bg-dark" data-bs-theme="dark">
 			<div class="container-xl">
 				<a class="navbar-brand" href="#">
 					BookKeeper
 				</a>
 			</div>
 		</nav>
-		@RenderBody()
+
+		<div class="container-fluid content-page h-100">
+			@RenderBody()
+		</div>
 	</body>
 </html>

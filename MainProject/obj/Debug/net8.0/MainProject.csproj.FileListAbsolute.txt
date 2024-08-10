@@ -41,3 +41,4 @@ S:\Programming-Stuff\BookKeeper\MainProject\bin\Debug\net8.0\ru-RU\JavaScriptEng
 S:\Programming-Stuff\BookKeeper\MainProject\obj\Debug\net8.0\MainProject.csproj.AssemblyReference.cache
 S:\Programming-Stuff\BookKeeper\MainProject\obj\Debug\net8.0\MainProject.MvcApplicationPartsAssemblyInfo.cs
 S:\Programming-Stuff\BookKeeper\MainProject\obj\Debug\net8.0\MainProj.90D20194.Up2Date
+S:\Programming-Stuff\BookKeeper\MainProject\obj\Debug\net8.0\MainProject.sourcelink.json

@@ -3,24 +3,23 @@
 
 @{
 	var imagePath = Model.profilePicture;
+	var profileName = Model.name;
+	var pagesRead = Model.pagesRead;
+	var booksRead = Model.booksRead;
+	var dateJoined = Model.joinDate;
+	var description = Model.description;
 }
 
-<div class="container-xl h-100">
-	<div class="row h-100">
-		<div class="col-xl-3 text-bg-primary h-100">
-			<div class="row text-bg-secondary" style="height:400px">
-				@if(imagePath != "")
-				{
-					<img src="@imagePath" class="rounded-circle" />
-				}
-			</div>
-			<div class="row h-100">
-				desc
-			</div>
-		</div>
-
-		<div class="col h-100">
-			shelf
-		</div>
+<div class="row mx-auto h-100">
+	<div class="col bg-primary profile-bar h-100 d-flex flex-column align-items-center">
+		<img class="profile-picture rounded-circle" src="@imagePath" />
+		<div class="h1">@profileName</div>
+		<div class="">@pagesRead</div>
+		<div class="">@booksRead</div>
+		<div class="">@dateJoined</div>
+		<div class="">@description</div>
+	</div>
+	<div class="col bg-secondary h-100">
+		hello
 	</div>
 </div>

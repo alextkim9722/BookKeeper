@@ -1,0 +1,15 @@
+﻿.profile-picture{
+    margin-top: 80px;
+    width:200px;
+    height:200px;
+}
+
+.profile-bar {
+    flex: 0 0 350px;
+}
+
+.profile-name{
+}
+
+.profile-description{
+}

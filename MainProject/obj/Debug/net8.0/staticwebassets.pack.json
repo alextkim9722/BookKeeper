@@ -177,6 +177,14 @@
       "PackagePath": "staticwebassets\\bootstrap\\js\\bootstrap.min.js.map"
     },
     {
+      "Id": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\wwwroot\\custom\\layout-style-sheet.css",
+      "PackagePath": "staticwebassets\\custom\\layout-style-sheet.css"
+    },
+    {
+      "Id": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\wwwroot\\custom\\shelf-style-sheet.css",
+      "PackagePath": "staticwebassets\\custom\\shelf-style-sheet.css"
+    },
+    {
       "Id": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\wwwroot\\images\\TempProfilePic.jpg",
       "PackagePath": "staticwebassets\\images\\TempProfilePic.jpg"
     },

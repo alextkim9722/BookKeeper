@@ -1,0 +1,12 @@
+﻿:root{
+    --navbar-height: 70px;
+}
+
+.content-page {
+    padding-top: var(--navbar-height);
+    max-width: 1400px;
+}
+
+.navbar-custom {
+    height: var(--navbar-height);
+}
