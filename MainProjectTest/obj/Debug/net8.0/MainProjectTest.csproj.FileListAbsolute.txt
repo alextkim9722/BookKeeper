@@ -155,3 +155,5 @@ S:\Programming-Stuff\BookKeeper\MainProjectTest\obj\Debug\net8.0\refint\MainProj
 S:\Programming-Stuff\BookKeeper\MainProjectTest\obj\Debug\net8.0\MainProjectTest.pdb
 S:\Programming-Stuff\BookKeeper\MainProjectTest\obj\Debug\net8.0\MainProjectTest.genruntimeconfig.cache
 S:\Programming-Stuff\BookKeeper\MainProjectTest\obj\Debug\net8.0\ref\MainProjectTest.dll
+S:\Programming-Stuff\BookKeeper\MainProjectTest\bin\Debug\net8.0\Castle.Core.dll
+S:\Programming-Stuff\BookKeeper\MainProjectTest\bin\Debug\net8.0\Moq.dll

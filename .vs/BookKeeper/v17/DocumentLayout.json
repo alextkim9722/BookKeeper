@@ -3,20 +3,40 @@
   "WorkspaceRootPath": "S:\\Programming-Stuff\\BookKeeper\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{07790725-64D0-4824-AC4F-06F361D6F3E5}|MainProjectTest\\MainProjectTest.csproj|s:\\programming-stuff\\bookkeeper\\mainprojecttest\\datastore\\testdatabasefixture.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{07790725-64D0-4824-AC4F-06F361D6F3E5}|MainProjectTest\\MainProjectTest.csproj|solutionrelative:mainprojecttest\\datastore\\testdatabasefixture.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B0469DE7-217D-4453-AF0A-BBA7EA3519AC}|MainProject\\MainProject.csproj|s:\\programming-stuff\\bookkeeper\\mainproject\\viewmodels\\shelfpageviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B0469DE7-217D-4453-AF0A-BBA7EA3519AC}|MainProject\\MainProject.csproj|solutionrelative:mainproject\\viewmodels\\shelfpageviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{07790725-64D0-4824-AC4F-06F361D6F3E5}|MainProjectTest\\MainProjectTest.csproj|s:\\programming-stuff\\bookkeeper\\mainprojecttest\\datastore\\userrepositorytests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{07790725-64D0-4824-AC4F-06F361D6F3E5}|MainProjectTest\\MainProjectTest.csproj|solutionrelative:mainprojecttest\\datastore\\userrepositorytests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B0469DE7-217D-4453-AF0A-BBA7EA3519AC}|MainProject\\MainProject.csproj|s:\\programming-stuff\\bookkeeper\\mainproject\\controllers\\mainpagecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B0469DE7-217D-4453-AF0A-BBA7EA3519AC}|MainProject\\MainProject.csproj|solutionrelative:mainproject\\controllers\\mainpagecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{07790725-64D0-4824-AC4F-06F361D6F3E5}|MainProjectTest\\MainProjectTest.csproj|s:\\programming-stuff\\bookkeeper\\mainprojecttest\\controllers\\usecases\\shelfpagegettest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{07790725-64D0-4824-AC4F-06F361D6F3E5}|MainProjectTest\\MainProjectTest.csproj|solutionrelative:mainprojecttest\\controllers\\usecases\\shelfpagegettest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{B0469DE7-217D-4453-AF0A-BBA7EA3519AC}|MainProject\\MainProject.csproj|s:\\programming-stuff\\bookkeeper\\mainproject\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B0469DE7-217D-4453-AF0A-BBA7EA3519AC}|MainProject\\MainProject.csproj|solutionrelative:mainproject\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B0469DE7-217D-4453-AF0A-BBA7EA3519AC}|MainProject\\MainProject.csproj|s:\\programming-stuff\\bookkeeper\\mainproject\\datastore\\datastoreinterfaces\\iuserrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B0469DE7-217D-4453-AF0A-BBA7EA3519AC}|MainProject\\MainProject.csproj|solutionrelative:mainproject\\datastore\\datastoreinterfaces\\iuserrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B0469DE7-217D-4453-AF0A-BBA7EA3519AC}|MainProject\\MainProject.csproj|s:\\programming-stuff\\bookkeeper\\mainproject\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{B0469DE7-217D-4453-AF0A-BBA7EA3519AC}|MainProject\\MainProject.csproj|solutionrelative:mainproject\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B0469DE7-217D-4453-AF0A-BBA7EA3519AC}|MainProject\\MainProject.csproj|s:\\programming-stuff\\bookkeeper\\mainproject\\controllers\\usecases\\shelfpageget.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B0469DE7-217D-4453-AF0A-BBA7EA3519AC}|MainProject\\MainProject.csproj|solutionrelative:mainproject\\controllers\\usecases\\shelfpageget.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B0469DE7-217D-4453-AF0A-BBA7EA3519AC}|MainProject\\MainProject.csproj|s:\\programming-stuff\\bookkeeper\\mainproject\\controllers\\usecases\\ishelfpageget.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B0469DE7-217D-4453-AF0A-BBA7EA3519AC}|MainProject\\MainProject.csproj|solutionrelative:mainproject\\controllers\\usecases\\ishelfpageget.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B0469DE7-217D-4453-AF0A-BBA7EA3519AC}|MainProject\\MainProject.csproj|s:\\programming-stuff\\bookkeeper\\mainproject\\model\\usermodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B0469DE7-217D-4453-AF0A-BBA7EA3519AC}|MainProject\\MainProject.csproj|solutionrelative:mainproject\\model\\usermodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{07790725-64D0-4824-AC4F-06F361D6F3E5}|MainProjectTest\\MainProjectTest.csproj|s:\\programming-stuff\\bookkeeper\\mainprojecttest\\datastore\\userrepositorytests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{07790725-64D0-4824-AC4F-06F361D6F3E5}|MainProjectTest\\MainProjectTest.csproj|solutionrelative:mainprojecttest\\datastore\\userrepositorytests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,58 +46,129 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "TestDatabaseFixture.cs",
-              "DocumentMoniker": "S:\\Programming-Stuff\\BookKeeper\\MainProjectTest\\Datastore\\TestDatabaseFixture.cs",
-              "RelativeDocumentMoniker": "MainProjectTest\\Datastore\\TestDatabaseFixture.cs",
-              "ToolTip": "S:\\Programming-Stuff\\BookKeeper\\MainProjectTest\\Datastore\\TestDatabaseFixture.cs",
-              "RelativeToolTip": "MainProjectTest\\Datastore\\TestDatabaseFixture.cs",
-              "ViewState": "AQIAAAwAAAAAAAAAAAAAAB0AAAAAAAAA",
+              "DocumentIndex": 4,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\appsettings.json",
+              "RelativeDocumentMoniker": "MainProject\\appsettings.json",
+              "ToolTip": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\appsettings.json",
+              "RelativeToolTip": "MainProject\\appsettings.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAAEAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-08-11T21:20:03.56Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "ShelfPageGet.cs",
+              "DocumentMoniker": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\Controllers\\UseCases\\ShelfPageGet.cs",
+              "RelativeDocumentMoniker": "MainProject\\Controllers\\UseCases\\ShelfPageGet.cs",
+              "ToolTip": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\Controllers\\UseCases\\ShelfPageGet.cs",
+              "RelativeToolTip": "MainProject\\Controllers\\UseCases\\ShelfPageGet.cs",
+              "ViewState": "AQIAAAgAAAAAAAAAAAAQwBcAAAASAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-11T07:02:38.541Z",
+              "WhenOpened": "2024-08-11T20:27:45.342Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "IShelfPageGet.cs",
+              "DocumentMoniker": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\Controllers\\UseCases\\IShelfPageGet.cs",
+              "RelativeDocumentMoniker": "MainProject\\Controllers\\UseCases\\IShelfPageGet.cs",
+              "ToolTip": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\Controllers\\UseCases\\IShelfPageGet.cs",
+              "RelativeToolTip": "MainProject\\Controllers\\UseCases\\IShelfPageGet.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAyAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-11T19:54:48.838Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "UserRepositoryTests.cs",
-              "DocumentMoniker": "S:\\Programming-Stuff\\BookKeeper\\MainProjectTest\\Datastore\\UserRepositoryTests.cs",
-              "RelativeDocumentMoniker": "MainProjectTest\\Datastore\\UserRepositoryTests.cs",
-              "ToolTip": "S:\\Programming-Stuff\\BookKeeper\\MainProjectTest\\Datastore\\UserRepositoryTests.cs",
-              "RelativeToolTip": "MainProjectTest\\Datastore\\UserRepositoryTests.cs",
-              "ViewState": "AQIAAA4AAAAAAAAAAAAswB8AAAAJAAAA",
+              "Title": "MainPageController.cs",
+              "DocumentMoniker": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\Controllers\\MainPageController.cs",
+              "RelativeDocumentMoniker": "MainProject\\Controllers\\MainPageController.cs",
+              "ToolTip": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\Controllers\\MainPageController.cs",
+              "RelativeToolTip": "MainProject\\Controllers\\MainPageController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAAARAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-11T07:01:14.814Z",
+              "WhenOpened": "2024-08-11T19:37:34.635Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "IUserRepository.cs",
-              "DocumentMoniker": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\Datastore\\DataStoreInterfaces\\IUserRepository.cs",
-              "RelativeDocumentMoniker": "MainProject\\Datastore\\DataStoreInterfaces\\IUserRepository.cs",
-              "ToolTip": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\Datastore\\DataStoreInterfaces\\IUserRepository.cs",
-              "RelativeToolTip": "MainProject\\Datastore\\DataStoreInterfaces\\IUserRepository.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAZAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-11T06:50:54.413Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
               "Title": "Program.cs",
               "DocumentMoniker": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\Program.cs",
               "RelativeDocumentMoniker": "MainProject\\Program.cs",
               "ToolTip": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\Program.cs",
               "RelativeToolTip": "MainProject\\Program.cs",
-              "ViewState": "AQIAAAEAAAAAAAAAAAAAAAwAAAAdAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-08-11T03:31:01.145Z",
+              "EditorCaption": ""
+            }
+          ]
+        },
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "UserRepositoryTests.cs",
+              "DocumentMoniker": "S:\\Programming-Stuff\\BookKeeper\\MainProjectTest\\Datastore\\UserRepositoryTests.cs",
+              "RelativeDocumentMoniker": "MainProjectTest\\Datastore\\UserRepositoryTests.cs",
+              "ToolTip": "S:\\Programming-Stuff\\BookKeeper\\MainProjectTest\\Datastore\\UserRepositoryTests.cs",
+              "RelativeToolTip": "MainProjectTest\\Datastore\\UserRepositoryTests.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABgAAAAiAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-11T21:01:02.108Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "UserModel.cs",
+              "DocumentMoniker": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\Model\\UserModel.cs",
+              "RelativeDocumentMoniker": "MainProject\\Model\\UserModel.cs",
+              "ToolTip": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\Model\\UserModel.cs",
+              "RelativeToolTip": "MainProject\\Model\\UserModel.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAYAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-11T19:37:49.322Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ShelfPageViewModel.cs",
+              "DocumentMoniker": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\ViewModels\\ShelfPageViewModel.cs",
+              "RelativeDocumentMoniker": "MainProject\\ViewModels\\ShelfPageViewModel.cs",
+              "ToolTip": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\ViewModels\\ShelfPageViewModel.cs",
+              "RelativeToolTip": "MainProject\\ViewModels\\ShelfPageViewModel.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAnAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-11T19:37:51.699Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ShelfPageGetTest.cs",
+              "DocumentMoniker": "S:\\Programming-Stuff\\BookKeeper\\MainProjectTest\\Controllers\\UseCases\\ShelfPageGetTest.cs",
+              "RelativeDocumentMoniker": "MainProjectTest\\Controllers\\UseCases\\ShelfPageGetTest.cs",
+              "ToolTip": "S:\\Programming-Stuff\\BookKeeper\\MainProjectTest\\Controllers\\UseCases\\ShelfPageGetTest.cs",
+              "RelativeToolTip": "MainProjectTest\\Controllers\\UseCases\\ShelfPageGetTest.cs",
+              "ViewState": "AQIAAAwAAAAAAAAAAAAAABwAAAAgAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-11T20:44:55.88Z",
               "EditorCaption": ""
             }
           ]

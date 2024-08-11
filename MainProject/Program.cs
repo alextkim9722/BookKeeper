@@ -2,6 +2,7 @@ using Microsoft.EntityFrameworkCore;
 
 using MainProject.Datastore;
 using MainProject.Datastore.DataStoreInterfaces;
+using MainProject.Controllers.UseCases;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,10 +11,12 @@ builder.Services.AddDbContext<BookShelfContext>(options =>
     options.UseSqlServer(
         builder
         .Configuration
-        .GetConnectionString("Server=DESKTOP-550OG8P\\MSSQLSERVER2022;Database=BookKeeperDB_Test;Trusted_Connection=True;TrustServerCertificate=True")));
+        .GetConnectionString("DefaultConnection")));
 builder.Services.AddControllersWithViews();
 
 builder.Services.AddTransient<IUserRepository, UserRepository>();
+
+builder.Services.AddTransient<IShelfPageGet, ShelfPageGet>();
 // END
 
 var app = builder.Build(); // Builds the web application
@@ -24,7 +27,7 @@ app.UseRouting();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Shelf}/{id?}"
+    pattern: "{controller=MainPage}/{action=ShelfPage}/{id?}"
     );
 
 app.Run(); // Starts the program

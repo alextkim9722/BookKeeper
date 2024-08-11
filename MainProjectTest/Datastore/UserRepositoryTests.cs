@@ -1,14 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Xunit;
-using Xunit.Abstractions;
-using Microsoft.AspNetCore.Builder;
-using System.Data;
+﻿using Xunit.Abstractions;
 
-using MainProjectTest.Datastore;
 using MainProject.Datastore;
 
 namespace MainProjectTest.Datastore
@@ -16,30 +7,24 @@ namespace MainProjectTest.Datastore
     public class UserRepositoryTests : IClassFixture<TestDatabaseFixture>
     {
         private readonly ITestOutputHelper output;
+		private BookShelfContext context;
+		private UserRepository repository;
+		public TestDatabaseFixture Fixture;
 
-        public UserRepositoryTests(TestDatabaseFixture fixture) => Fixture = fixture;
-        public TestDatabaseFixture Fixture { get; }
-
-        [Fact]
-        public void GET_USER_ID_1()
-        {
-            using var context = Fixture.createContext();
-            var repository = new UserRepository(context);
-
-            var userID = repository.getUserById(1).id;
-
-            Assert.Equal(1, userID);
-        }
+		public UserRepositoryTests(TestDatabaseFixture fixture)
+		{
+			Fixture = fixture;
+			context = Fixture.createContext();
+			repository = new UserRepository(context);
+		}
 
         [Theory]
-        [InlineData(1, "Alberta123")]
-		[InlineData(2, "MarcusF29")]
+        [InlineData(0, "alberto153")]
+		[InlineData(1, "bertthebart751")]
+		[InlineData(2, "palpal8457")]
 		public void GET_USERNAME_AFTER_GRABBING_BY_ID(int id, string expected)
 		{
-			using var context = Fixture.createContext();
-			var repository = new UserRepository(context);
-
-			var username = repository.getUserById(id).name;
+			var username = repository.getUserById(id).username;
 
 			Assert.Equal(expected, username);
 		}

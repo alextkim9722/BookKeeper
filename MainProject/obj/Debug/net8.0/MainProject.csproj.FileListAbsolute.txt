@@ -83,3 +83,5 @@ S:\Programming-Stuff\BookKeeper\MainProject\bin\Debug\net8.0\xunit.abstractions.
 S:\Programming-Stuff\BookKeeper\MainProject\bin\Debug\net8.0\xunit.assert.dll
 S:\Programming-Stuff\BookKeeper\MainProject\bin\Debug\net8.0\xunit.core.dll
 S:\Programming-Stuff\BookKeeper\MainProject\bin\Debug\net8.0\xunit.execution.dotnet.dll
+S:\Programming-Stuff\BookKeeper\MainProject\bin\Debug\net8.0\Castle.Core.dll
+S:\Programming-Stuff\BookKeeper\MainProject\bin\Debug\net8.0\Moq.dll

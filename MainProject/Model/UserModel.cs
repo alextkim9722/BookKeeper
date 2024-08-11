@@ -4,11 +4,13 @@ namespace MainProject.Model
 {
 	public class UserModel
 	{
-		public int id { get; set; }
+		[Key]
+		public int user_id { get; set; }
 		[Required]
-		public string name { get; set; } = string.Empty;
+		public string username { get; set; } = string.Empty;
 		[Required]
-		public DateOnly? dateJoined { get; set; } = null;
+		public DateOnly? date_joined { get; set; } = null;
 		public string description { get; set; } = string.Empty;
+		public string profile_picture { get; set; } = string.Empty;
 	}
 }

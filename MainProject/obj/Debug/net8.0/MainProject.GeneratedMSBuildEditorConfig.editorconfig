@@ -18,8 +18,8 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = S:\Programming-Stuff\BookKeeper\MainProject
 build_property._RazorSourceGeneratorDebug = 
 
-[S:/Programming-Stuff/BookKeeper/MainProject/Views/Home/Shelf.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxTaGVsZi5jc2h0bWw=
+[S:/Programming-Stuff/BookKeeper/MainProject/Views/MainPage/ShelfPage.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFpblBhZ2VcU2hlbGZQYWdlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [S:/Programming-Stuff/BookKeeper/MainProject/Views/Shared/_Layout.cshtml]

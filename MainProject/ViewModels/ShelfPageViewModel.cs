@@ -1,6 +1,6 @@
 ﻿namespace MainProject.ViewModels
 {
-	public class ShelfViewModel
+	public class ShelfPageViewModel
 	{
 		public string profilePicture { get; set; } = "images/TempProfilePic.jpg";
 		public string name { get; set; } = "name";

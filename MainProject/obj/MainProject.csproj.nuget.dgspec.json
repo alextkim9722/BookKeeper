@@ -68,6 +68,10 @@
               "target": "Package",
               "version": "[5.5.3, )"
             },
+            "Moq": {
+              "target": "Package",
+              "version": "[4.20.70, )"
+            },
             "React.AspNet": {
               "target": "Package",
               "version": "[5.2.12, )"

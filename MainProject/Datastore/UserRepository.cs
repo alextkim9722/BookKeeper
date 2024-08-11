@@ -1,5 +1,4 @@
-﻿using System.Threading.Tasks;
-using MainProject.Datastore.DataStoreInterfaces;
+﻿using MainProject.Datastore.DataStoreInterfaces;
 using MainProject.Model;
 
 namespace MainProject.Datastore
@@ -15,18 +14,19 @@ namespace MainProject.Datastore
 
 		public void addUser(UserModel userModel)
 		{
-			bookShelfContext.users.Add(userModel);
+			bookShelfContext.User.Add(userModel);
 			bookShelfContext.SaveChanges();
 		}
 
-		public void deleteUser(int userId)
+		public void deleteUser(UserModel user)
 		{
-			throw new NotImplementedException();
+			bookShelfContext.User.Remove(user);
+			bookShelfContext.SaveChanges();
 		}
 
 		public UserModel getUserById(int userId)
 		{
-			return bookShelfContext.users.Find(userId);
+			return bookShelfContext.User.Find(userId);
 		}
 
 		public UserModel getUserByName(string name)
@@ -36,12 +36,19 @@ namespace MainProject.Datastore
 
 		public IEnumerable<UserModel> getUsers()
 		{
-			throw new NotImplementedException();
+			return bookShelfContext.User.ToList();
 		}
 
 		public void updateUser(int userId, UserModel user)
 		{
-			throw new NotImplementedException();
+			if (userId != user.user_id) return;
+
+			var user_target = bookShelfContext.User.Find(userId);
+			if (user_target == null) return;
+
+			user_target.username = user.username;
+			user_target.description = user.description;
+			bookShelfContext.SaveChanges();
 		}
 	}
 }
