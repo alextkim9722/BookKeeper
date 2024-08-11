@@ -7,6 +7,8 @@ namespace MainProject.Datastore
 {
 	public class BookShelfContext : DbContext
 	{
+		public BookShelfContext(DbContextOptions<BookShelfContext> options) : base(options) {}
+
 		public DbSet<UserModel> users => Set<UserModel>();
 	}
 }

@@ -4,8 +4,6 @@
 @{
 	var imagePath = Model.profilePicture;
 	var profileName = Model.name;
-	var pagesRead = Model.pagesRead;
-	var booksRead = Model.booksRead;
 	var dateJoined = Model.joinDate;
 	var description = Model.description;
 }
@@ -14,8 +12,6 @@
 	<div class="col bg-primary profile-bar h-100 d-flex flex-column align-items-center">
 		<img class="profile-picture rounded-circle" src="@imagePath" />
 		<div class="h1">@profileName</div>
-		<div class="">@pagesRead</div>
-		<div class="">@booksRead</div>
 		<div class="">@dateJoined</div>
 		<div class="">@description</div>
 	</div>

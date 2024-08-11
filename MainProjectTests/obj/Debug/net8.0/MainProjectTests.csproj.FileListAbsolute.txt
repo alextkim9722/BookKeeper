@@ -1,0 +1,8 @@
+S:\Programming-Stuff\BookKeeper\MainProjectTests\bin\Debug\net8.0\.msCoverageSourceRootsMapping_MainProjectTests
+S:\Programming-Stuff\BookKeeper\MainProjectTests\bin\Debug\net8.0\CoverletSourceRootsMapping_MainProjectTests
+S:\Programming-Stuff\BookKeeper\MainProjectTests\obj\Debug\net8.0\MainProjectTests.csproj.AssemblyReference.cache
+S:\Programming-Stuff\BookKeeper\MainProjectTests\obj\Debug\net8.0\MainProjectTests.GeneratedMSBuildEditorConfig.editorconfig
+S:\Programming-Stuff\BookKeeper\MainProjectTests\obj\Debug\net8.0\MainProjectTests.AssemblyInfoInputs.cache
+S:\Programming-Stuff\BookKeeper\MainProjectTests\obj\Debug\net8.0\MainProjectTests.AssemblyInfo.cs
+S:\Programming-Stuff\BookKeeper\MainProjectTests\obj\Debug\net8.0\MainProjectTests.csproj.CoreCompileInputs.cache
+S:\Programming-Stuff\BookKeeper\MainProjectTests\obj\Debug\net8.0\MainProjectTests.sourcelink.json

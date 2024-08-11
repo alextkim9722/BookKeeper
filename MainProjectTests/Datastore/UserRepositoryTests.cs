@@ -1,20 +1,22 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using MainProject.Datastore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Xunit;
+using MainProjectTests.Datastore;
 
 namespace MainProject.Datastore.Tests
 {
-	[TestClass()]
-	public class UserRepositoryTests
+	public class UserRepositoryTests : IClassFixture<TestDatabaseFixture>
 	{
-		[TestMethod()]
-		public void addUserTest()
+		public UserRepositoryTests(TestDatabaseFixture fixture) => Fixture = fixture;
+		public TestDatabaseFixture Fixture { get; }
+
+		[Fact]
+		public void GetUser()
 		{
-			Assert.Fail();
+			using var context = Fixture.createContext();
+			var repository = new UserRepository(context);
+
+			var userID = repository.getUserById(1).id;
+
+			Assert.Equal(1, userID);
 		}
 	}
 }

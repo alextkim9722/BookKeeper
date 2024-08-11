@@ -54,21 +54,23 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
-            "MSTest.TestAdapter": {
+            "Microsoft.EntityFrameworkCore.InMemory": {
               "target": "Package",
-              "version": "[3.1.1, )"
-            },
-            "MSTest.TestFramework": {
-              "target": "Package",
-              "version": "[3.1.1, )"
+              "version": "[8.0.7, )"
             },
             "Microsoft.NET.Test.Sdk": {
               "target": "Package",
-              "version": "[17.8.0, )"
+              "version": "[17.10.0, )"
             },
             "coverlet.collector": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
               "target": "Package",
-              "version": "[6.0.0, )"
+              "version": "[6.0.2, )"
+            },
+            "xunit": {
+              "target": "Package",
+              "version": "[2.9.0, )"
             }
           },
           "imports": [
@@ -141,9 +143,17 @@
               "target": "Package",
               "version": "[8.0.7, )"
             },
+            "Microsoft.EntityFrameworkCore.InMemory": {
+              "target": "Package",
+              "version": "[8.0.7, )"
+            },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
               "version": "[8.0.7, )"
+            },
+            "Microsoft.NET.Test.Sdk": {
+              "target": "Package",
+              "version": "[17.10.0, )"
             },
             "Microsoft.TypeScript.MSBuild": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
@@ -154,6 +164,10 @@
             "React.AspNet": {
               "target": "Package",
               "version": "[5.2.12, )"
+            },
+            "xunit": {
+              "target": "Package",
+              "version": "[2.9.0, )"
             }
           },
           "imports": [

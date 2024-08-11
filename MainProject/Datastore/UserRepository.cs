@@ -26,7 +26,7 @@ namespace MainProject.Datastore
 
 		public UserModel getUserById(int userId)
 		{
-			throw new NotImplementedException();
+			return bookShelfContext.users.Find(userId);
 		}
 
 		public UserModel getUserByName(string name)

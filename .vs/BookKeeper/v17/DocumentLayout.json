@@ -3,32 +3,20 @@
   "WorkspaceRootPath": "S:\\Programming-Stuff\\BookKeeper\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{B0469DE7-217D-4453-AF0A-BBA7EA3519AC}|MainProject\\MainProject.csproj|s:\\programming-stuff\\bookkeeper\\mainproject\\datastore\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B0469DE7-217D-4453-AF0A-BBA7EA3519AC}|MainProject\\MainProject.csproj|solutionrelative:mainproject\\datastore\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{07790725-64D0-4824-AC4F-06F361D6F3E5}|MainProjectTest\\MainProjectTest.csproj|s:\\programming-stuff\\bookkeeper\\mainprojecttest\\datastore\\testdatabasefixture.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{07790725-64D0-4824-AC4F-06F361D6F3E5}|MainProjectTest\\MainProjectTest.csproj|solutionrelative:mainprojecttest\\datastore\\testdatabasefixture.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B0469DE7-217D-4453-AF0A-BBA7EA3519AC}|MainProject\\MainProject.csproj|s:\\programming-stuff\\bookkeeper\\mainproject\\datastore\\datastoreinterfaces\\iuserrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B0469DE7-217D-4453-AF0A-BBA7EA3519AC}|MainProject\\MainProject.csproj|solutionrelative:mainproject\\datastore\\datastoreinterfaces\\iuserrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9A8C47C5-09CA-4C5C-B59C-65A0B26C417F}|MainProjectTests\\MainProjectTests.csproj|s:\\programming-stuff\\bookkeeper\\mainprojecttests\\datastore\\userrepositorytests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9A8C47C5-09CA-4C5C-B59C-65A0B26C417F}|MainProjectTests\\MainProjectTests.csproj|solutionrelative:mainprojecttests\\datastore\\userrepositorytests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B0469DE7-217D-4453-AF0A-BBA7EA3519AC}|MainProject\\MainProject.csproj|s:\\programming-stuff\\bookkeeper\\mainproject\\model\\usermodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B0469DE7-217D-4453-AF0A-BBA7EA3519AC}|MainProject\\MainProject.csproj|solutionrelative:mainproject\\model\\usermodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B0469DE7-217D-4453-AF0A-BBA7EA3519AC}|MainProject\\MainProject.csproj|s:\\programming-stuff\\bookkeeper\\mainproject\\viewmodels\\shelfviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B0469DE7-217D-4453-AF0A-BBA7EA3519AC}|MainProject\\MainProject.csproj|solutionrelative:mainproject\\viewmodels\\shelfviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{07790725-64D0-4824-AC4F-06F361D6F3E5}|MainProjectTest\\MainProjectTest.csproj|s:\\programming-stuff\\bookkeeper\\mainprojecttest\\datastore\\userrepositorytests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{07790725-64D0-4824-AC4F-06F361D6F3E5}|MainProjectTest\\MainProjectTest.csproj|solutionrelative:mainprojecttest\\datastore\\userrepositorytests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{B0469DE7-217D-4453-AF0A-BBA7EA3519AC}|MainProject\\MainProject.csproj|s:\\programming-stuff\\bookkeeper\\mainproject\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B0469DE7-217D-4453-AF0A-BBA7EA3519AC}|MainProject\\MainProject.csproj|solutionrelative:mainproject\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B0469DE7-217D-4453-AF0A-BBA7EA3519AC}|MainProject\\MainProject.csproj|s:\\programming-stuff\\bookkeeper\\mainproject\\datastore\\bookshelfcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B0469DE7-217D-4453-AF0A-BBA7EA3519AC}|MainProject\\MainProject.csproj|solutionrelative:mainproject\\datastore\\bookshelfcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B0469DE7-217D-4453-AF0A-BBA7EA3519AC}|MainProject\\MainProject.csproj|s:\\programming-stuff\\bookkeeper\\mainproject\\datastore\\datastoreinterfaces\\iuserrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B0469DE7-217D-4453-AF0A-BBA7EA3519AC}|MainProject\\MainProject.csproj|solutionrelative:mainproject\\datastore\\datastoreinterfaces\\iuserrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -38,95 +26,56 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "UserRepositoryTests.cs",
-              "DocumentMoniker": "S:\\Programming-Stuff\\BookKeeper\\MainProjectTests\\Datastore\\UserRepositoryTests.cs",
-              "RelativeDocumentMoniker": "MainProjectTests\\Datastore\\UserRepositoryTests.cs",
-              "ToolTip": "S:\\Programming-Stuff\\BookKeeper\\MainProjectTests\\Datastore\\UserRepositoryTests.cs",
-              "RelativeToolTip": "MainProjectTests\\Datastore\\UserRepositoryTests.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAARAAAA",
+              "DocumentIndex": 0,
+              "Title": "TestDatabaseFixture.cs",
+              "DocumentMoniker": "S:\\Programming-Stuff\\BookKeeper\\MainProjectTest\\Datastore\\TestDatabaseFixture.cs",
+              "RelativeDocumentMoniker": "MainProjectTest\\Datastore\\TestDatabaseFixture.cs",
+              "ToolTip": "S:\\Programming-Stuff\\BookKeeper\\MainProjectTest\\Datastore\\TestDatabaseFixture.cs",
+              "RelativeToolTip": "MainProjectTest\\Datastore\\TestDatabaseFixture.cs",
+              "ViewState": "AQIAAAwAAAAAAAAAAAAAAB0AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-11T04:10:18.431Z",
+              "WhenOpened": "2024-08-11T07:02:38.541Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "IUserRepository.cs",
-              "DocumentMoniker": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\Datastore\\DataStoreInterfaces\\IUserRepository.cs",
-              "RelativeDocumentMoniker": "MainProject\\Datastore\\DataStoreInterfaces\\IUserRepository.cs",
-              "ToolTip": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\Datastore\\DataStoreInterfaces\\IUserRepository.cs",
-              "RelativeToolTip": "MainProject\\Datastore\\DataStoreInterfaces\\IUserRepository.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAqwAQAAAASAAAA",
+              "Title": "UserRepositoryTests.cs",
+              "DocumentMoniker": "S:\\Programming-Stuff\\BookKeeper\\MainProjectTest\\Datastore\\UserRepositoryTests.cs",
+              "RelativeDocumentMoniker": "MainProjectTest\\Datastore\\UserRepositoryTests.cs",
+              "ToolTip": "S:\\Programming-Stuff\\BookKeeper\\MainProjectTest\\Datastore\\UserRepositoryTests.cs",
+              "RelativeToolTip": "MainProjectTest\\Datastore\\UserRepositoryTests.cs",
+              "ViewState": "AQIAAA4AAAAAAAAAAAAswB8AAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-11T03:59:38.761Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "UserRepository.cs",
-              "DocumentMoniker": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\Datastore\\UserRepository.cs",
-              "RelativeDocumentMoniker": "MainProject\\Datastore\\UserRepository.cs",
-              "ToolTip": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\Datastore\\UserRepository.cs",
-              "RelativeToolTip": "MainProject\\Datastore\\UserRepository.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAADAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-11T03:57:11.144Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "ShelfViewModel.cs",
-              "DocumentMoniker": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\ViewModels\\ShelfViewModel.cs",
-              "RelativeDocumentMoniker": "MainProject\\ViewModels\\ShelfViewModel.cs",
-              "ToolTip": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\ViewModels\\ShelfViewModel.cs",
-              "RelativeToolTip": "MainProject\\ViewModels\\ShelfViewModel.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-11T03:53:48.864Z",
+              "WhenOpened": "2024-08-11T07:01:14.814Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "UserModel.cs",
-              "DocumentMoniker": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\Model\\UserModel.cs",
-              "RelativeDocumentMoniker": "MainProject\\Model\\UserModel.cs",
-              "ToolTip": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\Model\\UserModel.cs",
-              "RelativeToolTip": "MainProject\\Model\\UserModel.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Title": "IUserRepository.cs",
+              "DocumentMoniker": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\Datastore\\DataStoreInterfaces\\IUserRepository.cs",
+              "RelativeDocumentMoniker": "MainProject\\Datastore\\DataStoreInterfaces\\IUserRepository.cs",
+              "ToolTip": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\Datastore\\DataStoreInterfaces\\IUserRepository.cs",
+              "RelativeToolTip": "MainProject\\Datastore\\DataStoreInterfaces\\IUserRepository.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAZAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-11T03:53:43.262Z",
+              "WhenOpened": "2024-08-11T06:50:54.413Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "BookShelfContext.cs",
-              "DocumentMoniker": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\Datastore\\BookShelfContext.cs",
-              "RelativeDocumentMoniker": "MainProject\\Datastore\\BookShelfContext.cs",
-              "ToolTip": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\Datastore\\BookShelfContext.cs",
-              "RelativeToolTip": "MainProject\\Datastore\\BookShelfContext.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-11T03:45:58.616Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 2,
               "Title": "Program.cs",
               "DocumentMoniker": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\Program.cs",
               "RelativeDocumentMoniker": "MainProject\\Program.cs",
               "ToolTip": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\Program.cs",
               "RelativeToolTip": "MainProject\\Program.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAA4AAAA",
+              "ViewState": "AQIAAAEAAAAAAAAAAAAAAAwAAAAdAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-08-11T03:31:01.145Z",
               "EditorCaption": ""
