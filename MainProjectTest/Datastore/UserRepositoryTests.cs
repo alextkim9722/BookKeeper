@@ -28,5 +28,16 @@ namespace MainProjectTest.Datastore
 
 			Assert.Equal(expected, username);
 		}
+
+		[Theory]
+		[InlineData("alberto153", "alberto153")]
+		[InlineData("bertthebart751", "bertthebart751")]
+		[InlineData("palpal8457", "palpal8457")]
+		public void GET_USERNAME_AFTER_GRABBING_BY_USERNAME(string name, string expected)
+		{
+			var username = repository.getUserByName(name).username;
+
+			Assert.Equal(expected, username);
+		}
 	}
 }

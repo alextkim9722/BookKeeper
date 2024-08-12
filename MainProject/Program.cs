@@ -15,6 +15,12 @@ builder.Services.AddDbContext<BookShelfContext>(options =>
 builder.Services.AddControllersWithViews();
 
 builder.Services.AddTransient<IUserRepository, UserRepository>();
+builder.Services.AddTransient<IBookRepository, BookRepository>();
+builder.Services.AddTransient<IGenreRepository, GenreRepository>();
+builder.Services.AddTransient<IAuthorRepository, AuthorRepository>();
+builder.Services.AddTransient<IBookAuthorRepository, BookAuthorRepository>();
+builder.Services.AddTransient<IBookGenreRepository, BookGenreRepository>();
+builder.Services.AddTransient<IUserBookRepository, UserBookRepository>();
 
 builder.Services.AddTransient<IShelfPageGet, ShelfPageGet>();
 // END

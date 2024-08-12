@@ -7,19 +7,19 @@ namespace MainProject.Controllers
 {
     public class MainPageController : Controller
     {
-        private const int user_id = 3;
-        private readonly IShelfPageGet shelfPageGet;
+        private const int _user_id = 3; // Only exists temporarily
+        private readonly IShelfPageGet _shelfPageGet;
 
         public MainPageController(
             IShelfPageGet shelfPageGet)
         {
-            this.shelfPageGet = shelfPageGet;
+            this._shelfPageGet = shelfPageGet;
         }
 
         [HttpGet]
         public IActionResult ShelfPage()
         {
-            ShelfPageViewModel shelfPageViewModel = shelfPageGet.createViewModel(user_id);
+            ShelfPageViewModel shelfPageViewModel = _shelfPageGet.createViewModel(_user_id);
 			return View(shelfPageViewModel);
         }
     }

@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <Folder Include="ViewComponents\" />
+    <Folder Include="wwwroot\Images-Covers\" />
   </ItemGroup>
 
   <ItemGroup>

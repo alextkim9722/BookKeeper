@@ -6,11 +6,11 @@ namespace MainProject.Controllers.UseCases
 {
 	public class ShelfPageGet : IShelfPageGet
 	{
-		private readonly IUserRepository userRepository;
+		private readonly IUserRepository _userRepository;
 
 		public ShelfPageGet(IUserRepository userRepository)
 		{
-			this.userRepository = userRepository;
+			this._userRepository = userRepository;
 		}
 
 		public ShelfPageViewModel createViewModel(int id)
@@ -31,8 +31,6 @@ namespace MainProject.Controllers.UseCases
 		}
 
 		private UserModel getUserByID(int id)
-		{
-			return userRepository.getUserById(id);
-		}
+			=> _userRepository.getUserById(id);
 	}
 }

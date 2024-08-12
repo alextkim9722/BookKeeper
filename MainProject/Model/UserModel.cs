@@ -10,6 +10,7 @@ namespace MainProject.Model
 		public string username { get; set; } = string.Empty;
 		[Required]
 		public DateOnly? date_joined { get; set; } = null;
+		[Required]
 		public string description { get; set; } = string.Empty;
 		public string profile_picture { get; set; } = string.Empty;
 	}
