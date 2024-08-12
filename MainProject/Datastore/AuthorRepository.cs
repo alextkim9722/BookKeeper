@@ -17,6 +17,15 @@ namespace MainProject.Datastore
 			_context.SaveChanges();
 		}
 
+		public IEnumerable<AuthorModel> getAuthorByBook(int bookId)
+		{
+			var author_bridge 
+				= _context.Book_Author
+				.Where(x => x.book_id == bookId)
+				.Select(x => x.author_id)
+				.ToList();
+			return _context.Author.Where(x => author_bridge.Contains(x.author_id)).ToList();
+		}
 		public IEnumerable<AuthorModel> getAllAuthors()
 			=> _context.Author.ToList();
 

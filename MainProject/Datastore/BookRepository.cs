@@ -1,6 +1,7 @@
 ﻿using MainProject.Datastore.DataStoreInterfaces;
 using MainProject.Model;
 using Microsoft.EntityFrameworkCore;
+using System.Net;
 
 namespace MainProject.Datastore
 {
@@ -34,6 +35,16 @@ namespace MainProject.Datastore
 
 		public IEnumerable<BookModel> getAllBooks()
 			=> _context.Book.ToList();
+
+		public IEnumerable<BookModel> getAllBooksOfReader(int userId)
+		{
+			var user_bridge
+				= _context.User_Book
+				.Where(x => x.user_id == userId)
+				.Select(x => x.book_id)
+				.ToList();
+			return _context.Book.Where(x => user_bridge.Contains(x.book_id)).ToList();
+		}
 
 		public BookModel getBookByID(int id)
 			=> _context.Book.Find(id);

@@ -9,6 +9,7 @@ namespace MainProject.Datastore.DataStoreInterfaces
 		public void updateGenre(int id, GenreModel genre);
 		public GenreModel getGenreById(int id);
 		public GenreModel getGenreByName(String name);
+		public IEnumerable<GenreModel> getGenreByBook(int book_id);
 		public IEnumerable<GenreModel> getAllGenres();
 	}
 }

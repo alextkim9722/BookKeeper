@@ -13,5 +13,10 @@ namespace MainProject.Model
 		[Required]
 		public string description { get; set; } = string.Empty;
 		public string profile_picture { get; set; } = string.Empty;
+
+		#region NON MAPPED PROPERTIES
+		public int pagesRead { get; set; }
+		public int booksRead { get; set; }
+		#endregion
 	}
 }

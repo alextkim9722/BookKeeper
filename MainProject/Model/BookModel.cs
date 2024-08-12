@@ -16,5 +16,10 @@ namespace MainProject.Model
 		public int rating { get; set; }
 		[Required]
 		public string cover_picture { get; set; }
+
+		#region NON MAPPED PROPERTIES
+		public IEnumerable<AuthorModel> authors { get; set; }
+		public IEnumerable<GenreModel> genres { get; set; }
+		#endregion
 	}
 }

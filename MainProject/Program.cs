@@ -2,7 +2,8 @@ using Microsoft.EntityFrameworkCore;
 
 using MainProject.Datastore;
 using MainProject.Datastore.DataStoreInterfaces;
-using MainProject.Controllers.UseCases;
+using MainProject.Services;
+using MainProject.Services.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -18,11 +19,8 @@ builder.Services.AddTransient<IUserRepository, UserRepository>();
 builder.Services.AddTransient<IBookRepository, BookRepository>();
 builder.Services.AddTransient<IGenreRepository, GenreRepository>();
 builder.Services.AddTransient<IAuthorRepository, AuthorRepository>();
-builder.Services.AddTransient<IBookAuthorRepository, BookAuthorRepository>();
-builder.Services.AddTransient<IBookGenreRepository, BookGenreRepository>();
-builder.Services.AddTransient<IUserBookRepository, UserBookRepository>();
 
-builder.Services.AddTransient<IShelfPageGet, ShelfPageGet>();
+builder.Services.AddTransient<IShelfPageService, ShelfPageService>();
 // END
 
 var app = builder.Build(); // Builds the web application

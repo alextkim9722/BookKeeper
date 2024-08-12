@@ -6,7 +6,6 @@ namespace MainProjectTest.Datastore
 {
     public class UserRepositoryTests : IClassFixture<TestDatabaseFixture>
     {
-        private readonly ITestOutputHelper output;
 		private BookShelfContext context;
 		private UserRepository repository;
 		public TestDatabaseFixture Fixture;

@@ -1,17 +1,17 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using MainProject.Controllers.UseCases;
-using MainProject.ViewModels;
+using MainProject.ViewModel;
 using MainProject.Model;
+using MainProject.Services.Interfaces;
 
 namespace MainProject.Controllers
 {
     public class MainPageController : Controller
     {
         private const int _user_id = 3; // Only exists temporarily
-        private readonly IShelfPageGet _shelfPageGet;
+        private readonly IShelfPageService _shelfPageGet;
 
         public MainPageController(
-            IShelfPageGet shelfPageGet)
+            IShelfPageService shelfPageGet)
         {
             this._shelfPageGet = shelfPageGet;
         }

@@ -13,5 +13,6 @@ namespace MainProject.Datastore.DataStoreInterfaces
 		public BookModel getBookByName(String name);
 		public BookModel getBookByISBN(String isbn);
 		public IEnumerable<BookModel> getAllBooks();
+		public IEnumerable<BookModel> getAllBooksOfReader(int userId);
 	}
 }

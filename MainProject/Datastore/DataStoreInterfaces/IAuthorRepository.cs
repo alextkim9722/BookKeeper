@@ -10,6 +10,7 @@ namespace MainProject.Datastore.DataStoreInterfaces
 		public AuthorModel getAuthorById(int id);
 		public AuthorModel getAuthorByFirstName(String firstName);
 		public AuthorModel getAuthorByLastName(String lastName);
+		public IEnumerable<AuthorModel> getAuthorByBook(int bookId);
 		public IEnumerable<AuthorModel> getAllAuthors();
 	}
 }

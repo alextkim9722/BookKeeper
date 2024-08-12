@@ -1,6 +1,7 @@
 ﻿using MainProject.Datastore.DataStoreInterfaces;
 using MainProject.Model;
 using Microsoft.EntityFrameworkCore;
+using System.Net;
 
 namespace MainProject.Datastore
 {
@@ -19,6 +20,16 @@ namespace MainProject.Datastore
 
 		public IEnumerable<GenreModel> getAllGenres()
 			=> _context.Genre.ToList();
+
+		public IEnumerable<GenreModel> getGenreByBook(int bookId)
+		{
+			var genre_bridge
+				= _context.Book_Genre
+				.Where(x => x.book_id == bookId)
+				.Select(x => x.genre_id)
+				.ToList();
+			return _context.Genre.Where(x => genre_bridge.Contains(x.genre_id)).ToList();
+		}
 
 		public GenreModel getGenreById(int id)
 			=> _context.Genre.Find(id);
