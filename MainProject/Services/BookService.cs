@@ -19,7 +19,13 @@ namespace MainProject.Services
             return bookModel;
         }
 
-        public IEnumerable<BookModel> getBookModelFromUser(int id)
+		public void formatBookModel(BookModel bookModel, IEnumerable<AuthorModel> authors, IEnumerable<GenreModel> genres)
+		{
+			bookModel.authors = authors;
+			bookModel.genres = genres;
+		}
+
+		public IEnumerable<BookModel> getBookModelFromUser(int id)
             => _bookRepository.getAllBooksOfReader(id);
     }
 }

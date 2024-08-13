@@ -1,6 +1,26 @@
 {
   "Files": [
     {
+      "Id": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\wwwroot\\Images-Covers\\blue.jpg",
+      "PackagePath": "staticwebassets\\Images-Covers\\blue.jpg"
+    },
+    {
+      "Id": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\wwwroot\\Images-Covers\\green.jpg",
+      "PackagePath": "staticwebassets\\Images-Covers\\green.jpg"
+    },
+    {
+      "Id": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\wwwroot\\Images-Covers\\purple.jpg",
+      "PackagePath": "staticwebassets\\Images-Covers\\purple.jpg"
+    },
+    {
+      "Id": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\wwwroot\\Images-Covers\\red.jpg",
+      "PackagePath": "staticwebassets\\Images-Covers\\red.jpg"
+    },
+    {
+      "Id": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\wwwroot\\Images-Covers\\yellow.jpg",
+      "PackagePath": "staticwebassets\\Images-Covers\\yellow.jpg"
+    },
+    {
       "Id": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\wwwroot\\bootstrap\\css\\bootstrap-grid.css",
       "PackagePath": "staticwebassets\\bootstrap\\css\\bootstrap-grid.css"
     },

@@ -7,6 +7,8 @@ namespace MainProject.Services.Interfaces
     public interface IBookService
     {
         public BookModel createBookModel(int id, IEnumerable<AuthorModel> authors, IEnumerable<GenreModel> genres);
-        public IEnumerable<BookModel> getBookModelFromUser(int id);
+        public void formatBookModel(BookModel bookModel, IEnumerable<AuthorModel> authors, IEnumerable<GenreModel> genres);
+
+		public IEnumerable<BookModel> getBookModelFromUser(int id);
     }
 }

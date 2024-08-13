@@ -7,20 +7,24 @@
       "RelativeMoniker": "D:0:0:{B0469DE7-217D-4453-AF0A-BBA7EA3519AC}|MainProject\\MainProject.csproj|solutionrelative:mainproject\\services\\shelfpageservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{07790725-64D0-4824-AC4F-06F361D6F3E5}|MainProjectTest\\MainProjectTest.csproj|s:\\programming-stuff\\bookkeeper\\mainprojecttest\\datastore\\testdatabasefixture.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{07790725-64D0-4824-AC4F-06F361D6F3E5}|MainProjectTest\\MainProjectTest.csproj|solutionrelative:mainprojecttest\\datastore\\testdatabasefixture.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B0469DE7-217D-4453-AF0A-BBA7EA3519AC}|MainProject\\MainProject.csproj|s:\\programming-stuff\\bookkeeper\\mainproject\\services\\authorservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B0469DE7-217D-4453-AF0A-BBA7EA3519AC}|MainProject\\MainProject.csproj|solutionrelative:mainproject\\services\\authorservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{07790725-64D0-4824-AC4F-06F361D6F3E5}|MainProjectTest\\MainProjectTest.csproj|s:\\programming-stuff\\bookkeeper\\mainprojecttest\\services\\shelfpageservicetest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{07790725-64D0-4824-AC4F-06F361D6F3E5}|MainProjectTest\\MainProjectTest.csproj|solutionrelative:mainprojecttest\\services\\shelfpageservicetest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{07790725-64D0-4824-AC4F-06F361D6F3E5}|MainProjectTest\\MainProjectTest.csproj|s:\\programming-stuff\\bookkeeper\\mainprojecttest\\services\\authorservicetest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{07790725-64D0-4824-AC4F-06F361D6F3E5}|MainProjectTest\\MainProjectTest.csproj|solutionrelative:mainprojecttest\\services\\authorservicetest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B0469DE7-217D-4453-AF0A-BBA7EA3519AC}|MainProject\\MainProject.csproj|s:\\programming-stuff\\bookkeeper\\mainproject\\services\\interfaces\\ibookservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B0469DE7-217D-4453-AF0A-BBA7EA3519AC}|MainProject\\MainProject.csproj|solutionrelative:mainproject\\services\\interfaces\\ibookservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B0469DE7-217D-4453-AF0A-BBA7EA3519AC}|MainProject\\MainProject.csproj|s:\\programming-stuff\\bookkeeper\\mainproject\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B0469DE7-217D-4453-AF0A-BBA7EA3519AC}|MainProject\\MainProject.csproj|solutionrelative:mainproject\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B0469DE7-217D-4453-AF0A-BBA7EA3519AC}|MainProject\\MainProject.csproj|s:\\programming-stuff\\bookkeeper\\mainproject\\services\\bookservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B0469DE7-217D-4453-AF0A-BBA7EA3519AC}|MainProject\\MainProject.csproj|solutionrelative:mainproject\\services\\bookservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{07790725-64D0-4824-AC4F-06F361D6F3E5}|MainProjectTest\\MainProjectTest.csproj|s:\\programming-stuff\\bookkeeper\\mainprojecttest\\services\\authorservicetest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{07790725-64D0-4824-AC4F-06F361D6F3E5}|MainProjectTest\\MainProjectTest.csproj|solutionrelative:mainprojecttest\\services\\authorservicetest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,32 +34,58 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Document",
               "DocumentIndex": 3,
+              "Title": "IBookService.cs",
+              "DocumentMoniker": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\Services\\Interfaces\\IBookService.cs",
+              "RelativeDocumentMoniker": "MainProject\\Services\\Interfaces\\IBookService.cs",
+              "ToolTip": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\Services\\Interfaces\\IBookService.cs",
+              "RelativeToolTip": "MainProject\\Services\\Interfaces\\IBookService.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAqwAkAAAAUAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-13T06:53:42.615Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "BookService.cs",
+              "DocumentMoniker": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\Services\\BookService.cs",
+              "RelativeDocumentMoniker": "MainProject\\Services\\BookService.cs",
+              "ToolTip": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\Services\\BookService.cs",
+              "RelativeToolTip": "MainProject\\Services\\BookService.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-13T06:52:41.975Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
               "Title": "AuthorServiceTest.cs",
               "DocumentMoniker": "S:\\Programming-Stuff\\BookKeeper\\MainProjectTest\\Services\\AuthorServiceTest.cs",
               "RelativeDocumentMoniker": "MainProjectTest\\Services\\AuthorServiceTest.cs",
               "ToolTip": "S:\\Programming-Stuff\\BookKeeper\\MainProjectTest\\Services\\AuthorServiceTest.cs",
               "RelativeToolTip": "MainProjectTest\\Services\\AuthorServiceTest.cs",
-              "ViewState": "AQIAAAMAAAAAAAAAAAAAAA0AAAAiAAAA",
+              "ViewState": "AQIAABQAAAAAAAAAAAAQwDIAAABMAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-12T06:35:19.317Z",
+              "WhenOpened": "2024-08-13T06:50:02.838Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "TestDatabaseFixture.cs",
-              "DocumentMoniker": "S:\\Programming-Stuff\\BookKeeper\\MainProjectTest\\Datastore\\TestDatabaseFixture.cs",
-              "RelativeDocumentMoniker": "MainProjectTest\\Datastore\\TestDatabaseFixture.cs",
-              "ToolTip": "S:\\Programming-Stuff\\BookKeeper\\MainProjectTest\\Datastore\\TestDatabaseFixture.cs",
-              "RelativeToolTip": "MainProjectTest\\Datastore\\TestDatabaseFixture.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Title": "AuthorService.cs",
+              "DocumentMoniker": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\Services\\AuthorService.cs",
+              "RelativeDocumentMoniker": "MainProject\\Services\\AuthorService.cs",
+              "ToolTip": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\Services\\AuthorService.cs",
+              "RelativeToolTip": "MainProject\\Services\\AuthorService.cs",
+              "ViewState": "AQIAABAAAAAAAAAAAAAgwBwAAAAcAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-12T06:32:27.511Z",
+              "WhenOpened": "2024-08-13T06:49:49.012Z",
               "EditorCaption": ""
             },
             {
@@ -66,9 +96,9 @@
               "RelativeDocumentMoniker": "MainProjectTest\\Services\\ShelfPageServiceTest.cs",
               "ToolTip": "S:\\Programming-Stuff\\BookKeeper\\MainProjectTest\\Services\\ShelfPageServiceTest.cs",
               "RelativeToolTip": "MainProjectTest\\Services\\ShelfPageServiceTest.cs",
-              "ViewState": "AQIAABoAAAAAAAAAAAAgwEwAAAAJAAAA",
+              "ViewState": "AQIAANQAAAAAAAAAAAAwwOUAAAATAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-12T06:30:20.598Z",
+              "WhenOpened": "2024-08-13T06:43:15.43Z",
               "EditorCaption": ""
             },
             {
@@ -79,22 +109,9 @@
               "RelativeDocumentMoniker": "MainProject\\Services\\ShelfPageService.cs",
               "ToolTip": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\Services\\ShelfPageService.cs",
               "RelativeToolTip": "MainProject\\Services\\ShelfPageService.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABkAAAAJAAAA",
+              "ViewState": "AQIAACUAAAAAAAAAAAAowDkAAAA2AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-08-12T05:44:41.819Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Program.cs",
-              "DocumentMoniker": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\Program.cs",
-              "RelativeDocumentMoniker": "MainProject\\Program.cs",
-              "ToolTip": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\Program.cs",
-              "RelativeToolTip": "MainProject\\Program.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAACQAAAAgAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-12T01:10:00.64Z",
               "EditorCaption": ""
             }
           ]

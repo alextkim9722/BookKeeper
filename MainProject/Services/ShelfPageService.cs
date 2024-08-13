@@ -2,6 +2,7 @@
 using MainProject.Model;
 using MainProject.Services.Interfaces;
 using MainProject.ViewModel;
+using System.Linq;
 
 namespace MainProject.Services
 {
@@ -29,7 +30,7 @@ namespace MainProject.Services
         {
             UserModel user = getUserByID(id);
 
-            ShelfPageViewModel sh = new ShelfPageViewModel()
+			ShelfPageViewModel sh = new ShelfPageViewModel()
             {
                 profilePicture = user.profile_picture,
                 name = user.username,
@@ -37,8 +38,8 @@ namespace MainProject.Services
                 booksRead = 0,
                 joinDate = user.date_joined,
                 description = user.description,
-				books = formatBooks(id)
-			};
+                books = formatBooks(id)
+            };
 
             return sh;
         }
@@ -47,13 +48,16 @@ namespace MainProject.Services
             => _userRepository.getUserById(id);
 
         private IEnumerable<BookModel> formatBooks(int id)
-            => _bookService
-            .getBookModelFromUser(id)
-            .Select(
-                x => _bookService
-                .createBookModel(
-                    x.book_id,
-                    _authorService.createAuthorModelBatch(x.book_id),
-                    _genreService.createGenreModelBatch(x.book_id)));
+        {
+            List<BookModel> books = _bookService.getBookModelFromUser(id).ToList();
+            books.ForEach(
+				x => _bookService
+				.formatBookModel(
+					x,
+					_authorService.createAuthorModelBatch(x.book_id),
+					_genreService.createGenreModelBatch(x.book_id)));
+
+            return books;
+		}
     }
 }
