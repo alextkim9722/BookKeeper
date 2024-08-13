@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace MainProject.Model
 {
@@ -18,7 +19,9 @@ namespace MainProject.Model
 		public string cover_picture { get; set; }
 
 		#region NON MAPPED PROPERTIES
+		[NotMapped]
 		public IEnumerable<AuthorModel> authors { get; set; }
+		[NotMapped]
 		public IEnumerable<GenreModel> genres { get; set; }
 		#endregion
 	}

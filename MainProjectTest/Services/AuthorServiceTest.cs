@@ -75,8 +75,11 @@ namespace MainProjectTest.Services
 		public void MAKE_SURE_NAMES_ARE_FULL_AFTER_COMBINING()
 		{
 			IEnumerable<AuthorModel> authorModels = _authorViewModelBuilder.Object.createAuthorModelBatch(1);
+			Assert.Equal("mark", authorModels.ToList().ElementAt(0).first_name);
 			Assert.Equal("mark weber stuart", authorModels.ToList().ElementAt(0).full_name);
+			Assert.Equal("william", authorModels.ToList().ElementAt(1).first_name);
 			Assert.Equal("william patric Michael", authorModels.ToList().ElementAt(1).full_name);
+			Assert.Equal("Samantha", authorModels.ToList().ElementAt(2).first_name);
 			Assert.Equal("Samantha donavon", authorModels.ToList().ElementAt(2).full_name);
 		}
 	}

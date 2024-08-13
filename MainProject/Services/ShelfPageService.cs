@@ -50,12 +50,13 @@ namespace MainProject.Services
         private IEnumerable<BookModel> formatBooks(int id)
         {
             List<BookModel> books = _bookService.getBookModelFromUser(id).ToList();
-            books.ForEach(
-				x => _bookService
-				.formatBookModel(
-					x,
-					_authorService.createAuthorModelBatch(x.book_id),
-					_genreService.createGenreModelBatch(x.book_id)));
+            foreach (BookModel book in books)
+            {
+                _bookService.formatBookModel(
+                    book,
+                    _authorService.createAuthorModelBatch(book.book_id),
+                    _genreService.createGenreModelBatch(book.book_id));
+            }
 
             return books;
 		}

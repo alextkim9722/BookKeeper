@@ -7,6 +7,6 @@ namespace MainProject.Services.Interfaces
 	{
 		public AuthorModel createAuthorModel(int id);
 		public IEnumerable<AuthorModel> createAuthorModelBatch(int bookId);
-		public IEnumerable<AuthorModel> createAuthorModelBatch(IEnumerable<AuthorModel> authorModelList);
+		public void createAuthorModelBatch(IEnumerable<AuthorModel> authorModelList);
 	}
 }

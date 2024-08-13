@@ -22,11 +22,16 @@ namespace MainProject.Services
 		}
 
 		// We can't use createAuthorViewModel as it requires an id input
-		public IEnumerable<AuthorModel> createAuthorModelBatch(IEnumerable<AuthorModel> authorModelList)
-			=> authorModelList.Select(x => new AuthorModel() { full_name = createFullName(x) });
+		public void createAuthorModelBatch(IEnumerable<AuthorModel> authorModelList)
+			=> authorModelList.ToList().ForEach(x => x.full_name = createFullName(x));
 
 		public IEnumerable<AuthorModel> createAuthorModelBatch(int bookId)
-			=> createAuthorModelBatch(_authorRepository.getAuthorByBook(bookId));
+		{
+			IEnumerable<AuthorModel> authors = _authorRepository.getAuthorByBook(bookId);
+			createAuthorModelBatch(authors);
+
+			return authors;
+		}
 
 		// If the middle name doesn't exist, just don't print it
 		private string createFullName(AuthorModel author)

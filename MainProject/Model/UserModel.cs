@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace MainProject.Model
 {
@@ -15,7 +16,9 @@ namespace MainProject.Model
 		public string profile_picture { get; set; } = string.Empty;
 
 		#region NON MAPPED PROPERTIES
+		[NotMapped]
 		public int pagesRead { get; set; }
+		[NotMapped]
 		public int booksRead { get; set; }
 		#endregion
 	}
