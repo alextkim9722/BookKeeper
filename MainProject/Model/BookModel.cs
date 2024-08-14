@@ -23,6 +23,8 @@ namespace MainProject.Model
 		public IEnumerable<AuthorModel> authors { get; set; }
 		[NotMapped]
 		public IEnumerable<GenreModel> genres { get; set; }
+		[NotMapped]
+		public int readers { get; set; } 
 		#endregion
 	}
 }

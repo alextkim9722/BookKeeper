@@ -8,7 +8,7 @@ namespace MainProject.Datastore.DataStoreInterfaces
 	{
 		public void addBook(BookModel book);
 		public void removeBook(BookModel book);
-		public void updateBook(int id, BookModel book);
+		public BookModel updateBook(int id, BookModel book);
 		public BookModel getBookByID(int id);
 		public BookModel getBookByName(String name);
 		public BookModel getBookByISBN(String isbn);

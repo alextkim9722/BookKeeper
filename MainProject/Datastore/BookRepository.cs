@@ -60,5 +60,10 @@ namespace MainProject.Datastore
 			_context.Book.Remove(book);
 			_context.SaveChanges();
 		}
+
+		BookModel IBookRepository.updateBook(int id, BookModel book)
+		{
+			throw new NotImplementedException();
+		}
 	}
 }
