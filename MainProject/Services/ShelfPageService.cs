@@ -28,7 +28,7 @@ namespace MainProject.Services
 
         public ShelfPageViewModel createViewModel(int id)
         {
-            UserModel user = getUserByID(id);
+            User user = getUserByID(id);
 
 			ShelfPageViewModel sh = new ShelfPageViewModel()
             {
@@ -44,21 +44,12 @@ namespace MainProject.Services
             return sh;
         }
 
-        private UserModel getUserByID(int id)
+        private User getUserByID(int id)
             => _userRepository.getUserById(id);
 
-        private IEnumerable<BookModel> formatBooks(int id)
+        private IEnumerable<Book> formatBooks(int id)
         {
-            List<BookModel> books = _bookService.getBookModelFromUser(id).ToList();
-            foreach (BookModel book in books)
-            {
-                _bookService.formatBookModel(
-                    book,
-                    _authorService.createAuthorModelBatch(book.book_id),
-                    _genreService.createGenreModelBatch(book.book_id));
-            }
-
-            return books;
+            throw new NotImplementedException();
 		}
     }
 }

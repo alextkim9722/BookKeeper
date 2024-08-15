@@ -11,28 +11,28 @@ namespace MainProject.Datastore
 		public UserRepository(BookShelfContext context)
 			=>this._context = context;
 
-		public void addUser(UserModel userModel)
+		public void addUser(User userModel)
 		{
 			_context.User.Add(userModel);
 			_context.SaveChanges();
 		}
 
-		public void deleteUser(UserModel user)
+		public void deleteUser(User user)
 		{
 			_context.User.Remove(user);
 			_context.SaveChanges();
 		}
 
-		public UserModel getUserById(int userId)
+		public User getUserById(int userId)
 			=> _context.User.Find(userId);
 
-		public UserModel getUserByName(string name)
+		public User getUserByName(string name)
 			=> _context.User.Where(x => x.username == name).FirstOrDefault();
 
-		public IEnumerable<UserModel> getUsers()
+		public IEnumerable<User> getUsers()
 			=> _context.User.ToList();
 
-		public void updateUser(int userId, UserModel user)
+		public void updateUser(int userId, User user)
 		{
 			if (userId != user.user_id) return;
 

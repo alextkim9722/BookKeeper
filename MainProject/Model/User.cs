@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace MainProject.Model
 {
-	public class UserModel
+	public class User
 	{
 		[Key]
 		public int user_id { get; set; }

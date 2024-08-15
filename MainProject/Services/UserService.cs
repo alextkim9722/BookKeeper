@@ -11,7 +11,7 @@ namespace MainProject.Services
 		public UserService(IUserRepository userRepository)
 			=> _userRepository = userRepository;
 
-		public UserModel getUserModelById(int id)
+		public User getUserModelById(int id)
 		{
 			throw new NotImplementedException();
 		}

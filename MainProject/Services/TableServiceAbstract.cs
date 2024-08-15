@@ -2,10 +2,12 @@
 using MainProject.Model;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
+using System.Linq.Expressions;
+using System.Reflection;
 
 namespace MainProject.Services
 {
-	public class TableServiceAbstract
+	public class TableServiceAbstract<T> where T : class
 	{
 		protected readonly BookShelfContext _bookShelfContext;
 		protected readonly string _tableName;
@@ -16,19 +18,87 @@ namespace MainProject.Services
 			_tableName = tableName;
 		}
 
-		protected T? getModelBy<T>(string field, string value)
+		protected T? getModelBy(Expression<Func<T, bool>> condition)
 		{
-			T? model = default(T);
+			T? model = null;
 
 			try
 			{
-				model = _bookShelfContext.Database.SqlQuery<T>(
-					$"select * from [dbo].[{_tableName}] where {field} = {value}").First();
+				model = _bookShelfContext.Set<T>().Where(condition).FirstOrDefault();
 				return model;
 			}
 			catch (SqlException sqlEx)
 			{
-				return default(T);
+				Console.WriteLine(sqlEx.Message);
+				return null;
+			}
+		}
+
+		protected IEnumerable<T>? getAllModels()
+		{
+			IEnumerable<T>? model = null;
+
+			try
+			{
+				model = _bookShelfContext.Set<T>().ToList();
+				return model;
+			}
+			catch (SqlException sqlEx)
+			{
+				Console.WriteLine(sqlEx.Message);
+				return null;
+			}
+		}
+
+		protected T? updateModel(int id, T updatedModel)
+		{
+			T? model = null;
+
+			try
+			{
+				model = _bookShelfContext.Set<T>().Find(id);
+				_bookShelfContext.Entry(model!).CurrentValues.SetValues(updatedModel);
+				_bookShelfContext.SaveChanges();
+
+				return model;
+			}
+			catch (SqlException sqlEx)
+			{
+				Console.WriteLine(sqlEx.Message);
+				return null;
+			}
+		}
+
+		protected T? addModel(T model)
+		{
+			try
+			{
+				_bookShelfContext.Set<T>().Add(model);
+				_bookShelfContext.SaveChanges();
+				return model;
+			}
+			catch (SqlException sqlEx)
+			{
+				Console.WriteLine(sqlEx.Message);
+				return null;
+			}
+		}
+
+		protected T? deleteModel(Expression<Func<T, bool>> condition)
+		{
+			T? model = null;
+
+			try
+			{
+				model = _bookShelfContext.Set<T>().Where(condition).First();
+				_bookShelfContext.Set<T>().Remove(model);
+				_bookShelfContext.SaveChanges();
+				return model;
+			}
+			catch (SqlException sqlEx)
+			{
+				Console.WriteLine(sqlEx.Message);
+				return null;
 			}
 		}
 	}

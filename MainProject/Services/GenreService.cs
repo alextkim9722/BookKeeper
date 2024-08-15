@@ -11,10 +11,10 @@ namespace MainProject.Services
 		public GenreService(IGenreRepository genreRepository)
 			=> _genreRepository = genreRepository;
 
-		public GenreModel createGenreModel(int id)
+		public Genre createGenreModel(int id)
 			=> _genreRepository.getGenreById(id);
 
-		public IEnumerable<GenreModel> createGenreModelBatch(int bookId)
+		public IEnumerable<Genre> createGenreModelBatch(int bookId)
 			=> _genreRepository.getGenreByBook(bookId);
 	}
 }

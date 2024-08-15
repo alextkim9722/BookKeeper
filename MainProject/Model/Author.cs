@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace MainProject.Model
 {
-	public class AuthorModel
+	public class Author
 	{
 		[Key]
 		public int author_id { get; set; }

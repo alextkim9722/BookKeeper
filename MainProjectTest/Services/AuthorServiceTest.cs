@@ -17,29 +17,29 @@ namespace MainProjectTest.Services
 	{
 		private readonly Mock<IAuthorRepository> _authorRepository;
 		private readonly Mock<AuthorService> _authorViewModelBuilder;
-		private readonly List<AuthorModel> _authorModelList;
+		private readonly List<Author> _authorModelList;
 
 		public AuthorServiceTest()
 		{
 			_authorRepository = new Mock<IAuthorRepository>();
 			_authorViewModelBuilder = new Mock<AuthorService>(_authorRepository.Object);
 
-			_authorModelList = new List<AuthorModel> {
-				new AuthorModel
+			_authorModelList = new List<Author> {
+				new Author
 				{
 					author_id = 1,
 					first_name = "mark",
 					middle_name = "weber",
 					last_name = "stuart"
 				},
-				new AuthorModel
+				new Author
 				{
 					author_id = 2,
 					first_name = "william",
 					middle_name = "patric",
 					last_name = "Michael"
 				},
-				new AuthorModel
+				new Author
 				{
 					author_id = 3,
 					first_name = "Samantha",
@@ -60,21 +60,21 @@ namespace MainProjectTest.Services
 		[InlineData(2, "william patric Michael")]
 		public void MAKE_SURE_NAME_IS_FULL_WITH_MIDDLE_NAME(int id, string expected)
 		{
-			AuthorModel authorModel = _authorViewModelBuilder.Object.createAuthorModel(id);
+			Author authorModel = _authorViewModelBuilder.Object.createAuthorModel(id);
 			Assert.Equal(authorModel.full_name, expected);
 		}
 
 		[Fact]
 		public void MAKE_SURE_NAME_IS_FULL_WITHOUT_MIDDLE_NAME()
 		{
-			AuthorModel authorModel = _authorViewModelBuilder.Object.createAuthorModel(3);
+			Author authorModel = _authorViewModelBuilder.Object.createAuthorModel(3);
 			Assert.Equal("Samantha donavon", authorModel.full_name);
 		}
 
 		[Fact]
 		public void MAKE_SURE_NAMES_ARE_FULL_AFTER_COMBINING()
 		{
-			IEnumerable<AuthorModel> authorModels = _authorViewModelBuilder.Object.createAuthorModelBatch(1);
+			IEnumerable<Author> authorModels = _authorViewModelBuilder.Object.createAuthorModelBatch(1);
 			Assert.Equal("mark", authorModels.ToList().ElementAt(0).first_name);
 			Assert.Equal("mark weber stuart", authorModels.ToList().ElementAt(0).full_name);
 			Assert.Equal("william", authorModels.ToList().ElementAt(1).first_name);

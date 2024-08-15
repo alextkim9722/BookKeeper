@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace MainProject.Model
 {
 	[PrimaryKey(nameof(user_id), nameof(book_id))]
-	public class UserBookModel
+	public class User_Book
 	{
 		public int user_id { get; set; }
 

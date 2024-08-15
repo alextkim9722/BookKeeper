@@ -10,6 +10,6 @@ namespace MainProject.ViewModel
 		public int booksRead { get; set; } = 0;
 		public DateOnly? joinDate { get; set; } = null;
 		public string description { get; set; } = string.Empty;
-		public IEnumerable<BookModel> books { get; set; } = null;
+		public IEnumerable<Book> books { get; set; } = null;
 	}
 }

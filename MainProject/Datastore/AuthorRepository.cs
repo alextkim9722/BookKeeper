@@ -11,13 +11,13 @@ namespace MainProject.Datastore
 		public AuthorRepository(BookShelfContext context)
 			=>_context = context;
 
-		public void addAuthor(AuthorModel author)
+		public void addAuthor(Author author)
 		{
 			_context.Author.Add(author);
 			_context.SaveChanges();
 		}
 
-		public IEnumerable<AuthorModel> getAuthorByBook(int bookId)
+		public IEnumerable<Author> getAuthorByBook(int bookId)
 		{
 			var author_bridge 
 				= _context.Book_Author
@@ -26,25 +26,25 @@ namespace MainProject.Datastore
 				.ToList();
 			return _context.Author.Where(x => author_bridge.Contains(x.author_id)).ToList();
 		}
-		public IEnumerable<AuthorModel> getAllAuthors()
+		public IEnumerable<Author> getAllAuthors()
 			=> _context.Author.ToList();
 
-		public AuthorModel getAuthorByFirstName(string firstName)
+		public Author getAuthorByFirstName(string firstName)
 			=> _context.Author.Where(x => x.first_name == firstName).FirstOrDefault();
 
-		public AuthorModel getAuthorById(int id)
+		public Author getAuthorById(int id)
 			=> _context.Author.Find(id);
 
-		public AuthorModel getAuthorByLastName(string lastName)
+		public Author getAuthorByLastName(string lastName)
 			=> _context.Author.Where(x => x.last_name == lastName).FirstOrDefault();
 
-		public void removeAuthor(AuthorModel author)
+		public void removeAuthor(Author author)
 		{
 			_context.Author.Remove(author);
 			_context.SaveChanges();
 		}
 
-		public void updateAuthor(int id, AuthorModel author)
+		public void updateAuthor(int id, Author author)
 		{
 			if (id != author.author_id) return;
 

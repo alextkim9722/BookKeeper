@@ -12,13 +12,13 @@ namespace MainProject.Datastore
 		public BookRepository(BookShelfContext context)
 			=>_context = context;
 
-		public void addBook(BookModel book)
+		public void addBook(Book book)
 		{
 			_context.Book.Add(book);
 			_context.SaveChanges();
 		}
 
-		public void updateBook(int id, BookModel book)
+		public void updateBook(int id, Book book)
 		{
 			if (id != book.book_id) return;
 
@@ -33,10 +33,10 @@ namespace MainProject.Datastore
 			_context.SaveChanges();
 		}
 
-		public IEnumerable<BookModel> getAllBooks()
+		public IEnumerable<Book> getAllBooks()
 			=> _context.Book.ToList();
 
-		public IEnumerable<BookModel> getAllBooksOfReader(int userId)
+		public IEnumerable<Book> getAllBooksOfReader(int userId)
 		{
 			var user_bridge
 				= _context.User_Book
@@ -46,22 +46,22 @@ namespace MainProject.Datastore
 			return _context.Book.Where(x => user_bridge.Contains(x.book_id)).ToList();
 		}
 
-		public BookModel getBookByID(int id)
+		public Book getBookByID(int id)
 			=> _context.Book.Find(id);
 
-		public BookModel getBookByISBN(string isbn)
+		public Book getBookByISBN(string isbn)
 			=> _context.Book.Where(x => x.isbn == isbn).FirstOrDefault();
 
-		public BookModel getBookByName(string name)
+		public Book getBookByName(string name)
 			=> _context.Book.Where(x => x.title == name).FirstOrDefault();
 
-		public void removeBook(BookModel book)
+		public void removeBook(Book book)
 		{
 			_context.Book.Remove(book);
 			_context.SaveChanges();
 		}
 
-		BookModel IBookRepository.updateBook(int id, BookModel book)
+		Book IBookRepository.updateBook(int id, Book book)
 		{
 			throw new NotImplementedException();
 		}

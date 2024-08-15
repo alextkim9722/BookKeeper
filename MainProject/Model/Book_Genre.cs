@@ -4,11 +4,11 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace MainProject.Model
 {
-	[PrimaryKey(nameof(book_id), nameof(author_id))]
-	public class BookAuthorModel
+	[PrimaryKey(nameof(book_id), nameof(genre_id))]
+	public class Book_Genre
 	{
 		public int book_id { get; set; }
 		
-		public int author_id { get; set; }
+		public int genre_id { get; set; }
 	}
 }

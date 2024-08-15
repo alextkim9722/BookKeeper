@@ -12,16 +12,16 @@ namespace MainProject.Datastore
 		public GenreRepository(BookShelfContext context)
 			=>_context = context;
 
-		public void addGenre(GenreModel genre)
+		public void addGenre(Genre genre)
 		{
 			_context.Genre.Add(genre);
 			_context.SaveChanges();
 		}
 
-		public IEnumerable<GenreModel> getAllGenres()
+		public IEnumerable<Genre> getAllGenres()
 			=> _context.Genre.ToList();
 
-		public IEnumerable<GenreModel> getGenreByBook(int bookId)
+		public IEnumerable<Genre> getGenreByBook(int bookId)
 		{
 			var genre_bridge
 				= _context.Book_Genre
@@ -31,19 +31,19 @@ namespace MainProject.Datastore
 			return _context.Genre.Where(x => genre_bridge.Contains(x.genre_id)).ToList();
 		}
 
-		public GenreModel getGenreById(int id)
+		public Genre getGenreById(int id)
 			=> _context.Genre.Find(id);
 
-		public GenreModel getGenreByName(string name)
+		public Genre getGenreByName(string name)
 			=> _context.Genre.Where(x => x.genre_name == name).FirstOrDefault();
 
-		public void removeGenre(GenreModel genre)
+		public void removeGenre(Genre genre)
 		{
 			_context.Genre.Remove(genre);
 			_context.SaveChanges();
 		}
 
-		public void updateGenre(int id, GenreModel genre)
+		public void updateGenre(int id, Genre genre)
 		{
 			if (id != genre.genre_id) return;
 

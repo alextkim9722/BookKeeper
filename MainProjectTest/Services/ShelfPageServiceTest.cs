@@ -45,7 +45,7 @@ namespace MainProjectTest.Services
         [Theory, MemberData(nameof(Cases))]
         public void TEST_MODEL_CREATION_FOR_SHELFPAGEVIEWMODEL(int id, string exName, DateOnly exDate, string exDesc, string exPic)
         {
-			_userRepository.Setup(s => s.getUserById(1)).Returns(new UserModel()
+			_userRepository.Setup(s => s.getUserById(1)).Returns(new User()
 			{
 				user_id = 1,
 				username = "bobby14",
@@ -53,7 +53,7 @@ namespace MainProjectTest.Services
 				description = "hello im bobby",
 				profile_picture = "no pic"
 			});
-			_userRepository.Setup(s => s.getUserById(2)).Returns(new UserModel()
+			_userRepository.Setup(s => s.getUserById(2)).Returns(new User()
 			{
 				user_id = 2,
 				username = "redman182",
@@ -61,7 +61,7 @@ namespace MainProjectTest.Services
 				description = "hello im red",
 				profile_picture = "no pic"
 			});
-			_userRepository.Setup(s => s.getUserById(3)).Returns(new UserModel()
+			_userRepository.Setup(s => s.getUserById(3)).Returns(new User()
 			{
 				user_id = 3,
 				username = "christopher77",

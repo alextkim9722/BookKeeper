@@ -14,27 +14,27 @@ namespace MainProject.Services
 		public AuthorService(IAuthorRepository authorRepository)
 			=> _authorRepository = authorRepository;
 
-		public AuthorModel createAuthorModel(int id)
+		public Author createAuthorModel(int id)
 		{
-			AuthorModel authorModel = _authorRepository.getAuthorById(id);
+			Author authorModel = _authorRepository.getAuthorById(id);
 			authorModel.full_name = createFullName(authorModel);
 			return authorModel;
 		}
 
 		// We can't use createAuthorViewModel as it requires an id input
-		public void createAuthorModelBatch(IEnumerable<AuthorModel> authorModelList)
+		public void createAuthorModelBatch(IEnumerable<Author> authorModelList)
 			=> authorModelList.ToList().ForEach(x => x.full_name = createFullName(x));
 
-		public IEnumerable<AuthorModel> createAuthorModelBatch(int bookId)
+		public IEnumerable<Author> createAuthorModelBatch(int bookId)
 		{
-			IEnumerable<AuthorModel> authors = _authorRepository.getAuthorByBook(bookId);
+			IEnumerable<Author> authors = _authorRepository.getAuthorByBook(bookId);
 			createAuthorModelBatch(authors);
 
 			return authors;
 		}
 
 		// If the middle name doesn't exist, just don't print it
-		private string createFullName(AuthorModel author)
+		private string createFullName(Author author)
 		{
 			if(author.middle_name.IsNullOrEmpty())
 			{

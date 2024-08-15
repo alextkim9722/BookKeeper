@@ -4,6 +4,6 @@ namespace MainProject.Services.Interfaces
 {
 	public interface IUserService
 	{
-		public UserModel getUserModelById(int id);
+		public User getUserModelById(int id);
 	}
 }

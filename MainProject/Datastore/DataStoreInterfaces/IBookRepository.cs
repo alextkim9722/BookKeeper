@@ -6,13 +6,13 @@ namespace MainProject.Datastore.DataStoreInterfaces
 	// IUserRepository interface.
 	public interface IBookRepository
 	{
-		public void addBook(BookModel book);
-		public void removeBook(BookModel book);
-		public BookModel updateBook(int id, BookModel book);
-		public BookModel getBookByID(int id);
-		public BookModel getBookByName(String name);
-		public BookModel getBookByISBN(String isbn);
-		public IEnumerable<BookModel> getAllBooks();
-		public IEnumerable<BookModel> getAllBooksOfReader(int userId);
+		public void addBook(Book book);
+		public void removeBook(Book book);
+		public Book updateBook(int id, Book book);
+		public Book getBookByID(int id);
+		public Book getBookByName(String name);
+		public Book getBookByISBN(String isbn);
+		public IEnumerable<Book> getAllBooks();
+		public IEnumerable<Book> getAllBooksOfReader(int userId);
 	}
 }
