@@ -1,86 +1,99 @@
-﻿using System;
+﻿using MainProject.Model;
+using MainProject.Services;
+using MainProject.Services.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using MainProject.Datastore;
-using MainProject.Datastore.DataStoreInterfaces;
-using MainProject.Model;
-using MainProject.ViewModel;
-using MainProject.Services;
-using MainProject.Services.Interfaces;
-using Moq;
 
 namespace MainProjectTest.Services
 {
-	public class AuthorServiceTest
+	// There are a lot of similarities between the Service classes.
+	// Im only going to test one of the get functions as I want to
+	// see if the callback is working properly with multiple delegates.
+	public class AuthorServiceTest : IClassFixture<TestDatabaseFixture>
 	{
-		private readonly Mock<IAuthorRepository> _authorRepository;
-		private readonly Mock<AuthorService> _authorViewModelBuilder;
-		private readonly List<Author> _authorModelList;
+		private readonly BookShelfContext _bookShelfContext;
+		private readonly AuthorService _authorService;
 
-		public AuthorServiceTest()
+		private readonly TestDatabaseFixture _Fixture;
+
+		public AuthorServiceTest(TestDatabaseFixture fixture)
 		{
-			_authorRepository = new Mock<IAuthorRepository>();
-			_authorViewModelBuilder = new Mock<AuthorService>(_authorRepository.Object);
+			_Fixture = fixture;
+			_bookShelfContext = _Fixture.createContext();
+			_Fixture.clearTables(_bookShelfContext);
+			_Fixture.populateTables(_bookShelfContext);
+			_Fixture.populateBridgeTables(_bookShelfContext);
 
-			_authorModelList = new List<Author> {
-				new Author
-				{
-					author_id = 1,
-					first_name = "mark",
-					middle_name = "weber",
-					last_name = "stuart"
-				},
-				new Author
-				{
-					author_id = 2,
-					first_name = "william",
-					middle_name = "patric",
-					last_name = "Michael"
-				},
-				new Author
-				{
-					author_id = 3,
-					first_name = "Samantha",
-					middle_name = "",
-					last_name = "donavon"
-				}
+			_authorService = new AuthorService(_bookShelfContext);
+		}
+
+		#region SETUP
+		private void READ_SETUP(
+			ref Author expectedAuthor,
+			ref IEnumerable<Book>? expectedBooks
+			)
+		{
+			expectedAuthor = new Author()
+			{
+				author_id = 1,
+				first_name = "Nicole",
+				middle_name = "Valentine",
+				last_name = "Terantino"
 			};
 
-			_authorRepository.Setup(s => s.getAuthorById(1)).Returns(_authorModelList[0]);
-			_authorRepository.Setup(s => s.getAuthorById(2)).Returns(_authorModelList[1]);
-			_authorRepository.Setup(s => s.getAuthorById(3)).Returns(_authorModelList[2]);
-
-			_authorRepository.Setup(s => s.getAuthorByBook(1)).Returns(_authorModelList);
+			expectedBooks = _bookShelfContext.Book
+				.Where(x => _bookShelfContext.Book_Author
+				.Where(y => y.author_id == 1)
+				.Select(y => y.book_id)
+				.ToList()
+				.Contains(x.book_id))
+				.ToList();
 		}
+		#endregion
 
-		[Theory]
-		[InlineData(1, "mark weber stuart")]
-		[InlineData(2, "william patric Michael")]
-		public void MAKE_SURE_NAME_IS_FULL_WITH_MIDDLE_NAME(int id, string expected)
+		#region CHECKS
+		private void READ_AUTHOR(
+			Author expectedAuthor,
+			Author? actualAuthor
+			)
 		{
-			Author authorModel = _authorViewModelBuilder.Object.createAuthorModel(id);
-			Assert.Equal(authorModel.full_name, expected);
+			string expectedFullName = expectedAuthor.first_name
+				+ " " + expectedAuthor.middle_name
+				+ " " + expectedAuthor.last_name;
+
+			Assert.NotNull(actualAuthor);
+			Assert.Equal(expectedAuthor.author_id, actualAuthor.author_id);
+			Assert.Equal(expectedAuthor.first_name, actualAuthor.first_name);
+			Assert.Equal(expectedAuthor.middle_name, actualAuthor.middle_name);
+			Assert.Equal(expectedAuthor.last_name, actualAuthor.last_name);
+			Assert.Equal(expectedFullName, actualAuthor.full_name);
 		}
+
+		private void READ_BRIDGES(
+			Author? actualAuthor,
+			IEnumerable<Book>? expectedBooks
+			)
+		{
+			Assert.NotNull(actualAuthor.books);
+			Assert.Equal(expectedBooks, actualAuthor.books);
+		}
+		#endregion
 
 		[Fact]
-		public void MAKE_SURE_NAME_IS_FULL_WITHOUT_MIDDLE_NAME()
+		public void GET_A_SINGLE_AUTHOR_FROM_THE_DATABASE()
 		{
-			Author authorModel = _authorViewModelBuilder.Object.createAuthorModel(3);
-			Assert.Equal("Samantha donavon", authorModel.full_name);
-		}
+			Author expectedAuthor = new Author();
+			IEnumerable<Book>? expectedBooks = null;
 
-		[Fact]
-		public void MAKE_SURE_NAMES_ARE_FULL_AFTER_COMBINING()
-		{
-			IEnumerable<Author> authorModels = _authorViewModelBuilder.Object.createAuthorModelBatch(1);
-			Assert.Equal("mark", authorModels.ToList().ElementAt(0).first_name);
-			Assert.Equal("mark weber stuart", authorModels.ToList().ElementAt(0).full_name);
-			Assert.Equal("william", authorModels.ToList().ElementAt(1).first_name);
-			Assert.Equal("william patric Michael", authorModels.ToList().ElementAt(1).full_name);
-			Assert.Equal("Samantha", authorModels.ToList().ElementAt(2).first_name);
-			Assert.Equal("Samantha donavon", authorModels.ToList().ElementAt(2).full_name);
+			READ_SETUP(ref expectedAuthor, ref expectedBooks);
+
+			Author? actualAuthor = _authorService.getAuthorById(1);
+
+			READ_AUTHOR(expectedAuthor, actualAuthor);
+			READ_BRIDGES(actualAuthor, expectedBooks);
 		}
 	}
 }

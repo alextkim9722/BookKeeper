@@ -5,8 +5,13 @@ namespace MainProject.Services.Interfaces
 {
 	public interface IAuthorService
 	{
-		public Author createAuthorModel(int id);
-		public IEnumerable<Author> createAuthorModelBatch(int bookId);
-		public void createAuthorModelBatch(IEnumerable<Author> authorModelList);
+		public Author? addAuthor(Author author);
+		public Author? removeAuthor(int id);
+		public Author? updateAuthor(int id, Author author);
+		public Author? getAuthorById(int id);
+		public Author? getAuthorByFirstName(string first);
+		public Author? getAuthorByMiddleName(string middle);
+		public Author? getAuthorByLastName(string last);
+		public IEnumerable<Author>? getAllAuthors();
 	}
 }

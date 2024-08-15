@@ -6,10 +6,9 @@ using System.Threading.Tasks;
 
 using Microsoft.EntityFrameworkCore;
 using System;
-
-using MainProject.Datastore;
 using MainProject.Model;
 using static System.Runtime.InteropServices.JavaScript.JSType;
+using MainProject.Services;
 
 namespace MainProjectTest.Services
 {

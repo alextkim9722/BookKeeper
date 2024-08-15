@@ -1,49 +1,117 @@
-﻿using MainProject.Datastore;
-using MainProject.Datastore.DataStoreInterfaces;
-using MainProject.Model;
+﻿using MainProject.Model;
+using MainProject.Services.Abstracts;
 using MainProject.Services.Interfaces;
 using MainProject.ViewModel;
 using Microsoft.IdentityModel.Tokens;
+using System.Collections.Generic;
+using System.Linq.Expressions;
+using System.Reflection;
 
 namespace MainProject.Services
 {
-	public class AuthorService : IAuthorService
+    public class AuthorService : JoinServiceAbstract<Author>, IAuthorService
 	{
-		private readonly IAuthorRepository _authorRepository;
+		private readonly Callback handler1;
+		private readonly Callback handler2;
 
-		public AuthorService(IAuthorRepository authorRepository)
-			=> _authorRepository = authorRepository;
-
-		public Author createAuthorModel(int id)
+		public AuthorService(BookShelfContext bookShelfContext) :
+			base(bookShelfContext)
 		{
-			Author authorModel = _authorRepository.getAuthorById(id);
-			authorModel.full_name = createFullName(authorModel);
-			return authorModel;
+			handler1 = addBridges;
+			handler2 = addFullName;
+			CallbackHandler = handler1 + handler2;
 		}
 
-		// We can't use createAuthorViewModel as it requires an id input
-		public void createAuthorModelBatch(IEnumerable<Author> authorModelList)
-			=> authorModelList.ToList().ForEach(x => x.full_name = createFullName(x));
+		public Author? addAuthor(Author author)
+			=> addAuthor(author);
 
-		public IEnumerable<Author> createAuthorModelBatch(int bookId)
+		public IEnumerable<Author>? getAllAuthors()
+			=> formatAllModels();
+
+		public Author? getAuthorByFirstName(string first)
+			=> formatModel(CallbackHandler, null, x => x.first_name == first);
+
+		public Author? getAuthorById(int id)
+			=> formatModel(CallbackHandler, null, x => x.author_id == id);
+
+		public Author? getAuthorByLastName(string last)
+			=> formatModel(CallbackHandler, null, x => x.last_name == last);
+
+		public Author? getAuthorByMiddleName(string middle)
+			=> formatModel(CallbackHandler, null, x => x.middle_name == middle);
+
+		public Author? removeAuthor(int id)
 		{
-			IEnumerable<Author> authors = _authorRepository.getAuthorByBook(bookId);
-			createAuthorModelBatch(authors);
-
-			return authors;
-		}
-
-		// If the middle name doesn't exist, just don't print it
-		private string createFullName(Author author)
-		{
-			if(author.middle_name.IsNullOrEmpty())
+			if (deleteBridges(id))
 			{
-				return author.first_name + " " + author.last_name;
+				return deleteModel(x => x.author_id == id);
 			}
 			else
 			{
-				return author.first_name + " " + author.middle_name + " " + author.last_name;
+				return null;
 			}
+		}
+
+		public Author? updateAuthor(int id, Author author)
+		{
+			Author? updatedAuthor = updateModel(id, author);
+
+			if (updatedAuthor != null)
+			{
+				updatedAuthor.books = author.books;
+
+				return updatedAuthor;
+			}
+			else
+			{
+				return null;
+			}
+		}
+
+		// If the middle name doesn't exist, just don't print it
+		private Author? addFullName(Author? author)
+		{
+			try
+			{
+				if (author != null)
+				{
+					if (author.middle_name.IsNullOrEmpty())
+					{
+						author.full_name = author.first_name
+							+ " " + author.last_name;
+						return author;
+					}
+					else
+					{
+						author.full_name = author.first_name
+							+ " " + author.middle_name
+							+ " " + author.last_name;
+						return author;
+					}
+				}
+				else
+				{
+					return null;
+				}
+			}catch(Exception ex) {
+
+				Console.WriteLine(ex.Message);
+				return null;
+			}
+		}
+
+		protected override Author addBridges(Author author)
+		{
+			author.books = getMultipleJoins<Book, Book_Author>(
+				x => x.author_id == author.author_id,
+				y => y.book_id);
+
+			return author;
+		}
+		protected override bool deleteBridges(int id)
+		{
+			return
+				deleteJoins<Book_Author>(x => x.author_id == id);
 		}
 	}
 }

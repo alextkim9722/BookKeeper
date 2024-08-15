@@ -4,7 +4,11 @@ namespace MainProject.Services.Interfaces
 {
 	public interface IGenreService
 	{
-		public Genre createGenreModel(int id);
-		public IEnumerable<Genre> createGenreModelBatch(int id);
+		public Genre? addGenre(Genre genre);
+		public Genre? removeGenre(int id);
+		public Genre? updateGenre(int id, Genre genre);
+		public Genre? getGenreById(int id);
+		public Genre? getGenreByName(string name);
+		public IEnumerable<Genre>? getAllGenres();
 	}
 }

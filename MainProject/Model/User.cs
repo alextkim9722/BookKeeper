@@ -6,6 +6,7 @@ namespace MainProject.Model
 	public class User
 	{
 		[Key]
+		[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
 		public int user_id { get; set; }
 		[Required]
 		public string username { get; set; } = string.Empty;
@@ -17,9 +18,11 @@ namespace MainProject.Model
 
 		#region NON MAPPED PROPERTIES
 		[NotMapped]
-		public int pagesRead { get; set; }
+		public int? pagesRead { get; set; }
 		[NotMapped]
-		public int booksRead { get; set; }
+		public int? booksRead { get; set; }
+		[NotMapped]
+		public IEnumerable<Book>? books { get; set; }
 		#endregion
 	}
 }

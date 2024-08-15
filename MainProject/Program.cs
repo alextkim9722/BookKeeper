@@ -1,7 +1,5 @@
 using Microsoft.EntityFrameworkCore;
 
-using MainProject.Datastore;
-using MainProject.Datastore.DataStoreInterfaces;
 using MainProject.Services;
 using MainProject.Services.Interfaces;
 
@@ -14,11 +12,6 @@ builder.Services.AddDbContext<BookShelfContext>(options =>
         .Configuration
         .GetConnectionString("DefaultConnection")));
 builder.Services.AddControllersWithViews();
-
-builder.Services.AddTransient<IUserRepository, UserRepository>();
-builder.Services.AddTransient<IBookRepository, BookRepository>();
-builder.Services.AddTransient<IGenreRepository, GenreRepository>();
-builder.Services.AddTransient<IAuthorRepository, AuthorRepository>();
 
 builder.Services.AddTransient<IShelfPageService, ShelfPageService>();
 // END

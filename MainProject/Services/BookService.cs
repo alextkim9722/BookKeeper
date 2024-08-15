@@ -1,28 +1,26 @@
-﻿using MainProject.Datastore;
-using MainProject.Datastore.DataStoreInterfaces;
-using MainProject.Model;
+﻿using MainProject.Model;
+using MainProject.Services.Abstracts;
 using MainProject.Services.Interfaces;
-using Microsoft.AspNetCore.Mvc.Formatters;
-using Microsoft.EntityFrameworkCore;
-using System.Linq.Expressions;
-using System.Net;
-using Xunit.Sdk;
 
 namespace MainProject.Services
 {
-	public class BookService : JoinServiceAbstract<Book>, IBookService
+    public class BookService : JoinServiceAbstract<Book>, IBookService
 	{
+		private readonly Callback handler1;
+
 		public BookService(BookShelfContext bookShelfContext) :
-			base(bookShelfContext, "book_id", "book") { }
+			base(bookShelfContext)
+		{
+			handler1 = addBridges;
+			CallbackHandler += handler1;
+		}
 
 		public Book? addBook(Book book)
 			=> addModel(book);
 
 		public Book? removeBook(int id)
 		{
-			if (deleteJoins<Book_Author>(x => x.book_id == id) &&
-				deleteJoins<Book_Genre>(x => x.book_id == id) &&
-				deleteJoins<User_Book>(x => x.book_id == id))
+			if (deleteBridges(id))
 			{
 				return deleteModel(x => x.book_id == id);
 			}
@@ -41,71 +39,50 @@ namespace MainProject.Services
 				updatedBook.authors = book.authors;
 				updatedBook.genres = book.genres;
 				updatedBook.readers = book.readers;
+			}
 
-				return updatedBook;
-			}
-			else
-			{
-				return null;
-			}
+			return updatedBook;
 		}
 
 		public Book? getBookById(int id)
-			=> formatBook(x => x.book_id == id);
+			=> formatModel(CallbackHandler, null, x => x.book_id == id);
 
 		public Book? getBookByIsbn(string isbn)
-			=> formatBook(x => x.isbn == isbn);
+			=> formatModel(CallbackHandler, null, x => x.isbn == isbn);
 
 		public Book? getBookByTitle(string title)
-			=> formatBook(x => x.title == title);
+			=> formatModel(CallbackHandler, null, x => x.title == title);
 
-		private Book? formatBook(Expression<Func<Book, bool>> condition)
+		public IEnumerable<Book>? getAllBooks()
+			=> formatAllModels();
+
+		protected override Book addBridges(Book book)
 		{
-			Book? model = getModelBy(condition);
+			book.authors = getMultipleJoins<Author, Book_Author>(
+				x => x.book_id == book.book_id, y => y.author_id);
+			book.genres = getMultipleJoins<Genre, Book_Genre>(
+				x => x.book_id == book.book_id, y => y.genre_id);
 
-			if (model != null)
-			{
-				model = addBridges(model);
-			}
+			var readersModels = getMultipleJoins<User, User_Book>(
+				x => x.book_id == book.book_id, y => y.user_id);
 
-			return model;
-		}
-
-		private Book addBridges(Book book)
-		{
-			book.authors = getMultipleJoins<Author, Book_Author>(x => x.book_id == book.book_id, y => y.author_id);
-			book.genres = getMultipleJoins<Genre, Book_Genre>(x => x.book_id == book.book_id, y => y.genre_id);
-
-			var readersModels = getMultipleJoins<User, User_Book>(x => x.book_id == book.book_id, y => y.user_id);
-
-			if(readersModels != null)
+			if (readersModels != null)
 			{
 				book.readers = readersModels.Count();
-			}else
+			}
+			else
 			{
 				book.readers = null;
 			}
 
 			return book;
 		}
-
-		public IEnumerable<Book>? getAllBooks()
+		protected override bool deleteBridges(int id)
 		{
-			var books = getAllModels();
-			if (books != null)
-			{
-				books.Select(
-					x => {
-						x = formatBook(y => y.book_id == x.book_id);
-						return x; 
-					}).ToList();
-
-				return books;
-			}
-			else
-			{
-				return null;
-			}
-        }
+			return
+				deleteJoins<Book_Author>(x => x.book_id == id) &&
+				deleteJoins<Book_Genre>(x => x.book_id == id) &&
+				deleteJoins<User_Book>(x => x.book_id == id);
+		}
 	}
 }

@@ -1,5 +1,4 @@
-﻿using MainProject.Datastore.DataStoreInterfaces;
-using MainProject.Model;
+﻿using MainProject.Model;
 using MainProject.Services.Interfaces;
 using MainProject.ViewModel;
 using System.Linq;
@@ -8,19 +7,16 @@ namespace MainProject.Services
 {
     public class ShelfPageService : IShelfPageService
     {
-        private readonly IUserRepository _userRepository;
         private readonly IAuthorService _authorService;
         private readonly IGenreService _genreService;
         private readonly IBookService _bookService;
 
         public ShelfPageService(
-            IUserRepository userRepository,
             IAuthorService authorService,
             IGenreService genreService,
             IBookService bookService
             )
         {
-            _userRepository = userRepository;
             _authorService = authorService;
             _genreService = genreService;
             _bookService = bookService;
@@ -45,9 +41,9 @@ namespace MainProject.Services
         }
 
         private User getUserByID(int id)
-            => _userRepository.getUserById(id);
+            => throw new NotImplementedException();
 
-        private IEnumerable<Book> formatBooks(int id)
+		private IEnumerable<Book> formatBooks(int id)
         {
             throw new NotImplementedException();
 		}

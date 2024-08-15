@@ -1,0 +1,21 @@
+﻿using Microsoft.EntityFrameworkCore;
+using System.Reflection.Metadata;
+
+using MainProject.Model;
+using System.Reflection.Metadata.Ecma335;
+
+namespace MainProject.Services
+{
+    public class BookShelfContext : DbContext
+    {
+        public BookShelfContext(DbContextOptions<BookShelfContext> options) : base(options) { }
+
+        public DbSet<User> User { get; set; }
+        public DbSet<Book> Book { get; set; }
+        public DbSet<Author> Author { get; set; }
+        public DbSet<Genre> Genre { get; set; }
+        public DbSet<Book_Genre> Book_Genre { get; set; }
+        public DbSet<Book_Author> Book_Author { get; set; }
+        public DbSet<User_Book> User_Book { get; set; }
+    }
+}

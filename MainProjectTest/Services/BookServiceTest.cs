@@ -1,6 +1,4 @@
-﻿using MainProject.Datastore;
-using MainProject.Datastore.DataStoreInterfaces;
-using MainProject.Model;
+﻿using MainProject.Model;
 using MainProject.Services;
 using Moq;
 using System;
