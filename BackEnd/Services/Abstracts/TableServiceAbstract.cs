@@ -49,15 +49,24 @@ namespace BackEnd.Services.Abstracts
             }
         }
 
-        protected T? updateModel(int id, T updatedModel)
+        protected T? updateModel(
+            Expression<Func<T, bool>> condition,
+            T updatedModel)
         {
             T? model = null;
 
             try
             {
-                model = _bookShelfContext.Set<T>().Find(id);
-                _bookShelfContext.Entry(model!).CurrentValues.SetValues(updatedModel);
-                _bookShelfContext.SaveChanges();
+                model = _bookShelfContext
+                    .Set<T>()
+                    .Where(condition)
+                    .FirstOrDefault();
+                _bookShelfContext
+                    .Entry(model!)
+                    .CurrentValues
+                    .SetValues(updatedModel);
+                _bookShelfContext
+                    .SaveChanges();
 
                 return model;
             }
@@ -108,7 +117,7 @@ namespace BackEnd.Services.Abstracts
 			{
                 for(int i = 0;i < models.Count();i++)
                 {
-                    models[i] = formatModel(CallbackHandler, models[i], null);
+                    models[i] = formatModel(models[i], null);
                 }
 
 				return models;
@@ -119,7 +128,6 @@ namespace BackEnd.Services.Abstracts
 			}
 		}
         protected T? formatModel(
-			Callback? callBackList,
 			T? model = null,
 			Expression<Func<T, bool>>? condition = null)
 		{
@@ -128,9 +136,9 @@ namespace BackEnd.Services.Abstracts
 				model = getModelBy(condition);
 			}			
 
-			if (model != null && callBackList != null)
+			if (model != null && CallbackHandler != null)
 			{
-				model = callBackList(model);
+				model = CallbackHandler(model);
 			}
 
 			return model;

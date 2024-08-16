@@ -1,5 +1,6 @@
 ﻿using BackEnd.Model;
 using BackEnd.Services;
+using Microsoft.AspNetCore.Http.HttpResults;
 using Moq;
 using System;
 using System.Collections.Generic;
@@ -9,6 +10,7 @@ using System.Threading.Tasks;
 
 namespace MainProjectTest.Services
 {
+	[Collection("Test Integration With DB")]
     public class BookServiceTest : IClassFixture<TestDatabaseFixture>
 	{
 		private readonly BookShelfContext _bookShelfContext;
@@ -23,6 +25,7 @@ namespace MainProjectTest.Services
 			_Fixture.clearTables(_bookShelfContext);
 			_Fixture.populateTables(_bookShelfContext);
 			_Fixture.populateBridgeTables(_bookShelfContext);
+			TestDatabaseFixture.cleared = false;
 
 			_bookService = new BookService(_bookShelfContext);
 		}
@@ -32,7 +35,8 @@ namespace MainProjectTest.Services
 			ref Book expectedBook,
 			ref IEnumerable<Author>? expectedAuthors,
 			ref IEnumerable<Genre>? expectedGenres,
-			ref int? expectedReaders
+			ref int? expectedReaders,
+			ref IEnumerable<Review>? expectedReviews
 			)
 		{
 			expectedBook = new Book()
@@ -46,14 +50,26 @@ namespace MainProjectTest.Services
 			};
 
 			expectedAuthors = _bookShelfContext.Author.Where(
-				x => _bookShelfContext.Book_Author.Where(y => y.book_id == 2).Select(y => y.author_id).ToList().Contains(x.author_id)
-				).ToList();
+				x => _bookShelfContext.Book_Author
+				.Where(y => y.book_id == 2)
+				.Select(y => y.author_id)
+				.ToList()
+				.Contains(x.author_id))
+				.ToList();
 
 			expectedGenres = _bookShelfContext.Genre.Where(
-				x => _bookShelfContext.Book_Genre.Where(y => y.book_id == 2).Select(y => y.genre_id).ToList().Contains(x.genre_id)
-				).ToList();
+				x => _bookShelfContext.Book_Genre
+				.Where(y => y.book_id == 2)
+				.Select(y => y.genre_id)
+				.ToList()
+				.Contains(x.genre_id))
+				.ToList();
 
 			expectedReaders = 3;
+
+			expectedReviews = _bookShelfContext.Review
+				.Where(y => y.book_id == 2)
+				.ToList();
 		}
 		#endregion
 
@@ -76,15 +92,18 @@ namespace MainProjectTest.Services
 			Book? actualBook,
 			IEnumerable<Author>? expectedAuthors, 
 			IEnumerable<Genre>? expectedGenres, 
-			int? expectedReaders
+			int? expectedReaders,
+			IEnumerable<Review>? expectedReviews
 			)
 		{
 			Assert.NotNull(actualBook.authors);
 			Assert.NotNull(actualBook.genres);
 			Assert.NotNull(actualBook.readers);
+			Assert.NotNull(actualBook.reviews);
 			Assert.Equal(expectedAuthors, actualBook.authors);
 			Assert.Equal(expectedGenres, actualBook.genres);
 			Assert.Equal(expectedReaders, actualBook.readers);
+			Assert.Equal(expectedReviews, actualBook.reviews);
 		}
 		#endregion
 
@@ -94,14 +113,15 @@ namespace MainProjectTest.Services
 			Book expectedBook = new Book();
 			IEnumerable<Author>? expectedAuthors = null;
 			IEnumerable<Genre>? expectedGenres = null;
+			IEnumerable<Review>? expectedReviews = null;
 			int? expectedReaders = 0;
 
-			READ_SETUP(ref expectedBook, ref expectedAuthors, ref expectedGenres, ref expectedReaders);
+			READ_SETUP(ref expectedBook, ref expectedAuthors, ref expectedGenres, ref expectedReaders, ref expectedReviews);
 
 			IEnumerable<Book>? actualBook = _bookService.getAllBooks();
 
 			READ_BOOK(expectedBook, actualBook.ElementAt(2));
-			READ_BRIDGES(expectedBook, actualBook.ElementAt(2), expectedAuthors, expectedGenres, expectedReaders);
+			READ_BRIDGES(expectedBook, actualBook.ElementAt(2), expectedAuthors, expectedGenres, expectedReaders, expectedReviews);
 		}
 
 		[Fact]
@@ -110,14 +130,15 @@ namespace MainProjectTest.Services
 			Book expectedBook = new Book();
 			IEnumerable<Author>? expectedAuthors = null;
 			IEnumerable<Genre>? expectedGenres = null;
+			IEnumerable<Review>? expectedReviews = null;
 			int? expectedReaders = 0;
 
-			READ_SETUP(ref expectedBook, ref expectedAuthors, ref expectedGenres, ref expectedReaders);
+			READ_SETUP(ref expectedBook, ref expectedAuthors, ref expectedGenres, ref expectedReaders, ref expectedReviews);
 
 			Book? actualBook = _bookService.getBookById(2);
 
 			READ_BOOK(expectedBook, actualBook);
-			READ_BRIDGES(expectedBook, actualBook, expectedAuthors, expectedGenres, expectedReaders);
+			READ_BRIDGES(expectedBook, actualBook, expectedAuthors, expectedGenres, expectedReaders, expectedReviews);
 		}
 
 		[Fact]
@@ -126,14 +147,15 @@ namespace MainProjectTest.Services
 			Book expectedBook = new Book();
 			IEnumerable<Author>? expectedAuthors = null;
 			IEnumerable<Genre>? expectedGenres = null;
+			IEnumerable<Review>? expectedReviews = null;
 			int? expectedReaders = 0;
 
-			READ_SETUP(ref expectedBook, ref expectedAuthors, ref expectedGenres, ref expectedReaders);
+			READ_SETUP(ref expectedBook, ref expectedAuthors, ref expectedGenres, ref expectedReaders, ref expectedReviews);
 
 			Book? actualBook = _bookService.getBookByIsbn("greenisbn");
 
 			READ_BOOK(expectedBook, actualBook);
-			READ_BRIDGES(expectedBook, actualBook, expectedAuthors, expectedGenres, expectedReaders);
+			READ_BRIDGES(expectedBook, actualBook, expectedAuthors, expectedGenres, expectedReaders, expectedReviews);
 		}
 
 		[Fact]
@@ -142,14 +164,15 @@ namespace MainProjectTest.Services
 			Book expectedBook = new Book();
 			IEnumerable<Author>? expectedAuthors = null;
 			IEnumerable<Genre>? expectedGenres = null;
+			IEnumerable<Review>? expectedReviews = null;
 			int? expectedReaders = 0;
 
-			READ_SETUP(ref expectedBook, ref expectedAuthors, ref expectedGenres, ref expectedReaders);
+			READ_SETUP(ref expectedBook, ref expectedAuthors, ref expectedGenres, ref expectedReaders, ref expectedReviews);
 
 			Book? actualBook = _bookService.getBookByTitle("Green Book");
 
 			READ_BOOK(expectedBook, actualBook);
-			READ_BRIDGES(expectedBook, actualBook, expectedAuthors, expectedGenres, expectedReaders);
+			READ_BRIDGES(expectedBook, actualBook, expectedAuthors, expectedGenres, expectedReaders, expectedReviews);
 		}
 
 		[Fact]
@@ -160,14 +183,13 @@ namespace MainProjectTest.Services
 				title = "TanBook",
 				pages = 143,
 				isbn = "isbnnumber",
-				rating = 3,
 				cover_picture = "/image/path.jpg"
 			};
 
 			Book addedBook = _bookService.addBook(expectedBook)!;
 
 			Book? actualBook = _bookService.getBookById(
-				_bookShelfContext.Book.OrderBy(x => x.book_id).Last().book_id
+				_bookShelfContext.Book.OrderBy(x => x.book_id).LastOrDefault().book_id
 			);
 
 			Assert.NotNull(addedBook);

@@ -1,6 +1,7 @@
 ﻿using BackEnd.Model;
 using BackEnd.Services.Abstracts;
 using BackEnd.Services.Interfaces;
+using Microsoft.IdentityModel.Tokens;
 
 namespace BackEnd.Services
 {
@@ -32,26 +33,28 @@ namespace BackEnd.Services
 
 		public Book? updateBook(int id, Book book)
 		{
-			Book? updatedBook = updateModel(id, book);
+			Book? updatedBook = updateModel(
+				x => x.book_id == id, book);
 
 			if (updatedBook != null)
 			{
 				updatedBook.authors = book.authors;
 				updatedBook.genres = book.genres;
 				updatedBook.readers = book.readers;
+				updatedBook.reviews = book.reviews;
 			}
 
 			return updatedBook;
 		}
 
 		public Book? getBookById(int id)
-			=> formatModel(CallbackHandler, null, x => x.book_id == id);
+			=> formatModel(null, x => x.book_id == id);
 
 		public Book? getBookByIsbn(string isbn)
-			=> formatModel(CallbackHandler, null, x => x.isbn == isbn);
+			=> formatModel(null, x => x.isbn == isbn);
 
 		public Book? getBookByTitle(string title)
-			=> formatModel(CallbackHandler, null, x => x.title == title);
+			=> formatModel(null, x => x.title == title);
 
 		public IEnumerable<Book>? getAllBooks()
 			=> formatAllModels();
@@ -62,10 +65,12 @@ namespace BackEnd.Services
 				x => x.book_id == book.book_id, y => y.author_id);
 			book.genres = getMultipleJoins<Genre, Book_Genre>(
 				x => x.book_id == book.book_id, y => y.genre_id);
-			book.reviews = getMultipleJoins<Review, Book_Review>(
-				x => x.book_id == book.book_id, y => y.review_id);
+			book.reviews = getJoins<Review>(x => x.book_id == book.book_id);
 
-			book.rating = Convert.ToInt32(book.reviews.Select(x => x.rating).Average());
+			if(!book.reviews.IsNullOrEmpty())
+			{
+				book.rating = Convert.ToInt32(book.reviews.Select(x => x.rating).Average());
+			}
 
 			var readersModels = getMultipleJoins<User, User_Book>(
 				x => x.book_id == book.book_id, y => y.user_id);
@@ -86,7 +91,8 @@ namespace BackEnd.Services
 			return
 				deleteJoins<Book_Author>(x => x.book_id == id) &&
 				deleteJoins<Book_Genre>(x => x.book_id == id) &&
-				deleteJoins<User_Book>(x => x.book_id == id);
+				deleteJoins<User_Book>(x => x.book_id == id) &&
+				deleteJoins<Review>(x => x.book_id == id);
 		}
 	}
 }

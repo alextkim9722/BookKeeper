@@ -11,12 +11,16 @@
       "RelativeMoniker": "D:0:0:{B0469DE7-217D-4453-AF0A-BBA7EA3519AC}|BackEnd\\BackEnd.csproj|solutionrelative:backend\\services\\bookservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B0469DE7-217D-4453-AF0A-BBA7EA3519AC}|BackEnd\\BackEnd.csproj|s:\\programming-stuff\\bookkeeper\\backend\\model\\book.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B0469DE7-217D-4453-AF0A-BBA7EA3519AC}|BackEnd\\BackEnd.csproj|solutionrelative:backend\\model\\book.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{07790725-64D0-4824-AC4F-06F361D6F3E5}|BackEndTest\\BackEndTest.csproj|s:\\programming-stuff\\bookkeeper\\backendtest\\services\\authorservicetest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{07790725-64D0-4824-AC4F-06F361D6F3E5}|BackEndTest\\BackEndTest.csproj|solutionrelative:backendtest\\services\\authorservicetest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B0469DE7-217D-4453-AF0A-BBA7EA3519AC}|BackEnd\\BackEnd.csproj|s:\\programming-stuff\\bookkeeper\\backend\\services\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B0469DE7-217D-4453-AF0A-BBA7EA3519AC}|BackEnd\\BackEnd.csproj|solutionrelative:backend\\services\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{07790725-64D0-4824-AC4F-06F361D6F3E5}|BackEndTest\\BackEndTest.csproj|s:\\programming-stuff\\bookkeeper\\backendtest\\services\\userservicetest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{07790725-64D0-4824-AC4F-06F361D6F3E5}|BackEndTest\\BackEndTest.csproj|solutionrelative:backendtest\\services\\userservicetest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{07790725-64D0-4824-AC4F-06F361D6F3E5}|BackEndTest\\BackEndTest.csproj|s:\\programming-stuff\\bookkeeper\\backendtest\\services\\bookservicetest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{07790725-64D0-4824-AC4F-06F361D6F3E5}|BackEndTest\\BackEndTest.csproj|solutionrelative:backendtest\\services\\bookservicetest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,34 +30,8 @@
       "DocumentGroups": [
         {
           "DockedWidth": 187,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "TestDatabaseFixture.cs",
-              "DocumentMoniker": "S:\\Programming-Stuff\\BookKeeper\\BackEndTest\\Services\\TestDatabaseFixture.cs",
-              "RelativeDocumentMoniker": "BackEndTest\\Services\\TestDatabaseFixture.cs",
-              "ToolTip": "S:\\Programming-Stuff\\BookKeeper\\BackEndTest\\Services\\TestDatabaseFixture.cs",
-              "RelativeToolTip": "BackEndTest\\Services\\TestDatabaseFixture.cs",
-              "ViewState": "AQIAACgAAAAAAAAAAAAIwN4AAAAVAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-16T02:57:23.67Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Book.cs",
-              "DocumentMoniker": "S:\\Programming-Stuff\\BookKeeper\\BackEnd\\Model\\Book.cs",
-              "RelativeDocumentMoniker": "BackEnd\\Model\\Book.cs",
-              "ToolTip": "S:\\Programming-Stuff\\BookKeeper\\BackEnd\\Model\\Book.cs",
-              "RelativeToolTip": "BackEnd\\Model\\Book.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABkAAAAbAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-16T02:48:55.59Z",
-              "EditorCaption": ""
-            },
             {
               "$type": "Document",
               "DocumentIndex": 1,
@@ -62,22 +40,61 @@
               "RelativeDocumentMoniker": "BackEnd\\Services\\BookService.cs",
               "ToolTip": "S:\\Programming-Stuff\\BookKeeper\\BackEnd\\Services\\BookService.cs",
               "RelativeToolTip": "BackEnd\\Services\\BookService.cs",
-              "ViewState": "AQIAADoAAAAAAAAAAAAzwEAAAAA4AAAA",
+              "ViewState": "AQIAADgAAAAAAAAAAAAuwEcAAABQAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-16T02:48:32.942Z",
+              "WhenOpened": "2024-08-16T07:56:01.401Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "TestDatabaseFixture.cs",
+              "DocumentMoniker": "S:\\Programming-Stuff\\BookKeeper\\BackEndTest\\Services\\TestDatabaseFixture.cs",
+              "RelativeDocumentMoniker": "BackEndTest\\Services\\TestDatabaseFixture.cs",
+              "ToolTip": "S:\\Programming-Stuff\\BookKeeper\\BackEndTest\\Services\\TestDatabaseFixture.cs",
+              "RelativeToolTip": "BackEndTest\\Services\\TestDatabaseFixture.cs",
+              "ViewState": "AQIAAKwAAAAAAAAAAAAcwLsAAAAeAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-16T07:44:33.361Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "BookServiceTest.cs",
+              "DocumentMoniker": "S:\\Programming-Stuff\\BookKeeper\\BackEndTest\\Services\\BookServiceTest.cs",
+              "RelativeDocumentMoniker": "BackEndTest\\Services\\BookServiceTest.cs",
+              "ToolTip": "S:\\Programming-Stuff\\BookKeeper\\BackEndTest\\Services\\BookServiceTest.cs",
+              "RelativeToolTip": "BackEndTest\\Services\\BookServiceTest.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-16T07:36:23.709Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "UserService.cs",
-              "DocumentMoniker": "S:\\Programming-Stuff\\BookKeeper\\BackEnd\\Services\\UserService.cs",
-              "RelativeDocumentMoniker": "BackEnd\\Services\\UserService.cs",
-              "ToolTip": "S:\\Programming-Stuff\\BookKeeper\\BackEnd\\Services\\UserService.cs",
-              "RelativeToolTip": "BackEnd\\Services\\UserService.cs",
-              "ViewState": "AQIAAC8AAAAAAAAAAAAuwE0AAAA0AAAA",
+              "Title": "UserServiceTest.cs",
+              "DocumentMoniker": "S:\\Programming-Stuff\\BookKeeper\\BackEndTest\\Services\\UserServiceTest.cs",
+              "RelativeDocumentMoniker": "BackEndTest\\Services\\UserServiceTest.cs",
+              "ToolTip": "S:\\Programming-Stuff\\BookKeeper\\BackEndTest\\Services\\UserServiceTest.cs",
+              "RelativeToolTip": "BackEndTest\\Services\\UserServiceTest.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAApAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-16T02:48:17.516Z",
+              "WhenOpened": "2024-08-16T07:28:31.41Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "AuthorServiceTest.cs",
+              "DocumentMoniker": "S:\\Programming-Stuff\\BookKeeper\\BackEndTest\\Services\\AuthorServiceTest.cs",
+              "RelativeDocumentMoniker": "BackEndTest\\Services\\AuthorServiceTest.cs",
+              "ToolTip": "S:\\Programming-Stuff\\BookKeeper\\BackEndTest\\Services\\AuthorServiceTest.cs",
+              "RelativeToolTip": "BackEndTest\\Services\\AuthorServiceTest.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABUAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-16T07:25:39.57Z",
               "EditorCaption": ""
             }
           ]

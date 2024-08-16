@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 
 namespace MainProjectTest.Services
 {
+	[Collection("Test Integration With DB")]
 	public class UserServiceTest : IClassFixture<TestDatabaseFixture>
 	{
 		private readonly BookShelfContext _bookShelfContext;
@@ -23,6 +24,7 @@ namespace MainProjectTest.Services
 			_Fixture.clearTables(_bookShelfContext);
 			_Fixture.populateTables(_bookShelfContext);
 			_Fixture.populateBridgeTables(_bookShelfContext);
+			TestDatabaseFixture.cleared = false;
 
 			_userService = new UserService(_bookShelfContext);
 		}

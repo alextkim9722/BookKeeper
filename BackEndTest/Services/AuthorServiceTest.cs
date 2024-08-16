@@ -12,6 +12,7 @@ namespace MainProjectTest.Services
 	// There are a lot of similarities between the Service classes.
 	// Im only going to test one of the get functions as I want to
 	// see if the callback is working properly with multiple delegates.
+	[Collection("Test Integration With DB")]
 	public class AuthorServiceTest : IClassFixture<TestDatabaseFixture>
 	{
 		private readonly BookShelfContext _bookShelfContext;
@@ -26,6 +27,7 @@ namespace MainProjectTest.Services
 			_Fixture.clearTables(_bookShelfContext);
 			_Fixture.populateTables(_bookShelfContext);
 			_Fixture.populateBridgeTables(_bookShelfContext);
+			TestDatabaseFixture.cleared = false;
 
 			_authorService = new AuthorService(_bookShelfContext);
 		}

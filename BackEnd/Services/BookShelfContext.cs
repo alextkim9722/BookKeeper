@@ -16,8 +16,6 @@ namespace BackEnd.Services
 		public DbSet<Review> Review { get; set; }
 		public DbSet<Book_Genre> Book_Genre { get; set; }
         public DbSet<Book_Author> Book_Author { get; set; }
-        public DbSet<Book_Review> Book_Review { get; set; }
         public DbSet<User_Book> User_Book { get; set; }
-        public DbSet<User_Review> User_Review { get; set; }
     }
 }

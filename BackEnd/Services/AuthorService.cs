@@ -28,16 +28,16 @@ namespace BackEnd.Services
 			=> formatAllModels();
 
 		public Author? getAuthorByFirstName(string first)
-			=> formatModel(CallbackHandler, null, x => x.first_name == first);
+			=> formatModel(null, x => x.first_name == first);
 
 		public Author? getAuthorById(int id)
-			=> formatModel(CallbackHandler, null, x => x.author_id == id);
+			=> formatModel(null, x => x.author_id == id);
 
 		public Author? getAuthorByLastName(string last)
-			=> formatModel(CallbackHandler, null, x => x.last_name == last);
+			=> formatModel(null, x => x.last_name == last);
 
 		public Author? getAuthorByMiddleName(string middle)
-			=> formatModel(CallbackHandler, null, x => x.middle_name == middle);
+			=> formatModel(null, x => x.middle_name == middle);
 
 		public Author? removeAuthor(int id)
 		{
@@ -53,7 +53,8 @@ namespace BackEnd.Services
 
 		public Author? updateAuthor(int id, Author author)
 		{
-			Author? updatedAuthor = updateModel(id, author);
+			Author? updatedAuthor = updateModel(
+				x => x.author_id == id, author);
 
 			if (updatedAuthor != null)
 			{

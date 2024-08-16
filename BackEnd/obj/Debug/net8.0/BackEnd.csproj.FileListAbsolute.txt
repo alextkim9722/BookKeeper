@@ -103,8 +103,6 @@ S:\Programming-Stuff\BookKeeper\BackEnd\bin\Debug\net8.0\Azure.Core.dll
 S:\Programming-Stuff\BookKeeper\BackEnd\bin\Debug\net8.0\Azure.Identity.dll
 S:\Programming-Stuff\BookKeeper\BackEnd\bin\Debug\net8.0\JavaScriptEngineSwitcher.Core.dll
 S:\Programming-Stuff\BookKeeper\BackEnd\bin\Debug\net8.0\JSPool.dll
-S:\Programming-Stuff\BookKeeper\BackEnd\bin\Debug\net8.0\System.Net.Http.Formatting.dll
-S:\Programming-Stuff\BookKeeper\BackEnd\bin\Debug\net8.0\System.Web.Http.dll
 S:\Programming-Stuff\BookKeeper\BackEnd\bin\Debug\net8.0\Microsoft.AspNetCore.Cryptography.Internal.dll
 S:\Programming-Stuff\BookKeeper\BackEnd\bin\Debug\net8.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
 S:\Programming-Stuff\BookKeeper\BackEnd\bin\Debug\net8.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
@@ -132,7 +130,6 @@ S:\Programming-Stuff\BookKeeper\BackEnd\bin\Debug\net8.0\Microsoft.OpenApi.dll
 S:\Programming-Stuff\BookKeeper\BackEnd\bin\Debug\net8.0\Microsoft.SqlServer.Server.dll
 S:\Programming-Stuff\BookKeeper\BackEnd\bin\Debug\net8.0\Microsoft.Win32.SystemEvents.dll
 S:\Programming-Stuff\BookKeeper\BackEnd\bin\Debug\net8.0\Newtonsoft.Json.dll
-S:\Programming-Stuff\BookKeeper\BackEnd\bin\Debug\net8.0\Newtonsoft.Json.Bson.dll
 S:\Programming-Stuff\BookKeeper\BackEnd\bin\Debug\net8.0\React.AspNet.dll
 S:\Programming-Stuff\BookKeeper\BackEnd\bin\Debug\net8.0\React.AspNet.Middleware.dll
 S:\Programming-Stuff\BookKeeper\BackEnd\bin\Debug\net8.0\React.Core.dll

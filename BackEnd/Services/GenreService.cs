@@ -22,10 +22,10 @@ namespace BackEnd.Services
 			=> formatAllModels();
 
 		public Genre? getGenreById(int id)
-			=> formatModel(CallbackHandler, null, x => x.genre_id == id);
+			=> formatModel(null, x => x.genre_id == id);
 
 		public Genre? getGenreByName(string name)
-			=> formatModel(CallbackHandler, null, x => x.genre_name == name);
+			=> formatModel(null, x => x.genre_name == name);
 
 		public Genre? removeGenre(int id)
 		{
@@ -41,7 +41,8 @@ namespace BackEnd.Services
 
 		public Genre? updateGenre(int id, Genre genre)
 		{
-			Genre? updateGenre = updateModel(id, genre);
+			Genre? updateGenre = updateModel(
+				x => x.genre_id == id, genre);
 			
 			if(updateGenre != null)
 			{

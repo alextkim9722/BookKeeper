@@ -22,10 +22,10 @@ namespace BackEnd.Services
 			=> getAllModels();
 
 		public User? getUserById(int id)
-			=> formatModel(CallbackHandler, null, x => x.user_id == id);
+			=> formatModel(null, x => x.user_id == id);
 
 		public User? getUserByUserName(string userName)
-			=> formatModel(CallbackHandler, null, x => x.username == userName);
+			=> formatModel(	null, x => x.username == userName);
 
 		public User? removeUser(int id)
 		{
@@ -41,13 +41,15 @@ namespace BackEnd.Services
 
 		public User? updateUser(int id, User user)
 		{
-			User? updatedUser = updateModel(id, user);
+			User? updatedUser = updateModel(
+				x => x.user_id == id, user);
 
 			if (updatedUser != null)
 			{
 				updatedUser.pagesRead = user.pagesRead;
 				updatedUser.booksRead = user.booksRead;
 				updatedUser.books = user.books;
+				updatedUser.reviews	= user.reviews;
 			}
 
 			return updatedUser;
@@ -76,8 +78,7 @@ namespace BackEnd.Services
 		{
 			user.books = getMultipleJoins<Book, User_Book>(
 				x => x.user_id == user.user_id, y => y.book_id);
-			user.reviews = getMultipleJoins<Review, User_Review>(
-				x => x.user_id == user.user_id, y => y.review_id);
+			user.reviews = getJoins<Review>(x => x.user_id == user.user_id);
 
 			return user;
 		}
@@ -85,7 +86,8 @@ namespace BackEnd.Services
 		protected override bool deleteBridges(int id)
 		{
 			return
-				deleteJoins<User_Book>(x => x.user_id == id);
+				deleteJoins<User_Book>(x => x.user_id == id) &&
+				deleteJoins<Review>(x => x.user_id == id);
 		}
 	}
 }
