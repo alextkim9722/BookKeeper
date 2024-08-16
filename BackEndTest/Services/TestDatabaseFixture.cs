@@ -35,12 +35,15 @@ namespace MainProjectTest.Services
         {
 			_bookShelfContext.Database.ExecuteSql($"TRUNCATE TABLE [dbo].[book_author]");
 			_bookShelfContext.Database.ExecuteSql($"TRUNCATE TABLE [dbo].[book_genre]");
+			_bookShelfContext.Database.ExecuteSql($"TRUNCATE TABLE [dbo].[book_review]");
 			_bookShelfContext.Database.ExecuteSql($"TRUNCATE TABLE [dbo].[user_book]");
+			_bookShelfContext.Database.ExecuteSql($"TRUNCATE TABLE [dbo].[user_review]");
 
-            _bookShelfContext.Database.ExecuteSql($"DELETE [dbo].[user]");
+			_bookShelfContext.Database.ExecuteSql($"DELETE [dbo].[user]");
 			_bookShelfContext.Database.ExecuteSql($"DELETE [dbo].[book]");
 			_bookShelfContext.Database.ExecuteSql($"DELETE [dbo].[genre]");
 			_bookShelfContext.Database.ExecuteSql($"DELETE [dbo].[author]");
+			_bookShelfContext.Database.ExecuteSql($"DELETE [dbo].[review]");
 		}
 
         public void populateTables(BookShelfContext _bookShelfContext)
@@ -108,6 +111,32 @@ namespace MainProjectTest.Services
                     (3,'MariaCanza123','Wassup guys! How are you all doing','2012-12-12','images/profilepic3.jpg')
                 SET IDENTITY_INSERT [dbo].[user] OFF"
                 );
+			_bookShelfContext.Database.ExecuteSql(
+				$@"
+                SET IDENTITY_INSERT [dbo].[review] ON
+                INSERT INTO [dbo].[review]
+                    ([REVIEW_ID],
+                    [DESCRIPTION],
+                    [RATING],
+                    [DATE_SUBMITTED])
+                VALUES
+                    (0, 'review 0', 2, '2014-01-02'),
+                    (1, 'review 1', 4, '2014-01-03'),
+                    (2, 'review 2', 1, '2014-01-04'),
+                    (3, 'review 3', 7, '2014-01-05'),
+                    (4, 'review 4', 4, '2014-01-06'),
+                    (5, 'review 5', 9, '2014-01-07'),
+                    (6, 'review 6', 3, '2014-01-08'),
+                    (7, 'review 7', 10, '2014-01-09'),
+                    (8, 'review 8', 2, '2014-01-12'),
+                    (9, 'review 9', 6, '2014-01-18'),
+                    (10, 'review 10', 10, '2014-01-13'),
+                    (11, 'review 11', 5, '2014-01-14'),
+                    (12, 'review 12', 9, '2014-01-15'),
+                    (13, 'review 13', 5, '2014-01-16'),
+                    (14, 'review 14', 3, '2014-01-17'),
+                SET IDENTITY_INSERT [dbo].[review] OFF"
+				);
 		}
 
         public void populateBridgeTables(BookShelfContext _bookShelfContext)
@@ -157,6 +186,48 @@ namespace MainProjectTest.Services
                     (3,3),
                     (2,2),
                     (1,1)"
+				);
+			_bookShelfContext.Database.ExecuteSql(
+				$@"INSERT INTO [dbo].[user_review]
+                    ([USER_ID],
+                    [REVIEW_ID])
+                VALUES
+                    (0,1),
+                    (2,2),
+                    (1,3),
+                    (3,4),
+                    (0,5),
+                    (1,6),
+                    (0,7),
+                    (2,8),
+                    (1,9),
+                    (2,10),
+                    (1,11),
+                    (3,12),
+                    (0,13),
+                    (3,14),
+                    (3,15),"
+				);
+			_bookShelfContext.Database.ExecuteSql(
+				$@"INSERT INTO [dbo].[book_review]
+                    ([BOOK_ID],
+                    [REVIEW_ID])
+                VALUES
+                    (0,1),
+                    (2,2),
+                    (1,3),
+                    (3,4),
+                    (4,5),
+                    (1,6),
+                    (0,7),
+                    (2,8),
+                    (1,9),
+                    (2,10),
+                    (1,11),
+                    (4,12),
+                    (0,13),
+                    (4,14),
+                    (3,15),"
 				);
 		}
     }

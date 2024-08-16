@@ -23,6 +23,8 @@ namespace BackEnd.Model
 		[NotMapped]
 		public IEnumerable<Genre>? genres { get; set; }
 		[NotMapped]
+		public IEnumerable<Review>? reviews { get; set; }
+		[NotMapped]
 		public int? readers { get; set; } = 0;
 		[NotMapped]
 		public int rating { get; set; }

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "cP1xOOm2301znqc/efRO5T9LMDkShmtXSnC87g7xGJs=",
+  "Hash": "MIJE0YBdZsQ81w/H3NAXTwjsMzKl+womtc7Sq4IcX8w=",
   "Source": "BackEnd",
   "BasePath": "_content/BackEnd",
   "Mode": "Default",
@@ -10,17 +10,17 @@
     {
       "Name": "BackEnd\\wwwroot",
       "Source": "BackEnd",
-      "ContentRoot": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\wwwroot\\",
+      "ContentRoot": "S:\\Programming-Stuff\\BookKeeper\\BackEnd\\wwwroot\\",
       "BasePath": "_content/BackEnd",
       "Pattern": "**"
     }
   ],
   "Assets": [
     {
-      "Identity": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\wwwroot\\bootstrap\\css\\bootstrap.css",
+      "Identity": "S:\\Programming-Stuff\\BookKeeper\\BackEnd\\wwwroot\\bootstrap\\css\\bootstrap.css",
       "SourceId": "BackEnd",
       "SourceType": "Discovered",
-      "ContentRoot": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\wwwroot\\",
+      "ContentRoot": "S:\\Programming-Stuff\\BookKeeper\\BackEnd\\wwwroot\\",
       "BasePath": "_content/BackEnd",
       "RelativePath": "bootstrap/css/bootstrap.css",
       "AssetKind": "All",
@@ -36,10 +36,10 @@
       "OriginalItemSpec": "wwwroot\\bootstrap\\css\\bootstrap.css"
     },
     {
-      "Identity": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\wwwroot\\bootstrap\\css\\bootstrap.css.map",
+      "Identity": "S:\\Programming-Stuff\\BookKeeper\\BackEnd\\wwwroot\\bootstrap\\css\\bootstrap.css.map",
       "SourceId": "BackEnd",
       "SourceType": "Discovered",
-      "ContentRoot": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\wwwroot\\",
+      "ContentRoot": "S:\\Programming-Stuff\\BookKeeper\\BackEnd\\wwwroot\\",
       "BasePath": "_content/BackEnd",
       "RelativePath": "bootstrap/css/bootstrap.css.map",
       "AssetKind": "All",
@@ -55,10 +55,10 @@
       "OriginalItemSpec": "wwwroot\\bootstrap\\css\\bootstrap.css.map"
     },
     {
-      "Identity": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\wwwroot\\bootstrap\\css\\bootstrap.min.css",
+      "Identity": "S:\\Programming-Stuff\\BookKeeper\\BackEnd\\wwwroot\\bootstrap\\css\\bootstrap.min.css",
       "SourceId": "BackEnd",
       "SourceType": "Discovered",
-      "ContentRoot": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\wwwroot\\",
+      "ContentRoot": "S:\\Programming-Stuff\\BookKeeper\\BackEnd\\wwwroot\\",
       "BasePath": "_content/BackEnd",
       "RelativePath": "bootstrap/css/bootstrap.min.css",
       "AssetKind": "All",
@@ -74,10 +74,10 @@
       "OriginalItemSpec": "wwwroot\\bootstrap\\css\\bootstrap.min.css"
     },
     {
-      "Identity": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\wwwroot\\bootstrap\\css\\bootstrap.min.css.map",
+      "Identity": "S:\\Programming-Stuff\\BookKeeper\\BackEnd\\wwwroot\\bootstrap\\css\\bootstrap.min.css.map",
       "SourceId": "BackEnd",
       "SourceType": "Discovered",
-      "ContentRoot": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\wwwroot\\",
+      "ContentRoot": "S:\\Programming-Stuff\\BookKeeper\\BackEnd\\wwwroot\\",
       "BasePath": "_content/BackEnd",
       "RelativePath": "bootstrap/css/bootstrap.min.css.map",
       "AssetKind": "All",
@@ -93,10 +93,10 @@
       "OriginalItemSpec": "wwwroot\\bootstrap\\css\\bootstrap.min.css.map"
     },
     {
-      "Identity": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\wwwroot\\bootstrap\\css\\bootstrap.rtl.css",
+      "Identity": "S:\\Programming-Stuff\\BookKeeper\\BackEnd\\wwwroot\\bootstrap\\css\\bootstrap.rtl.css",
       "SourceId": "BackEnd",
       "SourceType": "Discovered",
-      "ContentRoot": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\wwwroot\\",
+      "ContentRoot": "S:\\Programming-Stuff\\BookKeeper\\BackEnd\\wwwroot\\",
       "BasePath": "_content/BackEnd",
       "RelativePath": "bootstrap/css/bootstrap.rtl.css",
       "AssetKind": "All",
@@ -112,10 +112,10 @@
       "OriginalItemSpec": "wwwroot\\bootstrap\\css\\bootstrap.rtl.css"
     },
     {
-      "Identity": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\wwwroot\\bootstrap\\css\\bootstrap.rtl.css.map",
+      "Identity": "S:\\Programming-Stuff\\BookKeeper\\BackEnd\\wwwroot\\bootstrap\\css\\bootstrap.rtl.css.map",
       "SourceId": "BackEnd",
       "SourceType": "Discovered",
-      "ContentRoot": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\wwwroot\\",
+      "ContentRoot": "S:\\Programming-Stuff\\BookKeeper\\BackEnd\\wwwroot\\",
       "BasePath": "_content/BackEnd",
       "RelativePath": "bootstrap/css/bootstrap.rtl.css.map",
       "AssetKind": "All",
@@ -131,10 +131,10 @@
       "OriginalItemSpec": "wwwroot\\bootstrap\\css\\bootstrap.rtl.css.map"
     },
     {
-      "Identity": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\wwwroot\\bootstrap\\css\\bootstrap.rtl.min.css",
+      "Identity": "S:\\Programming-Stuff\\BookKeeper\\BackEnd\\wwwroot\\bootstrap\\css\\bootstrap.rtl.min.css",
       "SourceId": "BackEnd",
       "SourceType": "Discovered",
-      "ContentRoot": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\wwwroot\\",
+      "ContentRoot": "S:\\Programming-Stuff\\BookKeeper\\BackEnd\\wwwroot\\",
       "BasePath": "_content/BackEnd",
       "RelativePath": "bootstrap/css/bootstrap.rtl.min.css",
       "AssetKind": "All",
@@ -150,10 +150,10 @@
       "OriginalItemSpec": "wwwroot\\bootstrap\\css\\bootstrap.rtl.min.css"
     },
     {
-      "Identity": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\wwwroot\\bootstrap\\css\\bootstrap.rtl.min.css.map",
+      "Identity": "S:\\Programming-Stuff\\BookKeeper\\BackEnd\\wwwroot\\bootstrap\\css\\bootstrap.rtl.min.css.map",
       "SourceId": "BackEnd",
       "SourceType": "Discovered",
-      "ContentRoot": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\wwwroot\\",
+      "ContentRoot": "S:\\Programming-Stuff\\BookKeeper\\BackEnd\\wwwroot\\",
       "BasePath": "_content/BackEnd",
       "RelativePath": "bootstrap/css/bootstrap.rtl.min.css.map",
       "AssetKind": "All",
@@ -169,10 +169,10 @@
       "OriginalItemSpec": "wwwroot\\bootstrap\\css\\bootstrap.rtl.min.css.map"
     },
     {
-      "Identity": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\wwwroot\\bootstrap\\css\\bootstrap-grid.css",
+      "Identity": "S:\\Programming-Stuff\\BookKeeper\\BackEnd\\wwwroot\\bootstrap\\css\\bootstrap-grid.css",
       "SourceId": "BackEnd",
       "SourceType": "Discovered",
-      "ContentRoot": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\wwwroot\\",
+      "ContentRoot": "S:\\Programming-Stuff\\BookKeeper\\BackEnd\\wwwroot\\",
       "BasePath": "_content/BackEnd",
       "RelativePath": "bootstrap/css/bootstrap-grid.css",
       "AssetKind": "All",
@@ -188,10 +188,10 @@
       "OriginalItemSpec": "wwwroot\\bootstrap\\css\\bootstrap-grid.css"
     },
     {
-      "Identity": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\wwwroot\\bootstrap\\css\\bootstrap-grid.css.map",
+      "Identity": "S:\\Programming-Stuff\\BookKeeper\\BackEnd\\wwwroot\\bootstrap\\css\\bootstrap-grid.css.map",
       "SourceId": "BackEnd",
       "SourceType": "Discovered",
-      "ContentRoot": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\wwwroot\\",
+      "ContentRoot": "S:\\Programming-Stuff\\BookKeeper\\BackEnd\\wwwroot\\",
       "BasePath": "_content/BackEnd",
       "RelativePath": "bootstrap/css/bootstrap-grid.css.map",
       "AssetKind": "All",
@@ -207,10 +207,10 @@
       "OriginalItemSpec": "wwwroot\\bootstrap\\css\\bootstrap-grid.css.map"
     },
     {
-      "Identity": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\wwwroot\\bootstrap\\css\\bootstrap-grid.min.css",
+      "Identity": "S:\\Programming-Stuff\\BookKeeper\\BackEnd\\wwwroot\\bootstrap\\css\\bootstrap-grid.min.css",
       "SourceId": "BackEnd",
       "SourceType": "Discovered",
-      "ContentRoot": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\wwwroot\\",
+      "ContentRoot": "S:\\Programming-Stuff\\BookKeeper\\BackEnd\\wwwroot\\",
       "BasePath": "_content/BackEnd",
       "RelativePath": "bootstrap/css/bootstrap-grid.min.css",
       "AssetKind": "All",
@@ -226,10 +226,10 @@
       "OriginalItemSpec": "wwwroot\\bootstrap\\css\\bootstrap-grid.min.css"
     },
     {
-      "Identity": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\wwwroot\\bootstrap\\css\\bootstrap-grid.min.css.map",
+      "Identity": "S:\\Programming-Stuff\\BookKeeper\\BackEnd\\wwwroot\\bootstrap\\css\\bootstrap-grid.min.css.map",
       "SourceId": "BackEnd",
       "SourceType": "Discovered",
-      "ContentRoot": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\wwwroot\\",
+      "ContentRoot": "S:\\Programming-Stuff\\BookKeeper\\BackEnd\\wwwroot\\",
       "BasePath": "_content/BackEnd",
       "RelativePath": "bootstrap/css/bootstrap-grid.min.css.map",
       "AssetKind": "All",
@@ -245,10 +245,10 @@
       "OriginalItemSpec": "wwwroot\\bootstrap\\css\\bootstrap-grid.min.css.map"
     },
     {
-      "Identity": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\wwwroot\\bootstrap\\css\\bootstrap-grid.rtl.css",
+      "Identity": "S:\\Programming-Stuff\\BookKeeper\\BackEnd\\wwwroot\\bootstrap\\css\\bootstrap-grid.rtl.css",
       "SourceId": "BackEnd",
       "SourceType": "Discovered",
-      "ContentRoot": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\wwwroot\\",
+      "ContentRoot": "S:\\Programming-Stuff\\BookKeeper\\BackEnd\\wwwroot\\",
       "BasePath": "_content/BackEnd",
       "RelativePath": "bootstrap/css/bootstrap-grid.rtl.css",
       "AssetKind": "All",
@@ -264,10 +264,10 @@
       "OriginalItemSpec": "wwwroot\\bootstrap\\css\\bootstrap-grid.rtl.css"
     },
     {
-      "Identity": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\wwwroot\\bootstrap\\css\\bootstrap-grid.rtl.css.map",
+      "Identity": "S:\\Programming-Stuff\\BookKeeper\\BackEnd\\wwwroot\\bootstrap\\css\\bootstrap-grid.rtl.css.map",
       "SourceId": "BackEnd",
       "SourceType": "Discovered",
-      "ContentRoot": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\wwwroot\\",
+      "ContentRoot": "S:\\Programming-Stuff\\BookKeeper\\BackEnd\\wwwroot\\",
       "BasePath": "_content/BackEnd",
       "RelativePath": "bootstrap/css/bootstrap-grid.rtl.css.map",
       "AssetKind": "All",
@@ -283,10 +283,10 @@
       "OriginalItemSpec": "wwwroot\\bootstrap\\css\\bootstrap-grid.rtl.css.map"
     },
     {
-      "Identity": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\wwwroot\\bootstrap\\css\\bootstrap-grid.rtl.min.css",
+      "Identity": "S:\\Programming-Stuff\\BookKeeper\\BackEnd\\wwwroot\\bootstrap\\css\\bootstrap-grid.rtl.min.css",
       "SourceId": "BackEnd",
       "SourceType": "Discovered",
-      "ContentRoot": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\wwwroot\\",
+      "ContentRoot": "S:\\Programming-Stuff\\BookKeeper\\BackEnd\\wwwroot\\",
       "BasePath": "_content/BackEnd",
       "RelativePath": "bootstrap/css/bootstrap-grid.rtl.min.css",
       "AssetKind": "All",
@@ -302,10 +302,10 @@
       "OriginalItemSpec": "wwwroot\\bootstrap\\css\\bootstrap-grid.rtl.min.css"
     },
     {
-      "Identity": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\wwwroot\\bootstrap\\css\\bootstrap-grid.rtl.min.css.map",
+      "Identity": "S:\\Programming-Stuff\\BookKeeper\\BackEnd\\wwwroot\\bootstrap\\css\\bootstrap-grid.rtl.min.css.map",
       "SourceId": "BackEnd",
       "SourceType": "Discovered",
-      "ContentRoot": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\wwwroot\\",
+      "ContentRoot": "S:\\Programming-Stuff\\BookKeeper\\BackEnd\\wwwroot\\",
       "BasePath": "_content/BackEnd",
       "RelativePath": "bootstrap/css/bootstrap-grid.rtl.min.css.map",
       "AssetKind": "All",
@@ -321,10 +321,10 @@
       "OriginalItemSpec": "wwwroot\\bootstrap\\css\\bootstrap-grid.rtl.min.css.map"
     },
     {
-      "Identity": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\wwwroot\\bootstrap\\css\\bootstrap-reboot.css",
+      "Identity": "S:\\Programming-Stuff\\BookKeeper\\BackEnd\\wwwroot\\bootstrap\\css\\bootstrap-reboot.css",
       "SourceId": "BackEnd",
       "SourceType": "Discovered",
-      "ContentRoot": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\wwwroot\\",
+      "ContentRoot": "S:\\Programming-Stuff\\BookKeeper\\BackEnd\\wwwroot\\",
       "BasePath": "_content/BackEnd",
       "RelativePath": "bootstrap/css/bootstrap-reboot.css",
       "AssetKind": "All",
@@ -340,10 +340,10 @@
       "OriginalItemSpec": "wwwroot\\bootstrap\\css\\bootstrap-reboot.css"
     },
     {
-      "Identity": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\wwwroot\\bootstrap\\css\\bootstrap-reboot.css.map",
+      "Identity": "S:\\Programming-Stuff\\BookKeeper\\BackEnd\\wwwroot\\bootstrap\\css\\bootstrap-reboot.css.map",
       "SourceId": "BackEnd",
       "SourceType": "Discovered",
-      "ContentRoot": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\wwwroot\\",
+      "ContentRoot": "S:\\Programming-Stuff\\BookKeeper\\BackEnd\\wwwroot\\",
       "BasePath": "_content/BackEnd",
       "RelativePath": "bootstrap/css/bootstrap-reboot.css.map",
       "AssetKind": "All",
@@ -359,10 +359,10 @@
       "OriginalItemSpec": "wwwroot\\bootstrap\\css\\bootstrap-reboot.css.map"
     },
     {
-      "Identity": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\wwwroot\\bootstrap\\css\\bootstrap-reboot.min.css",
+      "Identity": "S:\\Programming-Stuff\\BookKeeper\\BackEnd\\wwwroot\\bootstrap\\css\\bootstrap-reboot.min.css",
       "SourceId": "BackEnd",
       "SourceType": "Discovered",
-      "ContentRoot": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\wwwroot\\",
+      "ContentRoot": "S:\\Programming-Stuff\\BookKeeper\\BackEnd\\wwwroot\\",
       "BasePath": "_content/BackEnd",
       "RelativePath": "bootstrap/css/bootstrap-reboot.min.css",
       "AssetKind": "All",
@@ -378,10 +378,10 @@
       "OriginalItemSpec": "wwwroot\\bootstrap\\css\\bootstrap-reboot.min.css"
     },
     {
-      "Identity": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\wwwroot\\bootstrap\\css\\bootstrap-reboot.min.css.map",
+      "Identity": "S:\\Programming-Stuff\\BookKeeper\\BackEnd\\wwwroot\\bootstrap\\css\\bootstrap-reboot.min.css.map",
       "SourceId": "BackEnd",
       "SourceType": "Discovered",
-      "ContentRoot": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\wwwroot\\",
+      "ContentRoot": "S:\\Programming-Stuff\\BookKeeper\\BackEnd\\wwwroot\\",
       "BasePath": "_content/BackEnd",
       "RelativePath": "bootstrap/css/bootstrap-reboot.min.css.map",
       "AssetKind": "All",
@@ -397,10 +397,10 @@
       "OriginalItemSpec": "wwwroot\\bootstrap\\css\\bootstrap-reboot.min.css.map"
     },
     {
-      "Identity": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\wwwroot\\bootstrap\\css\\bootstrap-reboot.rtl.css",
+      "Identity": "S:\\Programming-Stuff\\BookKeeper\\BackEnd\\wwwroot\\bootstrap\\css\\bootstrap-reboot.rtl.css",
       "SourceId": "BackEnd",
       "SourceType": "Discovered",
-      "ContentRoot": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\wwwroot\\",
+      "ContentRoot": "S:\\Programming-Stuff\\BookKeeper\\BackEnd\\wwwroot\\",
       "BasePath": "_content/BackEnd",
       "RelativePath": "bootstrap/css/bootstrap-reboot.rtl.css",
       "AssetKind": "All",
@@ -416,10 +416,10 @@
       "OriginalItemSpec": "wwwroot\\bootstrap\\css\\bootstrap-reboot.rtl.css"
     },
     {
-      "Identity": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\wwwroot\\bootstrap\\css\\bootstrap-reboot.rtl.css.map",
+      "Identity": "S:\\Programming-Stuff\\BookKeeper\\BackEnd\\wwwroot\\bootstrap\\css\\bootstrap-reboot.rtl.css.map",
       "SourceId": "BackEnd",
       "SourceType": "Discovered",
-      "ContentRoot": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\wwwroot\\",
+      "ContentRoot": "S:\\Programming-Stuff\\BookKeeper\\BackEnd\\wwwroot\\",
       "BasePath": "_content/BackEnd",
       "RelativePath": "bootstrap/css/bootstrap-reboot.rtl.css.map",
       "AssetKind": "All",
@@ -435,10 +435,10 @@
       "OriginalItemSpec": "wwwroot\\bootstrap\\css\\bootstrap-reboot.rtl.css.map"
     },
     {
-      "Identity": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\wwwroot\\bootstrap\\css\\bootstrap-reboot.rtl.min.css",
+      "Identity": "S:\\Programming-Stuff\\BookKeeper\\BackEnd\\wwwroot\\bootstrap\\css\\bootstrap-reboot.rtl.min.css",
       "SourceId": "BackEnd",
       "SourceType": "Discovered",
-      "ContentRoot": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\wwwroot\\",
+      "ContentRoot": "S:\\Programming-Stuff\\BookKeeper\\BackEnd\\wwwroot\\",
       "BasePath": "_content/BackEnd",
       "RelativePath": "bootstrap/css/bootstrap-reboot.rtl.min.css",
       "AssetKind": "All",
@@ -454,10 +454,10 @@
       "OriginalItemSpec": "wwwroot\\bootstrap\\css\\bootstrap-reboot.rtl.min.css"
     },
     {
-      "Identity": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\wwwroot\\bootstrap\\css\\bootstrap-reboot.rtl.min.css.map",
+      "Identity": "S:\\Programming-Stuff\\BookKeeper\\BackEnd\\wwwroot\\bootstrap\\css\\bootstrap-reboot.rtl.min.css.map",
       "SourceId": "BackEnd",
       "SourceType": "Discovered",
-      "ContentRoot": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\wwwroot\\",
+      "ContentRoot": "S:\\Programming-Stuff\\BookKeeper\\BackEnd\\wwwroot\\",
       "BasePath": "_content/BackEnd",
       "RelativePath": "bootstrap/css/bootstrap-reboot.rtl.min.css.map",
       "AssetKind": "All",
@@ -473,10 +473,10 @@
       "OriginalItemSpec": "wwwroot\\bootstrap\\css\\bootstrap-reboot.rtl.min.css.map"
     },
     {
-      "Identity": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\wwwroot\\bootstrap\\css\\bootstrap-utilities.css",
+      "Identity": "S:\\Programming-Stuff\\BookKeeper\\BackEnd\\wwwroot\\bootstrap\\css\\bootstrap-utilities.css",
       "SourceId": "BackEnd",
       "SourceType": "Discovered",
-      "ContentRoot": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\wwwroot\\",
+      "ContentRoot": "S:\\Programming-Stuff\\BookKeeper\\BackEnd\\wwwroot\\",
       "BasePath": "_content/BackEnd",
       "RelativePath": "bootstrap/css/bootstrap-utilities.css",
       "AssetKind": "All",
@@ -492,10 +492,10 @@
       "OriginalItemSpec": "wwwroot\\bootstrap\\css\\bootstrap-utilities.css"
     },
     {
-      "Identity": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\wwwroot\\bootstrap\\css\\bootstrap-utilities.css.map",
+      "Identity": "S:\\Programming-Stuff\\BookKeeper\\BackEnd\\wwwroot\\bootstrap\\css\\bootstrap-utilities.css.map",
       "SourceId": "BackEnd",
       "SourceType": "Discovered",
-      "ContentRoot": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\wwwroot\\",
+      "ContentRoot": "S:\\Programming-Stuff\\BookKeeper\\BackEnd\\wwwroot\\",
       "BasePath": "_content/BackEnd",
       "RelativePath": "bootstrap/css/bootstrap-utilities.css.map",
       "AssetKind": "All",
@@ -511,10 +511,10 @@
       "OriginalItemSpec": "wwwroot\\bootstrap\\css\\bootstrap-utilities.css.map"
     },
     {
-      "Identity": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\wwwroot\\bootstrap\\css\\bootstrap-utilities.min.css",
+      "Identity": "S:\\Programming-Stuff\\BookKeeper\\BackEnd\\wwwroot\\bootstrap\\css\\bootstrap-utilities.min.css",
       "SourceId": "BackEnd",
       "SourceType": "Discovered",
-      "ContentRoot": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\wwwroot\\",
+      "ContentRoot": "S:\\Programming-Stuff\\BookKeeper\\BackEnd\\wwwroot\\",
       "BasePath": "_content/BackEnd",
       "RelativePath": "bootstrap/css/bootstrap-utilities.min.css",
       "AssetKind": "All",
@@ -530,10 +530,10 @@
       "OriginalItemSpec": "wwwroot\\bootstrap\\css\\bootstrap-utilities.min.css"
     },
     {
-      "Identity": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\wwwroot\\bootstrap\\css\\bootstrap-utilities.min.css.map",
+      "Identity": "S:\\Programming-Stuff\\BookKeeper\\BackEnd\\wwwroot\\bootstrap\\css\\bootstrap-utilities.min.css.map",
       "SourceId": "BackEnd",
       "SourceType": "Discovered",
-      "ContentRoot": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\wwwroot\\",
+      "ContentRoot": "S:\\Programming-Stuff\\BookKeeper\\BackEnd\\wwwroot\\",
       "BasePath": "_content/BackEnd",
       "RelativePath": "bootstrap/css/bootstrap-utilities.min.css.map",
       "AssetKind": "All",
@@ -549,10 +549,10 @@
       "OriginalItemSpec": "wwwroot\\bootstrap\\css\\bootstrap-utilities.min.css.map"
     },
     {
-      "Identity": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\wwwroot\\bootstrap\\css\\bootstrap-utilities.rtl.css",
+      "Identity": "S:\\Programming-Stuff\\BookKeeper\\BackEnd\\wwwroot\\bootstrap\\css\\bootstrap-utilities.rtl.css",
       "SourceId": "BackEnd",
       "SourceType": "Discovered",
-      "ContentRoot": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\wwwroot\\",
+      "ContentRoot": "S:\\Programming-Stuff\\BookKeeper\\BackEnd\\wwwroot\\",
       "BasePath": "_content/BackEnd",
       "RelativePath": "bootstrap/css/bootstrap-utilities.rtl.css",
       "AssetKind": "All",
@@ -568,10 +568,10 @@
       "OriginalItemSpec": "wwwroot\\bootstrap\\css\\bootstrap-utilities.rtl.css"
     },
     {
-      "Identity": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\wwwroot\\bootstrap\\css\\bootstrap-utilities.rtl.css.map",
+      "Identity": "S:\\Programming-Stuff\\BookKeeper\\BackEnd\\wwwroot\\bootstrap\\css\\bootstrap-utilities.rtl.css.map",
       "SourceId": "BackEnd",
       "SourceType": "Discovered",
-      "ContentRoot": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\wwwroot\\",
+      "ContentRoot": "S:\\Programming-Stuff\\BookKeeper\\BackEnd\\wwwroot\\",
       "BasePath": "_content/BackEnd",
       "RelativePath": "bootstrap/css/bootstrap-utilities.rtl.css.map",
       "AssetKind": "All",
@@ -587,10 +587,10 @@
       "OriginalItemSpec": "wwwroot\\bootstrap\\css\\bootstrap-utilities.rtl.css.map"
     },
     {
-      "Identity": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\wwwroot\\bootstrap\\css\\bootstrap-utilities.rtl.min.css",
+      "Identity": "S:\\Programming-Stuff\\BookKeeper\\BackEnd\\wwwroot\\bootstrap\\css\\bootstrap-utilities.rtl.min.css",
       "SourceId": "BackEnd",
       "SourceType": "Discovered",
-      "ContentRoot": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\wwwroot\\",
+      "ContentRoot": "S:\\Programming-Stuff\\BookKeeper\\BackEnd\\wwwroot\\",
       "BasePath": "_content/BackEnd",
       "RelativePath": "bootstrap/css/bootstrap-utilities.rtl.min.css",
       "AssetKind": "All",
@@ -606,10 +606,10 @@
       "OriginalItemSpec": "wwwroot\\bootstrap\\css\\bootstrap-utilities.rtl.min.css"
     },
     {
-      "Identity": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\wwwroot\\bootstrap\\css\\bootstrap-utilities.rtl.min.css.map",
+      "Identity": "S:\\Programming-Stuff\\BookKeeper\\BackEnd\\wwwroot\\bootstrap\\css\\bootstrap-utilities.rtl.min.css.map",
       "SourceId": "BackEnd",
       "SourceType": "Discovered",
-      "ContentRoot": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\wwwroot\\",
+      "ContentRoot": "S:\\Programming-Stuff\\BookKeeper\\BackEnd\\wwwroot\\",
       "BasePath": "_content/BackEnd",
       "RelativePath": "bootstrap/css/bootstrap-utilities.rtl.min.css.map",
       "AssetKind": "All",
@@ -625,10 +625,10 @@
       "OriginalItemSpec": "wwwroot\\bootstrap\\css\\bootstrap-utilities.rtl.min.css.map"
     },
     {
-      "Identity": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\wwwroot\\bootstrap\\js\\bootstrap.bundle.js",
+      "Identity": "S:\\Programming-Stuff\\BookKeeper\\BackEnd\\wwwroot\\bootstrap\\js\\bootstrap.bundle.js",
       "SourceId": "BackEnd",
       "SourceType": "Discovered",
-      "ContentRoot": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\wwwroot\\",
+      "ContentRoot": "S:\\Programming-Stuff\\BookKeeper\\BackEnd\\wwwroot\\",
       "BasePath": "_content/BackEnd",
       "RelativePath": "bootstrap/js/bootstrap.bundle.js",
       "AssetKind": "All",
@@ -644,10 +644,10 @@
       "OriginalItemSpec": "wwwroot\\bootstrap\\js\\bootstrap.bundle.js"
     },
     {
-      "Identity": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\wwwroot\\bootstrap\\js\\bootstrap.bundle.js.map",
+      "Identity": "S:\\Programming-Stuff\\BookKeeper\\BackEnd\\wwwroot\\bootstrap\\js\\bootstrap.bundle.js.map",
       "SourceId": "BackEnd",
       "SourceType": "Discovered",
-      "ContentRoot": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\wwwroot\\",
+      "ContentRoot": "S:\\Programming-Stuff\\BookKeeper\\BackEnd\\wwwroot\\",
       "BasePath": "_content/BackEnd",
       "RelativePath": "bootstrap/js/bootstrap.bundle.js.map",
       "AssetKind": "All",
@@ -663,10 +663,10 @@
       "OriginalItemSpec": "wwwroot\\bootstrap\\js\\bootstrap.bundle.js.map"
     },
     {
-      "Identity": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\wwwroot\\bootstrap\\js\\bootstrap.bundle.min.js",
+      "Identity": "S:\\Programming-Stuff\\BookKeeper\\BackEnd\\wwwroot\\bootstrap\\js\\bootstrap.bundle.min.js",
       "SourceId": "BackEnd",
       "SourceType": "Discovered",
-      "ContentRoot": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\wwwroot\\",
+      "ContentRoot": "S:\\Programming-Stuff\\BookKeeper\\BackEnd\\wwwroot\\",
       "BasePath": "_content/BackEnd",
       "RelativePath": "bootstrap/js/bootstrap.bundle.min.js",
       "AssetKind": "All",
@@ -682,10 +682,10 @@
       "OriginalItemSpec": "wwwroot\\bootstrap\\js\\bootstrap.bundle.min.js"
     },
     {
-      "Identity": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\wwwroot\\bootstrap\\js\\bootstrap.bundle.min.js.map",
+      "Identity": "S:\\Programming-Stuff\\BookKeeper\\BackEnd\\wwwroot\\bootstrap\\js\\bootstrap.bundle.min.js.map",
       "SourceId": "BackEnd",
       "SourceType": "Discovered",
-      "ContentRoot": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\wwwroot\\",
+      "ContentRoot": "S:\\Programming-Stuff\\BookKeeper\\BackEnd\\wwwroot\\",
       "BasePath": "_content/BackEnd",
       "RelativePath": "bootstrap/js/bootstrap.bundle.min.js.map",
       "AssetKind": "All",
@@ -701,10 +701,10 @@
       "OriginalItemSpec": "wwwroot\\bootstrap\\js\\bootstrap.bundle.min.js.map"
     },
     {
-      "Identity": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\wwwroot\\bootstrap\\js\\bootstrap.esm.js",
+      "Identity": "S:\\Programming-Stuff\\BookKeeper\\BackEnd\\wwwroot\\bootstrap\\js\\bootstrap.esm.js",
       "SourceId": "BackEnd",
       "SourceType": "Discovered",
-      "ContentRoot": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\wwwroot\\",
+      "ContentRoot": "S:\\Programming-Stuff\\BookKeeper\\BackEnd\\wwwroot\\",
       "BasePath": "_content/BackEnd",
       "RelativePath": "bootstrap/js/bootstrap.esm.js",
       "AssetKind": "All",
@@ -720,10 +720,10 @@
       "OriginalItemSpec": "wwwroot\\bootstrap\\js\\bootstrap.esm.js"
     },
     {
-      "Identity": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\wwwroot\\bootstrap\\js\\bootstrap.esm.js.map",
+      "Identity": "S:\\Programming-Stuff\\BookKeeper\\BackEnd\\wwwroot\\bootstrap\\js\\bootstrap.esm.js.map",
       "SourceId": "BackEnd",
       "SourceType": "Discovered",
-      "ContentRoot": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\wwwroot\\",
+      "ContentRoot": "S:\\Programming-Stuff\\BookKeeper\\BackEnd\\wwwroot\\",
       "BasePath": "_content/BackEnd",
       "RelativePath": "bootstrap/js/bootstrap.esm.js.map",
       "AssetKind": "All",
@@ -739,10 +739,10 @@
       "OriginalItemSpec": "wwwroot\\bootstrap\\js\\bootstrap.esm.js.map"
     },
     {
-      "Identity": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\wwwroot\\bootstrap\\js\\bootstrap.esm.min.js",
+      "Identity": "S:\\Programming-Stuff\\BookKeeper\\BackEnd\\wwwroot\\bootstrap\\js\\bootstrap.esm.min.js",
       "SourceId": "BackEnd",
       "SourceType": "Discovered",
-      "ContentRoot": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\wwwroot\\",
+      "ContentRoot": "S:\\Programming-Stuff\\BookKeeper\\BackEnd\\wwwroot\\",
       "BasePath": "_content/BackEnd",
       "RelativePath": "bootstrap/js/bootstrap.esm.min.js",
       "AssetKind": "All",
@@ -758,10 +758,10 @@
       "OriginalItemSpec": "wwwroot\\bootstrap\\js\\bootstrap.esm.min.js"
     },
     {
-      "Identity": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\wwwroot\\bootstrap\\js\\bootstrap.esm.min.js.map",
+      "Identity": "S:\\Programming-Stuff\\BookKeeper\\BackEnd\\wwwroot\\bootstrap\\js\\bootstrap.esm.min.js.map",
       "SourceId": "BackEnd",
       "SourceType": "Discovered",
-      "ContentRoot": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\wwwroot\\",
+      "ContentRoot": "S:\\Programming-Stuff\\BookKeeper\\BackEnd\\wwwroot\\",
       "BasePath": "_content/BackEnd",
       "RelativePath": "bootstrap/js/bootstrap.esm.min.js.map",
       "AssetKind": "All",
@@ -777,10 +777,10 @@
       "OriginalItemSpec": "wwwroot\\bootstrap\\js\\bootstrap.esm.min.js.map"
     },
     {
-      "Identity": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\wwwroot\\bootstrap\\js\\bootstrap.js",
+      "Identity": "S:\\Programming-Stuff\\BookKeeper\\BackEnd\\wwwroot\\bootstrap\\js\\bootstrap.js",
       "SourceId": "BackEnd",
       "SourceType": "Discovered",
-      "ContentRoot": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\wwwroot\\",
+      "ContentRoot": "S:\\Programming-Stuff\\BookKeeper\\BackEnd\\wwwroot\\",
       "BasePath": "_content/BackEnd",
       "RelativePath": "bootstrap/js/bootstrap.js",
       "AssetKind": "All",
@@ -796,10 +796,10 @@
       "OriginalItemSpec": "wwwroot\\bootstrap\\js\\bootstrap.js"
     },
     {
-      "Identity": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\wwwroot\\bootstrap\\js\\bootstrap.js.map",
+      "Identity": "S:\\Programming-Stuff\\BookKeeper\\BackEnd\\wwwroot\\bootstrap\\js\\bootstrap.js.map",
       "SourceId": "BackEnd",
       "SourceType": "Discovered",
-      "ContentRoot": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\wwwroot\\",
+      "ContentRoot": "S:\\Programming-Stuff\\BookKeeper\\BackEnd\\wwwroot\\",
       "BasePath": "_content/BackEnd",
       "RelativePath": "bootstrap/js/bootstrap.js.map",
       "AssetKind": "All",
@@ -815,10 +815,10 @@
       "OriginalItemSpec": "wwwroot\\bootstrap\\js\\bootstrap.js.map"
     },
     {
-      "Identity": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\wwwroot\\bootstrap\\js\\bootstrap.min.js",
+      "Identity": "S:\\Programming-Stuff\\BookKeeper\\BackEnd\\wwwroot\\bootstrap\\js\\bootstrap.min.js",
       "SourceId": "BackEnd",
       "SourceType": "Discovered",
-      "ContentRoot": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\wwwroot\\",
+      "ContentRoot": "S:\\Programming-Stuff\\BookKeeper\\BackEnd\\wwwroot\\",
       "BasePath": "_content/BackEnd",
       "RelativePath": "bootstrap/js/bootstrap.min.js",
       "AssetKind": "All",
@@ -834,10 +834,10 @@
       "OriginalItemSpec": "wwwroot\\bootstrap\\js\\bootstrap.min.js"
     },
     {
-      "Identity": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\wwwroot\\bootstrap\\js\\bootstrap.min.js.map",
+      "Identity": "S:\\Programming-Stuff\\BookKeeper\\BackEnd\\wwwroot\\bootstrap\\js\\bootstrap.min.js.map",
       "SourceId": "BackEnd",
       "SourceType": "Discovered",
-      "ContentRoot": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\wwwroot\\",
+      "ContentRoot": "S:\\Programming-Stuff\\BookKeeper\\BackEnd\\wwwroot\\",
       "BasePath": "_content/BackEnd",
       "RelativePath": "bootstrap/js/bootstrap.min.js.map",
       "AssetKind": "All",
@@ -853,10 +853,10 @@
       "OriginalItemSpec": "wwwroot\\bootstrap\\js\\bootstrap.min.js.map"
     },
     {
-      "Identity": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\wwwroot\\custom\\layout-style-sheet.css",
+      "Identity": "S:\\Programming-Stuff\\BookKeeper\\BackEnd\\wwwroot\\custom\\layout-style-sheet.css",
       "SourceId": "BackEnd",
       "SourceType": "Discovered",
-      "ContentRoot": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\wwwroot\\",
+      "ContentRoot": "S:\\Programming-Stuff\\BookKeeper\\BackEnd\\wwwroot\\",
       "BasePath": "_content/BackEnd",
       "RelativePath": "custom/layout-style-sheet.css",
       "AssetKind": "All",
@@ -872,10 +872,10 @@
       "OriginalItemSpec": "wwwroot\\custom\\layout-style-sheet.css"
     },
     {
-      "Identity": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\wwwroot\\custom\\shelf-style-sheet.css",
+      "Identity": "S:\\Programming-Stuff\\BookKeeper\\BackEnd\\wwwroot\\custom\\shelf-style-sheet.css",
       "SourceId": "BackEnd",
       "SourceType": "Discovered",
-      "ContentRoot": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\wwwroot\\",
+      "ContentRoot": "S:\\Programming-Stuff\\BookKeeper\\BackEnd\\wwwroot\\",
       "BasePath": "_content/BackEnd",
       "RelativePath": "custom/shelf-style-sheet.css",
       "AssetKind": "All",
@@ -891,10 +891,10 @@
       "OriginalItemSpec": "wwwroot\\custom\\shelf-style-sheet.css"
     },
     {
-      "Identity": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\wwwroot\\images\\profilepic1.jpeg",
+      "Identity": "S:\\Programming-Stuff\\BookKeeper\\BackEnd\\wwwroot\\images\\profilepic1.jpeg",
       "SourceId": "BackEnd",
       "SourceType": "Discovered",
-      "ContentRoot": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\wwwroot\\",
+      "ContentRoot": "S:\\Programming-Stuff\\BookKeeper\\BackEnd\\wwwroot\\",
       "BasePath": "_content/BackEnd",
       "RelativePath": "images/profilepic1.jpeg",
       "AssetKind": "All",
@@ -910,10 +910,10 @@
       "OriginalItemSpec": "wwwroot\\images\\profilepic1.jpeg"
     },
     {
-      "Identity": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\wwwroot\\images\\profilepic2.jpg",
+      "Identity": "S:\\Programming-Stuff\\BookKeeper\\BackEnd\\wwwroot\\images\\profilepic2.jpg",
       "SourceId": "BackEnd",
       "SourceType": "Discovered",
-      "ContentRoot": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\wwwroot\\",
+      "ContentRoot": "S:\\Programming-Stuff\\BookKeeper\\BackEnd\\wwwroot\\",
       "BasePath": "_content/BackEnd",
       "RelativePath": "images/profilepic2.jpg",
       "AssetKind": "All",
@@ -929,10 +929,10 @@
       "OriginalItemSpec": "wwwroot\\images\\profilepic2.jpg"
     },
     {
-      "Identity": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\wwwroot\\images\\profilepic3.jpg",
+      "Identity": "S:\\Programming-Stuff\\BookKeeper\\BackEnd\\wwwroot\\images\\profilepic3.jpg",
       "SourceId": "BackEnd",
       "SourceType": "Discovered",
-      "ContentRoot": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\wwwroot\\",
+      "ContentRoot": "S:\\Programming-Stuff\\BookKeeper\\BackEnd\\wwwroot\\",
       "BasePath": "_content/BackEnd",
       "RelativePath": "images/profilepic3.jpg",
       "AssetKind": "All",
@@ -948,10 +948,10 @@
       "OriginalItemSpec": "wwwroot\\images\\profilepic3.jpg"
     },
     {
-      "Identity": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\wwwroot\\images\\TempProfilePic.jpg",
+      "Identity": "S:\\Programming-Stuff\\BookKeeper\\BackEnd\\wwwroot\\images\\TempProfilePic.jpg",
       "SourceId": "BackEnd",
       "SourceType": "Discovered",
-      "ContentRoot": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\wwwroot\\",
+      "ContentRoot": "S:\\Programming-Stuff\\BookKeeper\\BackEnd\\wwwroot\\",
       "BasePath": "_content/BackEnd",
       "RelativePath": "images/TempProfilePic.jpg",
       "AssetKind": "All",
@@ -967,10 +967,10 @@
       "OriginalItemSpec": "wwwroot\\images\\TempProfilePic.jpg"
     },
     {
-      "Identity": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\wwwroot\\Images-Covers\\blue.jpg",
+      "Identity": "S:\\Programming-Stuff\\BookKeeper\\BackEnd\\wwwroot\\Images-Covers\\blue.jpg",
       "SourceId": "BackEnd",
       "SourceType": "Discovered",
-      "ContentRoot": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\wwwroot\\",
+      "ContentRoot": "S:\\Programming-Stuff\\BookKeeper\\BackEnd\\wwwroot\\",
       "BasePath": "_content/BackEnd",
       "RelativePath": "Images-Covers/blue.jpg",
       "AssetKind": "All",
@@ -986,10 +986,10 @@
       "OriginalItemSpec": "wwwroot\\Images-Covers\\blue.jpg"
     },
     {
-      "Identity": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\wwwroot\\Images-Covers\\green.jpg",
+      "Identity": "S:\\Programming-Stuff\\BookKeeper\\BackEnd\\wwwroot\\Images-Covers\\green.jpg",
       "SourceId": "BackEnd",
       "SourceType": "Discovered",
-      "ContentRoot": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\wwwroot\\",
+      "ContentRoot": "S:\\Programming-Stuff\\BookKeeper\\BackEnd\\wwwroot\\",
       "BasePath": "_content/BackEnd",
       "RelativePath": "Images-Covers/green.jpg",
       "AssetKind": "All",
@@ -1005,10 +1005,10 @@
       "OriginalItemSpec": "wwwroot\\Images-Covers\\green.jpg"
     },
     {
-      "Identity": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\wwwroot\\Images-Covers\\purple.jpg",
+      "Identity": "S:\\Programming-Stuff\\BookKeeper\\BackEnd\\wwwroot\\Images-Covers\\purple.jpg",
       "SourceId": "BackEnd",
       "SourceType": "Discovered",
-      "ContentRoot": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\wwwroot\\",
+      "ContentRoot": "S:\\Programming-Stuff\\BookKeeper\\BackEnd\\wwwroot\\",
       "BasePath": "_content/BackEnd",
       "RelativePath": "Images-Covers/purple.jpg",
       "AssetKind": "All",
@@ -1024,10 +1024,10 @@
       "OriginalItemSpec": "wwwroot\\Images-Covers\\purple.jpg"
     },
     {
-      "Identity": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\wwwroot\\Images-Covers\\red.jpg",
+      "Identity": "S:\\Programming-Stuff\\BookKeeper\\BackEnd\\wwwroot\\Images-Covers\\red.jpg",
       "SourceId": "BackEnd",
       "SourceType": "Discovered",
-      "ContentRoot": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\wwwroot\\",
+      "ContentRoot": "S:\\Programming-Stuff\\BookKeeper\\BackEnd\\wwwroot\\",
       "BasePath": "_content/BackEnd",
       "RelativePath": "Images-Covers/red.jpg",
       "AssetKind": "All",
@@ -1043,10 +1043,10 @@
       "OriginalItemSpec": "wwwroot\\Images-Covers\\red.jpg"
     },
     {
-      "Identity": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\wwwroot\\Images-Covers\\yellow.jpg",
+      "Identity": "S:\\Programming-Stuff\\BookKeeper\\BackEnd\\wwwroot\\Images-Covers\\yellow.jpg",
       "SourceId": "BackEnd",
       "SourceType": "Discovered",
-      "ContentRoot": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\wwwroot\\",
+      "ContentRoot": "S:\\Programming-Stuff\\BookKeeper\\BackEnd\\wwwroot\\",
       "BasePath": "_content/BackEnd",
       "RelativePath": "Images-Covers/yellow.jpg",
       "AssetKind": "All",

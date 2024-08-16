@@ -62,6 +62,10 @@ namespace BackEnd.Services
 				x => x.book_id == book.book_id, y => y.author_id);
 			book.genres = getMultipleJoins<Genre, Book_Genre>(
 				x => x.book_id == book.book_id, y => y.genre_id);
+			book.reviews = getMultipleJoins<Review, Book_Review>(
+				x => x.book_id == book.book_id, y => y.review_id);
+
+			book.rating = Convert.ToInt32(book.reviews.Select(x => x.rating).Average());
 
 			var readersModels = getMultipleJoins<User, User_Book>(
 				x => x.book_id == book.book_id, y => y.user_id);

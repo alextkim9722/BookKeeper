@@ -1,223 +1,223 @@
 {
   "Files": [
     {
-      "Id": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\wwwroot\\Images-Covers\\blue.jpg",
+      "Id": "S:\\Programming-Stuff\\BookKeeper\\BackEnd\\wwwroot\\Images-Covers\\blue.jpg",
       "PackagePath": "staticwebassets\\Images-Covers\\blue.jpg"
     },
     {
-      "Id": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\wwwroot\\Images-Covers\\green.jpg",
+      "Id": "S:\\Programming-Stuff\\BookKeeper\\BackEnd\\wwwroot\\Images-Covers\\green.jpg",
       "PackagePath": "staticwebassets\\Images-Covers\\green.jpg"
     },
     {
-      "Id": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\wwwroot\\Images-Covers\\purple.jpg",
+      "Id": "S:\\Programming-Stuff\\BookKeeper\\BackEnd\\wwwroot\\Images-Covers\\purple.jpg",
       "PackagePath": "staticwebassets\\Images-Covers\\purple.jpg"
     },
     {
-      "Id": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\wwwroot\\Images-Covers\\red.jpg",
+      "Id": "S:\\Programming-Stuff\\BookKeeper\\BackEnd\\wwwroot\\Images-Covers\\red.jpg",
       "PackagePath": "staticwebassets\\Images-Covers\\red.jpg"
     },
     {
-      "Id": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\wwwroot\\Images-Covers\\yellow.jpg",
+      "Id": "S:\\Programming-Stuff\\BookKeeper\\BackEnd\\wwwroot\\Images-Covers\\yellow.jpg",
       "PackagePath": "staticwebassets\\Images-Covers\\yellow.jpg"
     },
     {
-      "Id": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\wwwroot\\bootstrap\\css\\bootstrap-grid.css",
+      "Id": "S:\\Programming-Stuff\\BookKeeper\\BackEnd\\wwwroot\\bootstrap\\css\\bootstrap-grid.css",
       "PackagePath": "staticwebassets\\bootstrap\\css\\bootstrap-grid.css"
     },
     {
-      "Id": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\wwwroot\\bootstrap\\css\\bootstrap-grid.css.map",
+      "Id": "S:\\Programming-Stuff\\BookKeeper\\BackEnd\\wwwroot\\bootstrap\\css\\bootstrap-grid.css.map",
       "PackagePath": "staticwebassets\\bootstrap\\css\\bootstrap-grid.css.map"
     },
     {
-      "Id": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\wwwroot\\bootstrap\\css\\bootstrap-grid.min.css",
+      "Id": "S:\\Programming-Stuff\\BookKeeper\\BackEnd\\wwwroot\\bootstrap\\css\\bootstrap-grid.min.css",
       "PackagePath": "staticwebassets\\bootstrap\\css\\bootstrap-grid.min.css"
     },
     {
-      "Id": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\wwwroot\\bootstrap\\css\\bootstrap-grid.min.css.map",
+      "Id": "S:\\Programming-Stuff\\BookKeeper\\BackEnd\\wwwroot\\bootstrap\\css\\bootstrap-grid.min.css.map",
       "PackagePath": "staticwebassets\\bootstrap\\css\\bootstrap-grid.min.css.map"
     },
     {
-      "Id": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\wwwroot\\bootstrap\\css\\bootstrap-grid.rtl.css",
+      "Id": "S:\\Programming-Stuff\\BookKeeper\\BackEnd\\wwwroot\\bootstrap\\css\\bootstrap-grid.rtl.css",
       "PackagePath": "staticwebassets\\bootstrap\\css\\bootstrap-grid.rtl.css"
     },
     {
-      "Id": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\wwwroot\\bootstrap\\css\\bootstrap-grid.rtl.css.map",
+      "Id": "S:\\Programming-Stuff\\BookKeeper\\BackEnd\\wwwroot\\bootstrap\\css\\bootstrap-grid.rtl.css.map",
       "PackagePath": "staticwebassets\\bootstrap\\css\\bootstrap-grid.rtl.css.map"
     },
     {
-      "Id": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\wwwroot\\bootstrap\\css\\bootstrap-grid.rtl.min.css",
+      "Id": "S:\\Programming-Stuff\\BookKeeper\\BackEnd\\wwwroot\\bootstrap\\css\\bootstrap-grid.rtl.min.css",
       "PackagePath": "staticwebassets\\bootstrap\\css\\bootstrap-grid.rtl.min.css"
     },
     {
-      "Id": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\wwwroot\\bootstrap\\css\\bootstrap-grid.rtl.min.css.map",
+      "Id": "S:\\Programming-Stuff\\BookKeeper\\BackEnd\\wwwroot\\bootstrap\\css\\bootstrap-grid.rtl.min.css.map",
       "PackagePath": "staticwebassets\\bootstrap\\css\\bootstrap-grid.rtl.min.css.map"
     },
     {
-      "Id": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\wwwroot\\bootstrap\\css\\bootstrap-reboot.css",
+      "Id": "S:\\Programming-Stuff\\BookKeeper\\BackEnd\\wwwroot\\bootstrap\\css\\bootstrap-reboot.css",
       "PackagePath": "staticwebassets\\bootstrap\\css\\bootstrap-reboot.css"
     },
     {
-      "Id": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\wwwroot\\bootstrap\\css\\bootstrap-reboot.css.map",
+      "Id": "S:\\Programming-Stuff\\BookKeeper\\BackEnd\\wwwroot\\bootstrap\\css\\bootstrap-reboot.css.map",
       "PackagePath": "staticwebassets\\bootstrap\\css\\bootstrap-reboot.css.map"
     },
     {
-      "Id": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\wwwroot\\bootstrap\\css\\bootstrap-reboot.min.css",
+      "Id": "S:\\Programming-Stuff\\BookKeeper\\BackEnd\\wwwroot\\bootstrap\\css\\bootstrap-reboot.min.css",
       "PackagePath": "staticwebassets\\bootstrap\\css\\bootstrap-reboot.min.css"
     },
     {
-      "Id": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\wwwroot\\bootstrap\\css\\bootstrap-reboot.min.css.map",
+      "Id": "S:\\Programming-Stuff\\BookKeeper\\BackEnd\\wwwroot\\bootstrap\\css\\bootstrap-reboot.min.css.map",
       "PackagePath": "staticwebassets\\bootstrap\\css\\bootstrap-reboot.min.css.map"
     },
     {
-      "Id": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\wwwroot\\bootstrap\\css\\bootstrap-reboot.rtl.css",
+      "Id": "S:\\Programming-Stuff\\BookKeeper\\BackEnd\\wwwroot\\bootstrap\\css\\bootstrap-reboot.rtl.css",
       "PackagePath": "staticwebassets\\bootstrap\\css\\bootstrap-reboot.rtl.css"
     },
     {
-      "Id": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\wwwroot\\bootstrap\\css\\bootstrap-reboot.rtl.css.map",
+      "Id": "S:\\Programming-Stuff\\BookKeeper\\BackEnd\\wwwroot\\bootstrap\\css\\bootstrap-reboot.rtl.css.map",
       "PackagePath": "staticwebassets\\bootstrap\\css\\bootstrap-reboot.rtl.css.map"
     },
     {
-      "Id": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\wwwroot\\bootstrap\\css\\bootstrap-reboot.rtl.min.css",
+      "Id": "S:\\Programming-Stuff\\BookKeeper\\BackEnd\\wwwroot\\bootstrap\\css\\bootstrap-reboot.rtl.min.css",
       "PackagePath": "staticwebassets\\bootstrap\\css\\bootstrap-reboot.rtl.min.css"
     },
     {
-      "Id": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\wwwroot\\bootstrap\\css\\bootstrap-reboot.rtl.min.css.map",
+      "Id": "S:\\Programming-Stuff\\BookKeeper\\BackEnd\\wwwroot\\bootstrap\\css\\bootstrap-reboot.rtl.min.css.map",
       "PackagePath": "staticwebassets\\bootstrap\\css\\bootstrap-reboot.rtl.min.css.map"
     },
     {
-      "Id": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\wwwroot\\bootstrap\\css\\bootstrap-utilities.css",
+      "Id": "S:\\Programming-Stuff\\BookKeeper\\BackEnd\\wwwroot\\bootstrap\\css\\bootstrap-utilities.css",
       "PackagePath": "staticwebassets\\bootstrap\\css\\bootstrap-utilities.css"
     },
     {
-      "Id": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\wwwroot\\bootstrap\\css\\bootstrap-utilities.css.map",
+      "Id": "S:\\Programming-Stuff\\BookKeeper\\BackEnd\\wwwroot\\bootstrap\\css\\bootstrap-utilities.css.map",
       "PackagePath": "staticwebassets\\bootstrap\\css\\bootstrap-utilities.css.map"
     },
     {
-      "Id": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\wwwroot\\bootstrap\\css\\bootstrap-utilities.min.css",
+      "Id": "S:\\Programming-Stuff\\BookKeeper\\BackEnd\\wwwroot\\bootstrap\\css\\bootstrap-utilities.min.css",
       "PackagePath": "staticwebassets\\bootstrap\\css\\bootstrap-utilities.min.css"
     },
     {
-      "Id": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\wwwroot\\bootstrap\\css\\bootstrap-utilities.min.css.map",
+      "Id": "S:\\Programming-Stuff\\BookKeeper\\BackEnd\\wwwroot\\bootstrap\\css\\bootstrap-utilities.min.css.map",
       "PackagePath": "staticwebassets\\bootstrap\\css\\bootstrap-utilities.min.css.map"
     },
     {
-      "Id": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\wwwroot\\bootstrap\\css\\bootstrap-utilities.rtl.css",
+      "Id": "S:\\Programming-Stuff\\BookKeeper\\BackEnd\\wwwroot\\bootstrap\\css\\bootstrap-utilities.rtl.css",
       "PackagePath": "staticwebassets\\bootstrap\\css\\bootstrap-utilities.rtl.css"
     },
     {
-      "Id": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\wwwroot\\bootstrap\\css\\bootstrap-utilities.rtl.css.map",
+      "Id": "S:\\Programming-Stuff\\BookKeeper\\BackEnd\\wwwroot\\bootstrap\\css\\bootstrap-utilities.rtl.css.map",
       "PackagePath": "staticwebassets\\bootstrap\\css\\bootstrap-utilities.rtl.css.map"
     },
     {
-      "Id": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\wwwroot\\bootstrap\\css\\bootstrap-utilities.rtl.min.css",
+      "Id": "S:\\Programming-Stuff\\BookKeeper\\BackEnd\\wwwroot\\bootstrap\\css\\bootstrap-utilities.rtl.min.css",
       "PackagePath": "staticwebassets\\bootstrap\\css\\bootstrap-utilities.rtl.min.css"
     },
     {
-      "Id": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\wwwroot\\bootstrap\\css\\bootstrap-utilities.rtl.min.css.map",
+      "Id": "S:\\Programming-Stuff\\BookKeeper\\BackEnd\\wwwroot\\bootstrap\\css\\bootstrap-utilities.rtl.min.css.map",
       "PackagePath": "staticwebassets\\bootstrap\\css\\bootstrap-utilities.rtl.min.css.map"
     },
     {
-      "Id": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\wwwroot\\bootstrap\\css\\bootstrap.css",
+      "Id": "S:\\Programming-Stuff\\BookKeeper\\BackEnd\\wwwroot\\bootstrap\\css\\bootstrap.css",
       "PackagePath": "staticwebassets\\bootstrap\\css\\bootstrap.css"
     },
     {
-      "Id": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\wwwroot\\bootstrap\\css\\bootstrap.css.map",
+      "Id": "S:\\Programming-Stuff\\BookKeeper\\BackEnd\\wwwroot\\bootstrap\\css\\bootstrap.css.map",
       "PackagePath": "staticwebassets\\bootstrap\\css\\bootstrap.css.map"
     },
     {
-      "Id": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\wwwroot\\bootstrap\\css\\bootstrap.min.css",
+      "Id": "S:\\Programming-Stuff\\BookKeeper\\BackEnd\\wwwroot\\bootstrap\\css\\bootstrap.min.css",
       "PackagePath": "staticwebassets\\bootstrap\\css\\bootstrap.min.css"
     },
     {
-      "Id": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\wwwroot\\bootstrap\\css\\bootstrap.min.css.map",
+      "Id": "S:\\Programming-Stuff\\BookKeeper\\BackEnd\\wwwroot\\bootstrap\\css\\bootstrap.min.css.map",
       "PackagePath": "staticwebassets\\bootstrap\\css\\bootstrap.min.css.map"
     },
     {
-      "Id": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\wwwroot\\bootstrap\\css\\bootstrap.rtl.css",
+      "Id": "S:\\Programming-Stuff\\BookKeeper\\BackEnd\\wwwroot\\bootstrap\\css\\bootstrap.rtl.css",
       "PackagePath": "staticwebassets\\bootstrap\\css\\bootstrap.rtl.css"
     },
     {
-      "Id": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\wwwroot\\bootstrap\\css\\bootstrap.rtl.css.map",
+      "Id": "S:\\Programming-Stuff\\BookKeeper\\BackEnd\\wwwroot\\bootstrap\\css\\bootstrap.rtl.css.map",
       "PackagePath": "staticwebassets\\bootstrap\\css\\bootstrap.rtl.css.map"
     },
     {
-      "Id": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\wwwroot\\bootstrap\\css\\bootstrap.rtl.min.css",
+      "Id": "S:\\Programming-Stuff\\BookKeeper\\BackEnd\\wwwroot\\bootstrap\\css\\bootstrap.rtl.min.css",
       "PackagePath": "staticwebassets\\bootstrap\\css\\bootstrap.rtl.min.css"
     },
     {
-      "Id": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\wwwroot\\bootstrap\\css\\bootstrap.rtl.min.css.map",
+      "Id": "S:\\Programming-Stuff\\BookKeeper\\BackEnd\\wwwroot\\bootstrap\\css\\bootstrap.rtl.min.css.map",
       "PackagePath": "staticwebassets\\bootstrap\\css\\bootstrap.rtl.min.css.map"
     },
     {
-      "Id": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\wwwroot\\bootstrap\\js\\bootstrap.bundle.js",
+      "Id": "S:\\Programming-Stuff\\BookKeeper\\BackEnd\\wwwroot\\bootstrap\\js\\bootstrap.bundle.js",
       "PackagePath": "staticwebassets\\bootstrap\\js\\bootstrap.bundle.js"
     },
     {
-      "Id": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\wwwroot\\bootstrap\\js\\bootstrap.bundle.js.map",
+      "Id": "S:\\Programming-Stuff\\BookKeeper\\BackEnd\\wwwroot\\bootstrap\\js\\bootstrap.bundle.js.map",
       "PackagePath": "staticwebassets\\bootstrap\\js\\bootstrap.bundle.js.map"
     },
     {
-      "Id": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\wwwroot\\bootstrap\\js\\bootstrap.bundle.min.js",
+      "Id": "S:\\Programming-Stuff\\BookKeeper\\BackEnd\\wwwroot\\bootstrap\\js\\bootstrap.bundle.min.js",
       "PackagePath": "staticwebassets\\bootstrap\\js\\bootstrap.bundle.min.js"
     },
     {
-      "Id": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\wwwroot\\bootstrap\\js\\bootstrap.bundle.min.js.map",
+      "Id": "S:\\Programming-Stuff\\BookKeeper\\BackEnd\\wwwroot\\bootstrap\\js\\bootstrap.bundle.min.js.map",
       "PackagePath": "staticwebassets\\bootstrap\\js\\bootstrap.bundle.min.js.map"
     },
     {
-      "Id": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\wwwroot\\bootstrap\\js\\bootstrap.esm.js",
+      "Id": "S:\\Programming-Stuff\\BookKeeper\\BackEnd\\wwwroot\\bootstrap\\js\\bootstrap.esm.js",
       "PackagePath": "staticwebassets\\bootstrap\\js\\bootstrap.esm.js"
     },
     {
-      "Id": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\wwwroot\\bootstrap\\js\\bootstrap.esm.js.map",
+      "Id": "S:\\Programming-Stuff\\BookKeeper\\BackEnd\\wwwroot\\bootstrap\\js\\bootstrap.esm.js.map",
       "PackagePath": "staticwebassets\\bootstrap\\js\\bootstrap.esm.js.map"
     },
     {
-      "Id": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\wwwroot\\bootstrap\\js\\bootstrap.esm.min.js",
+      "Id": "S:\\Programming-Stuff\\BookKeeper\\BackEnd\\wwwroot\\bootstrap\\js\\bootstrap.esm.min.js",
       "PackagePath": "staticwebassets\\bootstrap\\js\\bootstrap.esm.min.js"
     },
     {
-      "Id": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\wwwroot\\bootstrap\\js\\bootstrap.esm.min.js.map",
+      "Id": "S:\\Programming-Stuff\\BookKeeper\\BackEnd\\wwwroot\\bootstrap\\js\\bootstrap.esm.min.js.map",
       "PackagePath": "staticwebassets\\bootstrap\\js\\bootstrap.esm.min.js.map"
     },
     {
-      "Id": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\wwwroot\\bootstrap\\js\\bootstrap.js",
+      "Id": "S:\\Programming-Stuff\\BookKeeper\\BackEnd\\wwwroot\\bootstrap\\js\\bootstrap.js",
       "PackagePath": "staticwebassets\\bootstrap\\js\\bootstrap.js"
     },
     {
-      "Id": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\wwwroot\\bootstrap\\js\\bootstrap.js.map",
+      "Id": "S:\\Programming-Stuff\\BookKeeper\\BackEnd\\wwwroot\\bootstrap\\js\\bootstrap.js.map",
       "PackagePath": "staticwebassets\\bootstrap\\js\\bootstrap.js.map"
     },
     {
-      "Id": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\wwwroot\\bootstrap\\js\\bootstrap.min.js",
+      "Id": "S:\\Programming-Stuff\\BookKeeper\\BackEnd\\wwwroot\\bootstrap\\js\\bootstrap.min.js",
       "PackagePath": "staticwebassets\\bootstrap\\js\\bootstrap.min.js"
     },
     {
-      "Id": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\wwwroot\\bootstrap\\js\\bootstrap.min.js.map",
+      "Id": "S:\\Programming-Stuff\\BookKeeper\\BackEnd\\wwwroot\\bootstrap\\js\\bootstrap.min.js.map",
       "PackagePath": "staticwebassets\\bootstrap\\js\\bootstrap.min.js.map"
     },
     {
-      "Id": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\wwwroot\\custom\\layout-style-sheet.css",
+      "Id": "S:\\Programming-Stuff\\BookKeeper\\BackEnd\\wwwroot\\custom\\layout-style-sheet.css",
       "PackagePath": "staticwebassets\\custom\\layout-style-sheet.css"
     },
     {
-      "Id": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\wwwroot\\custom\\shelf-style-sheet.css",
+      "Id": "S:\\Programming-Stuff\\BookKeeper\\BackEnd\\wwwroot\\custom\\shelf-style-sheet.css",
       "PackagePath": "staticwebassets\\custom\\shelf-style-sheet.css"
     },
     {
-      "Id": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\wwwroot\\images\\TempProfilePic.jpg",
+      "Id": "S:\\Programming-Stuff\\BookKeeper\\BackEnd\\wwwroot\\images\\TempProfilePic.jpg",
       "PackagePath": "staticwebassets\\images\\TempProfilePic.jpg"
     },
     {
-      "Id": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\wwwroot\\images\\profilepic1.jpeg",
+      "Id": "S:\\Programming-Stuff\\BookKeeper\\BackEnd\\wwwroot\\images\\profilepic1.jpeg",
       "PackagePath": "staticwebassets\\images\\profilepic1.jpeg"
     },
     {
-      "Id": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\wwwroot\\images\\profilepic2.jpg",
+      "Id": "S:\\Programming-Stuff\\BookKeeper\\BackEnd\\wwwroot\\images\\profilepic2.jpg",
       "PackagePath": "staticwebassets\\images\\profilepic2.jpg"
     },
     {
-      "Id": "S:\\Programming-Stuff\\BookKeeper\\MainProject\\wwwroot\\images\\profilepic3.jpg",
+      "Id": "S:\\Programming-Stuff\\BookKeeper\\BackEnd\\wwwroot\\images\\profilepic3.jpg",
       "PackagePath": "staticwebassets\\images\\profilepic3.jpg"
     },
     {
