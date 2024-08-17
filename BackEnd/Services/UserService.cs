@@ -24,6 +24,9 @@ namespace BackEnd.Services
 		public User? getUserById(int id)
 			=> formatModel(null, x => x.user_id == id);
 
+		public User? getUserByIdentificationId(string id)
+			=> formatModel(null, x => x.identification_id == id);
+
 		public User? getUserByUserName(string userName)
 			=> formatModel(	null, x => x.username == userName);
 

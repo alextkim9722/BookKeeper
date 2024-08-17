@@ -10,6 +10,8 @@ namespace BackEnd.Model
 		[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
 		public int user_id { get; set; }
 		[Required]
+		public string identification_id { get; set; }
+		[Required]
 		public string username { get; set; } = string.Empty;
 		[Required]
 		public DateOnly? date_joined { get; set; } = null;

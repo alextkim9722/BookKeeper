@@ -3,7 +3,6 @@ using BackEnd.Services;
 using BackEnd.Services.Interfaces;
 using Microsoft.AspNetCore.Identity;
 using BackEnd.Model;
-using BackEnd.Model;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -25,6 +24,7 @@ builder.Services.AddTransient<IBookService, BookService>();
 builder.Services.AddTransient<IAuthorService, AuthorService>();
 builder.Services.AddTransient<IUserService, UserService>();
 builder.Services.AddTransient<IGenreService, GenreService>();
+builder.Services.AddTransient<IReviewService, ReviewService>();
 
 var app = builder.Build(); // END
 
