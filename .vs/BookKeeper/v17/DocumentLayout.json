@@ -3,8 +3,20 @@
   "WorkspaceRootPath": "S:\\Programming-Stuff\\BookKeeper\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{B0469DE7-217D-4453-AF0A-BBA7EA3519AC}|BackEnd\\BackEnd.csproj|s:\\programming-stuff\\bookkeeper\\backend\\services\\identificationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B0469DE7-217D-4453-AF0A-BBA7EA3519AC}|BackEnd\\BackEnd.csproj|solutionrelative:backend\\services\\identificationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{07790725-64D0-4824-AC4F-06F361D6F3E5}|BackEndTest\\BackEndTest.csproj|s:\\programming-stuff\\bookkeeper\\backendtest\\services\\testdatabasegenerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{07790725-64D0-4824-AC4F-06F361D6F3E5}|BackEndTest\\BackEndTest.csproj|solutionrelative:backendtest\\services\\testdatabasegenerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{07790725-64D0-4824-AC4F-06F361D6F3E5}|BackEndTest\\BackEndTest.csproj|s:\\programming-stuff\\bookkeeper\\backendtest\\services\\bookservicetest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{07790725-64D0-4824-AC4F-06F361D6F3E5}|BackEndTest\\BackEndTest.csproj|solutionrelative:backendtest\\services\\bookservicetest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{07790725-64D0-4824-AC4F-06F361D6F3E5}|BackEndTest\\BackEndTest.csproj|s:\\programming-stuff\\bookkeeper\\backendtest\\services\\booktheorydatagenerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{07790725-64D0-4824-AC4F-06F361D6F3E5}|BackEndTest\\BackEndTest.csproj|solutionrelative:backendtest\\services\\booktheorydatagenerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B0469DE7-217D-4453-AF0A-BBA7EA3519AC}|BackEnd\\BackEnd.csproj|s:\\programming-stuff\\bookkeeper\\backend\\model\\book.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B0469DE7-217D-4453-AF0A-BBA7EA3519AC}|BackEnd\\BackEnd.csproj|solutionrelative:backend\\model\\book.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -14,19 +26,56 @@
       "DocumentGroups": [
         {
           "DockedWidth": 187,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "IdentificationService.cs",
-              "DocumentMoniker": "S:\\Programming-Stuff\\BookKeeper\\BackEnd\\Services\\IdentificationService.cs",
-              "RelativeDocumentMoniker": "BackEnd\\Services\\IdentificationService.cs",
-              "ToolTip": "S:\\Programming-Stuff\\BookKeeper\\BackEnd\\Services\\IdentificationService.cs",
-              "RelativeToolTip": "BackEnd\\Services\\IdentificationService.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAAAlAAAA",
+              "DocumentIndex": 3,
+              "Title": "Book.cs",
+              "DocumentMoniker": "S:\\Programming-Stuff\\BookKeeper\\BackEnd\\Model\\Book.cs",
+              "RelativeDocumentMoniker": "BackEnd\\Model\\Book.cs",
+              "ToolTip": "S:\\Programming-Stuff\\BookKeeper\\BackEnd\\Model\\Book.cs",
+              "RelativeToolTip": "BackEnd\\Model\\Book.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-18T06:39:24.558Z",
+              "WhenOpened": "2024-08-18T22:39:27.13Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "BookServiceTest.cs",
+              "DocumentMoniker": "S:\\Programming-Stuff\\BookKeeper\\BackEndTest\\Services\\BookServiceTest.cs",
+              "RelativeDocumentMoniker": "BackEndTest\\Services\\BookServiceTest.cs",
+              "ToolTip": "S:\\Programming-Stuff\\BookKeeper\\BackEndTest\\Services\\BookServiceTest.cs",
+              "RelativeToolTip": "BackEndTest\\Services\\BookServiceTest.cs",
+              "ViewState": "AQIAABMAAAAAAAAAAAAgwEIAAABNAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-18T07:30:13.07Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "BookTheoryDataGenerator.cs",
+              "DocumentMoniker": "S:\\Programming-Stuff\\BookKeeper\\BackEndTest\\Services\\BookTheoryDataGenerator.cs",
+              "RelativeDocumentMoniker": "BackEndTest\\Services\\BookTheoryDataGenerator.cs",
+              "ToolTip": "S:\\Programming-Stuff\\BookKeeper\\BackEndTest\\Services\\BookTheoryDataGenerator.cs",
+              "RelativeToolTip": "BackEndTest\\Services\\BookTheoryDataGenerator.cs",
+              "ViewState": "AQIAABsAAAAAAAAAAAAIwCQAAAAhAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-18T21:52:29.649Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "TestDatabaseGenerator.cs",
+              "DocumentMoniker": "S:\\Programming-Stuff\\BookKeeper\\BackEndTest\\Services\\TestDatabaseGenerator.cs",
+              "RelativeDocumentMoniker": "BackEndTest\\Services\\TestDatabaseGenerator.cs",
+              "ToolTip": "S:\\Programming-Stuff\\BookKeeper\\BackEndTest\\Services\\TestDatabaseGenerator.cs",
+              "RelativeToolTip": "BackEndTest\\Services\\TestDatabaseGenerator.cs",
+              "ViewState": "AQIAAI8AAAAAAAAAAAAqwKUAAAAPAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-18T06:42:12.45Z",
               "EditorCaption": ""
             }
           ]

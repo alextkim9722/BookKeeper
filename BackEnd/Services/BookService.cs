@@ -51,7 +51,15 @@ namespace BackEnd.Services
 				book.genres = genres.payload;
 				book.readers = readers.payload!.Count();
 				book.reviews = reviews.payload;
-				book.rating = Convert.ToInt32(book.reviews!.Select(x => x.rating).Average());
+				
+				if(!book.reviews.IsNullOrEmpty())
+				{
+					book.rating = Convert.ToInt32(book.reviews!.Select(x => x.rating).Average());
+				}
+				else
+				{
+					book.rating = 0;
+				}
 
 				return new ResultsSuccessful<Book>(book);
 			}
