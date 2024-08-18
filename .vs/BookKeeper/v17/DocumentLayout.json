@@ -5,10 +5,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{B0469DE7-217D-4453-AF0A-BBA7EA3519AC}|BackEnd\\BackEnd.csproj|s:\\programming-stuff\\bookkeeper\\backend\\services\\identificationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B0469DE7-217D-4453-AF0A-BBA7EA3519AC}|BackEnd\\BackEnd.csproj|solutionrelative:backend\\services\\identificationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B0469DE7-217D-4453-AF0A-BBA7EA3519AC}|BackEnd\\BackEnd.csproj|s:\\programming-stuff\\bookkeeper\\backend\\services\\interfaces\\iidentificationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B0469DE7-217D-4453-AF0A-BBA7EA3519AC}|BackEnd\\BackEnd.csproj|solutionrelative:backend\\services\\interfaces\\iidentificationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -28,22 +24,9 @@
               "RelativeDocumentMoniker": "BackEnd\\Services\\IdentificationService.cs",
               "ToolTip": "S:\\Programming-Stuff\\BookKeeper\\BackEnd\\Services\\IdentificationService.cs",
               "RelativeToolTip": "BackEnd\\Services\\IdentificationService.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAFEAAAALAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAAAlAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-16T23:52:05.085Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "IIdentificationService.cs",
-              "DocumentMoniker": "S:\\Programming-Stuff\\BookKeeper\\BackEnd\\Services\\Interfaces\\IIdentificationService.cs",
-              "RelativeDocumentMoniker": "BackEnd\\Services\\Interfaces\\IIdentificationService.cs",
-              "ToolTip": "S:\\Programming-Stuff\\BookKeeper\\BackEnd\\Services\\Interfaces\\IIdentificationService.cs",
-              "RelativeToolTip": "BackEnd\\Services\\Interfaces\\IIdentificationService.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAA/AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-16T23:47:29.872Z",
+              "WhenOpened": "2024-08-18T06:39:24.558Z",
               "EditorCaption": ""
             }
           ]

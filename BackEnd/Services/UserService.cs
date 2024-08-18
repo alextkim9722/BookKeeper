@@ -1,96 +1,97 @@
 ﻿using BackEnd.Model;
 using BackEnd.Services.Abstracts;
 using BackEnd.Services.Interfaces;
+using BackEnd.Services.ErrorHandling;
+using static System.Reflection.Metadata.BlobBuilder;
 
 namespace BackEnd.Services
 {
 	public class UserService : JoinServiceAbstract<User>, IUserService
 	{
-		private readonly Callback handler1;
-
 		public UserService(BookShelfContext bookShelfContext) :
 			base(bookShelfContext)
 		{
-			handler1 = analyseBooks;
-			CallbackHandler += handler1;
+			CallbackHandler.Add(addBridges);
+			CallbackHandler.Add(recordBookData);
 		}
 
-		public User? addUser(User user)
+		public Results<User> addUser(User user)
 			=> addModel(user);
 
-		public IEnumerable<User>? getAllUser()
+		public Results<IEnumerable<User>> getAllUser()
 			=> getAllModels();
 
-		public User? getUserById(int id)
-			=> formatModel(null, x => x.user_id == id);
+		public Results<User> getUserById(int id)
+			=> formatModel(x => x.user_id == id);
 
-		public User? getUserByIdentificationId(string id)
-			=> formatModel(null, x => x.identification_id == id);
+		public Results<User> getUserByIdentificationId(string id)
+			=> formatModel(x => x.identification_id == id);
 
-		public User? getUserByUserName(string userName)
-			=> formatModel(	null, x => x.username == userName);
+		public Results<User> getUserByUserName(string userName)
+			=> formatModel(x => x.username == userName);
 
-		public User? removeUser(int id)
+		public Results<User> removeUser(int id)
+			=> deleteBridgedModel(id, x => x.user_id == id);
+
+		public Results<User> updateUser(int id, User user)
+			=> updateModel(x => x.user_id == id, user);
+
+		private Results<User> recordBookData(User user)
 		{
-			if (deleteBridges(id))
+			user.pagesRead = user.books!.Select(x => x.pages).Sum();
+			user.booksRead = user.books!.Count();
+
+			return new ResultsSuccessful<User>(user);
+		}
+
+		protected override Results<User> addBridges(User user)
+		{
+			var books = getMultipleJoins<Book, User_Book>(
+				x => x.user_id == user.user_id, y => y.book_id);
+			var reviews = getJoins<Review>(x => x.user_id == user.user_id);
+
+			if (books.success && reviews.success)
 			{
-				return deleteModel(x => x.user_id == id);
+				return new ResultsSuccessful<User>(null);
 			}
 			else
 			{
-				return null;
+				return new ResultsFailure<User>(
+					books.msg
+					+ reviews.msg
+					+ "Failed to delete joins");
 			}
 		}
 
-		public User? updateUser(int id, User user)
+		protected override Results<User> deleteBridges(int id)
 		{
-			User? updatedUser = updateModel(
-				x => x.user_id == id, user);
+			var books = deleteJoins<User_Book>(x => x.user_id == id);
+			var reviews = deleteJoins<Review>(x => x.user_id == id);
 
-			if (updatedUser != null)
+			if (books.success && reviews.success)
 			{
-				updatedUser.pagesRead = user.pagesRead;
-				updatedUser.booksRead = user.booksRead;
-				updatedUser.books = user.books;
-				updatedUser.reviews	= user.reviews;
+				return new ResultsSuccessful<User>(null);
 			}
-
-			return updatedUser;
-		}
-
-		private User? analyseBooks(User user)
-		{
-			user = addBridges(user);
-			user = recordBookData(user);
-
-			return user;
-		}
-
-		private User recordBookData(User user)
-		{
-			if(user != null)
+			else
 			{
-				user.pagesRead = user.books.Select(x => x.pages).Sum();
-				user.booksRead = user.books.Count();
+				return new ResultsFailure<User>(
+					books.msg
+					+ reviews.msg
+					+ "Failed to delete joins");
 			}
-
-			return user;
 		}
 
-		protected override User addBridges(User user)
+		protected override User transferProperties(User original, User updated)
 		{
-			user.books = getMultipleJoins<Book, User_Book>(
-				x => x.user_id == user.user_id, y => y.book_id);
-			user.reviews = getJoins<Review>(x => x.user_id == user.user_id);
+			original.pagesRead = updated.pagesRead;
+			original.booksRead = updated.booksRead;
+			original.books = updated.books;
+			original.reviews = updated.reviews;
 
-			return user;
+			return original;
 		}
 
-		protected override bool deleteBridges(int id)
-		{
-			return
-				deleteJoins<User_Book>(x => x.user_id == id) &&
-				deleteJoins<Review>(x => x.user_id == id);
-		}
+		protected override Results<User> validateProperties(User model)
+			=> new ResultsSuccessful<User>(model);
 	}
 }

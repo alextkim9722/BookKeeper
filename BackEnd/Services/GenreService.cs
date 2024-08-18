@@ -1,69 +1,67 @@
 ﻿using BackEnd.Model;
 using BackEnd.Services.Abstracts;
+using BackEnd.Services.ErrorHandling;
 using BackEnd.Services.Interfaces;
 
 namespace BackEnd.Services
 {
 	public class GenreService : JoinServiceAbstract<Genre>, IGenreService
 	{
-		private readonly Callback handler1;
-
 		public GenreService(BookShelfContext bookShelfContext) :
 			base(bookShelfContext)
 		{
-			handler1 = addBridges;
-			CallbackHandler += handler1;
+			CallbackHandler.Add(addBridges);
 		}
 
-		public Genre? addGenre(Genre genre)
-			=> addGenre(genre);
+		public Results<Genre> addGenre(Genre genre)
+			=> addModel(genre);
 
-		public IEnumerable<Genre>? getAllGenres()
+		public Results<IEnumerable<Genre>> getAllGenres()
 			=> formatAllModels();
 
-		public Genre? getGenreById(int id)
-			=> formatModel(null, x => x.genre_id == id);
+		public Results<Genre> getGenreById(int id)
+			=> formatModel(x => x.genre_id == id);
 
-		public Genre? getGenreByName(string name)
-			=> formatModel(null, x => x.genre_name == name);
+		public Results<Genre> getGenreByName(string name)
+			=> formatModel(x => x.genre_name == name);
 
-		public Genre? removeGenre(int id)
+		public Results<Genre> removeGenre(int id)
+			=> deleteBridgedModel(id, x => x.genre_id == id);
+
+		public Results<Genre> updateGenre(int id, Genre genre)
+			=> updateModel(x => x.genre_id == id, genre);
+
+		protected override Results<Genre> addBridges(Genre genre)
 		{
-			if (deleteBridges(id))
+			var books = getMultipleJoins<Book, Book_Genre>(
+				x => x.genre_id == genre.genre_id, y => y.book_id);
+
+			if (books.success)
 			{
-				return deleteModel(x => x.genre_id == id);
+				genre.books = books.payload;
+				return new ResultsSuccessful<Genre>(genre);
 			}
 			else
 			{
-				return null;
+				return new ResultsFailure<Genre>(
+					books.msg
+					+ "Failed to grab bridge tables");
 			}
 		}
 
-		public Genre? updateGenre(int id, Genre genre)
-		{
-			Genre? updateGenre = updateModel(
-				x => x.genre_id == id, genre);
-			
-			if(updateGenre != null)
-			{
-				updateGenre.books = genre.books;
-			}
-
-			return updateGenre;
-		}
-
-		protected override Genre addBridges(Genre genre)
-		{
-			genre.books = getMultipleJoins<Book, Book_Genre>(
-				x => x.genre_id == genre.genre_id, y => y.book_id);
-
-			return genre;
-		}
-
-		protected override bool deleteBridges(int id)
+		protected override Results<Genre> deleteBridges(int id)
 		{
 			return
 				deleteJoins<Book_Genre>(x => x.genre_id == id);
 		}
+
+		protected override Genre transferProperties(Genre original, Genre updated)
+		{
+			original.books = updated.books;
+			return original;
+		}
+
+		protected override Results<Genre> validateProperties(Genre model)
+		=> new ResultsSuccessful<Genre>(model);
 	}
 }

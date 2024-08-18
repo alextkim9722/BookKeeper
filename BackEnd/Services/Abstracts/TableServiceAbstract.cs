@@ -1,147 +1,225 @@
-﻿using BackEnd.Model;
-using Microsoft.Data.SqlClient;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.Data.SqlClient;
 using System.Linq.Expressions;
-using System.Reflection;
+using BackEnd.Services.ErrorHandling;
+using BackEnd.Model;
 
 namespace BackEnd.Services.Abstracts
 {
-    public class TableServiceAbstract<T> where T : class
+    public abstract class TableServiceAbstract<T> where T : class
     {
         protected readonly BookShelfContext _bookShelfContext;
-		protected delegate T? Callback(T model);
-		protected Callback? CallbackHandler;
+		protected delegate Results<T> Callback(T model);
+		protected List<Callback> CallbackHandler;
 
 		protected TableServiceAbstract(BookShelfContext bookShelfContext)
         {
             _bookShelfContext = bookShelfContext;
+            CallbackHandler = new List<Callback>();
         }
 
-        protected T? getModelBy(Expression<Func<T, bool>> condition)
+        protected Results<T> getModelBy(Expression<Func<T, bool>> condition)
         {
-            T? model = null;
-
             try
             {
-                model = _bookShelfContext.Set<T>().Where(condition).FirstOrDefault();
-                return model;
+                T? model = _bookShelfContext.Set<T>().Where(condition).FirstOrDefault();
+                return new ResultsSuccessful<T>(model!);
             }
             catch (SqlException sqlEx)
             {
-                Console.WriteLine(sqlEx.Message);
-                return null;
+                return new ResultsException<T>(sqlEx, "Issue with grabbing model");
             }
         }
 
-        protected IEnumerable<T>? getAllModels()
+        protected Results<IEnumerable<T>> getAllModels()
         {
-            IEnumerable<T>? model = null;
-
             try
             {
-                model = _bookShelfContext.Set<T>().ToList();
-                return model;
+				IEnumerable<T>? models = _bookShelfContext.Set<T>().ToList();
+                return new ResultsSuccessful<IEnumerable<T>>(models);
             }
             catch (SqlException sqlEx)
             {
-                Console.WriteLine(sqlEx.Message);
-                return null;
-            }
+				return new ResultsException<IEnumerable<T>>(
+                    sqlEx, "Issue with getting all models");
+			}
         }
 
-        protected T? updateModel(
+        protected Results<T> updateModelMapped(
             Expression<Func<T, bool>> condition,
             T updatedModel)
         {
-            T? model = null;
+			var model = getModelBy(condition);
 
-            try
+            if(model.success)
             {
-                model = _bookShelfContext
-                    .Set<T>()
-                    .Where(condition)
-                    .FirstOrDefault();
-                _bookShelfContext
-                    .Entry(model!)
-                    .CurrentValues
-                    .SetValues(updatedModel);
-                _bookShelfContext
-                    .SaveChanges();
-
-                return model;
-            }
-            catch (SqlException sqlEx)
-            {
-                Console.WriteLine(sqlEx.Message);
-                return null;
-            }
-        }
-
-        protected T? addModel(T model)
-        {
-            try
-            {
-                _bookShelfContext.Set<T>().Add(model);
-                _bookShelfContext.SaveChanges();
-                return model;
-            }
-            catch (SqlException sqlEx)
-            {
-                Console.WriteLine(sqlEx.Message);
-                return null;
-            }
-        }
-
-        protected T? deleteModel(Expression<Func<T, bool>> condition)
-        {
-            T? model = null;
-
-            try
-            {
-                model = _bookShelfContext.Set<T>().Where(condition).First();
-                _bookShelfContext.Set<T>().Remove(model);
-                _bookShelfContext.SaveChanges();
-                return model;
-            }
-            catch (SqlException sqlEx)
-            {
-                Console.WriteLine(sqlEx.Message);
-                return null;
-            }
-        }
-
-		public IEnumerable<T>? formatAllModels()
-		{
-			var models = getAllModels().ToList();
-			if (models != null)
-			{
-                for(int i = 0;i < models.Count();i++)
+                try
                 {
-                    models[i] = formatModel(models[i], null);
-                }
+                    var validation = validateProperties(model.payload!);
+                    if (validation.success)
+                    {
+                        _bookShelfContext
+                            .Entry(model!)
+                            .CurrentValues
+                            .SetValues(updatedModel);
+                        _bookShelfContext.SaveChanges();
 
-				return models;
+                        return new ResultsSuccessful<T>(model.payload!);
+                    }
+                    else
+                    {
+                        return validation;
+                    }
+                }
+                catch (SqlException sqlEx)
+                {
+                    return new ResultsException<T>(sqlEx, "Issue with updating model");
+                }
+            }
+            else
+            {
+                return model;
+            }
+        }
+
+        protected Results<T> addModel(T model)
+        {
+            try
+            {
+                var validation = validateProperties(model);
+                if (validation.success)
+                {
+                    _bookShelfContext.Set<T>().Add(model);
+                    _bookShelfContext.SaveChanges();
+                    return new ResultsSuccessful<T>(model);
+                }
+                else
+                {
+                    return validation;
+                }
+            }
+            catch (SqlException sqlEx)
+            {
+                return new ResultsException<T>(sqlEx, "Issue with adding one model");
+            }
+        }
+
+        protected Results<T> deleteModel(
+            Expression<Func<T, bool>> condition)
+        {
+			var model = getModelBy(condition);
+            if(model.success)
+            {
+                try
+                {
+                    _bookShelfContext.Set<T>().Remove(model.payload!);
+                    _bookShelfContext.SaveChanges();
+                    return new ResultsSuccessful<T>(model.payload!);
+                }
+                catch (SqlException sqlEx)
+                {
+                    return new ResultsException<T>(
+                        sqlEx, "Issue with deleting one model");
+                }
+            }
+            else
+            {
+                return model;
+            }
+        }
+
+        protected Results<T> updateModel(
+			Expression<Func<T, bool>> condition,
+			T updated)
+        {
+			Results<T> original = updateModelMapped(condition, updated);
+
+			if (original.success)
+			{
+                original.payload = transferProperties(original.payload!, updated);
+                return original;
 			}
 			else
 			{
-				return null;
+				return new ResultsFailure<T>(
+					original.msg
+					+ "Failed to update model");
 			}
 		}
-        protected T? formatModel(
-			T? model = null,
-			Expression<Func<T, bool>>? condition = null)
+
+        protected Results<T> formatModel(T model)
 		{
-            if (condition != null)
-            {
-				model = getModelBy(condition);
-			}			
+            Results<T> result = new Results<T>();
 
-			if (model != null && CallbackHandler != null)
-			{
-				model = CallbackHandler(model);
+			if (CallbackHandler != null)
+            {
+                result = executeCallbackChain(model);
 			}
 
-			return model;
+            return result;
 		}
+
+        protected Results<T> formatModel(Expression<Func<T, bool>> condition)
+        {
+			Results<T> model = getModelBy(condition);
+
+            if(model.success && CallbackHandler != null)
+            {
+                model = formatModel(model.payload!);
+            }
+
+            return model;
+		}
+
+		public Results<IEnumerable<T>> formatAllModels()
+		{
+			var models = getAllModels();
+            Results<T> result = new Results<T>();
+
+			if (models.success)
+			{
+                var modelList = models.payload!.ToList();
+
+                for(int i = 0;i < modelList.Count();i++)
+                {
+                    result = formatModel(modelList[i]);
+                    if(!result.success)
+                    {
+                        return new ResultsFailure<IEnumerable<T>>(
+                            "Failure to format model");
+                    }
+                }
+
+                return models;
+			}
+
+            return models;
+		}
+
+        private Results<T> executeCallbackChain(T model)
+        {
+            if(model != null)
+            {
+                foreach (var callback in CallbackHandler)
+                {
+                    Results<T> current = callback.Invoke(model);
+                    if(!current.success)
+                    {
+                        // If one callback fails then the chain must stop.
+                        return current;
+                    }
+                }
+
+                return new ResultsSuccessful<T>(model);
+            }
+            else
+            {
+                return new ResultsFailure<T>(
+                    "Callback input object is null");
+            }
+        }
+
+        protected abstract T transferProperties(T original, T updated);
+
+        protected abstract Results<T> validateProperties(T model);
 	}
 }

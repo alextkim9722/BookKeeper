@@ -1,9 +1,8 @@
-﻿using BackEnd.Model;
-using Microsoft.Data.SqlClient;
-using Microsoft.EntityFrameworkCore;
-using System.Linq;
+﻿using Microsoft.Data.SqlClient;
+using BackEnd.Services.ErrorHandling;
 using System.Linq.Expressions;
-using System.Net;
+using System.Collections.Generic;
+using BackEnd.Model;
 
 namespace BackEnd.Services.Abstracts
 {
@@ -11,9 +10,12 @@ namespace BackEnd.Services.Abstracts
     {
         protected JoinServiceAbstract(BookShelfContext bookShelfContext)
             : base(bookShelfContext)
-        { }
+        {
+            // EMPTY
+        }
 
-        protected bool deleteJoins<U>(Expression<Func<U, bool>> condition)
+        protected Results<T> deleteJoins<U>(
+            Expression<Func<U, bool>> condition)
             where U : class
         {
             try
@@ -22,69 +24,94 @@ namespace BackEnd.Services.Abstracts
                     _bookShelfContext.Set<U>().Where(condition));
                 _bookShelfContext.SaveChanges();
 
-                return true;
+                return new ResultsSuccessful<T>(null);
             }
             catch (SqlException sqlEx)
             {
-                Console.WriteLine(sqlEx.Message);
-                return false;
+                return new ResultsException<T>(
+                    sqlEx, "Failed to delete joins");
             }
         }
 
-        protected IEnumerable<U>? getJoins<U>(Expression<Func<U, bool>> condition)
+        protected Results<IEnumerable<U>> getJoins<U>(
+            Expression<Func<U, bool>> condition)
             where U : class
         {
             try
             {
-                return _bookShelfContext.Set<U>().Where(condition).ToList();
+                var joins = _bookShelfContext
+                    .Set<U>()
+                    .Where(condition)
+                    .ToList();
+				return new ResultsSuccessful<IEnumerable<U>>(joins);
             }
             catch (SqlException sqlEx)
             {
-                Console.WriteLine(sqlEx.Message);
-                return null;
+                return new ResultsException<IEnumerable<U>>(
+                    sqlEx, "Failed to get joins");
             }
         }
 
-        protected IEnumerable<U>? getMultipleJoins<U, V>(
+        protected Results<T> deleteBridgedModel(int id, Expression<Func<T, bool>> condition)
+        {
+			Results<T> deletingBridges = deleteBridges(id);
+
+			if (deletingBridges.success)
+			{
+				return deleteModel(condition);
+			}
+			else
+			{
+				return new ResultsFailure<T>(
+					deletingBridges.msg
+					+ "Failed to delete joins");
+			}
+		}
+
+        protected Results<IEnumerable<U>> getMultipleJoins<U, V>(
             Expression<Func<V, bool>> bridgeCondition,
             Expression<Func<V, int>> foreignKey
             )
             where U : class
             where V : class
         {
-            try
-            {
-                var bridges = getJoins(bridgeCondition);
+            var bridges = getJoins(bridgeCondition);
 
-                if (bridges != null)
+            if (bridges.success)
+            {
+                var bridgeKeys = bridges.payload!
+                    .AsQueryable().Select(foreignKey).ToList();
+
+                if (bridgeKeys != null)
                 {
-                    var bridgeKeys = bridges.AsQueryable().Select(foreignKey).ToList();
                     List<U>? targets = new List<U>();
+
                     foreach (var key in bridgeKeys)
                     {
-                        var foreignModel = _bookShelfContext.Set<U>().Find(key);
+                        var foreignModel = _bookShelfContext
+                            .Set<U>().Find(key);
                         if (foreignModel != null)
                         {
                             targets.Add(foreignModel);
                         }
                     }
 
-                    return targets;
+                    return new ResultsSuccessful<IEnumerable<U>>(targets);
                 }
                 else
                 {
-                    return null;
+                    return new ResultsFailure<IEnumerable<U>>(
+                        "Failed to select foreign key for bridge table");
                 }
             }
-            catch (SqlException sqlEx)
+            else
             {
-                Console.WriteLine(sqlEx.Message);
-                return null;
+                return new ResultsFailure<IEnumerable<U>>(bridges.msg);
             }
         }
 
-        protected abstract bool deleteBridges(int id);
+        protected abstract Results<T> deleteBridges(int id);
 
-        protected abstract T addBridges(T model);
+        protected abstract Results<T> addBridges(T model);
     }
 }

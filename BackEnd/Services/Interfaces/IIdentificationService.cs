@@ -1,16 +1,17 @@
 ﻿using BackEnd.Model;
+using BackEnd.Services.ErrorHandling;
 
 namespace BackEnd.Services.Interfaces
 {
 	public interface IIdentificationService
 	{
-		public Task<Identification>? createIdentification(
+		public Task<Results<Identification>> createIdentification(
 			Identification identification, string password);
-		public Task<Identification>? updateIdentification(
-			string id, Identification identification);
-		public Task<Identification>? removeIdentification(string id);
-		public Task<Identification>? getIdentificationByUsername(
+		public Task<Results<Identification>> updateIdentification(
+			Identification identification);
+		public Task<Results<Identification>> removeIdentification(string id);
+		public Task<Results<Identification>> getIdentificationByUsername(
 			string username);
-		public Task<Identification>? getIdentificationByEmail(string email);
+		public Task<Results<Identification>> getIdentificationByEmail(string email);
 	}
 }

@@ -1,16 +1,17 @@
 ﻿using BackEnd.Model;
+using BackEnd.Services.ErrorHandling;
 
 namespace BackEnd.Services.Interfaces
 {
 	public interface IAuthorService
 	{
-		public Author? addAuthor(Author author);
-		public Author? removeAuthor(int id);
-		public Author? updateAuthor(int id, Author author);
-		public Author? getAuthorById(int id);
-		public Author? getAuthorByFirstName(string first);
-		public Author? getAuthorByMiddleName(string middle);
-		public Author? getAuthorByLastName(string last);
-		public IEnumerable<Author>? getAllAuthors();
+		public Results<Author> addAuthor(Author author);
+		public Results<Author> removeAuthor(int id);
+		public Results<Author> updateAuthor(int id, Author author);
+		public Results<Author> getAuthorById(int id);
+		public Results<Author> getAuthorByFirstName(string first);
+		public Results<Author> getAuthorByMiddleName(string middle);
+		public Results<Author> getAuthorByLastName(string last);
+		public Results<IEnumerable<Author>> getAllAuthors();
 	}
 }

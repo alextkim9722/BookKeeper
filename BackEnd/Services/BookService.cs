@@ -1,5 +1,6 @@
 ﻿using BackEnd.Model;
 using BackEnd.Services.Abstracts;
+using BackEnd.Services.ErrorHandling;
 using BackEnd.Services.Interfaces;
 using Microsoft.IdentityModel.Tokens;
 
@@ -7,92 +8,96 @@ namespace BackEnd.Services
 {
     public class BookService : JoinServiceAbstract<Book>, IBookService
 	{
-		private readonly Callback handler1;
-
 		public BookService(BookShelfContext bookShelfContext) :
 			base(bookShelfContext)
 		{
-			handler1 = addBridges;
-			CallbackHandler += handler1;
+			CallbackHandler.Add(addBridges);
 		}
 
-		public Book? addBook(Book book)
+		public Results<Book> addBook(Book book)
 			=> addModel(book);
 
-		public Book? removeBook(int id)
-		{
-			if (deleteBridges(id))
-			{
-				return deleteModel(x => x.book_id == id);
-			}
-			else
-			{
-				return null;
-			}
-		}
+		public Results<Book> removeBook(int id)
+			=> deleteBridgedModel(id, x => x.book_id == id);
 
-		public Book? updateBook(int id, Book book)
-		{
-			Book? updatedBook = updateModel(
-				x => x.book_id == id, book);
+		public Results<Book> updateBook(int id, Book book)
+			=> updateModel(x => x.book_id == id, book);
 
-			if (updatedBook != null)
-			{
-				updatedBook.authors = book.authors;
-				updatedBook.genres = book.genres;
-				updatedBook.readers = book.readers;
-				updatedBook.reviews = book.reviews;
-			}
+		public Results<Book> getBookById(int id)
+			=> formatModel(x => x.book_id == id);
 
-			return updatedBook;
-		}
+		public Results<Book> getBookByIsbn(string isbn)
+			=> formatModel(x => x.isbn == isbn);
 
-		public Book? getBookById(int id)
-			=> formatModel(null, x => x.book_id == id);
+		public Results<Book> getBookByTitle(string title)
+			=> formatModel(x => x.title == title);
 
-		public Book? getBookByIsbn(string isbn)
-			=> formatModel(null, x => x.isbn == isbn);
-
-		public Book? getBookByTitle(string title)
-			=> formatModel(null, x => x.title == title);
-
-		public IEnumerable<Book>? getAllBooks()
+		public Results<IEnumerable<Book>> getAllBooks()
 			=> formatAllModels();
 
-		protected override Book addBridges(Book book)
+		protected override Results<Book> addBridges(Book book)
 		{
-			book.authors = getMultipleJoins<Author, Book_Author>(
+			var authors = getMultipleJoins<Author, Book_Author>(
 				x => x.book_id == book.book_id, y => y.author_id);
-			book.genres = getMultipleJoins<Genre, Book_Genre>(
+			var genres = getMultipleJoins<Genre, Book_Genre>(
 				x => x.book_id == book.book_id, y => y.genre_id);
-			book.reviews = getJoins<Review>(x => x.book_id == book.book_id);
-
-			if(!book.reviews.IsNullOrEmpty())
-			{
-				book.rating = Convert.ToInt32(book.reviews.Select(x => x.rating).Average());
-			}
-
-			var readersModels = getMultipleJoins<User, User_Book>(
+			var readers = getMultipleJoins<User, User_Book>(
 				x => x.book_id == book.book_id, y => y.user_id);
+			var reviews = getJoins<Review>(x => x.book_id == book.book_id);
 
-			if (readersModels != null)
+			if(reviews.success && authors.success && genres.success && readers.success)
 			{
-				book.readers = readersModels.Count();
+				book.authors = authors.payload;
+				book.genres = genres.payload;
+				book.readers = readers.payload!.Count();
+				book.reviews = reviews.payload;
+				book.rating = Convert.ToInt32(book.reviews!.Select(x => x.rating).Average());
+
+				return new ResultsSuccessful<Book>(book);
 			}
 			else
 			{
-				book.readers = null;
+				return new ResultsFailure<Book>(
+					authors.msg
+					+ genres.msg
+					+ readers.msg
+					+ reviews.msg
+					+ "Failed to grab bridge tables");
 			}
-
-			return book;
 		}
-		protected override bool deleteBridges(int id)
+		protected override Results<Book> deleteBridges(int id)
 		{
-			return
-				deleteJoins<Book_Author>(x => x.book_id == id) &&
-				deleteJoins<Book_Genre>(x => x.book_id == id) &&
-				deleteJoins<User_Book>(x => x.book_id == id) &&
-				deleteJoins<Review>(x => x.book_id == id);
+			var authors = deleteJoins<Book_Author>(x => x.book_id == id);
+			var genres = deleteJoins<Book_Genre>(x => x.book_id == id);
+			var readers = deleteJoins<User_Book>(x => x.book_id == id);
+			var reviews = deleteJoins<Review>(x => x.book_id == id);
+
+			if (authors.success && genres.success && 
+				readers.success && reviews.success)
+			{
+				return new ResultsSuccessful<Book>(null);
+			}else
+			{
+				return new ResultsFailure<Book>(
+					authors.msg
+					+ genres.msg
+					+ readers.msg
+					+ reviews.msg
+					+ "Failed to delete joins");
+			}
 		}
+
+		protected override Book transferProperties(Book original, Book updated)
+		{
+			original.authors = updated.authors;
+			original.genres = updated.genres;
+			original.readers = updated.readers;
+			original.reviews = updated.reviews;
+
+			return original;
+		}
+
+		protected override Results<Book> validateProperties(Book model)
+		=> new ResultsSuccessful<Book>(model);
 	}
 }

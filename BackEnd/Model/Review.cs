@@ -9,8 +9,10 @@ namespace BackEnd.Model
 	{
 		public int book_id { get; set; }
 		public int user_id { get; set; }
+		[StringLength(300)]
 		public string? description { get; set; }
 		[Required]
+		[Range(0, 10)]
 		public int rating { get; set; }
 		[Required]
 		public DateOnly? date_submitted { get; set; } = new DateOnly();

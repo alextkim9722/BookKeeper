@@ -1,8 +1,8 @@
 ﻿using BackEnd.Model;
 using BackEnd.Services.Interfaces;
+using BackEnd.Services.ErrorHandling;
 using Microsoft.AspNetCore.Identity;
-using System.Diagnostics;
-using System.Linq.Expressions;
+
 
 namespace BackEnd.Services
 {
@@ -32,7 +32,7 @@ namespace BackEnd.Services
 			_signInManager = signInManager;
 		}
 
-		public async Task<Identification>? createIdentification(
+		public async Task<Results<Identification>> createIdentification(
 			Identification identification, string password)
 		{
 			if (identification != null)
@@ -50,24 +50,36 @@ namespace BackEnd.Services
 						description = defaultProfilePicPath
 					};
 
-					_userService.addUser(user);
+					Results<User> userResult = _userService.addUser(user);
 
-					return identification;
+					if(userResult.success)
+					{
+						return new ResultsSuccessful<Identification>(identification);
+					}
+					else
+					{
+						return new ResultsFailure<Identification>(
+							userResult.msg
+							+ "Identity User creation for failed"
+							);
+					}
 				}
 				else
 				{
-					return null;
+					return new ResultsFailure<Identification>(
+						"Identity creation has failed");
 				}
 			}
 			else
 			{
-				return null;
+				return new ResultsFailure<Identification>(
+						"Identification is null");
 			}
 		}
 
-		public async Task<Identification>? login(string input, string type, string password)
+		public async Task<Results<Identification>> login(string input, string type, string password)
 		{
-			Identification? identification = null;
+			Results<Identification> identification;
 
 			switch (type)
 			{
@@ -78,67 +90,98 @@ namespace BackEnd.Services
 					identification = await getIdentificationByUsername(input);
 					break;
 				default:
-					return null;
-					break;
+					return new ResultsFailure<Identification>("Incorrect login type");
 			}
 
-			await _signInManager.SignOutAsync();
-			SignInResult result = await _signInManager.PasswordSignInAsync(identification, password, false, false);
+			if(identification.success){
+				await _signInManager.SignOutAsync();
+				SignInResult result = await _signInManager.PasswordSignInAsync(
+					identification.payload!, password, false, false);
 
-			return identification;
+				return new ResultsSuccessful<Identification>(identification.payload);
+			}
+			else
+			{
+				return new ResultsFailure<Identification>(
+					identification.msg
+					+ "Login has failed");
+			}
 		}
 
-		public async Task<Identification>? getIdentificationByEmail(string email)
+		public async Task<Results<Identification>> getIdentificationByEmail(string email)
 		{
 			Identification? identification = await _userManager.FindByEmailAsync(email);
-			identification = addUserId(identification);
-			return identification;
+			if(identification == null)
+			{
+				return new ResultsSuccessful<Identification>(identification);
+			}else
+			{
+				return new ResultsFailure<Identification>("Email is not found");
+			}
 		}
 
-		public async Task<Identification>? getIdentificationByUsername(string username)
+		public async Task<Results<Identification>> getIdentificationByUsername(string username)
 		{
 			Identification? identification = await _userManager.FindByNameAsync(username);
-			identification = addUserId(identification);
-			return identification;
-		}
-
-		private Identification? addUserId(Identification? identification)
-		{
-			if (identification != null)
+			if (identification == null)
 			{
-				identification.user_id = _userService.getUserByIdentificationId(identification.Id).user_id;
+				return new ResultsSuccessful<Identification>(identification);
 			}
-
-			return identification;
+			else
+			{
+				return new ResultsFailure<Identification>("Username is not found");
+			}
 		}
 
-		public async Task<Identification>? removeIdentification(string id)
+		private Results<Identification> addUserId(Identification identification)
 		{
-			Identification? identification = await _userManager.FindByIdAsync(id);
+			var result = _userService.getUserByIdentificationId(
+				identification.Id);
+			if (result.success)
+			{
+				identification.user_id = result.payload!.user_id;
+				return new ResultsSuccessful<Identification>(
+					identification);
+			}
+			else
+			{
+				return new ResultsFailure<Identification>(
+					"User has not found by identification Id");
+			}
+		}
+
+		public async Task<Results<Identification>> removeIdentification(string id)
+		{
+			Identification identification = await _userManager.FindByIdAsync(id);
 			if (identification != null)
 			{
 				_userService.removeUser(identification.user_id);
 				await _userManager.DeleteAsync(identification);
-				return identification;
+				return new ResultsSuccessful<Identification>(
+					identification);
 			}
 			else
 			{
-				return null;
+				return new ResultsFailure<Identification>(
+					"Removing Identification has failed");
 			}
 		}
 
-		public async Task<Identification>? updateIdentification(
-			string id, Identification? identification)
+		public async Task<Results<Identification>> updateIdentification(
+			Identification identification)
 		{
-			IdentityResult result = await _userManager.UpdateAsync(identification);
+			IdentityResult result = await _userManager
+				.UpdateAsync(identification);
 
 			if (result.Succeeded)
 			{
-				return identification;
+				return new ResultsSuccessful<Identification>(
+					identification);
 			}
 			else
 			{
-				return null;
+				return new ResultsFailure<Identification>(
+					"Updating Identification has failed");
 			}
 		}
 	}
