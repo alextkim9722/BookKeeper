@@ -3,6 +3,7 @@ using BackEnd.Services.Abstracts;
 using BackEnd.Services.Interfaces;
 using BackEnd.Services.ErrorHandling;
 using static System.Reflection.Metadata.BlobBuilder;
+using Microsoft.IdentityModel.Tokens;
 
 namespace BackEnd.Services
 {
@@ -19,7 +20,7 @@ namespace BackEnd.Services
 			=> addModel(user);
 
 		public Results<IEnumerable<User>> getAllUser()
-			=> getAllModels();
+			=> formatAllModels();
 
 		public Results<User> getUserById(int id)
 			=> formatModel(x => x.user_id == id);
@@ -38,8 +39,11 @@ namespace BackEnd.Services
 
 		private Results<User> recordBookData(User user)
 		{
-			user.pagesRead = user.books!.Select(x => x.pages).Sum();
-			user.booksRead = user.books!.Count();
+			if(!user.books.IsNullOrEmpty())
+			{
+				user.pagesRead = user.books!.Select(x => x.pages).Sum();
+				user.booksRead = user.books!.Count();
+			}
 
 			return new ResultsSuccessful<User>(user);
 		}
@@ -52,6 +56,8 @@ namespace BackEnd.Services
 
 			if (books.success && reviews.success)
 			{
+				user.books = books.payload;
+				user.reviews = reviews.payload;
 				return new ResultsSuccessful<User>(null);
 			}
 			else

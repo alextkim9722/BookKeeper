@@ -23,7 +23,6 @@ namespace BackEndTest.Services
 			}
 			else
 			{
-
 				return Math.Abs(_random.Next(min, max));
 			}
 		}

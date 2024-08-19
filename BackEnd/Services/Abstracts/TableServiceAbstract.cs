@@ -2,6 +2,8 @@
 using System.Linq.Expressions;
 using BackEnd.Services.ErrorHandling;
 using BackEnd.Model;
+using System.Reflection.Metadata.Ecma335;
+using Microsoft.IdentityModel.Tokens;
 
 namespace BackEnd.Services.Abstracts
 {
@@ -17,18 +19,24 @@ namespace BackEnd.Services.Abstracts
             CallbackHandler = new List<Callback>();
         }
 
-        protected Results<T> getModelBy(Expression<Func<T, bool>> condition)
+        protected Results<IEnumerable<T>> getModelsBy(Expression<Func<T, bool>> condition)
         {
-            try
-            {
-                T? model = _bookShelfContext.Set<T>().Where(condition).FirstOrDefault();
-                return new ResultsSuccessful<T>(model!);
-            }
-            catch (SqlException sqlEx)
-            {
-                return new ResultsException<T>(sqlEx, "Issue with grabbing model");
-            }
-        }
+			try
+			{
+				IEnumerable<T>? model = _bookShelfContext.Set<T>().Where(condition);
+                if (!model.IsNullOrEmpty())
+                {
+					return new ResultsSuccessful<IEnumerable<T>>(model!);
+				}else
+                {
+                    return new ResultsFailure<IEnumerable<T>>("Failed to find models");
+                }
+			}
+			catch (SqlException sqlEx)
+			{
+				return new ResultsException<IEnumerable<T>>(sqlEx, "Issue with grabbing models");
+			}
+		}
 
         protected Results<IEnumerable<T>> getAllModels()
         {
@@ -48,22 +56,24 @@ namespace BackEnd.Services.Abstracts
             Expression<Func<T, bool>> condition,
             T updatedModel)
         {
-			var model = getModelBy(condition);
+			var models = getModelsBy(condition);
 
-            if(model.success)
+            if(models.success)
             {
                 try
                 {
-                    var validation = validateProperties(model.payload!);
+                    var model = models.payload!.FirstOrDefault()!;
+                    var validation = validateProperties(model);
+
                     if (validation.success)
                     {
                         _bookShelfContext
-                            .Entry(model!)
+                            .Entry(model)
                             .CurrentValues
                             .SetValues(updatedModel);
                         _bookShelfContext.SaveChanges();
 
-                        return new ResultsSuccessful<T>(model.payload!);
+                        return new ResultsSuccessful<T>(model);
                     }
                     else
                     {
@@ -77,7 +87,7 @@ namespace BackEnd.Services.Abstracts
             }
             else
             {
-                return model;
+                return new ResultsFailure<T>("Model was not found for updating");
             }
         }
 
@@ -106,14 +116,16 @@ namespace BackEnd.Services.Abstracts
         protected Results<T> deleteModel(
             Expression<Func<T, bool>> condition)
         {
-			var model = getModelBy(condition);
-            if(model.success)
+			var models = getModelsBy(condition);
+            if(models.success)
             {
                 try
                 {
-                    _bookShelfContext.Set<T>().Remove(model.payload!);
+					var model = models.payload!.FirstOrDefault()!;
+
+					_bookShelfContext.Set<T>().Remove(model);
                     _bookShelfContext.SaveChanges();
-                    return new ResultsSuccessful<T>(model.payload!);
+                    return new ResultsSuccessful<T>(model);
                 }
                 catch (SqlException sqlEx)
                 {
@@ -123,7 +135,7 @@ namespace BackEnd.Services.Abstracts
             }
             else
             {
-                return model;
+                return new ResultsFailure<T>("Models were not found for deleting");
             }
         }
 
@@ -150,7 +162,7 @@ namespace BackEnd.Services.Abstracts
 		{
             Results<T> result = new Results<T>();
 
-			if (CallbackHandler != null)
+			if (!CallbackHandler.IsNullOrEmpty())
             {
                 result = executeCallbackChain(model);
 			}
@@ -158,16 +170,38 @@ namespace BackEnd.Services.Abstracts
             return result;
 		}
 
-        protected Results<T> formatModel(Expression<Func<T, bool>> condition)
-        {
-			Results<T> model = getModelBy(condition);
-
-            if(model.success && CallbackHandler != null)
+		protected Results<IEnumerable<T>> formatModels(Expression<Func<T, bool>> condition)
+		{
+            Results<IEnumerable<T>> model = getModelsBy(condition);
+			
+            if(model.success && !CallbackHandler.IsNullOrEmpty())
             {
-                model = formatModel(model.payload!);
+                for(int i = 0;i < model.payload!.Count();i++)
+                {
+                    var result = executeCallbackChain(model.payload!.ToList()[i]);
+                    if(result.success)
+                    {
+                        model.payload!.ToList()[i] = result.payload!;
+                    }
+                    else
+                    {
+                        return new ResultsFailure<IEnumerable<T>>(result.msg);
+                    }
+                }
             }
 
             return model;
+		}
+
+		protected Results<T> formatModel(Expression<Func<T, bool>> condition)
+        {
+			Results<IEnumerable<T>> model = formatModels(condition);
+            if (model.success)
+            {
+                return new ResultsSuccessful<T>(model.payload!.FirstOrDefault());
+            }
+
+            return new ResultsFailure<T>(model.msg);
 		}
 
 		public Results<IEnumerable<T>> formatAllModels()

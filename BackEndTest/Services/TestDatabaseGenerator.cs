@@ -18,25 +18,22 @@ namespace BackEndTest.Services
 
 		private RandomGenerators randGen = new RandomGenerators();
 
-		public List<Author> authorTable { get; set; } = new List<Author>();
-		public List<Book> bookTable { get; set; } = new List<Book>();
-		public List<Book_Author> bookAuthorTable { get; set; } = new List<Book_Author>();
-		public List<Book_Genre> bookGenreTable { get; set; } = new List<Book_Genre>();
-		public List<Genre> genreTable { get; set; } = new List<Genre>();
-		public List<Review> reviewTable { get; set; } = new List<Review>();
-		public List<User> userTable { get; set; } = new List<User>();
-		public List<User_Book> userBookTable { get; set; } = new List<User_Book>();
+		public static List<Author> authorTable { get; set; } = new List<Author>();
+		public static List<Book> bookTable { get; set; } = new List<Book>();
+		public static List<Book_Author> bookAuthorTable { get; set; } = new List<Book_Author>();
+		public static List<Book_Genre> bookGenreTable { get; set; } = new List<Book_Genre>();
+		public static List<Genre> genreTable { get; set; } = new List<Genre>();
+		public static List<Review> reviewTable { get; set; } = new List<Review>();
+		public static List<User> userTable { get; set; } = new List<User>();
+		public static List<User_Book> userBookTable { get; set; } = new List<User_Book>();
 
 		public TestDatabaseGenerator()
 		{
-			regenerateTable(createContext());
-		}
-
-		public void regenerateTable(BookShelfContext bookShelfContext)
-		{
-			clearTables(bookShelfContext);
-			populateTables(bookShelfContext);
-			populateBridgeTables(bookShelfContext);
+			if (!databaseCreated)
+			{
+				regenerateTable(createContext());
+				databaseCreated = true;
+			}
 		}
 
 		public BookShelfContext createContext()
@@ -45,7 +42,15 @@ namespace BackEndTest.Services
 			.UseSqlServer(connectionString)
 			.Options);
 
-		public void clearTables(BookShelfContext bookShelfContext)
+		private void regenerateTable(BookShelfContext bookShelfContext)
+		{
+			clearTables(bookShelfContext);
+			reseedTable(bookShelfContext);
+			populateTables(bookShelfContext);
+			populateBridgeTables(bookShelfContext);
+		}
+
+		private void clearTables(BookShelfContext bookShelfContext)
 		{
 			bookShelfContext.Database.ExecuteSql($"TRUNCATE TABLE [dbo].[book_author]");
 			bookShelfContext.Database.ExecuteSql($"TRUNCATE TABLE [dbo].[book_genre]");
@@ -58,13 +63,16 @@ namespace BackEndTest.Services
 			bookShelfContext.Database.ExecuteSql($"DELETE [dbo].[author]");
 		}
 
-		public void populateTables(BookShelfContext bookShelfContext)
+		private void reseedTable(BookShelfContext bookShelfContext)
 		{
 			bookShelfContext.Database.ExecuteSql($"DBCC CHECKIDENT ('author', RESEED, 0)");
 			bookShelfContext.Database.ExecuteSql($"DBCC CHECKIDENT ('book', RESEED, 0)");
 			bookShelfContext.Database.ExecuteSql($"DBCC CHECKIDENT ('user', RESEED, 0)");
 			bookShelfContext.Database.ExecuteSql($"DBCC CHECKIDENT ('genre', RESEED, 0)");
+		}
 
+		private void populateTables(BookShelfContext bookShelfContext)
+		{
 			for (int i = 0;i < 20; i++)
 			{
 				Author author = new Author()
@@ -113,49 +121,34 @@ namespace BackEndTest.Services
 			}
 		}
 
-		private List<int[]> generatePairs(int range)
+		private void populateBridgeTables(BookShelfContext bookShelfContext)
 		{
-			List<int[]> pairs = new List<int[]>();
-
-			for (int i = 1; i < range; i++)
-			{
-				for (int j = 1; j < range; j++)
-				{
-					pairs.Add(new int[] { i, j });
-				}
-			}
-
-			return pairs;
-		}
-
-		public void populateBridgeTables(BookShelfContext bookShelfContext)
-		{
-			List<int[]> bkat = generatePairs(20);
-			List<int[]> bkgn = generatePairs(20);
-			List<int[]> usbk = generatePairs(20);
+			var bookAuthorPairGen = new UniqueIntPairGenerator(randGen, 20, 20);
+			var bookGenrePairGen = new UniqueIntPairGenerator(randGen, 20, 20);
+			var userBookPairGen = new UniqueIntPairGenerator(randGen, 20, 20);
 
 			for (int i = 1; i < 30; i++)
 			{
-				var bkatIndex = randGen.randNumber(0, bkat.Count() - 1);
-				var bkgnIndex = randGen.randNumber(0, bkgn.Count() - 1);
-				var usbkIndex = randGen.randNumber(0, usbk.Count() - 1);
+				var bookAuthorPair = bookAuthorPairGen.getRandomPair();
+				var bookGenrePair = bookGenrePairGen.getRandomPair();
+				var userBookPair = userBookPairGen.getRandomPair();
 
 				Book_Author bookAuthor = new Book_Author()
 				{
-					book_id = bkat.ElementAt(bkatIndex)[0],
-					author_id = bkat.ElementAt(bkatIndex)[1]
+					book_id = bookAuthorPair[0],
+					author_id = bookAuthorPair[1]
 				};
 
 				Book_Genre bookGenre = new Book_Genre()
 				{
-					book_id = bkgn.ElementAt(bkgnIndex)[0],
-					genre_id = bkgn.ElementAt(bkgnIndex)[1]
+					book_id = bookGenrePair[0],
+					genre_id = bookGenrePair[1]
 				};
 
 				User_Book userBook = new User_Book()
 				{
-					book_id = usbk.ElementAt(usbkIndex)[0],	
-					user_id = usbk.ElementAt(usbkIndex)[1]
+					book_id = userBookPair[0],	
+					user_id = userBookPair[1]
 				};
 
 				Review review = new Review()
@@ -166,10 +159,6 @@ namespace BackEndTest.Services
 					rating = 0,
 					date_submitted = randGen.randDate()
 				};
-
-				bkat.RemoveAt(bkatIndex);
-				bkgn.RemoveAt(bkgnIndex);
-				usbk.RemoveAt(usbkIndex);
 
 				bookAuthorTable.Add(bookAuthor);
 				bookGenreTable.Add(bookGenre);

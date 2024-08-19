@@ -1,101 +1,152 @@
 ﻿using BackEnd.Model;
 using BackEnd.Services;
+using BackEnd.Services.ErrorHandling;
 using BackEnd.Services.Interfaces;
+using BackEndTest.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MainProjectTest.Services
+namespace BackEndTest.Services
 {
-	// There are a lot of similarities between the Service classes.
-	// Im only going to test one of the get functions as I want to
-	// see if the callback is working properly with multiple delegates.
 	[Collection("Test Integration With DB")]
-	public class AuthorServiceTest : IClassFixture<TestDatabaseFixture>
+	public class AuthorServiceTest : IClassFixture<TestDatabaseGenerator>
 	{
-		//private readonly BookShelfContext _bookShelfContext;
-		//private readonly AuthorService _authorService;
+		private readonly AuthorService _authorService;
 
-		//private readonly TestDatabaseFixture _Fixture;
+		// Test database services by comparing values between list data
+		// and database/context data.
+		public AuthorServiceTest(TestDatabaseGenerator generator)
+		{
+			var context = generator.createContext();
+			_authorService = new AuthorService(context);
+		}
 
-		//public AuthorServiceTest(TestDatabaseFixture fixture)
-		//{
-		//	_Fixture = fixture;
-		//	_bookShelfContext = _Fixture.createContext();
-		//	_Fixture.clearTables(_bookShelfContext);
-		//	_Fixture.populateTables(_bookShelfContext);
-		//	_Fixture.populateBridgeTables(_bookShelfContext);
-		//	TestDatabaseFixture.cleared = false;
+		private void authorEquals(Author expected, Author actual)
+		{
+			MappedComparator.compareAuthor(expected, actual);
 
-		//	_authorService = new AuthorService(_bookShelfContext);
-		//}
+			Assert.Equal(expected.full_name, actual.full_name);
 
-		//#region SETUP
-		//private void READ_SETUP(
-		//	ref Author expectedAuthor,
-		//	ref IEnumerable<Book>? expectedBooks
-		//	)
-		//{
-		//	expectedAuthor = new Author()
-		//	{
-		//		author_id = 1,
-		//		first_name = "Nicole",
-		//		middle_name = "Valentine",
-		//		last_name = "Terantino"
-		//	};
+			for (int i = 0; i < expected.books.Count(); i++)
+			{
+				MappedComparator.compareBook(
+					expected.books.ElementAt(i), actual.books.ElementAt(i));
+			}
+		}
 
-		//	expectedBooks = _bookShelfContext.Book
-		//		.Where(x => _bookShelfContext.Book_Author
-		//		.Where(y => y.author_id == 1)
-		//		.Select(y => y.book_id)
-		//		.ToList()
-		//		.Contains(x.book_id))
-		//		.ToList();
-		//}
-		//#endregion
+		[Fact]
+		public void GetAllAuthors_InvokedWithValidName_ReturnsAllUsersWithNoNulls()
+		{
+			AuthorTheoryDataGenerator data = new AuthorTheoryDataGenerator();
+			Results<IEnumerable<Author>> actual = _authorService.getAllAuthors();
 
-		//#region CHECKS
-		//private void READ_AUTHOR(
-		//	Author expectedAuthor,
-		//	Author? actualAuthor
-		//	)
-		//{
-		//	string expectedFullName = expectedAuthor.first_name
-		//		+ " " + expectedAuthor.middle_name
-		//		+ " " + expectedAuthor.last_name;
+			Assert.True(actual.success);
 
-		//	Assert.NotNull(actualAuthor);
-		//	Assert.Equal(expectedAuthor.author_id, actualAuthor.author_id);
-		//	Assert.Equal(expectedAuthor.first_name, actualAuthor.first_name);
-		//	Assert.Equal(expectedAuthor.middle_name, actualAuthor.middle_name);
-		//	Assert.Equal(expectedAuthor.last_name, actualAuthor.last_name);
-		//	Assert.Equal(expectedFullName, actualAuthor.full_name);
-		//}
+			for (int i = 0; i < data.Count(); i++)
+			{
+				authorEquals((Author)data.ElementAt(i).FirstOrDefault(), actual.payload.ElementAt(i));
+			}
+		}
 
-		//private void READ_BRIDGES(
-		//	Author? actualAuthor,
-		//	IEnumerable<Book>? expectedBooks
-		//	)
-		//{
-		//	Assert.NotNull(actualAuthor.books);
-		//	Assert.Equal(expectedBooks, actualAuthor.books);
-		//}
-		//#endregion
+		[Theory]
+		[ClassData(typeof(AuthorTheoryDataGenerator))]
+		public void GetAuthorById_InvokedWithValidId_ReturnsUserWithNoNulls(Author expected)
+		{
+			Results<Author> actual = _authorService.getAuthorById(expected.author_id);
 
-		//[Fact]
-		//public void GET_A_SINGLE_AUTHOR_FROM_THE_DATABASE()
-		//{
-		//	Author expectedAuthor = new Author();
-		//	IEnumerable<Book>? expectedBooks = null;
+			Assert.True(actual.success);
+			authorEquals(expected, actual.payload);
+		}
 
-		//	READ_SETUP(ref expectedAuthor, ref expectedBooks);
+		[Theory]
+		[ClassData(typeof(AuthorTheoryDataGenerator))]
+		public void GetAuthorById_InvokedWithValidFirstName_ReturnsUserWithNoNulls(Author expected)
+		{
+			Results<Author> actual = _authorService.getAuthorByFirstName(expected.first_name);
 
-		//	Author? actualAuthor = _authorService.getAuthorById(1);
+			Assert.True(actual.success);
+			authorEquals(expected, actual.payload);
+		}
 
-		//	READ_AUTHOR(expectedAuthor, actualAuthor);
-		//	READ_BRIDGES(actualAuthor, expectedBooks);
-		//}
+		[Theory]
+		[ClassData(typeof(AuthorTheoryDataGenerator))]
+		public void GetAuthorById_InvokedWithValidMiddleName_ReturnsUserWithNoNulls(Author expected)
+		{
+			Results<Author> actual = _authorService.getAuthorByMiddleName(expected.middle_name);
+
+			Assert.True(actual.success);
+			authorEquals(expected, actual.payload);
+		}
+
+		[Theory]
+		[ClassData(typeof(AuthorTheoryDataGenerator))]
+		public void GetAuthorById_InvokedWithValidLastName_ReturnsUserWithNoNulls(Author expected)
+		{
+			Results<Author> actual = _authorService.getAuthorByLastName(expected.last_name);
+
+			Assert.True(actual.success);
+			authorEquals(expected, actual.payload);
+		}
+
+		[Fact]
+		public void AddAuthor_InvokedWithValidAuthorWithNoId_ReturnsSuccessResultAndExistsInDatabase()
+		{
+			var expected = new Author()
+			{
+				first_name = "Nicole",
+				middle_name = "Valentine",
+				last_name = "Blake"
+			};
+
+			Results<Author> add = _authorService.addAuthor(expected);
+			Results<Author> actual = _authorService.getAuthorByFirstName("Nicole");
+
+			Assert.True(add.success);
+			MappedComparator.compareAuthor(expected, actual.payload);
+
+			_authorService.removeAuthor(actual.payload.author_id);
+		}
+
+		[Fact]
+		public void UpdateAuthor_InvokedWithProperIdAndUpdatedAuthorWithSameId_ReturnsSuccessResult()
+		{
+			AuthorTheoryDataGenerator data = new AuthorTheoryDataGenerator();
+
+			var expected = new Author()
+			{
+				author_id = 2,
+				first_name = "Nicole",
+				middle_name = "Valentine",
+				last_name = "Blake"
+			};
+
+			var original = new Author()
+			{
+				author_id = 2,
+				first_name = TestDatabaseGenerator.authorTable[1].first_name,
+				middle_name = TestDatabaseGenerator.authorTable[1].middle_name,
+				last_name = TestDatabaseGenerator.authorTable[1].last_name,
+			};
+
+			Results<Author> update = _authorService.updateAuthor(2, expected);
+			Results<Author> actual = _authorService.getAuthorById(2);
+
+			Assert.True(update.success);
+			MappedComparator.compareAuthor(expected, actual.payload);
+
+			_authorService.updateAuthor(2, original);
+		}
+
+		[Fact]
+		public void GetAuthorById_InvokedWithNonExistantId_ReturnsFailedResult()
+		{
+			Results<Author> actual = _authorService.getAuthorById(50);
+
+			Assert.NotNull(actual);
+			Assert.False(actual.success);
+		}
 	}
 }

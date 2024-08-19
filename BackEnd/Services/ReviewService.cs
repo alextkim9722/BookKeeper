@@ -17,7 +17,7 @@ namespace BackEnd.Services
 		}
 
 		public Results<Review> addReview(Review review)
-			=> addReview(review);
+			=> addModel(review);
 
 		public Results<Review> removeReview(int userId, int bookId)
 			=> deleteModel(
@@ -32,11 +32,14 @@ namespace BackEnd.Services
 				x => x.user_id == userId && x.book_id == bookId,
 				review);
 
-		public Results<Review> getReviewByBookId(int id)
-			=> formatModel(x => x.book_id == id);
+		public Results<Review> getReviewById(int userId, int bookId)
+			=> formatModel(x => x.book_id == bookId && x.user_id == userId);
 
-		public Results<Review> getReviewByUserId(int id)
-			=> formatModel(x => x.user_id == id);
+		public Results<IEnumerable<Review>> getReviewByBookId(int id)
+			=> formatModels(x => x.book_id == id);
+
+		public Results<IEnumerable<Review>> getReviewByUserId(int id)
+			=> formatModels(x => x.user_id == id);
 
 		public Results<IEnumerable<Review>> getAllReviews()
 			=> getAllModels();

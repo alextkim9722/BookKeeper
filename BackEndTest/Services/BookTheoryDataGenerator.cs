@@ -11,37 +11,35 @@ namespace BackEndTest.Services
 {
 	public class BookTheoryDataGenerator : TheoryData<Book>
 	{
-		public static TestDatabaseGenerator generator = new TestDatabaseGenerator();
-
 		public BookTheoryDataGenerator() 
 		{
 			for (int i = 0; i < 20; i++)
 			{
-				Book book = generator.bookTable[i];
-				book.authors = generator.authorTable.Where(
-						x => generator.bookAuthorTable
+				Book book = TestDatabaseGenerator.bookTable[i];
+				book.authors = TestDatabaseGenerator.authorTable.Where(
+						x => TestDatabaseGenerator.bookAuthorTable
 						.Where(y => y.book_id == i + 1)
 						.Select(y => y.author_id)
 						.ToList()
 						.Contains(x.author_id))
 						.ToList();
-				book.genres = generator.genreTable.Where(
-						x => generator.bookGenreTable
+				book.genres = TestDatabaseGenerator.genreTable.Where(
+						x => TestDatabaseGenerator.bookGenreTable
 						.Where(y => y.book_id == i + 1)
 						.Select(y => y.genre_id)
 						.ToList()
 						.Contains(x.genre_id))
 						.ToList();
-				book.readers = generator.userTable.Where(
-						x => generator.userBookTable
+				book.readers = TestDatabaseGenerator.userTable.Where(
+						x => TestDatabaseGenerator.userBookTable
 						.Where(y => y.book_id == i + 1)
 						.Select(y => y.user_id)
 						.ToList()
 						.Contains(x.user_id))
 						.ToList().Count();
-				book.reviews = generator.reviewTable
+				book.reviews = TestDatabaseGenerator.reviewTable
 						.Where(y => y.book_id == i + 1)
-						.ToList();
+						.OrderBy(x => x.user_id).ToList();
 
 				if (!book.reviews.IsNullOrEmpty())
 				{
