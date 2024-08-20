@@ -3,22 +3,6 @@
   "WorkspaceRootPath": "S:\\Programming-Stuff\\BookKeeper\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{07790725-64D0-4824-AC4F-06F361D6F3E5}|BackEndTest\\BackEndTest.csproj|s:\\programming-stuff\\bookkeeper\\backendtest\\services\\randomgenerators\\testdatabasegenerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{07790725-64D0-4824-AC4F-06F361D6F3E5}|BackEndTest\\BackEndTest.csproj|solutionrelative:backendtest\\services\\randomgenerators\\testdatabasegenerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B0469DE7-217D-4453-AF0A-BBA7EA3519AC}|BackEnd\\BackEnd.csproj|s:\\programming-stuff\\bookkeeper\\backend\\services\\identificationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B0469DE7-217D-4453-AF0A-BBA7EA3519AC}|BackEnd\\BackEnd.csproj|solutionrelative:backend\\services\\identificationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{07790725-64D0-4824-AC4F-06F361D6F3E5}|BackEndTest\\BackEndTest.csproj|s:\\programming-stuff\\bookkeeper\\backendtest\\services\\theorydatagenerators\\identificationtheorydatagenerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{07790725-64D0-4824-AC4F-06F361D6F3E5}|BackEndTest\\BackEndTest.csproj|solutionrelative:backendtest\\services\\theorydatagenerators\\identificationtheorydatagenerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B0469DE7-217D-4453-AF0A-BBA7EA3519AC}|BackEnd\\BackEnd.csproj|s:\\programming-stuff\\bookkeeper\\backend\\model\\identification.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B0469DE7-217D-4453-AF0A-BBA7EA3519AC}|BackEnd\\BackEnd.csproj|solutionrelative:backend\\model\\identification.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{07790725-64D0-4824-AC4F-06F361D6F3E5}|BackEndTest\\BackEndTest.csproj|s:\\programming-stuff\\bookkeeper\\backendtest\\services\\reviewservicetest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{07790725-64D0-4824-AC4F-06F361D6F3E5}|BackEndTest\\BackEndTest.csproj|solutionrelative:backendtest\\services\\reviewservicetest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
@@ -35,64 +19,12 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "TestDatabaseGenerator.cs",
-              "DocumentMoniker": "S:\\Programming-Stuff\\BookKeeper\\BackEndTest\\Services\\RandomGenerators\\TestDatabaseGenerator.cs",
-              "RelativeDocumentMoniker": "BackEndTest\\Services\\RandomGenerators\\TestDatabaseGenerator.cs",
-              "ToolTip": "S:\\Programming-Stuff\\BookKeeper\\BackEndTest\\Services\\RandomGenerators\\TestDatabaseGenerator.cs",
-              "RelativeToolTip": "BackEndTest\\Services\\RandomGenerators\\TestDatabaseGenerator.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABQAAABCAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-20T07:07:16.632Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "IdentificationService.cs",
-              "DocumentMoniker": "S:\\Programming-Stuff\\BookKeeper\\BackEnd\\Services\\IdentificationService.cs",
-              "RelativeDocumentMoniker": "BackEnd\\Services\\IdentificationService.cs",
-              "ToolTip": "S:\\Programming-Stuff\\BookKeeper\\BackEnd\\Services\\IdentificationService.cs",
-              "RelativeToolTip": "BackEnd\\Services\\IdentificationService.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAABAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-20T07:04:39.152Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Identification.cs",
-              "DocumentMoniker": "S:\\Programming-Stuff\\BookKeeper\\BackEnd\\Model\\Identification.cs",
-              "RelativeDocumentMoniker": "BackEnd\\Model\\Identification.cs",
-              "ToolTip": "S:\\Programming-Stuff\\BookKeeper\\BackEnd\\Model\\Identification.cs",
-              "RelativeToolTip": "BackEnd\\Model\\Identification.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-20T07:00:44.156Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "IdentificationTheoryDataGenerator.cs",
-              "DocumentMoniker": "S:\\Programming-Stuff\\BookKeeper\\BackEndTest\\Services\\TheoryDataGenerators\\IdentificationTheoryDataGenerator.cs",
-              "RelativeDocumentMoniker": "BackEndTest\\Services\\TheoryDataGenerators\\IdentificationTheoryDataGenerator.cs",
-              "ToolTip": "S:\\Programming-Stuff\\BookKeeper\\BackEndTest\\Services\\TheoryDataGenerators\\IdentificationTheoryDataGenerator.cs",
-              "RelativeToolTip": "BackEndTest\\Services\\TheoryDataGenerators\\IdentificationTheoryDataGenerator.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABQAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-20T06:59:21.156Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
               "Title": "ReviewServiceTest.cs",
               "DocumentMoniker": "S:\\Programming-Stuff\\BookKeeper\\BackEndTest\\Services\\ReviewServiceTest.cs",
               "RelativeDocumentMoniker": "BackEndTest\\Services\\ReviewServiceTest.cs",
               "ToolTip": "S:\\Programming-Stuff\\BookKeeper\\BackEndTest\\Services\\ReviewServiceTest.cs",
               "RelativeToolTip": "BackEndTest\\Services\\ReviewServiceTest.cs",
-              "ViewState": "AQIAADUAAAAAAAAAAAAwwB0AAABIAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAB0AAABIAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-08-20T06:03:23.332Z",
               "EditorCaption": ""
