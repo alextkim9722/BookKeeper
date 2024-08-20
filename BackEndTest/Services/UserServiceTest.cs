@@ -2,7 +2,8 @@
 using BackEnd.Services;
 using BackEnd.Services.ErrorHandling;
 using BackEnd.Services.Interfaces;
-using BackEndTest.Services;
+using BackEndTest.Services.RandomGenerators;
+using BackEndTest.Services.TheoryDataGenerators;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace BackEndTest.Services
 {
-	[Collection("Test Integration With DB")]
+    [Collection("Test Integration With DB")]
 	public class UserServiceTest : IClassFixture<TestDatabaseGenerator>
 	{
 		private readonly UserService _userService;

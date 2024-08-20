@@ -9,27 +9,18 @@ namespace BackEnd.Services
 	public class IdentificationService : IIdentificationService
 	{
 		private readonly UserManager<Identification> _userManager;
+
 		private readonly IPasswordHasher<Identification> _passwordHasher;
-		private readonly SignInManager<IdentityUser> _signInManager;
-
 		private readonly IUserService _userService;
-
-		private readonly string defaultDescription = string.Empty;
-		private readonly string defaultProfilePicPath = string.Empty;
 
 		public IdentificationService(
 			UserManager<Identification> userManager,
 			IPasswordHasher<Identification> passwordHasher,
-			IUserService userService,
-			SignInManager<IdentityUser> signInManager)
+			IUserService userService)
 		{
 			_userManager = userManager;
 			_passwordHasher = passwordHasher;
 			_userService = userService;
-
-			defaultDescription = "Hi! I just got here!";
-			defaultProfilePicPath = "PATH TO IMAGE";
-			_signInManager = signInManager;
 		}
 
 		public async Task<Results<Identification>> createIdentification(
@@ -46,8 +37,7 @@ namespace BackEnd.Services
 					{
 						identification_id = identification.Id,
 						username = identification.UserName!,
-						date_joined = DateOnly.FromDateTime(DateTime.Now),
-						description = defaultProfilePicPath
+						date_joined = DateOnly.FromDateTime(DateTime.Now)
 					};
 
 					Results<User> userResult = _userService.addUser(user);
@@ -66,45 +56,13 @@ namespace BackEnd.Services
 				}
 				else
 				{
-					return new ResultsFailure<Identification>(
-						"Identity creation has failed");
+					return new ResultsFailure<Identification>(result.Errors);
 				}
 			}
 			else
 			{
 				return new ResultsFailure<Identification>(
 						"Identification is null");
-			}
-		}
-
-		public async Task<Results<Identification>> login(string input, string type, string password)
-		{
-			Results<Identification> identification;
-
-			switch (type)
-			{
-				case "email":
-					identification = await getIdentificationByEmail(input);
-					break;
-				case "username":
-					identification = await getIdentificationByUsername(input);
-					break;
-				default:
-					return new ResultsFailure<Identification>("Incorrect login type");
-			}
-
-			if(identification.success){
-				await _signInManager.SignOutAsync();
-				SignInResult result = await _signInManager.PasswordSignInAsync(
-					identification.payload!, password, false, false);
-
-				return new ResultsSuccessful<Identification>(identification.payload);
-			}
-			else
-			{
-				return new ResultsFailure<Identification>(
-					identification.msg
-					+ "Login has failed");
 			}
 		}
 
@@ -135,8 +93,7 @@ namespace BackEnd.Services
 
 		private Results<Identification> addUserId(Identification identification)
 		{
-			var result = _userService.getUserByIdentificationId(
-				identification.Id);
+			var result = _userService.getUserByIdentificationId(identification.Id);
 			if (result.success)
 			{
 				identification.user_id = result.payload!.user_id;
@@ -146,7 +103,7 @@ namespace BackEnd.Services
 			else
 			{
 				return new ResultsFailure<Identification>(
-					"User has not found by identification Id");
+					result.msg + "Error with grabbing UserId");
 			}
 		}
 
@@ -162,26 +119,22 @@ namespace BackEnd.Services
 			}
 			else
 			{
-				return new ResultsFailure<Identification>(
-					"Removing Identification has failed");
+				return new ResultsFailure<Identification>("Failed to remove identification.");
 			}
 		}
 
 		public async Task<Results<Identification>> updateIdentification(
 			Identification identification)
 		{
-			IdentityResult result = await _userManager
-				.UpdateAsync(identification);
+			IdentityResult result = await _userManager.UpdateAsync(identification);
 
 			if (result.Succeeded)
 			{
-				return new ResultsSuccessful<Identification>(
-					identification);
+				return new ResultsSuccessful<Identification>(identification);
 			}
 			else
 			{
-				return new ResultsFailure<Identification>(
-					"Updating Identification has failed");
+				return new ResultsFailure<Identification>(result.Errors);
 			}
 		}
 	}

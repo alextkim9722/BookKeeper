@@ -6,10 +6,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BackEndTest.Services.TheoryDataGenerators;
+using BackEndTest.Services.RandomGenerators;
 
 namespace BackEndTest.Services
 {
-	[Collection("Test Integration With DB")]
+    [Collection("Test Integration With DB")]
 	public class ReviewServiceTest : IClassFixture<TestDatabaseGenerator>
 	{
 		private readonly ReviewService _reviewService;
@@ -85,8 +87,6 @@ namespace BackEndTest.Services
 		[Fact]
 		public void UpdateReview_InvokedWithProperIdAndUpdatedReviewWithSameId_ReturnsSuccessResult()
 		{
-			ReviewTheoryDataGenerator data = new ReviewTheoryDataGenerator();
-
 			var expected = new Review()
 			{
 				user_id = TestDatabaseGenerator.reviewTable[1].user_id,
@@ -111,7 +111,7 @@ namespace BackEndTest.Services
 			Assert.True(update.success);
 			MappedComparator.compareReview(expected, actual.payload);
 
-			_reviewService.updateReview(2, 1, original);
+			_reviewService.updateReview(original.user_id, original.book_id, original);
 		}
 
 		[Fact]

@@ -6,10 +6,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BackEndTest.Services.TheoryDataGenerators;
+using BackEndTest.Services.RandomGenerators;
 
 namespace BackEndTest.Services
 {
-	[Collection("Test Integration With DB")]
+    [Collection("Test Integration With DB")]
 	public class GenreServiceTest : IClassFixture<TestDatabaseGenerator>
 	{
 		private readonly GenreService _genreService;

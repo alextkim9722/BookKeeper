@@ -1,13 +1,14 @@
 ﻿using BackEnd.Model;
 using BackEnd.Services;
-using BackEndTest.Services;
 using BackEnd.Services.ErrorHandling;
 using Microsoft.IdentityModel.Tokens;
 using System.Runtime.CompilerServices;
+using BackEndTest.Services.TheoryDataGenerators;
+using BackEndTest.Services.RandomGenerators;
 
 namespace BackEndTest.Services
 {
-	[Collection("Test Integration With DB")]
+    [Collection("Test Integration With DB")]
 	public class BookServiceTest : IClassFixture<TestDatabaseGenerator>
 	{
 		private readonly BookService _bookService;
