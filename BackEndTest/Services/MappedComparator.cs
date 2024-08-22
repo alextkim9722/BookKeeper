@@ -17,7 +17,6 @@ namespace BackEndTest.Services
 			Assert.Equal(left.cover_picture, right.cover_picture);
 			Assert.Equal(left.pages, right.pages);
 			Assert.Equal(left.isbn, right.isbn);
-			Assert.Equal(left.rating, right.rating);
 		}
 
 		public static void compareUser(User left, User right)

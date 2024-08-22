@@ -1,5 +1,4 @@
 ﻿using BackEnd.Model;
-using BackEnd.Services.Abstracts;
 using BackEnd.Services.Interfaces;
 using BackEnd.Services.ErrorHandling;
 using static System.Reflection.Metadata.BlobBuilder;
@@ -7,7 +6,7 @@ using Microsoft.IdentityModel.Tokens;
 
 namespace BackEnd.Services
 {
-	public class UserService : JoinServiceAbstract<User>, IUserService
+    public class UserService : JoinService<User>, IUserService
 	{
 		public UserService(BookShelfContext bookShelfContext) :
 			base(bookShelfContext)

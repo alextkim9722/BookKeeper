@@ -8,16 +8,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
-
+using Microsoft.AspNetCore.Hosting.Server;
+using Microsoft.VisualStudio.TestPlatform.ObjectModel;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 namespace BackEndTest.Services.RandomGenerators
 {
     public class TestDatabaseGenerator
     {
-        private const string connectionString = "Server=DESKTOP-550OG8P\\MSSQLSERVER2022;Database=BookKeeperDB_Test;Trusted_Connection=True;TrustServerCertificate=True";
+        private const string connectionString = "Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=BookKeeperDB_Test;Data Source=DESKTOP-3B4EF2C;TrustServerCertificate=True";
         private static bool databaseCreated = false;
         public static int _tableValueCount = 5;
         public static  int _bridgeTableValueCount = 7;
-
         private RandomGenerators randGen = new RandomGenerators();
 
         public static List<Author> authorTable { get; set; } = new List<Author>();
@@ -180,7 +181,7 @@ namespace BackEndTest.Services.RandomGenerators
                     book_id = userBook.book_id,
                     user_id = userBook.user_id,
                     description = randGen.randString(25),
-                    rating = 0,
+                    rating = randGen.randNumber(0,10),
                     date_submitted = randGen.randDate()
                 };
 

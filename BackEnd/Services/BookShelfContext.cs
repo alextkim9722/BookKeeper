@@ -1,7 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using BackEnd.Model;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
-using BackEnd.Model;
 
 namespace BackEnd.Services
 {

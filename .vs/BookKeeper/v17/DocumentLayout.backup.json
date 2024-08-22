@@ -1,0 +1,88 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "E:\\Programming\\BookKeeper\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{07790725-64D0-4824-AC4F-06F361D6F3E5}|BackEndTest\\BackEndTest.csproj|e:\\programming\\bookkeeper\\backendtest\\services\\mappedcomparator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{07790725-64D0-4824-AC4F-06F361D6F3E5}|BackEndTest\\BackEndTest.csproj|solutionrelative:backendtest\\services\\mappedcomparator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{07790725-64D0-4824-AC4F-06F361D6F3E5}|BackEndTest\\BackEndTest.csproj|e:\\programming\\bookkeeper\\backendtest\\services\\reviewservicetest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{07790725-64D0-4824-AC4F-06F361D6F3E5}|BackEndTest\\BackEndTest.csproj|solutionrelative:backendtest\\services\\reviewservicetest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{07790725-64D0-4824-AC4F-06F361D6F3E5}|BackEndTest\\BackEndTest.csproj|e:\\programming\\bookkeeper\\backendtest\\services\\randomgenerators\\testdatabasegenerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{07790725-64D0-4824-AC4F-06F361D6F3E5}|BackEndTest\\BackEndTest.csproj|solutionrelative:backendtest\\services\\randomgenerators\\testdatabasegenerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B0469DE7-217D-4453-AF0A-BBA7EA3519AC}|BackEnd\\BackEnd.csproj|e:\\programming\\bookkeeper\\backend\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{B0469DE7-217D-4453-AF0A-BBA7EA3519AC}|BackEnd\\BackEnd.csproj|solutionrelative:backend\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 187,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "MappedComparator.cs",
+              "DocumentMoniker": "E:\\Programming\\BookKeeper\\BackEndTest\\Services\\MappedComparator.cs",
+              "RelativeDocumentMoniker": "BackEndTest\\Services\\MappedComparator.cs",
+              "ToolTip": "E:\\Programming\\BookKeeper\\BackEndTest\\Services\\MappedComparator.cs",
+              "RelativeToolTip": "BackEndTest\\Services\\MappedComparator.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-21T21:03:11.607Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ReviewServiceTest.cs",
+              "DocumentMoniker": "E:\\Programming\\BookKeeper\\BackEndTest\\Services\\ReviewServiceTest.cs",
+              "RelativeDocumentMoniker": "BackEndTest\\Services\\ReviewServiceTest.cs",
+              "ToolTip": "E:\\Programming\\BookKeeper\\BackEndTest\\Services\\ReviewServiceTest.cs",
+              "RelativeToolTip": "BackEndTest\\Services\\ReviewServiceTest.cs",
+              "ViewState": "AgIAAC0AAAAAAAAAAAAgwD0AAABXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-21T20:26:44.838Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "E:\\Programming\\BookKeeper\\BackEnd\\appsettings.json",
+              "RelativeDocumentMoniker": "BackEnd\\appsettings.json",
+              "ToolTip": "E:\\Programming\\BookKeeper\\BackEnd\\appsettings.json",
+              "RelativeToolTip": "BackEnd\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAACiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-08-21T20:23:32.497Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "TestDatabaseGenerator.cs",
+              "DocumentMoniker": "E:\\Programming\\BookKeeper\\BackEndTest\\Services\\RandomGenerators\\TestDatabaseGenerator.cs",
+              "RelativeDocumentMoniker": "BackEndTest\\Services\\RandomGenerators\\TestDatabaseGenerator.cs",
+              "ToolTip": "E:\\Programming\\BookKeeper\\BackEndTest\\Services\\RandomGenerators\\TestDatabaseGenerator.cs",
+              "RelativeToolTip": "BackEndTest\\Services\\RandomGenerators\\TestDatabaseGenerator.cs",
+              "ViewState": "AgIAAHoAAAAAAAAAAAAAALcAAAA1AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-21T20:17:15.348Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

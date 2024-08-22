@@ -1,10 +1,34 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "S:\\Programming-Stuff\\BookKeeper\\",
+  "WorkspaceRootPath": "E:\\Programming\\BookKeeper\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{07790725-64D0-4824-AC4F-06F361D6F3E5}|BackEndTest\\BackEndTest.csproj|s:\\programming-stuff\\bookkeeper\\backendtest\\services\\reviewservicetest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{07790725-64D0-4824-AC4F-06F361D6F3E5}|BackEndTest\\BackEndTest.csproj|solutionrelative:backendtest\\services\\reviewservicetest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B0469DE7-217D-4453-AF0A-BBA7EA3519AC}|BackEnd\\BackEnd.csproj|e:\\programming\\bookkeeper\\backend\\services\\joinservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B0469DE7-217D-4453-AF0A-BBA7EA3519AC}|BackEnd\\BackEnd.csproj|solutionrelative:backend\\services\\joinservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B0469DE7-217D-4453-AF0A-BBA7EA3519AC}|BackEnd\\BackEnd.csproj|e:\\programming\\bookkeeper\\backend\\services\\bookservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B0469DE7-217D-4453-AF0A-BBA7EA3519AC}|BackEnd\\BackEnd.csproj|solutionrelative:backend\\services\\bookservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B0469DE7-217D-4453-AF0A-BBA7EA3519AC}|BackEnd\\BackEnd.csproj|e:\\programming\\bookkeeper\\backend\\services\\tableservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B0469DE7-217D-4453-AF0A-BBA7EA3519AC}|BackEnd\\BackEnd.csproj|solutionrelative:backend\\services\\tableservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B0469DE7-217D-4453-AF0A-BBA7EA3519AC}|BackEnd\\BackEnd.csproj|e:\\programming\\bookkeeper\\backend\\services\\interfaces\\ijoinservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B0469DE7-217D-4453-AF0A-BBA7EA3519AC}|BackEnd\\BackEnd.csproj|solutionrelative:backend\\services\\interfaces\\ijoinservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B0469DE7-217D-4453-AF0A-BBA7EA3519AC}|BackEnd\\BackEnd.csproj|e:\\programming\\bookkeeper\\backend\\services\\validation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B0469DE7-217D-4453-AF0A-BBA7EA3519AC}|BackEnd\\BackEnd.csproj|solutionrelative:backend\\services\\validation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B0469DE7-217D-4453-AF0A-BBA7EA3519AC}|BackEnd\\BackEnd.csproj|e:\\programming\\bookkeeper\\backend\\services\\interfaces\\itableservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B0469DE7-217D-4453-AF0A-BBA7EA3519AC}|BackEnd\\BackEnd.csproj|solutionrelative:backend\\services\\interfaces\\itableservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B0469DE7-217D-4453-AF0A-BBA7EA3519AC}|BackEnd\\BackEnd.csproj|e:\\programming\\bookkeeper\\backend\\services\\modifiers\\interfaces\\imodifiers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B0469DE7-217D-4453-AF0A-BBA7EA3519AC}|BackEnd\\BackEnd.csproj|solutionrelative:backend\\services\\modifiers\\interfaces\\imodifiers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -14,19 +38,97 @@
       "DocumentGroups": [
         {
           "DockedWidth": 187,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "ReviewServiceTest.cs",
-              "DocumentMoniker": "S:\\Programming-Stuff\\BookKeeper\\BackEndTest\\Services\\ReviewServiceTest.cs",
-              "RelativeDocumentMoniker": "BackEndTest\\Services\\ReviewServiceTest.cs",
-              "ToolTip": "S:\\Programming-Stuff\\BookKeeper\\BackEndTest\\Services\\ReviewServiceTest.cs",
-              "RelativeToolTip": "BackEndTest\\Services\\ReviewServiceTest.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAB0AAABIAAAA",
+              "DocumentIndex": 1,
+              "Title": "BookService.cs",
+              "DocumentMoniker": "E:\\Programming\\BookKeeper\\BackEnd\\Services\\BookService.cs",
+              "RelativeDocumentMoniker": "BackEnd\\Services\\BookService.cs",
+              "ToolTip": "E:\\Programming\\BookKeeper\\BackEnd\\Services\\BookService.cs",
+              "RelativeToolTip": "BackEnd\\Services\\BookService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADEAAAAEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-20T06:03:23.332Z",
+              "WhenOpened": "2024-08-22T02:32:51.273Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "IJoinService.cs",
+              "DocumentMoniker": "E:\\Programming\\BookKeeper\\BackEnd\\Services\\Interfaces\\IJoinService.cs",
+              "RelativeDocumentMoniker": "BackEnd\\Services\\Interfaces\\IJoinService.cs",
+              "ToolTip": "E:\\Programming\\BookKeeper\\BackEnd\\Services\\Interfaces\\IJoinService.cs",
+              "RelativeToolTip": "BackEnd\\Services\\Interfaces\\IJoinService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-22T02:21:07.899Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "JoinService.cs",
+              "DocumentMoniker": "E:\\Programming\\BookKeeper\\BackEnd\\Services\\JoinService.cs",
+              "RelativeDocumentMoniker": "BackEnd\\Services\\JoinService.cs",
+              "ToolTip": "E:\\Programming\\BookKeeper\\BackEnd\\Services\\JoinService.cs",
+              "RelativeToolTip": "BackEnd\\Services\\JoinService.cs",
+              "ViewState": "AgIAAEkAAAAAAAAAAAAcwAoAAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-22T02:20:55.998Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "IModifiers.cs",
+              "DocumentMoniker": "E:\\Programming\\BookKeeper\\BackEnd\\Services\\Modifiers\\Interfaces\\IModifiers.cs",
+              "RelativeDocumentMoniker": "BackEnd\\Services\\Modifiers\\Interfaces\\IModifiers.cs",
+              "ToolTip": "E:\\Programming\\BookKeeper\\BackEnd\\Services\\Modifiers\\Interfaces\\IModifiers.cs",
+              "RelativeToolTip": "BackEnd\\Services\\Modifiers\\Interfaces\\IModifiers.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-22T02:18:39.3Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "ITableService.cs",
+              "DocumentMoniker": "E:\\Programming\\BookKeeper\\BackEnd\\Services\\Interfaces\\ITableService.cs",
+              "RelativeDocumentMoniker": "BackEnd\\Services\\Interfaces\\ITableService.cs",
+              "ToolTip": "E:\\Programming\\BookKeeper\\BackEnd\\Services\\Interfaces\\ITableService.cs",
+              "RelativeToolTip": "BackEnd\\Services\\Interfaces\\ITableService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAABZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-22T02:16:34.211Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Validation.cs",
+              "DocumentMoniker": "E:\\Programming\\BookKeeper\\BackEnd\\Services\\Validation.cs",
+              "RelativeDocumentMoniker": "BackEnd\\Services\\Validation.cs",
+              "ToolTip": "E:\\Programming\\BookKeeper\\BackEnd\\Services\\Validation.cs",
+              "RelativeToolTip": "BackEnd\\Services\\Validation.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAA9AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-22T01:33:43.849Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "TableService.cs",
+              "DocumentMoniker": "E:\\Programming\\BookKeeper\\BackEnd\\Services\\TableService.cs",
+              "RelativeDocumentMoniker": "BackEnd\\Services\\TableService.cs",
+              "ToolTip": "E:\\Programming\\BookKeeper\\BackEnd\\Services\\TableService.cs",
+              "RelativeToolTip": "BackEnd\\Services\\TableService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAxAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-21T21:23:36.581Z",
               "EditorCaption": ""
             }
           ]

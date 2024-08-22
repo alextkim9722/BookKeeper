@@ -6,17 +6,16 @@ using BackEnd.Model;
 
 namespace BackEnd.Services.Abstracts
 {
-    public abstract class JoinServiceAbstract<T> : TableServiceAbstract<T> where T : class
+    public abstract class JoinService<T> where T : class
     {
-        protected JoinServiceAbstract(BookShelfContext bookShelfContext)
-            : base(bookShelfContext)
+        private readonly BookShelfContext _bookShelfContext;
+
+        protected JoinService(BookShelfContext bookShelfContext)
         {
-            // EMPTY
+            _bookShelfContext = bookShelfContext;
         }
 
-        protected Results<T> deleteJoins<U>(
-            Expression<Func<U, bool>> condition)
-            where U : class
+        protected Results<T> deleteJoins<U>(Expression<Func<U, bool>> condition) where U : class
         {
             try
             {
@@ -109,9 +108,5 @@ namespace BackEnd.Services.Abstracts
                 return new ResultsFailure<IEnumerable<U>>(bridges.msg);
             }
         }
-
-        protected abstract Results<T> deleteBridges(int id);
-
-        protected abstract Results<T> addBridges(T model);
     }
 }

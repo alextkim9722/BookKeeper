@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Identity;
+using System.ComponentModel.DataAnnotations;
 
 namespace BackEnd.Services.ErrorHandling
 {
@@ -9,12 +10,25 @@ namespace BackEnd.Services.ErrorHandling
 			failedResult($"{msg}");
 		}
 
-		public ResultsFailure(IEnumerable<IdentityError> msg)
+        public ResultsFailure(Exception exception, string msg)
+        {
+            failedResult($"[EXCEPTION] {exception}");
+        }
+
+        public ResultsFailure(IEnumerable<IdentityError> msg)
 		{
 			foreach (var error in msg)
 			{
 				failedResult($"[{error.Code}] {error.Description}");
 			}
 		}
-	}
+
+        public ResultsFailure(IEnumerable<ValidationResult> msg)
+        {
+            foreach (var error in msg)
+            {
+                failedResult($"[{error.MemberNames}] {error.ErrorMessage}");
+            }
+        }
+    }
 }

@@ -42,8 +42,9 @@ namespace BackEndTest.Services
 		[Fact]
 		public void GetReviewByBookId_InvokedWithValidBookId_ReturnsReviewsWithNoNulls()
 		{
-			Results<IEnumerable<Review>> actual = _reviewService.getReviewByBookId(2);
-			List<Review> expected = TestDatabaseGenerator.reviewTable.Where(x => x.book_id == 2)
+			var id = TestDatabaseGenerator.reviewTable.ElementAt(0).book_id;
+			Results<IEnumerable<Review>> actual = _reviewService.getReviewByBookId(id);
+			List<Review> expected = TestDatabaseGenerator.reviewTable.Where(x => x.book_id == id)
 				.OrderBy(x => x.user_id).OrderBy(x => x.book_id).ToList();
 
 			Assert.True(actual.success);
@@ -56,8 +57,9 @@ namespace BackEndTest.Services
 		[Fact]
 		public void GetReviewByUserId_InvokedWithValidUserId_ReturnsReviewsWithNoNulls()
 		{
-			Results<IEnumerable<Review>> actual = _reviewService.getReviewByUserId(2);
-			List<Review> expected = TestDatabaseGenerator.reviewTable.Where(x => x.user_id == 2)
+            var id = TestDatabaseGenerator.reviewTable.ElementAt(0).user_id;
+            Results<IEnumerable<Review>> actual = _reviewService.getReviewByUserId(id);
+			List<Review> expected = TestDatabaseGenerator.reviewTable.Where(x => x.user_id == id)
 				.OrderBy(x => x.user_id).OrderBy(x => x.book_id).ToList();
 
 			Assert.True(actual.success);

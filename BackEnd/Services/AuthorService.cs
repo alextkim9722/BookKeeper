@@ -1,12 +1,11 @@
 ﻿using BackEnd.Model;
-using BackEnd.Services.Abstracts;
 using BackEnd.Services.Interfaces;
 using BackEnd.Services.ErrorHandling;
 using Microsoft.IdentityModel.Tokens;
 
 namespace BackEnd.Services
 {
-    public class AuthorService : JoinServiceAbstract<Author>, IAuthorService
+    public class AuthorService : JoinService<Author>, IAuthorService
 	{
 		public AuthorService(BookShelfContext bookShelfContext) :
 			base(bookShelfContext)

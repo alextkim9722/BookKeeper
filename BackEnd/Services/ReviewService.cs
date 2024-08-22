@@ -1,11 +1,10 @@
-﻿using BackEnd.Services.Abstracts;
-using BackEnd.Services.Interfaces;
+﻿using BackEnd.Services.Interfaces;
 using BackEnd.Model;
 using BackEnd.Services.ErrorHandling;
 
 namespace BackEnd.Services
 {
-	public class ReviewService : TableServiceAbstract<Review>, IReviewService
+    public class ReviewService : TableService<Review>, IReviewService
 	{
 		private const int MAX_RATING = 10;
 		private const int MIN_RATING = 0;

@@ -1,11 +1,10 @@
 ﻿using BackEnd.Model;
-using BackEnd.Services.Abstracts;
 using BackEnd.Services.ErrorHandling;
 using BackEnd.Services.Interfaces;
 
 namespace BackEnd.Services
 {
-	public class GenreService : JoinServiceAbstract<Genre>, IGenreService
+    public class GenreService : JoinService<Genre>, IGenreService
 	{
 		public GenreService(BookShelfContext bookShelfContext) :
 			base(bookShelfContext)

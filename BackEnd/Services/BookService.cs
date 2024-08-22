@@ -6,12 +6,13 @@ using Microsoft.IdentityModel.Tokens;
 
 namespace BackEnd.Services
 {
-    public class BookService : JoinServiceAbstract<Book>, IBookService
+    public class BookService : IBookService
 	{
-		public BookService(BookShelfContext bookShelfContext) :
-			base(bookShelfContext)
+		private readonly ITableService<Book> _tableService;
+
+		public BookService(ITableService<Book> tableService)
 		{
-			CallbackHandler.Add(addBridges);
+			_tableService = tableService;
 		}
 
 		public Results<Book> addBook(Book book)

@@ -28,7 +28,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\BackEnd\BackEnd.csproj" />
-    <ProjectReference Include="..\MainProject\BackEnd.csproj">
+    <ProjectReference Include="..\BackEnd\BackEnd.csproj">
       <TreatAsUsed>true</TreatAsUsed>
     </ProjectReference>
   </ItemGroup>
