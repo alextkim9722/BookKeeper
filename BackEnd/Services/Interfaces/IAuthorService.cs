@@ -1,9 +1,9 @@
-﻿using BackEnd.Model;
-using BackEnd.Services.ErrorHandling;
+﻿using BackEnd.ErrorHandling;
+using BackEnd.Model;
 
 namespace BackEnd.Services.Interfaces
 {
-	public interface IAuthorService
+    public interface IAuthorService
 	{
 		public Results<Author> addAuthor(Author author);
 		public Results<Author> removeAuthor(int id);

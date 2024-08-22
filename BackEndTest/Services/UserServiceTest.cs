@@ -1,6 +1,6 @@
-﻿using BackEnd.Model;
+﻿using BackEnd.ErrorHandling;
+using BackEnd.Model;
 using BackEnd.Services;
-using BackEnd.Services.ErrorHandling;
 using BackEnd.Services.Interfaces;
 using BackEndTest.Services.RandomGenerators;
 using BackEndTest.Services.TheoryDataGenerators;

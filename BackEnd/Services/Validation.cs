@@ -1,4 +1,5 @@
-﻿using BackEnd.Services.ErrorHandling;
+﻿using BackEnd.ErrorHandling;
+using BackEnd.Services.ErrorHandling;
 using Microsoft.IdentityModel.Tokens;
 using System.ComponentModel.DataAnnotations;
 

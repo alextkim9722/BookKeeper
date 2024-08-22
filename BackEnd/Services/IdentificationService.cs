@@ -2,11 +2,12 @@
 using BackEnd.Services.Interfaces;
 using BackEnd.Services.ErrorHandling;
 using Microsoft.AspNetCore.Identity;
+using BackEnd.ErrorHandling;
 
 
 namespace BackEnd.Services
 {
-	public class IdentificationService : IIdentificationService
+    public class IdentificationService : IIdentificationService
 	{
 		private readonly UserManager<Identification> _userManager;
 

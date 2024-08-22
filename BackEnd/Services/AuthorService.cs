@@ -2,6 +2,7 @@
 using BackEnd.Services.Interfaces;
 using BackEnd.Services.ErrorHandling;
 using Microsoft.IdentityModel.Tokens;
+using BackEnd.ErrorHandling;
 
 namespace BackEnd.Services
 {

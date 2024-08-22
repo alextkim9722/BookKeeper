@@ -1,9 +1,9 @@
-﻿using BackEnd.Model;
-using BackEnd.Services.ErrorHandling;
+﻿using BackEnd.ErrorHandling;
+using BackEnd.Model;
 
 namespace BackEnd.Services.Interfaces
 {
-	public interface IReviewService
+    public interface IReviewService
 	{
 		public Results<Review> addReview(Review review);
 		public Results<Review> removeReview(int userId, int bookId);

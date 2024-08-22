@@ -1,4 +1,5 @@
-﻿using BackEnd.Model;
+﻿using BackEnd.ErrorHandling;
+using BackEnd.Model;
 using BackEnd.Services.ErrorHandling;
 using BackEnd.Services.Interfaces;
 

@@ -1,9 +1,9 @@
-﻿using BackEnd.Model;
-using BackEnd.Services.ErrorHandling;
+﻿using BackEnd.ErrorHandling;
+using BackEnd.Model;
 
 namespace BackEnd.Services.Interfaces
 {
-	public interface IGenreService
+    public interface IGenreService
 	{
 		public Results<Genre> addGenre(Genre genre);
 		public Results<Genre> removeGenre(int id);

@@ -1,6 +1,7 @@
 ﻿using BackEnd.Services.Interfaces;
 using BackEnd.Model;
-using BackEnd.Services.ErrorHandling;
+using BackEnd.ErrorHandling;
+using BackEnd.Repository;
 
 namespace BackEnd.Services
 {

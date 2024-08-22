@@ -1,5 +1,4 @@
 ﻿using BackEnd.Model;
-using BackEnd.Services.ErrorHandling;
 using BackEnd.Services;
 using System;
 using System.Collections.Generic;
@@ -8,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using BackEndTest.Services.TheoryDataGenerators;
 using BackEndTest.Services.RandomGenerators;
+using BackEnd.ErrorHandling;
 
 namespace BackEndTest.Services
 {

@@ -1,14 +1,14 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using System.ComponentModel.DataAnnotations;
 
-namespace BackEnd.Services.ErrorHandling
+namespace BackEnd.ErrorHandling
 {
-	public class ResultsFailure<T> : Results<T>
-	{
-		public ResultsFailure(string msg)
-		{
-			failedResult($"{msg}");
-		}
+    public class ResultsFailure<T> : Results<T>
+    {
+        public ResultsFailure(string msg)
+        {
+            failedResult($"{msg}");
+        }
 
         public ResultsFailure(Exception exception, string msg)
         {
@@ -16,12 +16,12 @@ namespace BackEnd.Services.ErrorHandling
         }
 
         public ResultsFailure(IEnumerable<IdentityError> msg)
-		{
-			foreach (var error in msg)
-			{
-				failedResult($"[{error.Code}] {error.Description}");
-			}
-		}
+        {
+            foreach (var error in msg)
+            {
+                failedResult($"[{error.Code}] {error.Description}");
+            }
+        }
 
         public ResultsFailure(IEnumerable<ValidationResult> msg)
         {

@@ -1,10 +1,10 @@
 ﻿using BackEnd.Model;
 using BackEnd.Services;
-using BackEnd.Services.ErrorHandling;
 using Microsoft.IdentityModel.Tokens;
 using System.Runtime.CompilerServices;
 using BackEndTest.Services.TheoryDataGenerators;
 using BackEndTest.Services.RandomGenerators;
+using BackEnd.ErrorHandling;
 
 namespace BackEndTest.Services
 {

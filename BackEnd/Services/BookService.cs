@@ -1,40 +1,55 @@
-﻿using BackEnd.Model;
-using BackEnd.Services.Abstracts;
-using BackEnd.Services.ErrorHandling;
+﻿using BackEnd.ErrorHandling;
+using BackEnd.Model;
+using BackEnd.Repository.Interfaces;
 using BackEnd.Services.Interfaces;
+using BackEnd.Services.Abstract;
 using Microsoft.IdentityModel.Tokens;
 
 namespace BackEnd.Services
 {
-    public class BookService : IBookService
+    public class BookService : AbstractService<Book>, IBookService
 	{
-		private readonly ITableService<Book> _tableService;
+		
+        private readonly IKeyBatchService<Review> _reviewBatchService;
+        private readonly IJunctionService<Author, Book_Author> _junctionAuthorService;
+        private readonly IJunctionService<Genre, Book_Genre> _junctionGenreService;
+        private readonly IJunctionService<User, User_Book> _junctionUserService;
 
-		public BookService(ITableService<Book> tableService)
+        public BookService(
+			ITableService<Book> tableService,
+			IKeyBatchService<Book> keyBatchService,
+            IKeyBatchService<Review> reviewBatchService,
+			IJunctionService<Author, Book_Author> junctionAuthorService,
+			IJunctionService<Genre, Book_Genre> junctionGenreService,
+			IJunctionService<User, User_Book> junctionUserService)
+			: base(tableService, keyBatchService)
 		{
-			_tableService = tableService;
+			_reviewBatchService = reviewBatchService;
+			_junctionAuthorService = junctionAuthorService;
+			_junctionGenreService = junctionGenreService;
+			_junctionUserService = junctionUserService;
 		}
 
 		public Results<Book> addBook(Book book)
-			=> addModel(book);
+			=> _tableService.addModel(book);
 
 		public Results<Book> removeBook(int id)
 			=> deleteBridgedModel(id, x => x.book_id == id);
 
 		public Results<Book> updateBook(int id, Book book)
-			=> updateModel(x => x.book_id == id, book);
+			=> _tableService.updateModel(x => x.book_id == id, book);
 
 		public Results<Book> getBookById(int id)
-			=> formatModel(x => x.book_id == id);
+			=> _tableService.getUniqueModel(x => x.book_id == id);
 
 		public Results<Book> getBookByIsbn(string isbn)
-			=> formatModel(x => x.isbn == isbn);
+			=> _tableService.getUniqueModel(x => x.isbn == isbn);
 
-		public Results<Book> getBookByTitle(string title)
-			=> formatModel(x => x.title == title);
+		public Results<IEnumerable<Book>> getBookByTitle(string title)
+			=> _keyBatchService.getModels(x => x.title == title);
 
 		public Results<IEnumerable<Book>> getAllBooks()
-			=> formatAllModels();
+			=> _tableService.getAllModels();
 
 		protected override Results<Book> addBridges(Book book)
 		{
@@ -95,18 +110,5 @@ namespace BackEnd.Services
 					+ "Failed to delete joins");
 			}
 		}
-
-		protected override Book transferProperties(Book original, Book updated)
-		{
-			original.authors = updated.authors;
-			original.genres = updated.genres;
-			original.readers = updated.readers;
-			original.reviews = updated.reviews;
-
-			return original;
-		}
-
-		protected override Results<Book> validateProperties(Book model)
-		=> new ResultsSuccessful<Book>(model);
 	}
 }

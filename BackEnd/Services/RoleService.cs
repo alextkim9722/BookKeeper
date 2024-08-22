@@ -2,10 +2,11 @@
 using Microsoft.AspNetCore.Identity;
 using BackEnd.Model;
 using BackEnd.Services.ErrorHandling;
+using BackEnd.ErrorHandling;
 
 namespace BackEnd.Services
 {
-	public class RoleService : IRoleService
+    public class RoleService : IRoleService
 	{
 		private readonly RoleManager<IdentityRole> _roleManager;
 		private readonly UserManager<Identification> _userManager;

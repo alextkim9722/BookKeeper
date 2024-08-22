@@ -3,6 +3,7 @@ using BackEnd.Services.Interfaces;
 using BackEnd.Services.ErrorHandling;
 using static System.Reflection.Metadata.BlobBuilder;
 using Microsoft.IdentityModel.Tokens;
+using BackEnd.ErrorHandling;
 
 namespace BackEnd.Services
 {
