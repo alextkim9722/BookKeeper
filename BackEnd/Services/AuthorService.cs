@@ -1,18 +1,14 @@
 ﻿using BackEnd.Model;
 using BackEnd.Services.Interfaces;
-using BackEnd.Services.ErrorHandling;
 using Microsoft.IdentityModel.Tokens;
 using BackEnd.ErrorHandling;
 
 namespace BackEnd.Services
 {
-    public class AuthorService : JoinService<Author>, IAuthorService
+    public class AuthorService : IAuthorService
 	{
-		public AuthorService(BookShelfContext bookShelfContext) :
-			base(bookShelfContext)
+		public AuthorService(BookShelfContext bookShelfContext)
 		{
-			CallbackHandler.Add(addBridges);
-			CallbackHandler.Add(addFullName);
 		}
 
 		// If the middle name doesn't exist, just don't print it

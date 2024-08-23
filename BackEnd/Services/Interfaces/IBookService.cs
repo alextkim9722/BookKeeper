@@ -6,12 +6,11 @@ namespace BackEnd.Services.Interfaces
     // Builds the bookview model using calculations, authors, etc.
     public interface IBookService
     {
-        public Results<Book> addBook(Book book);
-        public Results<Book> removeBook(int id);
-        public Results<Book> updateBook(int id, Book book);
-        public Results<Book> getBookById(int id);
-        public Results<Book> getBookByIsbn(string isbn);
-        public Results<Book> getBookByTitle(string title);
-        public Results<IEnumerable<Book>> getAllBooks();
+        public Results<Book> AddBook(Book book);
+        public Results<IEnumerable<Book>> RemoveBook(IEnumerable<int> id);
+        public Results<Book> UpdateBook(int id, Book book);
+        public Results<Book> GetBookById(int id);
+        public Results<Book> GetBookByIsbn(string isbn);
+        public Results<IEnumerable<Book>> GetBookByTitle(string title);
     }
 }

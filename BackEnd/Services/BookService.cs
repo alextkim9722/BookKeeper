@@ -1,114 +1,97 @@
 ﻿using BackEnd.ErrorHandling;
 using BackEnd.Model;
-using BackEnd.Repository.Interfaces;
 using BackEnd.Services.Interfaces;
-using BackEnd.Services.Abstract;
 using Microsoft.IdentityModel.Tokens;
+using BackEnd.Services.Generics.Interfaces;
+using Microsoft.Data.SqlClient;
 
 namespace BackEnd.Services
 {
-    public class BookService : AbstractService<Book>, IBookService
+	public class BookService : IBookService
 	{
-		
-        private readonly IKeyBatchService<Review> _reviewBatchService;
-        private readonly IJunctionService<Author, Book_Author> _junctionAuthorService;
-        private readonly IJunctionService<Genre, Book_Genre> _junctionGenreService;
-        private readonly IJunctionService<User, User_Book> _junctionUserService;
+		private readonly IGenericService<Book> _genericService;
+		private readonly IJunctionService<Book_Author> _jBookAuthorService;
+		private readonly IJunctionService<Book_Genre> _jBookGenreService;
+		private readonly IJunctionService<User_Book> _jUserBookService;
+		private readonly IJunctionService<Review> _jReviewService;
 
-        public BookService(
-			ITableService<Book> tableService,
-			IKeyBatchService<Book> keyBatchService,
-            IKeyBatchService<Review> reviewBatchService,
-			IJunctionService<Author, Book_Author> junctionAuthorService,
-			IJunctionService<Genre, Book_Genre> junctionGenreService,
-			IJunctionService<User, User_Book> junctionUserService)
-			: base(tableService, keyBatchService)
+		public BookService(
+			IGenericService<Book> genericService,
+			IJunctionService<Book_Author> jBookAuthorService,
+			IJunctionService<Book_Genre> jBookGenreService,
+			IJunctionService<User_Book> jUserBookService,
+			IJunctionService<Review> jReviewService)
 		{
-			_reviewBatchService = reviewBatchService;
-			_junctionAuthorService = junctionAuthorService;
-			_junctionGenreService = junctionGenreService;
-			_junctionUserService = junctionUserService;
+			_genericService = genericService;
+			_jBookAuthorService = jBookAuthorService;
+			_jBookGenreService = jBookGenreService;
+			_jUserBookService = jUserBookService;
+			_jReviewService = jReviewService;
 		}
 
-		public Results<Book> addBook(Book book)
-			=> _tableService.addModel(book);
+		public Results<Book> AddBook(Book book)
+			=> _genericService.AddModel(book);
 
-		public Results<Book> removeBook(int id)
-			=> deleteBridgedModel(id, x => x.book_id == id);
-
-		public Results<Book> updateBook(int id, Book book)
-			=> _tableService.updateModel(x => x.book_id == id, book);
-
-		public Results<Book> getBookById(int id)
-			=> _tableService.getUniqueModel(x => x.book_id == id);
-
-		public Results<Book> getBookByIsbn(string isbn)
-			=> _tableService.getUniqueModel(x => x.isbn == isbn);
-
-		public Results<IEnumerable<Book>> getBookByTitle(string title)
-			=> _keyBatchService.getModels(x => x.title == title);
-
-		public Results<IEnumerable<Book>> getAllBooks()
-			=> _tableService.getAllModels();
-
-		protected override Results<Book> addBridges(Book book)
+		public Results<IEnumerable<Book>> RemoveBook(IEnumerable<int> id)
 		{
-			var authors = getMultipleJoins<Author, Book_Author>(
-				x => x.book_id == book.book_id, y => y.author_id);
-			var genres = getMultipleJoins<Genre, Book_Genre>(
-				x => x.book_id == book.book_id, y => y.genre_id);
-			var readers = getMultipleJoins<User, User_Book>(
-				x => x.book_id == book.book_id, y => y.user_id);
-			var reviews = getJoins<Review>(x => x.book_id == book.book_id);
+			var results = _genericService.DeleteModels(id, deleteDependents);
+			return results;
+        }
 
-			if(reviews.success && authors.success && genres.success && readers.success)
-			{
-				book.authors = authors.payload;
-				book.genres = genres.payload;
-				book.readers = readers.payload!.Count();
-				book.reviews = reviews.payload;
-				
-				if(!book.reviews.IsNullOrEmpty())
-				{
-					book.rating = Convert.ToInt32(book.reviews!.Select(x => x.rating).Average());
-				}
-				else
-				{
-					book.rating = 0;
-				}
+		public Results<Book> UpdateBook(int id, Book book)
+			=> _genericService.UpdateModel(x => x.pKey == id, book);
 
-				return new ResultsSuccessful<Book>(book);
-			}
-			else
-			{
-				return new ResultsFailure<Book>(
-					authors.msg
-					+ genres.msg
-					+ readers.msg
-					+ reviews.msg
-					+ "Failed to grab bridge tables");
-			}
-		}
-		protected override Results<Book> deleteBridges(int id)
+		public Results<Book> GetBookById(int id)
+			=> _genericService.ProcessUniqueModel(x => x.pKey == id, AddingProcess);
+
+        public Results<Book> GetBookByIsbn(string isbn)
+            => _genericService.ProcessUniqueModel(x => x.isbn == isbn, AddingProcess);
+
+        public Results<IEnumerable<Book>> GetBookByTitle(string title)
+			=> _genericService.ProcessModels(x => x.title == title, AddingProcess);
+
+        private Results<Book> AddingProcess(Book book)
 		{
-			var authors = deleteJoins<Book_Author>(x => x.book_id == id);
-			var genres = deleteJoins<Book_Genre>(x => x.book_id == id);
-			var readers = deleteJoins<User_Book>(x => x.book_id == id);
-			var reviews = deleteJoins<Review>(x => x.book_id == id);
-
-			if (authors.success && genres.success && 
-				readers.success && reviews.success)
+			try
 			{
-				return new ResultsSuccessful<Book>(null);
-			}else
-			{
-				return new ResultsFailure<Book>(
-					authors.msg
-					+ genres.msg
-					+ readers.msg
-					+ reviews.msg
-					+ "Failed to delete joins");
+				book.authors = _jBookAuthorService.GetJunctionedJoinedModelsId(book.pKey, true);
+				book.genres = _jBookGenreService.GetJunctionedJoinedModelsId(book.pKey, true);
+				book.users = _jUserBookService.GetJunctionedJoinedModelsId(book.pKey, false);
+				book.reviews = _jReviewService.GetJunctionedJoinedModelsId(book.pKey, false);
 			}
+			catch (SqlException ex)
+			{
+				return new ResultsFailure<Book>("Failed to add bridges");
+			}
+
+			setRating(book);
+
+			return new ResultsSuccessful<Book>(book);
 		}
+
+		private void setRating(Book book)
+		{
+			if(!book.reviews.IsNullOrEmpty())
+			{
+                book.rating = Convert.ToInt32(_jReviewService.GetJunctionModels(book.pKey, false).Average(x => x.rating));
+            }
+		}
+
+		private Results<Book> deleteDependents(Book book)
+		{
+            try
+            {
+                _jBookAuthorService.DeleteJunctionModels(book.pKey, true);
+				_jBookGenreService.DeleteJunctionModels(book.pKey, true);
+				_jUserBookService.DeleteJunctionModels(book.pKey, false);
+				_jReviewService.DeleteJunctionModels(book.pKey, false);
+			}
+			catch (SqlException ex)
+			{
+				return new ResultsFailure<Book>("Failed to add bridges");
+			}
+
+            return new ResultsSuccessful<Book>(book);
+        }
 	}
 }

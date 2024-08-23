@@ -1,14 +1,17 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using BackEnd.Model.Interfaces;
+using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BackEnd.Model
 {
-	[PrimaryKey(nameof(user_id), nameof(book_id))]
-	public class Review
+    [PrimaryKey(nameof(firstKey), nameof(secondKey))]
+	public class Review : IDoublePKModel
 	{
-		public int book_id { get; set; }
-		public int user_id { get; set; }
+        [Column("USER_ID")]
+		public int firstKey { get; set; }
+        [Column("BOOK_ID")]
+        public int secondKey { get; set; }
 		[StringLength(300)]
 		public string? description { get; set; }
 		[Required]

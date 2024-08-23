@@ -1,14 +1,18 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using BackEnd.Model.Interfaces;
+using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BackEnd.Model
 {
-	[PrimaryKey(nameof(book_id), nameof(genre_id))]
-	public class Book_Genre
+    [PrimaryKey(nameof(firstKey), nameof(secondKey))]
+	public class Book_Genre : IDoublePKModel
 	{
-		public int book_id { get; set; }
-		
-		public int genre_id { get; set; }
+		[Required]
+		[Column("BOOK_ID")]
+		public int firstKey { get; set; }
+		[Required]
+		[Column("GENRE_ID")]
+		public int secondKey { get; set; }
 	}
 }

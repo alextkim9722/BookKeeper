@@ -1,14 +1,15 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using BackEnd.Model;
+using BackEnd.Model.Interfaces;
 
 namespace BackEnd.Model
 {
-	public class User
+    public class User : ISinglePKModel
 	{
 		[Key]
 		[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-		public int user_id { get; set; }
+		[Column("USER_ID")]
+		public int pKey { get; set; }
 		[Required]
 		public string identification_id { get; set; } = string.Empty;
 		[Required]
@@ -25,9 +26,9 @@ namespace BackEnd.Model
 		[NotMapped]
 		public int? booksRead { get; set; }
 		[NotMapped]
-		public IEnumerable<Book>? books { get; set; }
+		public IEnumerable<int> books { get; set; } = new List<int>();
 		[NotMapped]
-		public IEnumerable<Review>? reviews { get; set; }
+		public IEnumerable<int> reviews { get; set; } = new List<int>();
 		#endregion
 	}
 }

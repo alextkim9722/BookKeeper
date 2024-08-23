@@ -12,6 +12,5 @@ namespace BackEnd.Services.Interfaces
 		public Results<Author> getAuthorByFirstName(string first);
 		public Results<Author> getAuthorByMiddleName(string middle);
 		public Results<Author> getAuthorByLastName(string last);
-		public Results<IEnumerable<Author>> getAllAuthors();
 	}
 }
