@@ -11,9 +11,12 @@ namespace BackEnd.Model
 		[Column("AUTHOR_ID")]
 		public int pKey { get; set; }
 		[Required]
+		[StringLength(Int32.MaxValue, ErrorMessage = "First name length exceeds maximum characters!")]
 		public string first_name { get; set; } = string.Empty;
+		[StringLength(Int32.MaxValue, ErrorMessage = "Middle name length exceeds maximum characters!")]
 		public string middle_name { get; set; } = string.Empty;
 		[Required]
+		[StringLength(Int32.MaxValue, ErrorMessage = "Last name length exceeds maximum characters!")]
 		public string last_name { get; set; } = string.Empty;
 
 		#region NON MAPPED PROPERTIES

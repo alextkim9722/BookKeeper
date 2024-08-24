@@ -13,18 +13,22 @@ namespace BackEnd.Model
 		[Required]
 		public string identification_id { get; set; } = string.Empty;
 		[Required]
+		[StringLength(25, ErrorMessage = "Name length exceeds 25 characters!")]
 		public string username { get; set; } = string.Empty;
 		[Required]
 		public DateOnly? date_joined { get; set; } = null;
 		[Required]
+		[StringLength(300, ErrorMessage = "Description length exceeds 300 characters!")]
 		public string description { get; set; } = string.Empty;
 		public string profile_picture { get; set; } = string.Empty;
 
 		#region NON MAPPED PROPERTIES
 		[NotMapped]
-		public int? pagesRead { get; set; }
+		[Range(0, Int32.MaxValue, ErrorMessage = "Pages read exceeds maximum value!")]
+		public int pagesRead { get; set; } = 0;
 		[NotMapped]
-		public int? booksRead { get; set; }
+		[Range(0, Int32.MaxValue, ErrorMessage = "Books read exceeds maximum value!")]
+		public int booksRead { get; set; } = 0;
 		[NotMapped]
 		public IEnumerable<int> books { get; set; } = new List<int>();
 		[NotMapped]

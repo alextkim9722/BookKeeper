@@ -12,8 +12,8 @@ namespace BackEnd.Model
 		[Column("GENRE_ID")]
 		public int pKey { get; set; }
 		[Required]
+		[StringLength(100, ErrorMessage = "Name length exceeds 100 characters!")]
 		public string genre_name {  get; set; } = string.Empty;
-
 		[NotMapped]
 		public IEnumerable<int> books { get; set; } = new List<int>();
 	}

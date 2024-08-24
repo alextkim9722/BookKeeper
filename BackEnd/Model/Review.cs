@@ -12,11 +12,11 @@ namespace BackEnd.Model
 		public int firstKey { get; set; }
 		[Column("BOOK_ID")]
 		public int secondKey { get; set; }
-		[StringLength(300)]
+		[StringLength(300, ErrorMessage = "Description length exceeds 300 characters!")]
 		public string? description { get; set; }
 		[Required]
-		[Range(0, 10)]
-		public int rating { get; set; }
+		[Range(0, 10, ErrorMessage = "Rating must be between 0 and 10!")]
+		public uint rating { get; set; }
 		[Required]
 		public DateOnly? date_submitted { get; set; } = new DateOnly();
 	}
