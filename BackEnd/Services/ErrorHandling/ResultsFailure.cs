@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using System.ComponentModel.DataAnnotations;
 
-namespace BackEnd.ErrorHandling
+namespace BackEnd.Services.ErrorHandling
 {
     public class ResultsFailure<T> : Results<T>
     {

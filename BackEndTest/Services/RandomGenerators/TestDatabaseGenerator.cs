@@ -1,5 +1,4 @@
-﻿using BackEnd.Services;
-using BackEnd.Model;
+﻿using BackEnd.Model;
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -11,6 +10,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Hosting.Server;
 using Microsoft.VisualStudio.TestPlatform.ObjectModel;
 using static System.Runtime.InteropServices.JavaScript.JSType;
+using BackEnd.Services.Context;
 namespace BackEndTest.Services.RandomGenerators
 {
     public class TestDatabaseGenerator

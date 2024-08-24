@@ -1,16 +1,16 @@
-﻿using BackEnd.ErrorHandling;
-using BackEnd.Model;
+﻿using BackEnd.Model;
+using BackEnd.Services.ErrorHandling;
 
 namespace BackEnd.Services.Interfaces
 {
-    public interface IUserService
+	public interface IUserService
 	{
-		public Results<User> addUser(User user);
-		public Results<User> removeUser(int id);
-		public Results<User> updateUser(int id, User user);
-		public Results<User> getUserById(int id);
-		public Results<User> getUserByIdentificationId(string id);
-		public Results<User> getUserByUserName(string userName);
-		public Results<IEnumerable<User>> getAllUser();
+		public Results<User> AddUser(User user);
+		public Results<IEnumerable<User>> RemoveUser(IEnumerable<int> id);
+		public Results<User> UpdateUser(int id, User user);
+		public Results<User> GetUserById(int id);
+		public Results<User> GetUserByIdentificationId(string id);
+		public Results<IEnumerable<User>> GetUserByUserName(string username);
+		public Results<IEnumerable<Book>> SetBooksAndPagesRead(User user, IEnumerable<Book> books);
 	}
 }

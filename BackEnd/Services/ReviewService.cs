@@ -1,56 +1,29 @@
 ﻿using BackEnd.Services.Interfaces;
 using BackEnd.Model;
-using BackEnd.ErrorHandling;
-using BackEnd.Repository;
+using BackEnd.Services.ErrorHandling;
+using BackEnd.Services.Generics.Interfaces;
 
 namespace BackEnd.Services
 {
-    public class ReviewService : TableService<Review>, IReviewService
+	public class ReviewService : IReviewService
 	{
-		private const int MAX_RATING = 10;
-		private const int MIN_RATING = 0;
-
-		public ReviewService(BookShelfContext bookShelfContext) :
-			base(bookShelfContext)
+		private readonly IGenericService<Review> _genericService;
+		public ReviewService(IGenericService<Review> genericService)
 		{
-			// Empty
+			_genericService = genericService;
 		}
 
-		public Results<Review> addReview(Review review)
-			=> addModel(review);
-
-		public Results<Review> removeReview(int userId, int bookId)
-			=> deleteModel(
-				x => x.user_id == userId && x.book_id == bookId);
-
-		// Using model mapped so it doesn't turn review null when updating.
-		public Results<Review> updateReview(
-			int userId, 
-			int bookId, 
-			Review review)
-			=> updateModelMapped(
-				x => x.user_id == userId && x.book_id == bookId,
-				review);
-
-		public Results<Review> getReviewById(int userId, int bookId)
-			=> formatModel(x => x.book_id == bookId && x.user_id == userId);
-
-		public Results<IEnumerable<Review>> getReviewByBookId(int id)
-			=> formatModels(x => x.book_id == id);
-
-		public Results<IEnumerable<Review>> getReviewByUserId(int id)
-			=> formatModels(x => x.user_id == id);
-
-		public Results<IEnumerable<Review>> getAllReviews()
-			=> getAllModels();
-
-		protected override Review transferProperties(Review original, Review updated)
-		{
-			throw new NotImplementedException();
-		}
-
-		protected override Results<Review> validateProperties(Review review)
-			=> new ResultsIntegerBetweenInclusive<Review>(
-				review, MIN_RATING, MAX_RATING, review.rating);
+		public Results<Review> AddReview(Review review)
+			=> _genericService.AddModel(review);
+		public Results<Review> GetReviewById(int userId, int bookId)
+			=> _genericService.ProcessUniqueModel(x => x.firstKey == userId && x.secondKey == bookId);
+		public Results<IEnumerable<Review>> GetReviewByUserId(int id)
+			=> _genericService.ProcessModels(x => x.firstKey == id);
+		public Results<IEnumerable<Review>> GetReviewByBookId(int id)
+			=> _genericService.ProcessModels(x => x.secondKey == id);
+		public Results<Review> UpdateReview(int userId, int bookId, Review review)
+			=> _genericService.UpdateModel([userId, bookId], review);
+		public Results<IEnumerable<Review>> RemoveReview(IEnumerable<int[]> id)
+			=> _genericService.DeleteModels(id);
 	}
 }

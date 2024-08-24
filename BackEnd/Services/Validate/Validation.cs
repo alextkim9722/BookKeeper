@@ -1,9 +1,8 @@
-﻿using BackEnd.ErrorHandling;
-using BackEnd.Services.ErrorHandling;
+﻿using BackEnd.Services.ErrorHandling;
 using Microsoft.IdentityModel.Tokens;
 using System.ComponentModel.DataAnnotations;
 
-namespace BackEnd.Services
+namespace BackEnd.Services.Validate
 {
     public static class Validation
     {

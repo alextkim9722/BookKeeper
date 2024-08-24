@@ -4,7 +4,7 @@ using BackEnd.Model.Interfaces;
 
 namespace BackEnd.Model
 {
-    public class Book : ISinglePKModel
+	public class Book : ISinglePKModel
 	{
 		[Key]
 		[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -24,11 +24,11 @@ namespace BackEnd.Model
 		public IEnumerable<int> authors { get; set; } = new List<int>();
 		[NotMapped]
 		public IEnumerable<int> genres { get; set; } = new List<int>();
-        [NotMapped]
+		[NotMapped]
 		public IEnumerable<int> reviews { get; set; } = new List<int>();
-        [NotMapped]
+		[NotMapped]
 		public IEnumerable<int> users { get; set; } = new List<int>();
-        [NotMapped]
+		[NotMapped]
 		public int rating { get; set; }
 		#endregion
 	}

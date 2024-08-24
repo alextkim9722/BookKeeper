@@ -1,67 +1,59 @@
-﻿using BackEnd.ErrorHandling;
-using BackEnd.Model;
+﻿using BackEnd.Model;
 using BackEnd.Services.ErrorHandling;
+using BackEnd.Services.Generics.Interfaces;
 using BackEnd.Services.Interfaces;
+using Microsoft.Data.SqlClient;
 
 namespace BackEnd.Services
 {
-    public class GenreService : JoinService<Genre>, IGenreService
+	public class GenreService : IGenreService
 	{
-		public GenreService(BookShelfContext bookShelfContext) :
-			base(bookShelfContext)
+		private readonly IGenericService<Genre> _genericService;
+		private readonly IJunctionService<Book_Genre> _jBookGenreService;
+
+		public GenreService(IGenericService<Genre> genericService,
+			IJunctionService<Book_Genre> jBookGenreService)
 		{
-			CallbackHandler.Add(addBridges);
+			_genericService = genericService;
+			_jBookGenreService = jBookGenreService;
 		}
 
-		public Results<Genre> addGenre(Genre genre)
-			=> addModel(genre);
+		public Results<Genre> AddGenre(Genre genre)
+			=> _genericService.AddModel(genre);
+		public Results<Genre> GetGenreById(int id)
+			=> _genericService.ProcessUniqueModel(x => x.pKey == id, AddDependents);
+		public Results<IEnumerable<Genre>> GetGenreByName(string name)
+			=> _genericService.ProcessModels(x => x.genre_name == name, AddDependents);
+		public Results<Genre> UpdateGenre(int id, Genre genre)
+			=> _genericService.UpdateModel([id], genre);
+		public Results<IEnumerable<Genre>> RemoveGenre(IEnumerable<int> id)
+			=> _genericService.DeleteModels([id.ToArray()], DeleteDependents);
 
-		public Results<IEnumerable<Genre>> getAllGenres()
-			=> formatAllModels();
-
-		public Results<Genre> getGenreById(int id)
-			=> formatModel(x => x.genre_id == id);
-
-		public Results<Genre> getGenreByName(string name)
-			=> formatModel(x => x.genre_name == name);
-
-		public Results<Genre> removeGenre(int id)
-			=> deleteBridgedModel(id, x => x.genre_id == id);
-
-		public Results<Genre> updateGenre(int id, Genre genre)
-			=> updateModel(x => x.genre_id == id, genre);
-
-		protected override Results<Genre> addBridges(Genre genre)
+		public Results<Genre> AddDependents(Genre genre)
 		{
-			var books = getMultipleJoins<Book, Book_Genre>(
-				x => x.genre_id == genre.genre_id, y => y.book_id);
-
-			if (books.success)
+			try
 			{
-				genre.books = books.payload;
-				return new ResultsSuccessful<Genre>(genre);
+				genre.books = _jBookGenreService.GetJunctionedJoinedModelsId(genre.pKey, false);
 			}
-			else
+			catch (SqlException ex)
 			{
-				return new ResultsFailure<Genre>(
-					books.msg
-					+ "Failed to grab bridge tables");
+				return new ResultsFailure<Genre>("Failed to add bridges");
 			}
-		}
 
-		protected override Results<Genre> deleteBridges(int id)
+			return new ResultsSuccessful<Genre>(genre);
+		}
+		private Results<Genre> DeleteDependents(Genre genre)
 		{
-			return
-				deleteJoins<Book_Genre>(x => x.genre_id == id);
-		}
+			try
+			{
+				_jBookGenreService.DeleteJunctionModels(genre.pKey, false);
+			}
+			catch (SqlException ex)
+			{
+				return new ResultsFailure<Genre>("Failed to add bridges");
+			}
 
-		protected override Genre transferProperties(Genre original, Genre updated)
-		{
-			original.books = updated.books;
-			return original;
+			return new ResultsSuccessful<Genre>(genre);
 		}
-
-		protected override Results<Genre> validateProperties(Genre model)
-		=> new ResultsSuccessful<Genre>(model);
 	}
 }

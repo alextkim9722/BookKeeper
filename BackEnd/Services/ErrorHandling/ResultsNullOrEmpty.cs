@@ -1,6 +1,6 @@
 ﻿using Microsoft.IdentityModel.Tokens;
 
-namespace BackEnd.ErrorHandling
+namespace BackEnd.Services.ErrorHandling
 {
     public class ResultsNullOrEmpty<T> : Results<IEnumerable<T>>
     {

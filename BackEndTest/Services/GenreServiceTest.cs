@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using BackEndTest.Services.TheoryDataGenerators;
 using BackEndTest.Services.RandomGenerators;
-using BackEnd.ErrorHandling;
+using BackEnd.Services.ErrorHandling;
 
 namespace BackEndTest.Services
 {

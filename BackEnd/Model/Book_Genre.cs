@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BackEnd.Model
 {
-    [PrimaryKey(nameof(firstKey), nameof(secondKey))]
+	[PrimaryKey(nameof(firstKey), nameof(secondKey))]
 	public class Book_Genre : IDoublePKModel
 	{
 		[Required]

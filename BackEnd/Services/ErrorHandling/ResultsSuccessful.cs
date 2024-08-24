@@ -1,4 +1,4 @@
-﻿namespace BackEnd.ErrorHandling
+﻿namespace BackEnd.Services.ErrorHandling
 {
     public class ResultsSuccessful<T> : Results<T>
     {

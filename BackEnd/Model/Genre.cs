@@ -5,11 +5,11 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BackEnd.Model
 {
-    public class Genre : ISinglePKModel
+	public class Genre : ISinglePKModel
 	{
 		[Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        [Column("GENRE_ID")]
+		[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+		[Column("GENRE_ID")]
 		public int pKey { get; set; }
 		[Required]
 		public string genre_name {  get; set; } = string.Empty;

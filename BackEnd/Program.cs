@@ -3,18 +3,19 @@ using BackEnd.Services;
 using BackEnd.Services.Interfaces;
 using Microsoft.AspNetCore.Identity;
 using BackEnd.Model;
+using BackEnd.Services.Context;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // START    Configuration of the web application goes in here
 builder.Services.AddDbContext<BookShelfContext>(options =>
-    options.UseSqlServer(
-        builder
-        .Configuration
-        .GetConnectionString("DefaultConnection")));
+	options.UseSqlServer(
+		builder
+		.Configuration
+		.GetConnectionString("DefaultConnection")));
 builder.Services.AddIdentity<Identification, IdentityRole>().
-    AddEntityFrameworkStores<BookShelfContext>().
-    AddDefaultTokenProviders();
+	AddEntityFrameworkStores<BookShelfContext>().
+	AddDefaultTokenProviders();
 
 //builder.Services.AddControllers();
 //builder.Services.AddEndpointsApiExplorer();

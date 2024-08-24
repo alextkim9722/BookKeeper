@@ -4,7 +4,7 @@ using BackEnd.Model.Interfaces;
 
 namespace BackEnd.Model
 {
-    public class User : ISinglePKModel
+	public class User : ISinglePKModel
 	{
 		[Key]
 		[DatabaseGenerated(DatabaseGeneratedOption.Identity)]

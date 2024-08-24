@@ -1,6 +1,6 @@
-﻿using BackEnd.ErrorHandling;
-using BackEnd.Model;
+﻿using BackEnd.Model;
 using BackEnd.Services;
+using BackEnd.Services.ErrorHandling;
 using BackEnd.Services.Interfaces;
 using BackEndTest.Services.RandomGenerators;
 using BackEndTest.Services.TheoryDataGenerators;
@@ -72,7 +72,7 @@ namespace BackEndTest.Services
 		[ClassData(typeof(UserTheoryDataGenerator))]
 		public void GetUserByUsername_InvokedWithValidUsername_ReturnsUserWithNoNulls(User expected)
 		{
-			Results<User> actual = _userService.getUserByUserName(expected.username);
+			Results<User> actual = _userService.GetUserByUserName(expected.username);
 
 			Assert.True(actual.success);
 			userEquals(expected, actual.payload);
@@ -90,8 +90,8 @@ namespace BackEndTest.Services
 				profile_picture = "fsda"
 			};
 
-			Results<User> add = _userService.addUser(expected);
-			Results<User> actual = _userService.getUserByUserName("bob");
+			Results<User> add = _userService.AddUser(expected);
+			Results<User> actual = _userService.GetUserByUserName("bob");
 
 			Assert.True(add.success);
 			MappedComparator.compareUser(expected, actual.payload);
@@ -124,19 +124,19 @@ namespace BackEndTest.Services
 				profile_picture = TestDatabaseGenerator.userTable[1].profile_picture
 			};
 
-			Results<User> update = _userService.updateUser(2, expected);
-			Results<User> actual = _userService.getUserById(2);
+			Results<User> update = _userService.UpdateUser(2, expected);
+			Results<User> actual = _userService.GetUserById(2);
 
 			Assert.True(update.success);
 			MappedComparator.compareUser(expected, actual.payload);
 
-			_userService.updateUser(2, original);
+			_userService.UpdateUser(2, original);
 		}
 
 		[Fact]
 		public void GetUserById_InvokedWithNonExistantId_ReturnsFailedResult()
 		{
-			Results<User> actual = _userService.getUserById(50);
+			Results<User> actual = _userService.GetUserById(50);
 
 			Assert.NotNull(actual);
 			Assert.False(actual.success);

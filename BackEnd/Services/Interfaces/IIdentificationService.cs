@@ -1,5 +1,5 @@
-﻿using BackEnd.ErrorHandling;
-using BackEnd.Model;
+﻿using BackEnd.Model;
+using BackEnd.Services.ErrorHandling;
 
 namespace BackEnd.Services.Interfaces
 {

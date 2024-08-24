@@ -1,103 +1,89 @@
 ﻿using BackEnd.Model;
 using BackEnd.Services.Interfaces;
+using BackEnd.Services.Generics.Interfaces;
+using Microsoft.Data.SqlClient;
 using BackEnd.Services.ErrorHandling;
-using static System.Reflection.Metadata.BlobBuilder;
-using Microsoft.IdentityModel.Tokens;
-using BackEnd.ErrorHandling;
 
 namespace BackEnd.Services
 {
-    public class UserService : JoinService<User>, IUserService
+	public class UserService : IUserService
 	{
-		public UserService(BookShelfContext bookShelfContext) :
-			base(bookShelfContext)
+		private readonly IGenericService<User> _genericService;
+		private readonly IJunctionService<User_Book> _jUserBookService;
+		private readonly IJunctionService<Review> _jReviewService;
+
+		public UserService(
+			IGenericService<User> genericService,
+			IJunctionService<User_Book> jUserBookService,
+			IJunctionService<Review> jReviewService)
 		{
-			CallbackHandler.Add(addBridges);
-			CallbackHandler.Add(recordBookData);
+			_genericService = genericService;
+			_jUserBookService = jUserBookService;
+			_jReviewService = jReviewService;
 		}
 
-		public Results<User> addUser(User user)
-			=> addModel(user);
+		public Results<User> AddUser(User user)
+			=> _genericService.AddModel(user);
+		public Results<User> GetUserById(int id)
+			=> _genericService.ProcessUniqueModel(x => x.pKey == id, AddDependents);
+		public Results<User> GetUserByIdentificationId(string id)
+			=> _genericService.ProcessUniqueModel(x => x.identification_id == id, AddDependents);
+		public Results<IEnumerable<User>> GetUserByUserName(string username)
+			=> _genericService.ProcessModels(x => x.username == username, AddDependents);
+		public Results<User> UpdateUser(int id, User user)
+			=> _genericService.UpdateModel([id], user);
+		public Results<IEnumerable<User>> RemoveUser(IEnumerable<int> id)
+			=> _genericService.DeleteModels([id.ToArray()], DeleteDependents);
 
-		public Results<IEnumerable<User>> getAllUser()
-			=> formatAllModels();
-
-		public Results<User> getUserById(int id)
-			=> formatModel(x => x.user_id == id);
-
-		public Results<User> getUserByIdentificationId(string id)
-			=> formatModel(x => x.identification_id == id);
-
-		public Results<User> getUserByUserName(string userName)
-			=> formatModel(x => x.username == userName);
-
-		public Results<User> removeUser(int id)
-			=> deleteBridgedModel(id, x => x.user_id == id);
-
-		public Results<User> updateUser(int id, User user)
-			=> updateModel(x => x.user_id == id, user);
-
-		private Results<User> recordBookData(User user)
+		private Results<User> AddingProcess(User user)
 		{
-			if(!user.books.IsNullOrEmpty())
+			var dependentsResult = AddDependents(user);
+
+			return dependentsResult;
+		}
+
+		public Results<IEnumerable<Book>> SetBooksAndPagesRead(User user, IEnumerable<Book> books)
+		{
+			var bookIds = books.Select(x => x.pKey).ToList().OrderBy(x => x);
+			if(user.books.OrderBy(x => x) == bookIds)
 			{
-				user.pagesRead = user.books!.Select(x => x.pages).Sum();
-				user.booksRead = user.books!.Count();
+				user.booksRead = books.Count();
+				user.pagesRead = books.Sum(x => x.pages);
+
+				return new ResultsSuccessful<IEnumerable<Book>>(books);
+			}
+			else
+			{
+				return new ResultsFailure<IEnumerable<Book>>("Not all books are read by the user!");
+			}
+		}
+		private Results<User> AddDependents(User user)
+		{
+			try
+			{
+				user.books = _jUserBookService.GetJunctionedJoinedModelsId(user.pKey, true);
+				user.reviews = _jReviewService.GetJunctionedJoinedModelsId(user.pKey, true);
+			}
+			catch (SqlException ex)
+			{
+				return new ResultsFailure<User>("Failed to add bridges");
 			}
 
 			return new ResultsSuccessful<User>(user);
 		}
-
-		protected override Results<User> addBridges(User user)
+		private Results<User> DeleteDependents(User User)
 		{
-			var books = getMultipleJoins<Book, User_Book>(
-				x => x.user_id == user.user_id, y => y.book_id);
-			var reviews = getJoins<Review>(x => x.user_id == user.user_id);
+			try
+			{
+				_jUserBookService.DeleteJunctionModels(User.pKey, true);
+				_jReviewService.DeleteJunctionModels(User.pKey, true);
+			}
+			catch (SqlException ex)
+			{
+				return new ResultsFailure<User>("Failed to add bridges");
+			}
 
-			if (books.success && reviews.success)
-			{
-				user.books = books.payload;
-				user.reviews = reviews.payload;
-				return new ResultsSuccessful<User>(null);
-			}
-			else
-			{
-				return new ResultsFailure<User>(
-					books.msg
-					+ reviews.msg
-					+ "Failed to delete joins");
-			}
+			return new ResultsSuccessful<User>(User);
 		}
-
-		protected override Results<User> deleteBridges(int id)
-		{
-			var books = deleteJoins<User_Book>(x => x.user_id == id);
-			var reviews = deleteJoins<Review>(x => x.user_id == id);
-
-			if (books.success && reviews.success)
-			{
-				return new ResultsSuccessful<User>(null);
-			}
-			else
-			{
-				return new ResultsFailure<User>(
-					books.msg
-					+ reviews.msg
-					+ "Failed to delete joins");
-			}
-		}
-
-		protected override User transferProperties(User original, User updated)
-		{
-			original.pagesRead = updated.pagesRead;
-			original.booksRead = updated.booksRead;
-			original.books = updated.books;
-			original.reviews = updated.reviews;
-
-			return original;
-		}
-
-		protected override Results<User> validateProperties(User model)
-			=> new ResultsSuccessful<User>(model);
 	}
 }

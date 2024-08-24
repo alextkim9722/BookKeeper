@@ -2,12 +2,11 @@
 using BackEnd.Services.Interfaces;
 using BackEnd.Services.ErrorHandling;
 using Microsoft.AspNetCore.Identity;
-using BackEnd.ErrorHandling;
 
 
 namespace BackEnd.Services
 {
-    public class IdentificationService : IIdentificationService
+	public class IdentificationService : IIdentificationService
 	{
 		private readonly UserManager<Identification> _userManager;
 
@@ -41,7 +40,7 @@ namespace BackEnd.Services
 						date_joined = DateOnly.FromDateTime(DateTime.Now)
 					};
 
-					Results<User> userResult = _userService.addUser(user);
+					Results<User> userResult = _userService.AddUser(user);
 
 					if(userResult.success)
 					{
@@ -94,10 +93,10 @@ namespace BackEnd.Services
 
 		private Results<Identification> addUserId(Identification identification)
 		{
-			var result = _userService.getUserByIdentificationId(identification.Id);
+			var result = _userService.GetUserByIdentificationId(identification.Id);
 			if (result.success)
 			{
-				identification.user_id = result.payload!.user_id;
+				identification.user_id = result.payload!.pKey;
 				return new ResultsSuccessful<Identification>(
 					identification);
 			}
@@ -113,7 +112,7 @@ namespace BackEnd.Services
 			Identification identification = await _userManager.FindByIdAsync(id);
 			if (identification != null)
 			{
-				_userService.removeUser(identification.user_id);
+				_userService.RemoveUser([identification.user_id]);
 				await _userManager.DeleteAsync(identification);
 				return new ResultsSuccessful<Identification>(
 					identification);

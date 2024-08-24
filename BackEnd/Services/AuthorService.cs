@@ -1,18 +1,60 @@
 ﻿using BackEnd.Model;
 using BackEnd.Services.Interfaces;
 using Microsoft.IdentityModel.Tokens;
-using BackEnd.ErrorHandling;
+using BackEnd.Services.Generics.Interfaces;
+using Microsoft.Data.SqlClient;
+using BackEnd.Services.ErrorHandling;
 
 namespace BackEnd.Services
 {
-    public class AuthorService : IAuthorService
+	public class AuthorService : IAuthorService
 	{
-		public AuthorService(BookShelfContext bookShelfContext)
+		private readonly IGenericService<Author> _genericService;
+		private readonly IJunctionService<Book_Author> _jBookAuthorService;
+
+		public AuthorService(IGenericService<Author> genericService,
+			IJunctionService<Book_Author> jBookAuthorService)
 		{
+			_genericService = genericService;
+			_jBookAuthorService = jBookAuthorService;
 		}
 
-		// If the middle name doesn't exist, just don't print it
-		private Results<Author> addFullName(Author author)
+		public Results<Author> AddAuthor(Author author)
+			=> _genericService.AddModel(author);
+		public Results<Author> GetAuthorById(int id)
+			=> _genericService.ProcessUniqueModel(x => x.pKey == id);
+		public Results<IEnumerable<Author>> GetAuthorByFirstName(string first)
+			=> _genericService.ProcessModels(x => x.first_name == first, AddingProcess);
+		public Results<IEnumerable<Author>> GetAuthorByLastName(string last)
+			=> _genericService.ProcessModels(x => x.last_name == last, AddingProcess);
+		public Results<IEnumerable<Author>> GetAuthorByMiddleName(string middle)
+			=> _genericService.ProcessModels(x => x.middle_name == middle, AddingProcess);
+		public Results<Author> UpdateAuthor(int id, Author author)
+			=> _genericService.UpdateModel([id], author);
+		public Results<IEnumerable<Author>> RemoveAuthor(IEnumerable<int> id)
+			=> _genericService.DeleteModels([id.ToArray()], DeleteDependents);
+
+		private Results<Author> AddingProcess(Author author)
+		{
+			var depdentsResult = AddDependents(author);
+			SetFullName(author);
+			return depdentsResult;
+		}
+		private Results<Author> AddDependents(Author author)
+		{
+			try
+			{
+				author.books = _jBookAuthorService.GetJunctionedJoinedModelsId(author.pKey, false);
+			}
+			catch (SqlException ex)
+			{
+				return new ResultsFailure<Author>("Failed to add bridges");
+			}
+
+			return new ResultsSuccessful<Author>(author);
+		}
+
+		private void SetFullName(Author author)
 		{
 			if (author.middle_name.IsNullOrEmpty())
 			{
@@ -25,57 +67,19 @@ namespace BackEnd.Services
 					+ " " + author.middle_name
 					+ " " + author.last_name;
 			}
+		}
+		private Results<Author> DeleteDependents(Author author)
+		{
+			try
+			{
+				_jBookAuthorService.DeleteJunctionModels(author.pKey, false);
+			}
+			catch (SqlException ex)
+			{
+				return new ResultsFailure<Author>("Failed to add bridges");
+			}
 
 			return new ResultsSuccessful<Author>(author);
 		}
-		protected override Results<Author> addBridges(Author author)
-		{
-			var result = getMultipleJoins<Book, Book_Author>(
-				x => x.author_id == author.author_id,
-				y => y.book_id);
-
-			if (result.success)
-			{
-				author.books = result.payload;
-				return new ResultsSuccessful<Author>(author);
-			}
-			else
-			{
-				return new ResultsFailure<Author>(
-					result.msg
-					+ "Failed to grab bridge tables");
-			}
-		}
-		protected override Results<Author> deleteBridges(int id)
-		{
-			return
-				deleteJoins<Book_Author>(x => x.author_id == id);
-		}
-
-		protected override Author transferProperties(Author original, Author updated)
-		{
-			original.books = updated.books;
-			return original;
-		}
-
-		public Results<Author> addAuthor(Author author)
-			=> addModel(author);
-		public Results<IEnumerable<Author>> getAllAuthors()
-			=> formatAllModels();
-		public Results<Author> getAuthorByFirstName(string first)
-			=> formatModel(x => x.first_name == first);
-		public Results<Author> getAuthorById(int id)
-			=> formatModel(x => x.author_id == id);
-		public Results<Author> getAuthorByLastName(string last)
-			=> formatModel(x => x.last_name == last);
-		public Results<Author> getAuthorByMiddleName(string middle)
-			=> formatModel(x => x.middle_name == middle);
-		public Results<Author> removeAuthor(int id)
-			=> deleteBridgedModel(id, x => x.author_id == id);
-		public Results<Author> updateAuthor(int id, Author author)
-			=> updateModel(x => x.author_id == id, author);
-
-		protected override Results<Author> validateProperties(Author model)
-			=> new ResultsSuccessful<Author>(model);
 	}
 }

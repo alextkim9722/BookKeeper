@@ -1,9 +1,10 @@
-﻿using BackEnd.ErrorHandling;
-using BackEnd.Model;
+﻿using BackEnd.Model;
 using BackEnd.Services.Interfaces;
 using Microsoft.IdentityModel.Tokens;
 using BackEnd.Services.Generics.Interfaces;
 using Microsoft.Data.SqlClient;
+using static System.Reflection.Metadata.BlobBuilder;
+using BackEnd.Services.ErrorHandling;
 
 namespace BackEnd.Services
 {
@@ -31,26 +32,33 @@ namespace BackEnd.Services
 
 		public Results<Book> AddBook(Book book)
 			=> _genericService.AddModel(book);
-
-		public Results<IEnumerable<Book>> RemoveBook(IEnumerable<int> id)
-		{
-			var results = _genericService.DeleteModels(id, deleteDependents);
-			return results;
-        }
-
 		public Results<Book> UpdateBook(int id, Book book)
-			=> _genericService.UpdateModel(x => x.pKey == id, book);
-
+			=> _genericService.UpdateModel([id], book);
 		public Results<Book> GetBookById(int id)
-			=> _genericService.ProcessUniqueModel(x => x.pKey == id, AddingProcess);
+			=> _genericService.ProcessUniqueModel(x => x.pKey == id, AddDependents);
+		public Results<Book> GetBookByIsbn(string isbn)
+			=> _genericService.ProcessUniqueModel(x => x.isbn == isbn, AddDependents);
+		public Results<IEnumerable<Book>> GetBookByTitle(string title)
+			=> _genericService.ProcessModels(x => x.title == title, AddDependents);
+		public Results<IEnumerable<Book>> RemoveBooks(IEnumerable<int> id)
+			=> _genericService.DeleteModels([id.ToArray()], DeleteDependents);
 
-        public Results<Book> GetBookByIsbn(string isbn)
-            => _genericService.ProcessUniqueModel(x => x.isbn == isbn, AddingProcess);
+		public Results<IEnumerable<Review>> SetRating(Book book, IEnumerable<Review> review)
+		{
+			var userIds = review.Select(x => x.secondKey).ToList().OrderBy(x => x);
+			if (book.reviews.OrderBy(x => x) == userIds)
+			{
+				book.rating = Convert.ToInt32(review.Average(x => x.rating));
 
-        public Results<IEnumerable<Book>> GetBookByTitle(string title)
-			=> _genericService.ProcessModels(x => x.title == title, AddingProcess);
+				return new ResultsSuccessful<IEnumerable<Review>>(review);
+			}
+			else
+			{
+				return new ResultsFailure<IEnumerable<Review>>("Not all review are read by the user!");
+			}
+		}
 
-        private Results<Book> AddingProcess(Book book)
+		private Results<Book> AddDependents(Book book)
 		{
 			try
 			{
@@ -64,24 +72,13 @@ namespace BackEnd.Services
 				return new ResultsFailure<Book>("Failed to add bridges");
 			}
 
-			setRating(book);
-
 			return new ResultsSuccessful<Book>(book);
 		}
-
-		private void setRating(Book book)
+		private Results<Book> DeleteDependents(Book book)
 		{
-			if(!book.reviews.IsNullOrEmpty())
+			try
 			{
-                book.rating = Convert.ToInt32(_jReviewService.GetJunctionModels(book.pKey, false).Average(x => x.rating));
-            }
-		}
-
-		private Results<Book> deleteDependents(Book book)
-		{
-            try
-            {
-                _jBookAuthorService.DeleteJunctionModels(book.pKey, true);
+				_jBookAuthorService.DeleteJunctionModels(book.pKey, true);
 				_jBookGenreService.DeleteJunctionModels(book.pKey, true);
 				_jUserBookService.DeleteJunctionModels(book.pKey, false);
 				_jReviewService.DeleteJunctionModels(book.pKey, false);
@@ -91,7 +88,7 @@ namespace BackEnd.Services
 				return new ResultsFailure<Book>("Failed to add bridges");
 			}
 
-            return new ResultsSuccessful<Book>(book);
-        }
+			return new ResultsSuccessful<Book>(book);
+		}
 	}
 }

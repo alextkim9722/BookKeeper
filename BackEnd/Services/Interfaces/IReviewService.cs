@@ -1,16 +1,15 @@
-﻿using BackEnd.ErrorHandling;
-using BackEnd.Model;
+﻿using BackEnd.Model;
+using BackEnd.Services.ErrorHandling;
 
 namespace BackEnd.Services.Interfaces
 {
-    public interface IReviewService
+	public interface IReviewService
 	{
-		public Results<Review> addReview(Review review);
-		public Results<Review> removeReview(int userId, int bookId);
-		public Results<Review> updateReview(int userId, int bookId, Review review);
-		public Results<Review> getReviewById(int userId, int bookId);
-		public Results<IEnumerable<Review>> getReviewByBookId(int id);
-		public Results<IEnumerable<Review>> getReviewByUserId(int id);
-		public Results<IEnumerable<Review>> getAllReviews();
+		public Results<Review> AddReview(Review review);
+		public Results<Review> GetReviewById(int userId, int bookId);
+		public Results<IEnumerable<Review>> GetReviewByUserId(int id);
+		public Results<IEnumerable<Review>> GetReviewByBookId(int id);
+		public Results<Review> UpdateReview(int userId, int bookId, Review review);
+		public Results<IEnumerable<Review>> RemoveReview(IEnumerable<int[]> id);
 	}
 }

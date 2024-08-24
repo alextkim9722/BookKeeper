@@ -1,5 +1,5 @@
-﻿using BackEnd.ErrorHandling;
-using BackEnd.Model;
+﻿using BackEnd.Model;
+using BackEnd.Services.ErrorHandling;
 using Microsoft.AspNetCore.Identity;
 
 namespace BackEnd.Services.Interfaces

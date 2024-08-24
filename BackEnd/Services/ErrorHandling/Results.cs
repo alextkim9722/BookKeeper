@@ -1,7 +1,7 @@
 ﻿using Microsoft.Extensions.Diagnostics.HealthChecks;
 using System.Runtime.CompilerServices;
 
-namespace BackEnd.ErrorHandling
+namespace BackEnd.Services.ErrorHandling
 {
     public class Results<T>
     {
