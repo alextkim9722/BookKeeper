@@ -1,12 +1,77 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "E:\\Programming\\BookKeeper\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{07790725-64D0-4824-AC4F-06F361D6F3E5}|BackEndTest\\BackEndTest.csproj|e:\\programming\\bookkeeper\\backendtest\\services\\genreservicetests\\genreservicedeletetests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{07790725-64D0-4824-AC4F-06F361D6F3E5}|BackEndTest\\BackEndTest.csproj|solutionrelative:backendtest\\services\\genreservicetests\\genreservicedeletetests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{07790725-64D0-4824-AC4F-06F361D6F3E5}|BackEndTest\\BackEndTest.csproj|e:\\programming\\bookkeeper\\backendtest\\services\\authorservicetests\\authorservicereadtests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{07790725-64D0-4824-AC4F-06F361D6F3E5}|BackEndTest\\BackEndTest.csproj|solutionrelative:backendtest\\services\\authorservicetests\\authorservicereadtests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{07790725-64D0-4824-AC4F-06F361D6F3E5}|BackEndTest\\BackEndTest.csproj|e:\\programming\\bookkeeper\\backendtest\\services\\genreservicetests\\genreserviceupdatetests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{07790725-64D0-4824-AC4F-06F361D6F3E5}|BackEndTest\\BackEndTest.csproj|solutionrelative:backendtest\\services\\genreservicetests\\genreserviceupdatetests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": []
+      "DocumentGroups": [
+        {
+          "DockedWidth": 179,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "AuthorServiceReadTests.cs",
+              "DocumentMoniker": "E:\\Programming\\BookKeeper\\BackEndTest\\Services\\AuthorServiceTests\\AuthorServiceReadTests.cs",
+              "RelativeDocumentMoniker": "BackEndTest\\Services\\AuthorServiceTests\\AuthorServiceReadTests.cs",
+              "ToolTip": "E:\\Programming\\BookKeeper\\BackEndTest\\Services\\AuthorServiceTests\\AuthorServiceReadTests.cs",
+              "RelativeToolTip": "BackEndTest\\Services\\AuthorServiceTests\\AuthorServiceReadTests.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-25T05:56:16.468Z",
+              "EditorCaption": ""
+            }
+          ]
+        },
+        {
+          "DockedWidth": 179,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "GenreServiceDeleteTests.cs",
+              "DocumentMoniker": "E:\\Programming\\BookKeeper\\BackEndTest\\Services\\GenreServiceTests\\GenreServiceDeleteTests.cs",
+              "RelativeDocumentMoniker": "BackEndTest\\Services\\GenreServiceTests\\GenreServiceDeleteTests.cs",
+              "ToolTip": "E:\\Programming\\BookKeeper\\BackEndTest\\Services\\GenreServiceTests\\GenreServiceDeleteTests.cs",
+              "RelativeToolTip": "BackEndTest\\Services\\GenreServiceTests\\GenreServiceDeleteTests.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-25T06:06:12.417Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "GenreServiceUpdateTests.cs",
+              "DocumentMoniker": "E:\\Programming\\BookKeeper\\BackEndTest\\Services\\GenreServiceTests\\GenreServiceUpdateTests.cs",
+              "RelativeDocumentMoniker": "BackEndTest\\Services\\GenreServiceTests\\GenreServiceUpdateTests.cs",
+              "ToolTip": "E:\\Programming\\BookKeeper\\BackEndTest\\Services\\GenreServiceTests\\GenreServiceUpdateTests.cs",
+              "RelativeToolTip": "BackEndTest\\Services\\GenreServiceTests\\GenreServiceUpdateTests.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAoAAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-25T06:02:14.685Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
     }
   ]
 }

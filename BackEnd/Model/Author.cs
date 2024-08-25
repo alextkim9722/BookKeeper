@@ -10,12 +10,12 @@ namespace BackEnd.Model
 		[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
 		[Column("AUTHOR_ID")]
 		public int pKey { get; set; }
-		[Required]
+		[Required(ErrorMessage = "First Name is required!")]
 		[StringLength(Int32.MaxValue, ErrorMessage = "First name length exceeds maximum characters!")]
 		public string first_name { get; set; } = string.Empty;
 		[StringLength(Int32.MaxValue, ErrorMessage = "Middle name length exceeds maximum characters!")]
 		public string middle_name { get; set; } = string.Empty;
-		[Required]
+		[Required(ErrorMessage = "Last Name is required!")]
 		[StringLength(Int32.MaxValue, ErrorMessage = "Last name length exceeds maximum characters!")]
 		public string last_name { get; set; } = string.Empty;
 

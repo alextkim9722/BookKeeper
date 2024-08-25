@@ -22,7 +22,7 @@ namespace BackEnd.Services
 		public Results<IEnumerable<Review>> GetReviewByBookId(int id)
 			=> _genericService.ProcessModels(x => x.secondKey == id);
 		public Results<Review> UpdateReview(int userId, int bookId, Review review)
-			=> _genericService.UpdateModel([userId, bookId], review);
+			=> _genericService.UpdateModel(review, userId, bookId);
 		public Results<IEnumerable<Review>> RemoveReview(IEnumerable<int[]> id)
 			=> _genericService.DeleteModels(id);
 	}

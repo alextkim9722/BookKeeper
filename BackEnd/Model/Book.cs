@@ -10,16 +10,16 @@ namespace BackEnd.Model
 		[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
 		[Column("BOOK_ID")]
 		public int pKey {  get; set; }
-		[Required]
+		[Required(ErrorMessage = "Title is required!")]
 		[StringLength(Int32.MaxValue, ErrorMessage = "Title length exceeds maximum characters!")]
 		public string title { get; set; } = string.Empty;
-		[Required]
-		[Range(0, Int32.MaxValue, ErrorMessage = "Page length exceeds maximum value!")]
-		public int pages { get; set; }
-		[Required]
+		[Required(ErrorMessage = "Page count is required!")]
+		[Range(1, Int32.MaxValue, ErrorMessage = "Page length exceeds maximum value or is less than or equal to 0!")]
+		public int pages { get; set; } = 0;
+		[Required(ErrorMessage = "ISBN is required!")]
 		[StringLength(13, MinimumLength = 13, ErrorMessage = "ISBN length not within 13 digit standard!")]
 		public string isbn { get; set; } = string.Empty;
-		[Required]
+		[Required(ErrorMessage = "Cover Picture is required!")]
 		[StringLength(Int32.MaxValue, ErrorMessage = "Cover picture path length exceeds maximum characters!")]
 		public string cover_picture { get; set; } = string.Empty;
 

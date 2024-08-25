@@ -16,8 +16,8 @@ namespace BackEnd.Model
 		public string? description { get; set; }
 		[Required]
 		[Range(0, 10, ErrorMessage = "Rating must be between 0 and 10!")]
-		public uint rating { get; set; }
-		[Required]
-		public DateOnly? date_submitted { get; set; } = new DateOnly();
+		public int rating { get; set; } = 0;
+		[Required(ErrorMessage = "Reviews need a date!")]
+		public DateOnly? date_submitted { get; set; }
 	}
 }

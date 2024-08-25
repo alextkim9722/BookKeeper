@@ -10,9 +10,9 @@ namespace BackEndTest.Services.RandomGenerators
     public class UniqueIntPairGenerator
     {
         private List<int[]> pairList;
-        private readonly RandomGenerators _randomGenerators;
+        private readonly ValueGenerators _randomGenerators;
 
-        public UniqueIntPairGenerator(RandomGenerators randomGenerators, int rangeCol, int rangeRow)
+        public UniqueIntPairGenerator(ValueGenerators randomGenerators, int rangeCol, int rangeRow)
         {
             pairList = new List<int[]>();
             _randomGenerators = randomGenerators;

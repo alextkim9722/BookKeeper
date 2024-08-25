@@ -5,7 +5,7 @@ using Microsoft.IdentityModel.Tokens;
 
 namespace BackEnd.Services.Generics
 {
-    public class JunctionService<T> : IJunctionService<T> where T : class, IDoublePKModel
+	public class JunctionService<T> : IJunctionService<T> where T : class, IDoublePKModel
 	{
 		private readonly BookShelfContext _bookShelfContext;
 
@@ -25,7 +25,7 @@ namespace BackEnd.Services.Generics
 
 			if (!junctionResults.IsNullOrEmpty())
 			{
-				keys = junctionResults.Select(x => first ? x.firstKey : x.secondKey).ToList();
+				keys = junctionResults.Select(x => first ? x.secondKey : x.firstKey).ToList();
 			}
 
 			return keys;
@@ -35,6 +35,7 @@ namespace BackEnd.Services.Generics
 		{
 			var models = GetJunctionModels(id, first);
 			_bookShelfContext.Set<T>().RemoveRange(models);
+			_bookShelfContext.SaveChanges();
 			return models;
 		}
 	}

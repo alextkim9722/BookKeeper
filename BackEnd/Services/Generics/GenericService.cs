@@ -35,12 +35,12 @@ namespace BackEnd.Services.Generics
 		public Results<T> ProcessUniqueModel(Expression<Func<T, bool>> condition, Func<T, Results<T>>? processFunction = null)
 		{
 			var result = ProcessModels(condition,processFunction);
-			return new ResultsCast<T, IEnumerable<T>>(result, result.payload.FirstOrDefault());
+			return new ResultsCast<T, IEnumerable<T>>(result, result.payload?.FirstOrDefault());
 		}
 
 		public Results<IEnumerable<T>> ProcessModels(Expression<Func<T, bool>> condition, Func<T, Results<T>>? processFunction = null)
 		{
-			var models = _bookShelfContext.Set<T>().Where(condition);
+			var models = _bookShelfContext.Set<T>().Where(condition).ToList();
 
 			if (!models.IsNullOrEmpty())
 			{
@@ -49,13 +49,21 @@ namespace BackEnd.Services.Generics
 			}
 			else
 			{
-				return new ResultsFailure<IEnumerable<T>>("Models were not found");
+				return new ResultsFailure<IEnumerable<T>>("Models were not found!");
 			}
 		}
 
-		public Results<T> UpdateModel(int[] id, T updatedModel)
+		public Results<T> UpdateModel(T updatedModel, int firstKey, int? secondKey = null)
 		{
-			var model = _bookShelfContext.Set<T>().Find(id);
+			T model = null;
+			if (secondKey == null)
+			{
+				model = _bookShelfContext.Set<T>().Find(firstKey);
+			}
+			else
+			{
+				model = _bookShelfContext.Set<T>().Find(firstKey, secondKey);
+			}
 
 			if (model != null)
 			{
@@ -71,7 +79,7 @@ namespace BackEnd.Services.Generics
 			}
 			else
 			{
-				return new ResultsFailure<T>("Could not find model");
+				return new ResultsFailure<T>("Could not find model!");
 			}
 		}
 
@@ -113,7 +121,16 @@ namespace BackEnd.Services.Generics
 
 			foreach (var id in idList)
 			{
-				var model = _bookShelfContext.Set<T>().Find(id);
+				T? model = null;
+				if (id.Count() == 1)
+				{
+					model = _bookShelfContext.Set<T>().Find(id[0]);
+				}
+				else
+				{
+					model = _bookShelfContext.Set<T>().Find(id[0], id[1]);
+				}
+
 				if(model != null)
 				{
 					models.Add(model);
@@ -132,7 +149,7 @@ namespace BackEnd.Services.Generics
 					var result = processFunction(model);
 					if (!result.success)
 					{
-						return new ResultsFailure<IEnumerable<T>>("Delete processing has failed");
+						return new ResultsFailure<IEnumerable<T>>("Processing has failed!");
 					}
 				}
 			}

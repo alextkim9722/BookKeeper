@@ -22,7 +22,7 @@ namespace BackEnd.Services
 		public Results<Author> AddAuthor(Author author)
 			=> _genericService.AddModel(author);
 		public Results<Author> GetAuthorById(int id)
-			=> _genericService.ProcessUniqueModel(x => x.pKey == id);
+			=> _genericService.ProcessUniqueModel(x => x.pKey == id, AddingProcess);
 		public Results<IEnumerable<Author>> GetAuthorByFirstName(string first)
 			=> _genericService.ProcessModels(x => x.first_name == first, AddingProcess);
 		public Results<IEnumerable<Author>> GetAuthorByLastName(string last)
@@ -30,7 +30,7 @@ namespace BackEnd.Services
 		public Results<IEnumerable<Author>> GetAuthorByMiddleName(string middle)
 			=> _genericService.ProcessModels(x => x.middle_name == middle, AddingProcess);
 		public Results<Author> UpdateAuthor(int id, Author author)
-			=> _genericService.UpdateModel([id], author);
+			=> _genericService.UpdateModel(author, id);
 		public Results<IEnumerable<Author>> RemoveAuthor(IEnumerable<int> id)
 			=> _genericService.DeleteModels([id.ToArray()], DeleteDependents);
 

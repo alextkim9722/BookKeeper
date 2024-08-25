@@ -31,7 +31,7 @@ namespace BackEnd.Services
 		public Results<IEnumerable<User>> GetUserByUserName(string username)
 			=> _genericService.ProcessModels(x => x.username == username, AddDependents);
 		public Results<User> UpdateUser(int id, User user)
-			=> _genericService.UpdateModel([id], user);
+			=> _genericService.UpdateModel(user, id);
 		public Results<IEnumerable<User>> RemoveUser(IEnumerable<int> id)
 			=> _genericService.DeleteModels([id.ToArray()], DeleteDependents);
 

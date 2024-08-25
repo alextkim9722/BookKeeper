@@ -29,6 +29,6 @@ namespace BackEnd.Services.ErrorHandling
         }
 
         private void appendErrorMessage(string msg)
-            => this.msg += "[ERROR]: " + msg + "\n";
+            => this.msg += "[ERROR]: " + msg + Environment.NewLine;
     }
 }

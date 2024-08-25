@@ -32,29 +32,40 @@ namespace BackEnd.Services
 
 		public Results<Book> AddBook(Book book)
 			=> _genericService.AddModel(book);
-		public Results<Book> UpdateBook(int id, Book book)
-			=> _genericService.UpdateModel([id], book);
 		public Results<Book> GetBookById(int id)
 			=> _genericService.ProcessUniqueModel(x => x.pKey == id, AddDependents);
 		public Results<Book> GetBookByIsbn(string isbn)
 			=> _genericService.ProcessUniqueModel(x => x.isbn == isbn, AddDependents);
 		public Results<IEnumerable<Book>> GetBookByTitle(string title)
 			=> _genericService.ProcessModels(x => x.title == title, AddDependents);
+		public Results<Book> UpdateBook(int id, Book book)
+			=> _genericService.UpdateModel(book, id);
 		public Results<IEnumerable<Book>> RemoveBooks(IEnumerable<int> id)
 			=> _genericService.DeleteModels([id.ToArray()], DeleteDependents);
 
 		public Results<IEnumerable<Review>> SetRating(Book book, IEnumerable<Review> review)
 		{
-			var userIds = review.Select(x => x.secondKey).ToList().OrderBy(x => x);
-			if (book.reviews.OrderBy(x => x) == userIds)
+			var userIds = review.OrderBy(x => x.firstKey).ToList();
+			var bookUserIds = book.reviews.OrderBy(x => x).ToList();
+
+			if(userIds.Count() == book.reviews.Count())
 			{
+				for (var i = 0; i < userIds.Count(); i++)
+				{
+					if (!(userIds.ElementAt(i).firstKey == bookUserIds.ElementAt(i) &&
+						userIds.ElementAt(i).secondKey == book.pKey))
+					{
+						return new ResultsFailure<IEnumerable<Review>>("Not all reviews are from readers who read the book!");
+					}
+				}
+
 				book.rating = Convert.ToInt32(review.Average(x => x.rating));
 
 				return new ResultsSuccessful<IEnumerable<Review>>(review);
 			}
 			else
 			{
-				return new ResultsFailure<IEnumerable<Review>>("Not all review are read by the user!");
+				return new ResultsFailure<IEnumerable<Review>>("Too many reviews!");
 			}
 		}
 

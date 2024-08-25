@@ -25,7 +25,7 @@ namespace BackEnd.Services
 		public Results<IEnumerable<Genre>> GetGenreByName(string name)
 			=> _genericService.ProcessModels(x => x.genre_name == name, AddDependents);
 		public Results<Genre> UpdateGenre(int id, Genre genre)
-			=> _genericService.UpdateModel([id], genre);
+			=> _genericService.UpdateModel(genre, id);
 		public Results<IEnumerable<Genre>> RemoveGenre(IEnumerable<int> id)
 			=> _genericService.DeleteModels([id.ToArray()], DeleteDependents);
 

@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace BackEndTest.Services.RandomGenerators
 {
-    public class RandomGenerators
+    public class ValueGenerators
     {
         private const string allowedCharacters = "abcdefghijklmnopqrstuvwxyz1234567890";
         private readonly Random _random;
 
-        public RandomGenerators()
+        public ValueGenerators()
         {
             _random = new Random();
         }

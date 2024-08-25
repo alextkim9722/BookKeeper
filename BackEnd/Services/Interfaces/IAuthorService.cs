@@ -3,7 +3,7 @@ using BackEnd.Services.ErrorHandling;
 
 namespace BackEnd.Services.Interfaces
 {
-    public interface IAuthorService
+	public interface IAuthorService
 	{
 		public Results<Author> AddAuthor(Author author);
 		public Results<Author> GetAuthorById(int id);

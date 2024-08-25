@@ -10,7 +10,7 @@ namespace BackEnd.Services.Validate
         {
             var validationResults = new List<ValidationResult>();
             var validationContext = new ValidationContext(model, null, null);
-            Validator.TryValidateObject(model, validationContext, validationResults);
+            Validator.TryValidateObject(model, validationContext, validationResults, true);
 
             if (validationResults.IsNullOrEmpty())
             {

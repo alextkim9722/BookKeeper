@@ -11,7 +11,7 @@ namespace BackEnd.Model
 		[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
 		[Column("GENRE_ID")]
 		public int pKey { get; set; }
-		[Required]
+		[Required(ErrorMessage = "The genre name is required!")]
 		[StringLength(100, ErrorMessage = "Name length exceeds 100 characters!")]
 		public string genre_name {  get; set; } = string.Empty;
 		[NotMapped]
