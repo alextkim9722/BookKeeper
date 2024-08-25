@@ -9,27 +9,21 @@ namespace BackEnd.Services
 	public class IdentificationService : IIdentificationService
 	{
 		private readonly UserManager<Identification> _userManager;
-
-		private readonly IPasswordHasher<Identification> _passwordHasher;
 		private readonly IUserService _userService;
 
 		public IdentificationService(
 			UserManager<Identification> userManager,
-			IPasswordHasher<Identification> passwordHasher,
 			IUserService userService)
 		{
 			_userManager = userManager;
-			_passwordHasher = passwordHasher;
 			_userService = userService;
 		}
 
-		public async Task<Results<Identification>> createIdentification(
-			Identification identification, string password)
+		public Results<Identification> createIdentification(Identification identification, string password)
 		{
 			if (identification != null)
 			{
-				IdentityResult result = await _userManager
-					.CreateAsync(identification, password);
+				IdentityResult result = Task.Run(() => _userManager.CreateAsync(identification, password)).GetAwaiter().GetResult();
 
 				if (result.Succeeded)
 				{
@@ -48,10 +42,7 @@ namespace BackEnd.Services
 					}
 					else
 					{
-						return new ResultsFailure<Identification>(
-							userResult.msg
-							+ "Identity User creation for failed"
-							);
+						return new ResultsFailure<Identification>(userResult.msg);
 					}
 				}
 				else
@@ -61,14 +52,13 @@ namespace BackEnd.Services
 			}
 			else
 			{
-				return new ResultsFailure<Identification>(
-						"Identification is null");
+				return new ResultsFailure<Identification>("Identification is null");
 			}
 		}
 
-		public async Task<Results<Identification>> getIdentificationByEmail(string email)
+		public Results<Identification> getIdentificationByEmail(string email)
 		{
-			Identification? identification = await _userManager.FindByEmailAsync(email);
+			Identification? identification = Task.Run(() => _userManager.FindByEmailAsync(email)).GetAwaiter().GetResult();
 			if(identification == null)
 			{
 				return new ResultsSuccessful<Identification>(identification);
@@ -78,9 +68,9 @@ namespace BackEnd.Services
 			}
 		}
 
-		public async Task<Results<Identification>> getIdentificationByUsername(string username)
+		public Results<Identification> getIdentificationByUsername(string username)
 		{
-			Identification? identification = await _userManager.FindByNameAsync(username);
+			Identification? identification = Task.Run(() => _userManager.FindByNameAsync(username)).GetAwaiter().GetResult();
 			if (identification == null)
 			{
 				return new ResultsSuccessful<Identification>(identification);
@@ -91,42 +81,9 @@ namespace BackEnd.Services
 			}
 		}
 
-		private Results<Identification> addUserId(Identification identification)
+		public Results<Identification> updateIdentification(Identification identification)
 		{
-			var result = _userService.GetUserByIdentificationId(identification.Id);
-			if (result.success)
-			{
-				identification.user_id = result.payload!.pKey;
-				return new ResultsSuccessful<Identification>(
-					identification);
-			}
-			else
-			{
-				return new ResultsFailure<Identification>(
-					result.msg + "Error with grabbing UserId");
-			}
-		}
-
-		public async Task<Results<Identification>> removeIdentification(string id)
-		{
-			Identification identification = await _userManager.FindByIdAsync(id);
-			if (identification != null)
-			{
-				_userService.RemoveUser([identification.user_id]);
-				await _userManager.DeleteAsync(identification);
-				return new ResultsSuccessful<Identification>(
-					identification);
-			}
-			else
-			{
-				return new ResultsFailure<Identification>("Failed to remove identification.");
-			}
-		}
-
-		public async Task<Results<Identification>> updateIdentification(
-			Identification identification)
-		{
-			IdentityResult result = await _userManager.UpdateAsync(identification);
+			IdentityResult result = Task.Run(() => _userManager.UpdateAsync(identification)).GetAwaiter().GetResult();
 
 			if (result.Succeeded)
 			{
@@ -135,6 +92,21 @@ namespace BackEnd.Services
 			else
 			{
 				return new ResultsFailure<Identification>(result.Errors);
+			}
+		}
+
+		public Results<Identification> removeIdentification(string id)
+		{
+			Identification identification = Task.Run(() => _userManager.FindByIdAsync(id)).GetAwaiter().GetResult();
+			if (identification != null)
+			{
+				_userService.RemoveUser([identification.user_id]);
+				Task.Run(() => _userManager.DeleteAsync(identification));
+				return new ResultsSuccessful<Identification>(identification);
+			}
+			else
+			{
+				return new ResultsFailure<Identification>("Failed to remove identification.");
 			}
 		}
 	}

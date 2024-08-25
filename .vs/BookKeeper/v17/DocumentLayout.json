@@ -3,8 +3,8 @@
   "WorkspaceRootPath": "E:\\Programming\\BookKeeper\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{07790725-64D0-4824-AC4F-06F361D6F3E5}|BackEndTest\\BackEndTest.csproj|e:\\programming\\bookkeeper\\backendtest\\services\\databasegenerators\\userdatabasegenerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{07790725-64D0-4824-AC4F-06F361D6F3E5}|BackEndTest\\BackEndTest.csproj|solutionrelative:backendtest\\services\\databasegenerators\\userdatabasegenerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B0469DE7-217D-4453-AF0A-BBA7EA3519AC}|BackEnd\\BackEnd.csproj|e:\\programming\\bookkeeper\\backend\\services\\roleservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B0469DE7-217D-4453-AF0A-BBA7EA3519AC}|BackEnd\\BackEnd.csproj|solutionrelative:backend\\services\\roleservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -14,19 +14,19 @@
       "DocumentGroups": [
         {
           "DockedWidth": 179,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "UserDatabaseGenerator.cs",
-              "DocumentMoniker": "E:\\Programming\\BookKeeper\\BackEndTest\\Services\\DatabaseGenerators\\UserDatabaseGenerator.cs",
-              "RelativeDocumentMoniker": "BackEndTest\\Services\\DatabaseGenerators\\UserDatabaseGenerator.cs",
-              "ToolTip": "E:\\Programming\\BookKeeper\\BackEndTest\\Services\\DatabaseGenerators\\UserDatabaseGenerator.cs",
-              "RelativeToolTip": "BackEndTest\\Services\\DatabaseGenerators\\UserDatabaseGenerator.cs",
-              "ViewState": "AgIAACEAAAAAAAAAAAAowGAAAAAWAAAAAAAAAA==",
+              "Title": "RoleService.cs",
+              "DocumentMoniker": "E:\\Programming\\BookKeeper\\BackEnd\\Services\\RoleService.cs",
+              "RelativeDocumentMoniker": "BackEnd\\Services\\RoleService.cs",
+              "ToolTip": "E:\\Programming\\BookKeeper\\BackEnd\\Services\\RoleService.cs",
+              "RelativeToolTip": "BackEnd\\Services\\RoleService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-25T06:13:13.474Z",
+              "WhenOpened": "2024-08-25T20:16:32.724Z",
               "EditorCaption": ""
             }
           ]

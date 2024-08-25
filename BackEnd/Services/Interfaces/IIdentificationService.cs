@@ -3,15 +3,15 @@ using BackEnd.Services.ErrorHandling;
 
 namespace BackEnd.Services.Interfaces
 {
-    public interface IIdentificationService
+	public interface IIdentificationService
 	{
-		public Task<Results<Identification>> createIdentification(
+		public Results<Identification> createIdentification(
 			Identification identification, string password);
-		public Task<Results<Identification>> updateIdentification(
+		public Results<Identification> updateIdentification(
 			Identification identification);
-		public Task<Results<Identification>> removeIdentification(string id);
-		public Task<Results<Identification>> getIdentificationByUsername(
+		public Results<Identification> removeIdentification(string id);
+		public Results<Identification> getIdentificationByUsername(
 			string username);
-		public Task<Results<Identification>> getIdentificationByEmail(string email);
+		public Results<Identification> getIdentificationByEmail(string email);
 	}
 }

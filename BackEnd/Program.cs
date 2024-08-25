@@ -17,9 +17,9 @@ builder.Services.AddIdentity<Identification, IdentityRole>().
 	AddEntityFrameworkStores<BookShelfContext>().
 	AddDefaultTokenProviders();
 
-//builder.Services.AddControllers();
-//builder.Services.AddEndpointsApiExplorer();
-//builder.Services.AddSwaggerGen();
+builder.Services.AddControllers();
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
 
 builder.Services.AddTransient<IBookService, BookService>();
 builder.Services.AddTransient<IAuthorService, AuthorService>();
@@ -29,10 +29,10 @@ builder.Services.AddTransient<IReviewService, ReviewService>();
 
 var app = builder.Build(); // END
 
-//app.UseHttpsRedirection();
+app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseRouting();
-//app.UseAuthorization();
+app.UseAuthorization();
 
 app.MapControllers();
 
