@@ -44,9 +44,19 @@ namespace BackEnd.Services
 
 		public Results<IEnumerable<Book>> SetBooksAndPagesRead(User user, IEnumerable<Book> books)
 		{
-			var bookIds = books.Select(x => x.pKey).ToList().OrderBy(x => x);
-			if(user.books.OrderBy(x => x) == bookIds)
+			var bookIds = books.OrderBy(x => x.pKey).ToList();
+			var userBookIds = user.books.OrderBy(x => x).ToList();
+
+			if (bookIds.Count() == user.books.Count())
 			{
+				for (var i = 0; i < bookIds.Count(); i++)
+				{
+					if (bookIds.ElementAt(i).pKey != userBookIds.ElementAt(i))
+					{
+						return new ResultsFailure<IEnumerable<Book>>("Not all books are read by the user!");
+					}
+				}
+
 				user.booksRead = books.Count();
 				user.pagesRead = books.Sum(x => x.pages);
 
@@ -54,7 +64,7 @@ namespace BackEnd.Services
 			}
 			else
 			{
-				return new ResultsFailure<IEnumerable<Book>>("Not all books are read by the user!");
+				return new ResultsFailure<IEnumerable<Book>>("Too many books!");
 			}
 		}
 		private Results<User> AddDependents(User user)

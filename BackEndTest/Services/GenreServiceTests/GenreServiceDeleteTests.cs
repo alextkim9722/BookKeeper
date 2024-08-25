@@ -34,7 +34,7 @@ namespace BackEndTest.Services.GenreServiceTests
 			var result = _genreService.RemoveGenre([id]);
 
 			Assert.True(result.success);
-			Assert.Null(_bookShelfContext.Author.Find(id));
+			Assert.Null(_bookShelfContext.Genre.Find(id));
 		}
 	}
 }

@@ -10,14 +10,13 @@ namespace BackEnd.Model
 		[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
 		[Column("USER_ID")]
 		public int pKey { get; set; }
-		[Required]
+		[Required(ErrorMessage = "Identification is needed!")]
 		public string identification_id { get; set; } = string.Empty;
-		[Required]
+		[Required(ErrorMessage = "Username is required!")]
 		[StringLength(25, ErrorMessage = "Name length exceeds 25 characters!")]
 		public string username { get; set; } = string.Empty;
-		[Required]
+		[Required(ErrorMessage = "Date is required!")]
 		public DateOnly? date_joined { get; set; } = null;
-		[Required]
 		[StringLength(300, ErrorMessage = "Description length exceeds 300 characters!")]
 		public string description { get; set; } = string.Empty;
 		public string profile_picture { get; set; } = string.Empty;

@@ -32,7 +32,7 @@ namespace BackEndTest.Services.BookServiceTests
 				new JunctionService<Review>(_bookShelfContext));
 		}
 
-		public void CompareAuthorsGenresUsersReviews(int authors, int genres, int users, int reviews, Book right)
+		private void CompareAuthorsGenresUsersReviews(int authors, int genres, int users, int reviews, Book right)
 		{
 			Assert.Equal(authors, right.authors.Count());
 			Assert.Equal(genres, right.genres.Count());
