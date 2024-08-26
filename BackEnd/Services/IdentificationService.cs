@@ -11,9 +11,7 @@ namespace BackEnd.Services
 		private readonly UserManager<Identification> _userManager;
 		private readonly IUserService _userService;
 
-		public IdentificationService(
-			UserManager<Identification> userManager,
-			IUserService userService)
+		public IdentificationService(UserManager<Identification> userManager, IUserService userService)
 		{
 			_userManager = userManager;
 			_userService = userService;
@@ -59,7 +57,7 @@ namespace BackEnd.Services
 		public Results<Identification> getIdentificationByEmail(string email)
 		{
 			Identification? identification = Task.Run(() => _userManager.FindByEmailAsync(email)).GetAwaiter().GetResult();
-			if(identification == null)
+			if(identification != null)
 			{
 				return new ResultsSuccessful<Identification>(identification);
 			}else
@@ -71,7 +69,7 @@ namespace BackEnd.Services
 		public Results<Identification> getIdentificationByUsername(string username)
 		{
 			Identification? identification = Task.Run(() => _userManager.FindByNameAsync(username)).GetAwaiter().GetResult();
-			if (identification == null)
+			if (identification != null)
 			{
 				return new ResultsSuccessful<Identification>(identification);
 			}

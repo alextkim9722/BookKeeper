@@ -18,9 +18,9 @@ namespace BackEnd.Services
 			_roleManager = roleManager;
 		}
 
-		public async Task<Results<IdentityRole>> createRole(string name)
+		public Results<IdentityRole> CreateRole(string name)
 		{
-			IdentityResult result = await _roleManager.CreateAsync(new IdentityRole(name));
+			IdentityResult result = Task.Run(() => _roleManager.CreateAsync(new IdentityRole(name))).GetAwaiter().GetResult();
 			if (result.Succeeded)
 			{
 				return new ResultsSuccessful<IdentityRole>(null);
@@ -30,13 +30,13 @@ namespace BackEnd.Services
 			}
 		}
 
-		public async Task<Results<IdentityRole>> deleteRole(string name)
+		public Results<IdentityRole> DeleteRole(string name)
 		{
-			IdentityRole? role = await _roleManager.FindByNameAsync(name);
+			IdentityRole? role = Task.Run(() => _roleManager.FindByNameAsync(name)).GetAwaiter().GetResult();
 
 			if (role != null)
 			{
-				IdentityResult result = await _roleManager.DeleteAsync(role);
+				IdentityResult result = Task.Run(() => _roleManager.DeleteAsync(role)).GetAwaiter().GetResult();
 				if (result.Succeeded)
 				{
 					return new ResultsSuccessful<IdentityRole>(null);
@@ -52,13 +52,13 @@ namespace BackEnd.Services
 			}
 		}
 
-		public async Task<Results<IdentityRole>> addToRole(User user, string name)
+		public Results<IdentityRole> AddToRole(string identificationId, string name)
 		{
-			Identification? identification = await _userManager.FindByIdAsync(user.identification_id);
+			Identification? identification = Task.Run(() => _userManager.FindByIdAsync(identificationId)).GetAwaiter().GetResult();
 
 			if (identification != null)
 			{
-				IdentityResult result = await _userManager.AddToRoleAsync(identification, name);
+				IdentityResult result = Task.Run(() => _userManager.AddToRoleAsync(identification, name)).GetAwaiter().GetResult();
 				if (result.Succeeded)
 				{
 					return new ResultsSuccessful<IdentityRole>(null);
@@ -74,13 +74,13 @@ namespace BackEnd.Services
 			}
 		}
 
-		public async Task<Results<IdentityRole>> removeFromRole(User user, string name)
+		public Results<IdentityRole> RemoveFromRole(string identificationId, string name)
 		{
-			Identification? identification = await _userManager.FindByIdAsync(user.identification_id);
+			Identification? identification = Task.Run(() => _userManager.FindByIdAsync(identificationId)).GetAwaiter().GetResult();
 
 			if (identification != null)
 			{
-				IdentityResult result = await _userManager.RemoveFromRoleAsync(identification, name);
+				IdentityResult result = Task.Run(() => _userManager.RemoveFromRoleAsync(identification, name)).GetAwaiter().GetResult();
 				if (result.Succeeded)
 				{
 					return new ResultsSuccessful<IdentityRole>(null);

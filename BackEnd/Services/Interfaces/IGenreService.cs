@@ -3,7 +3,7 @@ using BackEnd.Services.ErrorHandling;
 
 namespace BackEnd.Services.Interfaces
 {
-    public interface IGenreService
+	public interface IGenreService
 	{
 		public Results<Genre> AddGenre(Genre genre);
 		public Results<Genre> GetGenreById(int id);

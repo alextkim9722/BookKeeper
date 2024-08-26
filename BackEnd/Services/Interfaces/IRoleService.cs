@@ -4,11 +4,11 @@ using Microsoft.AspNetCore.Identity;
 
 namespace BackEnd.Services.Interfaces
 {
-    public interface IRoleService
+	public interface IRoleService
 	{
-		public Task<Results<IdentityRole>> createRole(string name);
-		public Task<Results<IdentityRole>> deleteRole(string name);
-		public Task<Results<IdentityRole>> addToRole(User user, string name);
-		public Task<Results<IdentityRole>> removeFromRole(User user, string name);
+		public Results<IdentityRole> CreateRole(string name);
+		public Results<IdentityRole> DeleteRole(string name);
+		public Results<IdentityRole> AddToRole(string identificationId, string name);
+		public Results<IdentityRole> RemoveFromRole(string identificationId, string name);
 	}
 }

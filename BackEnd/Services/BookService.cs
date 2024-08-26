@@ -38,6 +38,19 @@ namespace BackEnd.Services
 			=> _genericService.ProcessUniqueModel(x => x.isbn == isbn, AddDependents);
 		public Results<IEnumerable<Book>> GetBookByTitle(string title)
 			=> _genericService.ProcessModels(x => x.title == title, AddDependents);
+		public Results<IEnumerable<Book>> GetBooksByUser(int userId)
+		{
+			var bookIds  = _jUserBookService.GetJunctionedJoinedModelsId(userId, true).ToList();
+			var books = new List<Book>();
+			foreach(var bookId in bookIds)
+			{
+				var result = _genericService.ProcessUniqueModel(x => x.pKey == bookId, AddDependents);
+				if (result.success) books.Add(result.payload);
+			}
+
+			return new ResultsSuccessful<IEnumerable<Book>>(books);
+		}
+
 		public Results<Book> UpdateBook(int id, Book book)
 			=> _genericService.UpdateModel(book, id);
 		public Results<IEnumerable<Book>> RemoveBooks(IEnumerable<int> id)
