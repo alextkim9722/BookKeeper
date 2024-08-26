@@ -1,2 +1,0 @@
-S:\Programming-Stuff\BookKeeper\FrontEnd\obj\Debug\FrontEnd.esproj.CoreCompileInputs.cache
-E:\Programming\BookKeeper\FrontEnd\obj\Debug\FrontEnd.esproj.CoreCompileInputs.cache
