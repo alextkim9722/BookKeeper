@@ -12,6 +12,7 @@ var builder = WebApplication.CreateBuilder(args);
 // START    Configuration of the web application goes in here
 builder.Services.AddDbContext<BookShelfContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 builder.Services.AddIdentity<Identification, IdentityRole>().AddEntityFrameworkStores<BookShelfContext>().AddDefaultTokenProviders();
+builder.Services.AddCors(x => x.AddPolicy("mainpolicy", builder => { builder.WithOrigins("http://localhost:5173").AllowAnyMethod().AllowAnyHeader(); }));
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
@@ -37,6 +38,8 @@ builder.Services.AddTransient<IJunctionService<Book_Genre>, JunctionService<Book
 builder.Services.AddTransient<IJunctionService<Review>, JunctionService<Review>>();
 
 var app = builder.Build(); // END
+
+app.UseCors("mainpolicy");
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();

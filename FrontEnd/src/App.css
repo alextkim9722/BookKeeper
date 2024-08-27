@@ -1,29 +1,37 @@
 #root {
-  width:960px;
+  width:1280px;
   height:100vh;
 
-  margin-top: 0px;
   margin:0 auto;
 }
 
-#ProfileColumn{
-  display:table-cell;
+#app {
+  width:100%;
+  height:100%;
 
-  width:300px;
-  height:100vh;
+  margin:0 auto;
 
-  background-color: aqua;
+  background-color: rgb(202, 160, 81);
 }
 
-#ShelfColumn{
-  display:table-cell;
+#profile-column{
+  float: left;
+
+  width:30%;
+  height:100%;
+
+  background-color: rgb(90, 167, 167);
+}
+
+#shelf-column{
+  float: left;
   
-  width:660px;
-  height:100vh;
+  width:70%;
+  height:100%;
 
-  background-color: rgb(204, 51, 51);
+  background-color: rgb(109, 116, 86);
 }
 
-body{
+body {
     background-color: rgb(233, 206, 156);
 }

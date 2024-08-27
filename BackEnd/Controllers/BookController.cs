@@ -31,16 +31,18 @@ namespace BackEnd.Controllers
 		public string GetBookById(int id)
 		{
 			var bookResult = _bookService.GetBookById(id);
-			if (!bookResult.success) return bookResult.msg;
 
-			var reviews = _reviewService.GetReviewByBookId(bookResult.payload.pKey);
-			if (reviews.success)
+			if(bookResult.success)
 			{
-				var ratingResult = _bookService.SetRating(bookResult.payload, reviews.payload);
-				if (!ratingResult.success) return ratingResult.msg;
+				var reviews = _reviewService.GetReviewByBookId(bookResult.payload.pKey);
+				if (reviews.success)
+				{
+					var ratingResult = _bookService.SetRating(bookResult.payload, reviews.payload);
+					if (!ratingResult.success) return ratingResult.msg;
+				}
 			}
 
-			return JsonConvert.SerializeObject(bookResult.payload);
+			return JsonConvert.SerializeObject(bookResult);
 		}
 		[HttpGet("GetBookByIsbn/{isbn}")]
 		public string GetBookByIsbn(string isbn)

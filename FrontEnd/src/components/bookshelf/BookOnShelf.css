@@ -1,0 +1,16 @@
+#book-position {
+    float: left;
+    margin:0 25px;
+}
+
+#book-cover {
+    width:100px;
+    height:150px;
+}
+
+#book-title {
+    width:100px;
+    position:relative;
+    top: -30px;
+    text-align: center;
+}
