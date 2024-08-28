@@ -20,40 +20,35 @@ namespace BackEnd.Controllers
 		[HttpPost("AddGenre/{genreJson}")]
 		public string AddGenre(string genreJson)
 		{
-			var genreResult = JsonConvert.DeserializeObject<Genre>(genreJson);
-			var addResult = _genreService.AddGenre(genreResult);
-
-			return addResult.success ? "success" : addResult.msg;
+			var genre = JsonConvert.DeserializeObject<Genre>(genreJson);
+			var addResult = _genreService.AddGenre(genre);
+			return JsonConvert.SerializeObject(addResult);
 		}
 		[HttpGet("GetGenreById/{id}")]
 		public string GetGenreById(int id)
 		{
-			var genreResult = _genreService.GetGenreById(id);
-			if (!genreResult.success) return genreResult.msg;
-
-			return JsonConvert.SerializeObject(genreResult.payload);
+			var genre = _genreService.GetGenreById(id);
+			return JsonConvert.SerializeObject(genre);
 		}
 		[HttpGet("GetGenreByName/{name}")]
 		public string GetGenreByName(string name)
 		{
-			var genresResult = _genreService.GetGenreByName(name);
-			if (!genresResult.success) return genresResult.msg;
-
-			return JsonConvert.SerializeObject(genresResult.payload);
+			var genres = _genreService.GetGenreByName(name);
+			return JsonConvert.SerializeObject(genres);
 		}
 		[HttpPut("UpdateGenre/{genreJson}")]
 		public string UpdateGenre(string genreJson)
 		{
-			var genreResult = JsonConvert.DeserializeObject<Genre>(genreJson);
-			var addResult = _genreService.UpdateGenre(genreResult.pKey, genreResult);
+			var genre = JsonConvert.DeserializeObject<Genre>(genreJson);
+			var updateResult = _genreService.UpdateGenre(genre.pKey, genre);
 
-			return addResult.success ? "success" : addResult.msg;
+			return JsonConvert.SerializeObject(updateResult);
 		}
 		[HttpDelete("DeleteGenre/{genreId}")]
 		public string DeleteGenre(int genreId)
 		{
 			var deleteResult = _genreService.RemoveGenre([genreId]);
-			return deleteResult.success ? "success" : deleteResult.msg;
+			return JsonConvert.SerializeObject(deleteResult);
 		}
 	}
 }

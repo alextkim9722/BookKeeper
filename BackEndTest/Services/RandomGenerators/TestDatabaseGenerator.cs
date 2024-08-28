@@ -1,12 +1,16 @@
 ﻿using BackEnd.Model;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using BackEnd.Services.Context;
+using Microsoft.Extensions.DependencyInjection;
+using Castle.Core.Logging;
+using Microsoft.Extensions.Logging;
 namespace BackEndTest.Services.RandomGenerators
 {
 	public class TestDatabaseGenerator
 	{
-		private const string connectionString = "Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=BookKeeperDB_Test;Data Source=DESKTOP-3B4EF2C;TrustServerCertificate=True";
+		private const string connectionString = "Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=BookKeeperDB_Test;Data Source=DESKTOP-3B4EF2C;TrustServerCertificate=True;MultipleActiveResultSets=True;";
 		private bool databaseCreated = false;
 		public int _tableValueCount = 5;
 		public  int _bridgeTableValueCount = 7;
@@ -72,78 +76,66 @@ namespace BackEndTest.Services.RandomGenerators
 
 		private void populateTables(BookShelfContext bookShelfContext)
 		{
-			for (int i = 0; i < _tableValueCount; i++)
+			var manager = new UserManager<Identification>(new UserStore<Identification>(bookShelfContext), null, new PasswordHasher<Identification>(), null, null, null, null, null, null);
+
+			for (int i = 0; i < 10; i++)
 			{
 				Identification identification = new Identification()
 				{
-					Id = randGen.randString(25),
-					AccessFailedCount = 0,
-					Email = randGen.randString(25),
-					UserName = randGen.randString(25)
+					Id = randGen.randString(200),
+					Email = $"[{i}]_Person@tmail.com",
+					UserName = $"{i}_Man"
 				};
-
-				IdentityRole identityRole = new IdentityRole()
+				User user = new User()
 				{
-					Name = randGen.randString(25)
+					username = identification.UserName,
+					identification_id = identification.Id,
+					date_joined = randGen.randDate(),
+					description = $"{i}User + {randGen.randString(200)}",
+					profile_picture = $"/src/assets/{i}ProfilePic"
 				};
 
+				Task.Run(() => manager.CreateAsync(identification, $"Hello{identification.UserName}!")).GetAwaiter().GetResult();
+				bookShelfContext.User.Add(user);
+				bookShelfContext.SaveChanges();
+			}
+
+			for (int i = 0; i < 100; i++)
+			{
 				Author author = new Author()
 				{
-					first_name = randGen.randString(25),
-					middle_name = randGen.randString(25),
-					last_name = randGen.randString(25),
+					first_name = $"{i}first",
+					middle_name = $"{i}middle",
+					last_name = $"{i}last",
 				};
 
 				Book book = new Book()
 				{
-					title = randGen.randString(25),
+					title = $"{i}Book",
 					pages = randGen.randNumber(1, 1000),
-					isbn = randGen.randString(25),
-					cover_picture = randGen.randString(25)
-				};
-
-				User user = new User()
-				{
-					username = randGen.randString(25),
-					identification_id = identification.Id,
-					date_joined = randGen.randDate(),
-					description = randGen.randString(25),
-					profile_picture = randGen.randString(25)
+					isbn = $"{i}BookIsbn",
+					cover_picture = $"/src/assets/{i}BookCover"
 				};
 
 				Genre genre = new Genre()
 				{
-					genre_name = randGen.randString(25)
+					genre_name = $"{i}genre"
 				};
 
-				identificationTable.Add(identification);
-				roleTable.Add(identityRole);
-				authorTable.Add(author);
-				bookTable.Add(book);
-				userTable.Add(user);
-				genreTable.Add(genre);
-
-				
-
-				using (var transcation = bookShelfContext.Database.BeginTransaction())
-				{
-					bookShelfContext.Author.Add(author);
-					bookShelfContext.Book.Add(book);
-					bookShelfContext.User.Add(user);
-					bookShelfContext.Genre.Add(genre);
-					bookShelfContext.SaveChanges();
-					transcation.Commit();
-				}
+				bookShelfContext.Author.Add(author);
+				bookShelfContext.Book.Add(book);
+				bookShelfContext.Genre.Add(genre);
+				bookShelfContext.SaveChanges();
 			}
 		}
 
 		private void populateBridgeTables(BookShelfContext bookShelfContext)
 		{
-			var bookAuthorPairGen = new UniqueIntPairGenerator(randGen, _tableValueCount, _tableValueCount);
-			var bookGenrePairGen = new UniqueIntPairGenerator(randGen, _tableValueCount, _tableValueCount);
-			var userBookPairGen = new UniqueIntPairGenerator(randGen, _tableValueCount, _tableValueCount);
+			var bookAuthorPairGen = new UniqueIntPairGenerator(randGen, 100, 100);
+			var bookGenrePairGen = new UniqueIntPairGenerator(randGen, 100, 100);
+			var userBookPairGen = new UniqueIntPairGenerator(randGen, 10, 100);
 
-			for (int i = 1; i < _bridgeTableValueCount; i++)
+			for (int i = 1; i < 500; i++)
 			{
 				var bookAuthorPair = bookAuthorPairGen.getRandomPair();
 				var bookGenrePair = bookGenrePairGen.getRandomPair();
@@ -171,25 +163,16 @@ namespace BackEndTest.Services.RandomGenerators
 				{
 					firstKey = userBook.firstKey,
 					secondKey = userBook.secondKey,
-					description = randGen.randString(25),
+					description = $"{userBook.firstKey} : {userBook.secondKey} : {randGen.randString(200)}",
 					rating = randGen.randNumber(0,10),
 					date_submitted = randGen.randDate()
 				};
 
-				bookAuthorTable.Add(bookAuthor);
-				bookGenreTable.Add(bookGenre);
-				userBookTable.Add(userBook);
-				reviewTable.Add(review);
-
-				using (var transcation = bookShelfContext.Database.BeginTransaction())
-				{
-					bookShelfContext.Book_Author.Add(bookAuthor);
-					bookShelfContext.Book_Genre.Add(bookGenre);
-					bookShelfContext.User_Book.Add(userBook);
-					bookShelfContext.Review.Add(review);
-					bookShelfContext.SaveChanges();
-					transcation.Commit();
-				}
+				bookShelfContext.Book_Author.Add(bookAuthor);
+				bookShelfContext.Book_Genre.Add(bookGenre);
+				bookShelfContext.User_Book.Add(userBook);
+				bookShelfContext.Review.Add(review);
+				bookShelfContext.SaveChanges();
 			}
 		}
 	}

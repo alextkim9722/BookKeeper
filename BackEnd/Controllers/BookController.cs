@@ -22,10 +22,9 @@ namespace BackEnd.Controllers
 		[HttpPost("AddBook/{bookJson}")]
 		public string AddBook(string bookJson)
 		{
-			var bookResult = JsonConvert.DeserializeObject<Book>(bookJson);
-			var addResult = _bookService.AddBook(bookResult);
-
-			return addResult.success ? "success" : addResult.msg;
+			var book = JsonConvert.DeserializeObject<Book>(bookJson);
+			var addResult = _bookService.AddBook(book);
+			return JsonConvert.SerializeObject(addResult);
 		}
 		[HttpGet("GetBookById/{id}")]
 		public string GetBookById(int id)
@@ -35,11 +34,10 @@ namespace BackEnd.Controllers
 			if(bookResult.success)
 			{
 				var reviews = _reviewService.GetReviewByBookId(bookResult.payload.pKey);
-				if (reviews.success)
-				{
-					var ratingResult = _bookService.SetRating(bookResult.payload, reviews.payload);
-					if (!ratingResult.success) return ratingResult.msg;
-				}
+				if (!reviews.success) return JsonConvert.SerializeObject(reviews);
+
+				var ratingResult = _bookService.SetRating(bookResult.payload, reviews.payload);
+				if (!ratingResult.success) return JsonConvert.SerializeObject(ratingResult);
 			}
 
 			return JsonConvert.SerializeObject(bookResult);
@@ -48,48 +46,47 @@ namespace BackEnd.Controllers
 		public string GetBookByIsbn(string isbn)
 		{
 			var bookResult = _bookService.GetBookByIsbn(isbn);
-			if (!bookResult.success) return bookResult.msg;
 
-			var reviews = _reviewService.GetReviewByBookId(bookResult.payload.pKey);
-			if (reviews.success)
+			if (bookResult.success)
 			{
+				var reviews = _reviewService.GetReviewByBookId(bookResult.payload.pKey);
+				if (!reviews.success) return JsonConvert.SerializeObject(reviews);
+
 				var ratingResult = _bookService.SetRating(bookResult.payload, reviews.payload);
-				if (!ratingResult.success) return ratingResult.msg;
+				if (!ratingResult.success) return JsonConvert.SerializeObject(ratingResult);
 			}
 
-			return JsonConvert.SerializeObject(bookResult.payload);
+			return JsonConvert.SerializeObject(bookResult);
 		}
 		[HttpGet("GetBookByTitle/{title}")]
 		public string GetBookByTitle(string title)
 		{
 			var booksResult = _bookService.GetBookByTitle(title);
-			if (!booksResult.success) return booksResult.msg;
 
 			foreach (var book in booksResult.payload)
 			{
 				var reviews = _reviewService.GetReviewByBookId(book.pKey);
-				if (reviews.success)
-				{
-					var ratingResult = _bookService.SetRating(book, reviews.payload);
-					if(!ratingResult.success) return ratingResult.msg;
-				}
+				if (!reviews.success) return JsonConvert.SerializeObject(reviews);
+
+				var ratingResult = _bookService.SetRating(book, reviews.payload);
+				if (!ratingResult.success) return JsonConvert.SerializeObject(ratingResult);
 			}
 
-			return JsonConvert.SerializeObject(booksResult.payload);
+			return JsonConvert.SerializeObject(booksResult);
 		}
 		[HttpPut("UpdateBook/{bookJson}")]
 		public string UpdateBook(string bookJson)
 		{
-			var bookResult = JsonConvert.DeserializeObject<Book>(bookJson);
-			var updateResult = _bookService.UpdateBook(bookResult.pKey, bookResult);
+			var book = JsonConvert.DeserializeObject<Book>(bookJson);
+			var updateResult = _bookService.UpdateBook(book.pKey, book);
 
-			return updateResult.success ? "success" : updateResult.msg;
+			return JsonConvert.SerializeObject(updateResult);
 		}
 		[HttpDelete("DeleteBook/{bookId}")]
 		public string DeleteBook(int bookId)
 		{
 			var deleteResult = _bookService.RemoveBooks([bookId]);
-			return deleteResult.success ? "success" : deleteResult.msg;
+			return JsonConvert.SerializeObject(deleteResult);
 		}
 	}
 }

@@ -19,25 +19,25 @@ namespace BackEnd.Controllers
 		public string CreateRole(string name)
 		{
 			var result = _roleService.CreateRole(name);
-			return result.success ? "success" : result.msg;
+			return JsonConvert.SerializeObject(result);
 		}
 		[HttpPut("RemoveFromRole/{identificationId}/{name}")]
 		public string RemoveFromRole(string identificationId, string name)
 		{
 			var result = _roleService.RemoveFromRole(identificationId, name);
-			return result.success ? "success" : result.msg;
+			return JsonConvert.SerializeObject(result);
 		}
 		[HttpPut("AddtoRole/{identificationId}/{name}")]
 		public string AddtoRole(string identificationId, string namee)
 		{
 			var result = _roleService.AddToRole(identificationId, namee);
-			return result.success ? "success" : result.msg;
+			return JsonConvert.SerializeObject(result);
 		}
 		[HttpDelete("DeleteRole/{name}")]
 		public string DeleteRole(string name)
 		{
 			var result = _roleService.DeleteRole(name);
-			return result.success ? "success" : result.msg;
+			return JsonConvert.SerializeObject(result);
 		}
 	}
 }

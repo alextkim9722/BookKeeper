@@ -22,72 +22,72 @@ namespace BackEnd.Controllers
 		[HttpPost("AddUser/{userJson}")]
 		public string AddUser(string userJson)
 		{
-			var userResult = JsonConvert.DeserializeObject<User>(userJson);
-			var addResult = _userService.AddUser(userResult);
+			var user = JsonConvert.DeserializeObject<User>(userJson);
+			var addResult = _userService.AddUser(user);
 
-			return addResult.success ? "success" : addResult.msg;
+			return JsonConvert.SerializeObject(user);
 		}
 		[HttpGet("GetUserById/{id}")]
 		public string GetUserById(int id)
 		{
 			var userResult = _userService.GetUserById(id);
-			if (!userResult.success) return userResult.msg;
-
-			var booksResult = _bookService.GetBooksByUser(id);
-			if (booksResult.success)
+			if (userResult.success)
 			{
+				var booksResult = _bookService.GetBooksByUser(id);
+				if (!booksResult.success) return JsonConvert.SerializeObject(booksResult);
+
 				var ratingResult = _userService.SetBooksAndPagesRead(userResult.payload, booksResult.payload);
-				if (!ratingResult.success) return ratingResult.msg;
+				if (!ratingResult.success) return JsonConvert.SerializeObject(ratingResult);
 			}
 
-			return JsonConvert.SerializeObject(userResult.payload);
+			return JsonConvert.SerializeObject(userResult);
 		}
 		[HttpGet("GetUserByIdentificationId/{id}")]
 		public string GetUserByIdentificationId(string id)
 		{
 			var userResult = _userService.GetUserByIdentificationId(id);
-			if (!userResult.success) return userResult.msg;
-
-			var booksResult = _bookService.GetBooksByUser(userResult.payload.pKey);
-			if (booksResult.success)
+			if (userResult.success)
 			{
+				var booksResult = _bookService.GetBooksByUser(userResult.payload.pKey);
+				if (!booksResult.success) return JsonConvert.SerializeObject(booksResult);
+
 				var ratingResult = _userService.SetBooksAndPagesRead(userResult.payload, booksResult.payload);
-				if (!ratingResult.success) return ratingResult.msg;
+				if (!ratingResult.success) return JsonConvert.SerializeObject(ratingResult);
 			}
 
-			return JsonConvert.SerializeObject(userResult.payload);
+			return JsonConvert.SerializeObject(userResult);
 		}
 		[HttpGet("GetUserByUserName/{username}")]
 		public string GetUserByUserName(string username)
 		{
 			var userResult = _userService.GetUserByUserName(username);
-			if (!userResult.success) return userResult.msg;
-
-			foreach (var user in userResult.payload)
+			if (userResult.success)
 			{
-				var booksResult = _bookService.GetBooksByUser(user.pKey);
-				if (booksResult.success)
+				foreach (var user in userResult.payload)
 				{
+					var booksResult = _bookService.GetBooksByUser(user.pKey);
+					if (!booksResult.success) return JsonConvert.SerializeObject(booksResult);
+
 					var ratingResult = _userService.SetBooksAndPagesRead(user, booksResult.payload);
-					if (!ratingResult.success) return ratingResult.msg;
+					if (!ratingResult.success) return JsonConvert.SerializeObject(ratingResult);
 				}
 			}
 
-			return JsonConvert.SerializeObject(userResult.payload);
+			return JsonConvert.SerializeObject(userResult);
 		}
 		[HttpPut("UpdateUser/{bookJson}")]
 		public string UpdateUser(string userJson)
 		{
-			var userResult = JsonConvert.DeserializeObject<User>(userJson);
-			var updateResult = _userService.UpdateUser(userResult.pKey, userResult);
+			var user = JsonConvert.DeserializeObject<User>(userJson);
+			var updateResult = _userService.UpdateUser(user.pKey, user);
 
-			return updateResult.success ? "success" : updateResult.msg;
+			return JsonConvert.SerializeObject(updateResult);
 		}
 		[HttpDelete("DeleteUser/{userId}")]
 		public string DeleteUser(int userId)
 		{
 			var deleteResult = _userService.RemoveUser([userId]);
-			return deleteResult.success ? "success" : deleteResult.msg;
+			return JsonConvert.SerializeObject(deleteResult);
 		}
 	}
 }

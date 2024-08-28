@@ -20,56 +20,46 @@ namespace BackEnd.Controllers
 		[HttpPost("AddAuthor/{authorJson}")]
 		public string AddAuthor(string authorJson)
 		{
-			var authorResult = JsonConvert.DeserializeObject<Author>(authorJson);
-			var addResult = _authorService.AddAuthor(authorResult);
-
-			return addResult.success ? "success" : addResult.msg;
+			var author = JsonConvert.DeserializeObject<Author>(authorJson);
+			var addResult = _authorService.AddAuthor(author);
+			return JsonConvert.SerializeObject(addResult);
 		}
 		[HttpGet("GetAuthorById/{id}")]
 		public string GetAuthorById(int id)
 		{
 			var authorResult = _authorService.GetAuthorById(id);
-			if (!authorResult.success) return authorResult.msg;
-
-			return JsonConvert.SerializeObject(authorResult.payload);
+			return JsonConvert.SerializeObject(authorResult);
 		}
 		[HttpGet("GetAuthorByFirstName/{first}")]
 		public string GetAuthorByFirstName(string first)
 		{
 			var authorsResult = _authorService.GetAuthorByFirstName(first);
-			if (!authorsResult.success) return authorsResult.msg;
-
-			return JsonConvert.SerializeObject(authorsResult.payload);
+			return JsonConvert.SerializeObject(authorsResult);
 		}
 		[HttpGet("GetAuthorByMiddleName/{middle}")]
 		public string GetAuthorByMiddleName(string middle)
 		{
 			var authorsResult = _authorService.GetAuthorByMiddleName(middle);
-			if (!authorsResult.success) return authorsResult.msg;
-
-			return JsonConvert.SerializeObject(authorsResult.payload);
+			return JsonConvert.SerializeObject(authorsResult);
 		}
 		[HttpGet("GetAuthorByLastName/{last}")]
 		public string GetAuthorByLastName(string last)
 		{
 			var authorsResult = _authorService.GetAuthorByLastName(last);
-			if (!authorsResult.success) return authorsResult.msg;
-
-			return JsonConvert.SerializeObject(authorsResult.payload);
+			return JsonConvert.SerializeObject(authorsResult);
 		}
 		[HttpPut("UpdateAuthor/{authorJson}")]
 		public string UpdateAuthor(string authorJson)
 		{
-			var authorResult = JsonConvert.DeserializeObject<Author>(authorJson);
-			var addResult = _authorService.UpdateAuthor(authorResult.pKey, authorResult);
-
-			return addResult.success ? "success" : addResult.msg;
+			var author = JsonConvert.DeserializeObject<Author>(authorJson);
+			var addResult = _authorService.UpdateAuthor(author.pKey, author);
+			return JsonConvert.SerializeObject(addResult);
 		}
 		[HttpDelete("DeleteAuthor/{authorId}")]
 		public string DeleteAuthor(int authorId)
 		{
 			var deleteResult = _authorService.RemoveAuthor([authorId]);
-			return deleteResult.success ? "success" : deleteResult.msg;
+			return JsonConvert.SerializeObject(deleteResult);
 		}
 	}
 }

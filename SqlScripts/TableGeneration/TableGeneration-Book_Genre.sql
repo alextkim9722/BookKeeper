@@ -1,0 +1,35 @@
+USE [BookKeeperDB_Test]
+GO
+
+/****** Object:  Table [dbo].[book_genre]    Script Date: 8/27/2024 3:38:02 PM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[book_genre](
+	[BOOK_ID] [int] NOT NULL,
+	[GENRE_ID] [int] NOT NULL,
+ CONSTRAINT [PK_book_genre] PRIMARY KEY CLUSTERED 
+(
+	[BOOK_ID] ASC,
+	[GENRE_ID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+ALTER TABLE [dbo].[book_genre]  WITH CHECK ADD  CONSTRAINT [FK_book_genre_book] FOREIGN KEY([BOOK_ID])
+REFERENCES [dbo].[book] ([BOOK_ID])
+GO
+
+ALTER TABLE [dbo].[book_genre] CHECK CONSTRAINT [FK_book_genre_book]
+GO
+
+ALTER TABLE [dbo].[book_genre]  WITH CHECK ADD  CONSTRAINT [FK_book_genre_genre] FOREIGN KEY([GENRE_ID])
+REFERENCES [dbo].[genre] ([GENRE_ID])
+GO
+
+ALTER TABLE [dbo].[book_genre] CHECK CONSTRAINT [FK_book_genre_genre]
+GO
+

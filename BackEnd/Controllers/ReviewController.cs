@@ -21,48 +21,40 @@ namespace BackEnd.Controllers
 		[HttpPost("AddReview/{reviewJson}")]
 		public string AddReview(string reviewJson)
 		{
-			var reviewResult = JsonConvert.DeserializeObject<Review>(reviewJson);
-			var addResult = _reviewService.AddReview(reviewResult);
-
-			return addResult.success ? "success" : addResult.msg;
+			var review = JsonConvert.DeserializeObject<Review>(reviewJson);
+			var addResult = _reviewService.AddReview(review);
+			return JsonConvert.SerializeObject(addResult);
 		}
 		[HttpGet("GetReviewById/{userId}/{bookId}")]
 		public string GetReviewById(int userId, int bookId)
 		{
 			var reviewResult = _reviewService.GetReviewById(userId, bookId);
-			if (!reviewResult.success) return reviewResult.msg;
-
-			return JsonConvert.SerializeObject(reviewResult.payload);
+			return JsonConvert.SerializeObject(reviewResult);
 		}
 		[HttpGet("GetReviewByUserId/{userId}")]
 		public string GetReviewByUserId(int userId)
 		{
 			var reviewsResult = _reviewService.GetReviewByUserId(userId);
-			if (!reviewsResult.success) return reviewsResult.msg;
-
-			return JsonConvert.SerializeObject(reviewsResult.payload);
+			return JsonConvert.SerializeObject(reviewsResult);
 		}
 		[HttpGet("GetReviewByBookId/{bookId}")]
 		public string GetReviewByBookId(int bookId)
 		{
 			var reviewsResult = _reviewService.GetReviewByBookId(bookId);
-			if (!reviewsResult.success) return reviewsResult.msg;
-
-			return JsonConvert.SerializeObject(reviewsResult.payload);
+			return JsonConvert.SerializeObject(reviewsResult);
 		}
 		[HttpPut("UpdateReview/{reviewJson}")]
 		public string UpdateReview(string reviewJson)
 		{
-			var reviewResult = JsonConvert.DeserializeObject<Review>(reviewJson);
-			var addResult = _reviewService.UpdateReview(reviewResult.firstKey, reviewResult.secondKey, reviewResult);
-
-			return addResult.success ? "success" : addResult.msg;
+			var review = JsonConvert.DeserializeObject<Review>(reviewJson);
+			var updateResult = _reviewService.UpdateReview(review.firstKey, review.secondKey, review);
+			return JsonConvert.SerializeObject(updateResult);
 		}
 		[HttpDelete("DeleteReview/{userId}/{bookId}")]
 		public string DeleteReview(int userId, int bookId)
 		{
 			var deleteResult = _reviewService.RemoveReview([[userId, bookId]]);
-			return deleteResult.success ? "success" : deleteResult.msg;
+			return JsonConvert.SerializeObject(deleteResult);
 		}
 	}
 }

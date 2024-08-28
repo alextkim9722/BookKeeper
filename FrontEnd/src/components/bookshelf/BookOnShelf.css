@@ -1,16 +1,30 @@
 #book-position {
     float: left;
     margin:0 25px;
-}
-
-#book-cover {
     width:100px;
     height:150px;
 }
 
+#book {
+    width:100%;
+    height:100%;
+    cursor:pointer;
+
+    transition-duration: 100ms;
+}
+
 #book-title {
-    width:100px;
+    width:100%;
     position:relative;
-    top: -30px;
+    top: -170px;
     text-align: center;
+}
+
+.book-cover {
+    width:100%;
+    height:100%;
+}
+
+#book:hover {
+    scale: 1.2;
 }

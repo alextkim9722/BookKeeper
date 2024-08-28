@@ -27,25 +27,23 @@ namespace BackEnd.Controllers
 		{
 			var identification = JsonConvert.DeserializeObject<Identification>(identificationJson);
 			var results = _identificationService.createIdentification(identification, password);
-			return results.success ? "success" : results.msg;
+			return JsonConvert.SerializeObject(results);
 		}
 		[HttpPost("LoginIdentification/{username}/{password}")]
 		public string LoginIdentification(string username, string password)
 		{
 			var userResult = _identificationService.getIdentificationByUsername(username);
-			if (!userResult.success) return userResult.msg;
+			if (!userResult.success) return JsonConvert.SerializeObject(userResult);
 
 			var results = Task.Run(() => _signInManager.PasswordSignInAsync(userResult.payload, password, false, false)).GetAwaiter().GetResult();
-
-			return results.Succeeded ? userResult.payload.Id : "Failed to login";
+			return JsonConvert.SerializeObject(results);
 		}
 		[HttpPut("UpdateIdentification/{identificationJson}")]
 		public string UpdateIdentification(string identificationJson)
 		{
 			var identification = JsonConvert.DeserializeObject<Identification>(identificationJson);
 			var result = _identificationService.updateIdentification(identification);
-			if (!result.success) return result.msg;
-			return "success";
+			return JsonConvert.SerializeObject(result);
 		}
 		[HttpPut("SignOut")]
 		public string SignOut(string identificationJson)
@@ -57,8 +55,7 @@ namespace BackEnd.Controllers
 		public string DeleteIdentification(string identification)
 		{
 			var result = _identificationService.removeIdentification(identification);
-			if (!result.success) return result.msg;
-			return "success";
+			return JsonConvert.SerializeObject(result);
 		}
 	}
 }
