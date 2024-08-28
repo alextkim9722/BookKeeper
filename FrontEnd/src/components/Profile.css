@@ -23,6 +23,8 @@ h3, h4{
 
 #profile-description {
     word-wrap: normal;
+    overflow: hidden;
+    overflow-wrap: break-word;
 }
 
 .right-justified {

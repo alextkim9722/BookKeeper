@@ -1,13 +1,11 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { JsonRender } from '../JsonRender';
-import axios from "axios";
-import "./BookOnShelf.css"
+import axios from 'axios';
+import './BookOnShelf.css';
 
 export function BookOnShelf(props)
 {
-    const navigate = useNavigate();
-
     const [success, setSuccess] = useState(false);
     const [error, setError] = useState('');
     const [title, setTitle] = useState('');
@@ -27,7 +25,7 @@ export function BookOnShelf(props)
             }
         })
         .catch(err => console.error(err))
-    }, []);
+    }, [title, coverPicture]);
 
     const render = (
         <div id='book'>

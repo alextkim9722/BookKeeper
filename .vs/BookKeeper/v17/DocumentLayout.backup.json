@@ -3,12 +3,16 @@
   "WorkspaceRootPath": "E:\\Programming\\BookKeeper\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{07790725-64D0-4824-AC4F-06F361D6F3E5}|BackEndTest\\BackEndTest.csproj|e:\\programming\\bookkeeper\\backendtest\\services\\randomgenerators\\testdatabasegenerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{07790725-64D0-4824-AC4F-06F361D6F3E5}|BackEndTest\\BackEndTest.csproj|solutionrelative:backendtest\\services\\randomgenerators\\testdatabasegenerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B0469DE7-217D-4453-AF0A-BBA7EA3519AC}|BackEnd\\BackEnd.csproj|e:\\programming\\bookkeeper\\backend\\controllers\\bookcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B0469DE7-217D-4453-AF0A-BBA7EA3519AC}|BackEnd\\BackEnd.csproj|solutionrelative:backend\\controllers\\bookcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{07790725-64D0-4824-AC4F-06F361D6F3E5}|BackEndTest\\BackEndTest.csproj|e:\\programming\\bookkeeper\\backendtest\\services\\randomgenerators\\populatetable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{07790725-64D0-4824-AC4F-06F361D6F3E5}|BackEndTest\\BackEndTest.csproj|solutionrelative:backendtest\\services\\randomgenerators\\populatetable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B0469DE7-217D-4453-AF0A-BBA7EA3519AC}|BackEnd\\BackEnd.csproj|e:\\programming\\bookkeeper\\backend\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B0469DE7-217D-4453-AF0A-BBA7EA3519AC}|BackEnd\\BackEnd.csproj|solutionrelative:backend\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B0469DE7-217D-4453-AF0A-BBA7EA3519AC}|BackEnd\\BackEnd.csproj|e:\\programming\\bookkeeper\\backend\\controllers\\rolecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B0469DE7-217D-4453-AF0A-BBA7EA3519AC}|BackEnd\\BackEnd.csproj|solutionrelative:backend\\controllers\\rolecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,33 +22,44 @@
       "DocumentGroups": [
         {
           "DockedWidth": 179,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "PopulateTable.cs",
-              "DocumentMoniker": "E:\\Programming\\BookKeeper\\BackEndTest\\Services\\RandomGenerators\\PopulateTable.cs",
-              "RelativeDocumentMoniker": "BackEndTest\\Services\\RandomGenerators\\PopulateTable.cs",
-              "ToolTip": "E:\\Programming\\BookKeeper\\BackEndTest\\Services\\RandomGenerators\\PopulateTable.cs",
-              "RelativeToolTip": "BackEndTest\\Services\\RandomGenerators\\PopulateTable.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAIAAAAAAAAAA==",
+              "DocumentIndex": 0,
+              "Title": "BookController.cs",
+              "DocumentMoniker": "E:\\Programming\\BookKeeper\\BackEnd\\Controllers\\BookController.cs",
+              "RelativeDocumentMoniker": "BackEnd\\Controllers\\BookController.cs",
+              "ToolTip": "E:\\Programming\\BookKeeper\\BackEnd\\Controllers\\BookController.cs",
+              "RelativeToolTip": "BackEnd\\Controllers\\BookController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB0AAAAjAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-27T23:54:32.733Z",
+              "WhenOpened": "2024-08-28T02:54:31.251Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "TestDatabaseGenerator.cs",
-              "DocumentMoniker": "E:\\Programming\\BookKeeper\\BackEndTest\\Services\\RandomGenerators\\TestDatabaseGenerator.cs",
-              "RelativeDocumentMoniker": "BackEndTest\\Services\\RandomGenerators\\TestDatabaseGenerator.cs",
-              "ToolTip": "E:\\Programming\\BookKeeper\\BackEndTest\\Services\\RandomGenerators\\TestDatabaseGenerator.cs",
-              "RelativeToolTip": "BackEndTest\\Services\\RandomGenerators\\TestDatabaseGenerator.cs",
-              "ViewState": "AgIAAEUAAAAAAAAAAAAcwIcAAAA/AAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "UserController.cs",
+              "DocumentMoniker": "E:\\Programming\\BookKeeper\\BackEnd\\Controllers\\UserController.cs",
+              "RelativeDocumentMoniker": "BackEnd\\Controllers\\UserController.cs",
+              "ToolTip": "E:\\Programming\\BookKeeper\\BackEnd\\Controllers\\UserController.cs",
+              "RelativeToolTip": "BackEnd\\Controllers\\UserController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAFkAAAAyAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-27T22:49:04.296Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-08-28T02:49:52.86Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "RoleController.cs",
+              "DocumentMoniker": "E:\\Programming\\BookKeeper\\BackEnd\\Controllers\\RoleController.cs",
+              "RelativeDocumentMoniker": "BackEnd\\Controllers\\RoleController.cs",
+              "ToolTip": "E:\\Programming\\BookKeeper\\BackEnd\\Controllers\\RoleController.cs",
+              "RelativeToolTip": "BackEnd\\Controllers\\RoleController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB8AAAADAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-28T02:49:24.026Z"
             }
           ]
         }

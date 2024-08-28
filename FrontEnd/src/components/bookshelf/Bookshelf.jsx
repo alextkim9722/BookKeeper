@@ -1,12 +1,19 @@
-import Shelf from "./Shelf"
-import "./Bookshelf.css"
+import { Shelf } from './Shelf';
+import { useEffect, useState } from 'react'
+import './Bookshelf.css';
 
-function Bookshelf()
+function Bookshelf(props)
 {
+    const [bookIds, setBookIds] = useState(props.bookIds)
+
+    useEffect(() => {
+        setBookIds(props.bookIds)
+    }, [props.bookIds]);
+
     return(
         <>
             <div id="bookshelf-root">
-                <Shelf />
+                <Shelf bookIds={bookIds.slice(0, 5)}/>
             </div>
         </>
     )

@@ -1,6 +1,6 @@
 import "./Profile.css"
 
-function Profile ()
+function Profile (props)
 {
     return(
         <div id="profile-root">
@@ -10,24 +10,24 @@ function Profile ()
             </div>
             <div>
                 <h3>
-                    ALEXANDER
+                    {props.user.username}
                 </h3>
             </div>
             <div>
                 <h4>
-                    January 1st 2003
+                    {props.user.dateJoined}
                 </h4>
             </div>
             <div>
                 <span>Books Read</span>
-                <span className="right-justified">0</span>
+                <span className="right-justified">{props.user.booksRead}</span>
             </div>
             <div>
                 <span>Pages Read</span>
-                <span className="right-justified">0</span>
+                <span className="right-justified">{props.user.pagesRead}</span>
             </div>
             <div>
-                <p id="profile-description"></p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec.
+                <p id="profile-description">{props.user.description}</p>
             </div>
         </div>
     )
