@@ -11,6 +11,7 @@ namespace BackEnd.Services.Interfaces
 		public Results<User> GetUserById(int id);
 		public Results<User> GetUserByIdentificationId(string id);
 		public Results<IEnumerable<User>> GetUserByUserName(string username);
+		public Results<IEnumerable<User>> GetUsersByBook(int bookId);
 		public Results<IEnumerable<Book>> SetBooksAndPagesRead(User user, IEnumerable<Book> books);
 	}
 }

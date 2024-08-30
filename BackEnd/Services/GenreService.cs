@@ -24,6 +24,18 @@ namespace BackEnd.Services
 			=> _genericService.ProcessUniqueModel(x => x.pKey == id, AddDependents);
 		public Results<IEnumerable<Genre>> GetGenreByName(string name)
 			=> _genericService.ProcessModels(x => x.genre_name == name, AddDependents);
+		public Results<IEnumerable<Genre>> GetGenreByBook(int bookId)
+		{
+			var genreIds = _jBookGenreService.GetJunctionedJoinedModelsId(bookId, true).ToList();
+			var genres = new List<Genre>();
+			foreach (var genreId in genreIds)
+			{
+				var result = _genericService.ProcessUniqueModel(x => x.pKey == genreId, AddDependents);
+				if (result.success) genres.Add(result.payload);
+			}
+
+			return new ResultsSuccessful<IEnumerable<Genre>>(genres);
+		}
 		public Results<Genre> UpdateGenre(int id, Genre genre)
 			=> _genericService.UpdateModel(genre, id);
 		public Results<IEnumerable<Genre>> RemoveGenre(IEnumerable<int> id)

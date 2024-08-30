@@ -48,6 +48,12 @@ namespace BackEnd.Controllers
 			var authorsResult = _authorService.GetAuthorByLastName(last);
 			return JsonConvert.SerializeObject(authorsResult);
 		}
+		[HttpGet("GetAuthorByBook/{id}")]
+		public string GetAuthorByBook(int id)
+		{
+			var authorsResult = _authorService.GetAuthorByBook(id);
+			return JsonConvert.SerializeObject(authorsResult);
+		}
 		[HttpPut("UpdateAuthor/{authorJson}")]
 		public string UpdateAuthor(string authorJson)
 		{

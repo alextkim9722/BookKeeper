@@ -75,6 +75,12 @@ namespace BackEnd.Controllers
 
 			return JsonConvert.SerializeObject(userResult);
 		}
+		[HttpGet("GetUsersByBook/{id}")]
+		public string GetUsersByBook(int id)
+		{
+			var usersResult = _userService.GetUsersByBook(id);
+			return JsonConvert.SerializeObject(usersResult);
+		}
 		[HttpPut("UpdateUser/{bookJson}")]
 		public string UpdateUser(string userJson)
 		{

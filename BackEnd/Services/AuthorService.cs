@@ -29,6 +29,18 @@ namespace BackEnd.Services
 			=> _genericService.ProcessModels(x => x.last_name == last, AddingProcess);
 		public Results<IEnumerable<Author>> GetAuthorByMiddleName(string middle)
 			=> _genericService.ProcessModels(x => x.middle_name == middle, AddingProcess);
+		public Results<IEnumerable<Author>> GetAuthorByBook(int bookId)
+		{
+			var authorIds = _jBookAuthorService.GetJunctionedJoinedModelsId(bookId, true).ToList();
+			var authors = new List<Author>();
+			foreach (var authorId in authorIds)
+			{
+				var result = _genericService.ProcessUniqueModel(x => x.pKey == authorId, AddingProcess);
+				if (result.success) authors.Add(result.payload);
+			}
+
+			return new ResultsSuccessful<IEnumerable<Author>>(authors);
+		}
 		public Results<Author> UpdateAuthor(int id, Author author)
 			=> _genericService.UpdateModel(author, id);
 		public Results<IEnumerable<Author>> RemoveAuthor(IEnumerable<int> id)

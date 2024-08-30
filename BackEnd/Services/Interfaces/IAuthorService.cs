@@ -10,6 +10,7 @@ namespace BackEnd.Services.Interfaces
 		public Results<IEnumerable<Author>> GetAuthorByFirstName(string first);
 		public Results<IEnumerable<Author>> GetAuthorByLastName(string last);
 		public Results<IEnumerable<Author>> GetAuthorByMiddleName(string middle);
+		public Results<IEnumerable<Author>> GetAuthorByBook(int bookId);
 		public Results<Author> UpdateAuthor(int id, Author author);
 		public Results<IEnumerable<Author>> RemoveAuthor(IEnumerable<int> id);
 	}

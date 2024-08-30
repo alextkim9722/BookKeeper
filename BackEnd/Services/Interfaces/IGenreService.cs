@@ -8,6 +8,7 @@ namespace BackEnd.Services.Interfaces
 		public Results<Genre> AddGenre(Genre genre);
 		public Results<Genre> GetGenreById(int id);
 		public Results<IEnumerable<Genre>> GetGenreByName(string name);
+		public Results<IEnumerable<Genre>> GetGenreByBook(int bookId);
 		public Results<Genre> UpdateGenre(int id, Genre genre);
 		public Results<IEnumerable<Genre>> RemoveGenre(IEnumerable<int> id);
 	}

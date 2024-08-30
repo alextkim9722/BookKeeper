@@ -89,6 +89,32 @@
   },
   {
     "ContainingType": "BackEnd.Controllers.AuthorController",
+    "Method": "GetAuthorByBook",
+    "RelativePath": "api/Author/GetAuthorByBook/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.String",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "BackEnd.Controllers.AuthorController",
     "Method": "GetAuthorByFirstName",
     "RelativePath": "api/Author/GetAuthorByFirstName/{first}",
     "HttpMethod": "GET",
@@ -349,6 +375,32 @@
   },
   {
     "ContainingType": "BackEnd.Controllers.BookController",
+    "Method": "GetBooksByUser",
+    "RelativePath": "api/Book/GetBooksByUser/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.String",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "BackEnd.Controllers.BookController",
     "Method": "UpdateBook",
     "RelativePath": "api/Book/UpdateBook/{bookJson}",
     "HttpMethod": "PUT",
@@ -409,6 +461,32 @@
     "Parameters": [
       {
         "Name": "genreId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.String",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "BackEnd.Controllers.GenreController",
+    "Method": "GetGenreByBook",
+    "RelativePath": "api/Genre/GetGenreByBook/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
         "Type": "System.Int32",
         "IsRequired": true
       }
@@ -924,6 +1002,32 @@
       {
         "Name": "username",
         "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.String",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "BackEnd.Controllers.UserController",
+    "Method": "GetUsersByBook",
+    "RelativePath": "api/User/GetUsersByBook/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
         "IsRequired": true
       }
     ],

@@ -2,21 +2,19 @@ import { Shelf } from './Shelf';
 import { useEffect, useState } from 'react'
 import './Bookshelf.css';
 
-function Bookshelf(props)
+export function Bookshelf(props)
 {
-    const [bookIds, setBookIds] = useState(props.bookIds)
+    const [books, setBooks] = useState([])
 
     useEffect(() => {
-        setBookIds(props.bookIds)
-    }, [props.bookIds]);
+        setBooks(props.books)
+    }, [props.books]);
 
     return(
         <>
             <div id="bookshelf-root">
-                <Shelf bookIds={bookIds.slice(0, 5)}/>
+                <Shelf books={books.slice(0, 5)}/>
             </div>
         </>
     )
 }
-
-export default Bookshelf

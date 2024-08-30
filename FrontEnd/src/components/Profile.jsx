@@ -1,6 +1,6 @@
 import "./Profile.css"
 
-function Profile (props)
+export function Profile (props)
 {
     return(
         <div id="profile-root">
@@ -32,5 +32,3 @@ function Profile (props)
         </div>
     )
 }
-
-export default Profile

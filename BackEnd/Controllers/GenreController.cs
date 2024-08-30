@@ -36,6 +36,12 @@ namespace BackEnd.Controllers
 			var genres = _genreService.GetGenreByName(name);
 			return JsonConvert.SerializeObject(genres);
 		}
+		[HttpGet("GetGenreByBook/{id}")]
+		public string GetGenreByBook(int id)
+		{
+			var genresResult = _genreService.GetGenreByBook(id);
+			return JsonConvert.SerializeObject(genresResult);
+		}
 		[HttpPut("UpdateGenre/{genreJson}")]
 		public string UpdateGenre(string genreJson)
 		{

@@ -1,0 +1,29 @@
+#detailed-window {
+    width:100%;
+    height:100%;
+
+    background-color: rgb(255, 251, 239);
+    color: black;
+}
+
+#detailed-padding {
+
+    padding:100px;
+}
+
+#big-cover {
+    float:left;
+
+    margin: auto auto;
+    
+    width:400px;
+    height:600px;
+}
+
+#book-info {
+    float:left;
+
+    margin-left:100px;
+
+    width:500px;
+}

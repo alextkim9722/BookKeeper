@@ -83,16 +83,16 @@ namespace BackEndTest.Services.RandomGenerators
 				Identification identification = new Identification()
 				{
 					Id = randGen.randString(200),
-					Email = $"[{i}]_Person@tmail.com",
-					UserName = $"{i}_Man"
+					Email = $"[{i + 1}]_Person@tmail.com",
+					UserName = $"{i + 1}_Man"
 				};
 				User user = new User()
 				{
 					username = identification.UserName,
 					identification_id = identification.Id,
 					date_joined = randGen.randDate(),
-					description = $"{i}User + {randGen.randString(200)}",
-					profile_picture = $"/src/assets/{i}ProfilePic"
+					description = $"{i + 1}User + {randGen.randString(200)}",
+					profile_picture = $"/src/assets/{i + 1}ProfilePic.png"
 				};
 
 				Task.Run(() => manager.CreateAsync(identification, $"Hello{identification.UserName}!")).GetAwaiter().GetResult();
@@ -104,17 +104,17 @@ namespace BackEndTest.Services.RandomGenerators
 			{
 				Author author = new Author()
 				{
-					first_name = $"{i}first",
-					middle_name = $"{i}middle",
-					last_name = $"{i}last",
+					first_name = $"{i + 1}first",
+					middle_name = $"{i + 1}middle",
+					last_name = $"{i + 1}last",
 				};
 
 				Book book = new Book()
 				{
-					title = $"{i}Book",
+					title = $"{i + 1}Book",
 					pages = randGen.randNumber(1, 1000),
-					isbn = $"{i}BookIsbn",
-					cover_picture = $"/src/assets/{i}BookCover"
+					isbn = $"{i + 1}BookIsbn",
+					cover_picture = $"/src/assets/{i + 1}BookCover.png"
 				};
 
 				Genre genre = new Genre()

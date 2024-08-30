@@ -1,14 +1,14 @@
-import { BookOnShelf } from "./BookOnShelf"
-import { useEffect, useState } from "react";
-import "./Shelf.css"
+import { BookOnShelf } from './BookOnShelf';
+import { useEffect, useState } from 'react';
+import './Shelf.css'
 
 export function Shelf(props)
 {
     const [books, setBooks] = useState('')
 
     useEffect(() => {
-        setBooks(props.bookIds.map((id, index) => <BookOnShelf bookId={id} key={index}/>));
-    }, [books]);
+        setBooks(props.books.map((book) => <BookOnShelf book={book} key={book.id}/>));
+    }, [props.books]);
 
     return(
         <>
