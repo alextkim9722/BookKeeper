@@ -10,11 +10,11 @@
         "projectUniqueName": "E:\\Programming\\BookKeeper\\BackEnd\\BackEnd.csproj",
         "projectName": "BackEnd",
         "projectPath": "E:\\Programming\\BookKeeper\\BackEnd\\BackEnd.csproj",
-        "packagesPath": "C:\\Users\\Alexander Kim\\.nuget\\packages\\",
+        "packagesPath": "C:\\Users\\Alexander\\.nuget\\packages\\",
         "outputPath": "E:\\Programming\\BookKeeper\\BackEnd\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Alexander Kim\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Alexander\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

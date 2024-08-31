@@ -7,7 +7,6 @@
 }
 
 #detailed-padding {
-
     padding:100px;
 }
 
@@ -26,4 +25,13 @@
     margin-left:100px;
 
     width:500px;
+}
+
+#book-review {
+    position: absolute;
+    bottom: 100px;
+
+    height: 100px;
+
+    overflow-y: scroll;
 }

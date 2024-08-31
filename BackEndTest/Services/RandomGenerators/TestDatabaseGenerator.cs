@@ -10,7 +10,7 @@ namespace BackEndTest.Services.RandomGenerators
 {
 	public class TestDatabaseGenerator
 	{
-		private const string connectionString = "Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=BookKeeperDB_Test;Data Source=DESKTOP-3B4EF2C;TrustServerCertificate=True;MultipleActiveResultSets=True;";
+		private const string connectionString = "Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=BookKeeperDB_Test;Data Source=DESKTOP-HEF1GNV;TrustServerCertificate=True;MultipleActiveResultSets=True;";
 		private bool databaseCreated = false;
 		public int _tableValueCount = 5;
 		public  int _bridgeTableValueCount = 7;
@@ -119,7 +119,7 @@ namespace BackEndTest.Services.RandomGenerators
 
 				Genre genre = new Genre()
 				{
-					genre_name = $"{i}genre"
+					genre_name = $"{i + 1}genre"
 				};
 
 				bookShelfContext.Author.Add(author);

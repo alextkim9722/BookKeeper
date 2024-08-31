@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useLocation } from 'react-router-dom';
+import ReviewDetailed from './ReviewDetailed';
 import axios from "axios";
 import './BookDetailed.css'
 
@@ -22,13 +23,7 @@ export default function BookDetailed()
             if(response.data.success)
             {
                 var payload = response.data.payload;
-                setReviews(payload.map(review => ({
-                    userId: review.firstKey,
-                    bookId: review.secondKey,
-                    description: review.description,
-                    rating: review.rating,
-                    date: review.date_submitted
-                })))
+                setReviews(payload.map(review => (<ReviewDetailed review={review} key={[review.firstKey, review.secondKey]}/>)))
             }
         })
         .catch(err => console.error(err))
@@ -80,7 +75,7 @@ export default function BookDetailed()
                     <div> <p>{genres}</p> </div>
                     <div> <p>{users.length}</p> </div>
                 </div>
-                <div>hello</div>
+                <div id="book-review">{reviews}</div>
             </div>
         </div>
         </>
