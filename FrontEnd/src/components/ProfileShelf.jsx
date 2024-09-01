@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
-import { Profile } from "./Profile";
-import { Bookshelf } from "./Bookshelf";
+import { Profile } from "./Profile/Profile";
+import { Bookshelf } from "./Bookshelf/Bookshelf";
+import globalStyles from '../Global.module.css';
 import axios from "axios";
 
 export default function ProfileShelf()
@@ -46,9 +47,9 @@ export default function ProfileShelf()
 
     return (
         <>
-        <div id="app">
-            <div id="profile-column"><Profile user={user}/></div>
-            <div id="shelf-column"><Bookshelf books={books}/></div>
+        <div className={`${globalStyles.fillContainer} ${globalStyles.center}`}>
+            <Profile user={user}/>
+            <Bookshelf books={books}/>
         </div>
         </>
     )

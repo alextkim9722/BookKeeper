@@ -1,0 +1,19 @@
+#bookPosition {
+    position:relative;
+
+    float:left;
+
+    margin:0 25px;
+
+    width:100px;
+    height:150px;
+}
+
+#bookTitle {
+    position:relative;
+    top:-170px;
+
+    width:100%;
+    
+    text-align:center;
+}

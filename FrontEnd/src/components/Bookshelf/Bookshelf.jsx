@@ -1,6 +1,6 @@
-import { Shelf } from './Shelf';
+import { Shelf } from '../Shelf/Shelf';
 import { useEffect, useState } from 'react'
-import './Bookshelf.css';
+import globalStyles from '../../Global.module.css'
 
 export function Bookshelf(props)
 {
@@ -12,7 +12,7 @@ export function Bookshelf(props)
 
     return(
         <>
-            <div id="bookshelf-root">
+            <div className={`${globalStyles.leftEnd}`} style={{width:'70%'}}>
                 <Shelf books={books.slice(0, 5)}/>
             </div>
         </>

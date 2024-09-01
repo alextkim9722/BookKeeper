@@ -1,0 +1,14 @@
+h3, h4{
+    text-align: center;
+}
+
+#profileRoot {
+    float: left;
+  
+    background-color: rgb(90, 167, 167);
+}
+
+#profilePicture {
+    width: 200px;
+    height: 200px;
+}

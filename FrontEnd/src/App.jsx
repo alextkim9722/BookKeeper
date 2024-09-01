@@ -1,7 +1,7 @@
 import { Routes, Route } from 'react-router-dom';
 import ProfileShelf from './components/ProfileShelf';
-import './App.css'
-import BookDetailed from './components/BookDetailed';
+import './App.css';
+import BookDetailed from './components/BookDetailed/BookDetailed';
 
 export default function App() {
 

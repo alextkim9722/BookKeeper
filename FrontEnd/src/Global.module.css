@@ -1,0 +1,81 @@
+/*  
+Contains CSS stylings that is consisted throughout the entire website. The
+purpose of this is to make CSS management easier and reduce repitition.
+*/
+
+.fillContainer {
+    width:100%;
+    height:100%;
+}
+
+.center {
+    display:block;
+    margin:0 auto;
+}
+
+.dark-text {
+    color:sienna;
+}
+
+.light-text {
+    color:moccasin;
+}
+
+.breakOverlap {
+    word-wrap:normal;
+    overflow:hidden;
+    overflow-wrap:break-word;
+}
+
+.left {
+    float:left;
+}
+
+.leftEnd {
+    float:left;
+    clear:right;
+}
+
+.rightJustified {
+    float:right;
+}
+
+.interactible {
+    cursor:pointer;
+    transition-duration:100ms;
+}
+
+.interactible:hover {
+    scale: 1.2;
+}
+
+.scrollable {
+    overflow-y:scroll;
+}
+
+.round {
+    border-radius: 50%;
+}
+
+.pad {
+    padding: var(--padding);
+  
+    width:calc(var(--width) - var(--padding) * 2);
+    height:calc(100% - var(--padding) * 2);
+}
+
+.bookCover {
+    width:calc(2 * var(--scale));
+    height:calc(3 * var(--scale));
+}
+
+.exit {
+    position:relative;
+    top:0%;
+    left:95%;
+
+    width:50px;
+    height:50px;
+
+    background-color: brown;
+}

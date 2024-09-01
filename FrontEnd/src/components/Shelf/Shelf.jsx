@@ -1,6 +1,6 @@
-import { BookOnShelf } from './BookOnShelf';
+import { BookOnShelf } from '../BookOnShelf/BookOnShelf';
 import { useEffect, useState } from 'react';
-import './Shelf.css'
+import styles from './Shelf.module.css'
 
 export function Shelf(props)
 {
@@ -12,11 +12,9 @@ export function Shelf(props)
 
     return(
         <>
-            <div>
-                <img src="/src/assets/shelf-head.png"></img>
-            </div>
-            <div id="shelf-position">
-                {books}
+            <div style={{width:'100%'}}>
+                <img src="/src/assets/shelf-head.png" />
+                <div id={styles.bookStackPos}> {books} </div>
             </div>
         </>
     )

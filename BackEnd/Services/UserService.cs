@@ -32,7 +32,7 @@ namespace BackEnd.Services
 			=> _genericService.ProcessModels(x => x.username == username, AddDependents);
 		public Results<IEnumerable<User>> GetUsersByBook(int bookId)
 		{
-			var userIds = _jUserBookService.GetJunctionedJoinedModelsId(bookId, true).ToList();
+			var userIds = _jUserBookService.GetJunctionedJoinedModelsId(bookId, false).ToList();
 			var users = new List<User>();
 			foreach (var userId in userIds)
 			{

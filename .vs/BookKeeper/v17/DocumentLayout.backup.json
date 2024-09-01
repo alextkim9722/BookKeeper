@@ -3,8 +3,16 @@
   "WorkspaceRootPath": "E:\\Programming\\BookKeeper\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{B0469DE7-217D-4453-AF0A-BBA7EA3519AC}|BackEnd\\BackEnd.csproj|e:\\programming\\bookkeeper\\backend\\services\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B0469DE7-217D-4453-AF0A-BBA7EA3519AC}|BackEnd\\BackEnd.csproj|solutionrelative:backend\\services\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{07790725-64D0-4824-AC4F-06F361D6F3E5}|BackEndTest\\BackEndTest.csproj|e:\\programming\\bookkeeper\\backendtest\\services\\randomgenerators\\testdatabasegenerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{07790725-64D0-4824-AC4F-06F361D6F3E5}|BackEndTest\\BackEndTest.csproj|solutionrelative:backendtest\\services\\randomgenerators\\testdatabasegenerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B0469DE7-217D-4453-AF0A-BBA7EA3519AC}|BackEnd\\BackEnd.csproj|e:\\programming\\bookkeeper\\backend\\model\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B0469DE7-217D-4453-AF0A-BBA7EA3519AC}|BackEnd\\BackEnd.csproj|solutionrelative:backend\\model\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{07790725-64D0-4824-AC4F-06F361D6F3E5}|BackEndTest\\BackEndTest.csproj|e:\\programming\\bookkeeper\\backendtest\\services\\randomgenerators\\populatetable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -23,19 +31,45 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "UserService.cs",
+              "DocumentMoniker": "E:\\Programming\\BookKeeper\\BackEnd\\Services\\UserService.cs",
+              "RelativeDocumentMoniker": "BackEnd\\Services\\UserService.cs",
+              "ToolTip": "E:\\Programming\\BookKeeper\\BackEnd\\Services\\UserService.cs",
+              "RelativeToolTip": "BackEnd\\Services\\UserService.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAQwCIAAABMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-01T06:03:24.227Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "User.cs",
+              "DocumentMoniker": "E:\\Programming\\BookKeeper\\BackEnd\\Model\\User.cs",
+              "RelativeDocumentMoniker": "BackEnd\\Model\\User.cs",
+              "ToolTip": "E:\\Programming\\BookKeeper\\BackEnd\\Model\\User.cs",
+              "RelativeToolTip": "BackEnd\\Model\\User.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAA/AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-01T04:59:19.33Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "TestDatabaseGenerator.cs",
               "DocumentMoniker": "E:\\Programming\\BookKeeper\\BackEndTest\\Services\\RandomGenerators\\TestDatabaseGenerator.cs",
               "RelativeDocumentMoniker": "BackEndTest\\Services\\RandomGenerators\\TestDatabaseGenerator.cs",
               "ToolTip": "E:\\Programming\\BookKeeper\\BackEndTest\\Services\\RandomGenerators\\TestDatabaseGenerator.cs",
               "RelativeToolTip": "BackEndTest\\Services\\RandomGenerators\\TestDatabaseGenerator.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAABCAAAAAAAAAA==",
+              "ViewState": "AgIAAIgAAAAAAAAAAAAQwKQAAAAZAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-08-31T05:21:38.624Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "PopulateTable.cs",
               "DocumentMoniker": "E:\\Programming\\BookKeeper\\BackEndTest\\Services\\RandomGenerators\\PopulateTable.cs",
               "RelativeDocumentMoniker": "BackEndTest\\Services\\RandomGenerators\\PopulateTable.cs",
@@ -43,8 +77,7 @@
               "RelativeToolTip": "BackEndTest\\Services\\RandomGenerators\\PopulateTable.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-31T05:17:50.694Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-08-31T05:17:50.694Z"
             }
           ]
         }

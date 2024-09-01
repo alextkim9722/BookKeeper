@@ -1,0 +1,19 @@
+#detailedWindow {
+    background-color: rgb(255, 251, 239);
+    color: black;
+}
+
+#bookInfo {
+    margin-left:100px;
+    width:600px;
+}
+
+#bookReviews {
+    position:relative;
+    top:20px;
+    
+    clear:left;
+
+    width:100%;
+    height:fit-content;
+}
