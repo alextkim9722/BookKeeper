@@ -724,7 +724,7 @@
   {
     "ContainingType": "BackEnd.Controllers.ReviewController",
     "Method": "AddReview",
-    "RelativePath": "api/Review/AddReview/{reviewJson}",
+    "RelativePath": "api/Review/AddReview",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -732,7 +732,7 @@
       {
         "Name": "reviewJson",
         "Type": "System.String",
-        "IsRequired": true
+        "IsRequired": false
       }
     ],
     "ReturnTypes": [

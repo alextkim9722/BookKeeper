@@ -79,3 +79,10 @@ purpose of this is to make CSS management easier and reduce repitition.
 
     background-color: brown;
 }
+
+.popupDialogue {
+    position:absolute;
+    left:50%;
+    top:50%;
+    transform: translate(-50%, -50%);
+}

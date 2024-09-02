@@ -1,10 +1,12 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import ReviewCrunched from '../ReviewCrunched/ReviewCrunched';
 import axios from 'axios';
 
 import globalStyles from '../../Global.module.css';
 import styles from './BookDetailed.module.css';
+import { createPortal } from 'react-dom';
+import ReviewCreate from '../ReviewCreate/ReviewCreate';
 
 export default function BookDetailed()
 {
@@ -16,6 +18,8 @@ export default function BookDetailed()
     const [authors, setAuthors] = useState("");
     const [genres, setGenres] = useState([]);
     const [users, setUsers] = useState([]);
+
+    const [createPopup, setCreatePopup] = useState(false);
 
     useEffect(() => {
         var body = location.state;
@@ -84,9 +88,14 @@ export default function BookDetailed()
                 <div> {Object.keys(users).length} </div>
             </div>
             <div id={`${styles.bookReviews}`}>
-                <div> <h2>Reviews</h2> </div>
+                <div>
+                    <span style={{fontWeight: 'bold'}}>Reviews</span>
+                    <span className={`${globalStyles.rightJustified} ${globalStyles.interactible}`} onClick={() => setCreatePopup(true)}>Write Review</span>
+                </div>
                 <div className={`${globalStyles.scrollable} ${globalStyles.center}`} style={{height:'150px'}}>{reviews}</div>
             </div>
+
+            {createPopup && <ReviewCreate />}
         </div>
         </>
     )

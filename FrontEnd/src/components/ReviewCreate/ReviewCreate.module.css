@@ -1,0 +1,21 @@
+#ReviewForm {
+    width:900px;
+    height:150px;
+
+    background-color: aliceblue;
+}
+
+#DimBackground {
+    position:absolute;
+    top:0px;
+    left:0px;
+
+    width:100%;
+    height:100%;
+
+    background-color: rgba(0, 0, 0, 0.26);
+}
+
+#DescriptionBox {
+    background-color: bisque;
+}
