@@ -731,8 +731,8 @@
     "Parameters": [
       {
         "Name": "reviewJson",
-        "Type": "System.String",
-        "IsRequired": false
+        "Type": "BackEnd.Model.Review",
+        "IsRequired": true
       }
     ],
     "ReturnTypes": [

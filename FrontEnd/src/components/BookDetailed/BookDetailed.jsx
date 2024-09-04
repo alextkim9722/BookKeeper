@@ -95,7 +95,7 @@ export default function BookDetailed()
                 <div className={`${globalStyles.scrollable} ${globalStyles.center}`} style={{height:'150px'}}>{reviews}</div>
             </div>
 
-            {createPopup && <ReviewCreate />}
+            {createPopup && <ReviewCreate bookId={location.state.id}/>}
         </div>
         </>
     )

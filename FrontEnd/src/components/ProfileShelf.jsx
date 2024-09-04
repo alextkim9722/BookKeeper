@@ -1,8 +1,10 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, createContext } from "react";
 import { Profile } from "./Profile/Profile";
 import { Bookshelf } from "./Bookshelf/Bookshelf";
 import globalStyles from '../Global.module.css';
 import axios from "axios";
+
+export const UserContext = createContext(1);
 
 export default function ProfileShelf()
 {
@@ -48,8 +50,10 @@ export default function ProfileShelf()
     return (
         <>
         <div className={`${globalStyles.fillContainer} ${globalStyles.center}`}>
-            <Profile user={user}/>
-            <Bookshelf books={books}/>
+            <UserContext.Provider>
+                <Profile user={user}/>
+                <Bookshelf books={books}/>
+            </UserContext.Provider>
         </div>
         </>
     )

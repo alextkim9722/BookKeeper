@@ -19,9 +19,9 @@ namespace BackEnd.Controllers
 		}
 
 		[HttpPost("AddReview")]
-		public string AddReview(string reviewJson)
+		public string AddReview([FromBody]Review reviewJson)
 		{
-			var review = JsonConvert.DeserializeObject<Review>(reviewJson);
+			var review = reviewJson;
 			var addResult = _reviewService.AddReview(review);
 			return JsonConvert.SerializeObject(addResult);
 		}
