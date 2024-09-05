@@ -78,21 +78,35 @@ export default function BookDetailed()
     return(
         <>
         <div id={`${styles.detailedWindow}`} className={`${globalStyles.fillContainer} ${globalStyles.pad} ${globalStyles.center}`} style={{'--padding':'50px'}}>
-            <div className={`${globalStyles.interactible} ${globalStyles.exit}`} onClick={() => navigate('/')}></div>
-            <img className={`${globalStyles.bookCover} ${globalStyles.left}`}  style={{'--scale':'200px'}} src={book.cover} />
-            <div id={`${styles.bookInfo}`} className={`${globalStyles.leftEnd} ${globalStyles.breakOverlap}`} style={{height:'600px'}}>
-                <div> <h1>{book.title}</h1> </div>
-                <div> <h2>{book.rating}/10</h2> </div>
-                <div> {authors} </div>
-                <div> {genres} </div>
-                <div> {Object.keys(users).length} </div>
+            <div className={`${globalStyles.interactible} ${globalStyles.darkText}`} style={{width:'fit-content'}} onClick={() => navigate('/')}>Return</div>
+            <div id={`${styles.content}`}>
+                <div id={`${styles.bookFrame}`} className={`${globalStyles.left}`}>
+                    <img className={`${globalStyles.bookCover}`}  style={{'--scale':'150px'}} src={book.cover} />
+                </div>
+                <table className={`${globalStyles.leftEnd} ${globalStyles.breakOverlap}`}>
+                    <h1>{book.title}</h1>
+                    <tr>
+                        <td>Rating:</td>
+                        <td>{book.rating}/10</td>
+                    </tr>
+                    <tr>
+                        <td>Authors:</td>
+                        <td>{authors}</td>
+                    </tr>
+                    <tr>
+                        <td>Genres:</td>
+                        <td>{genres}</td>
+                    </tr>
+                    <tr>
+                        <td>Readers:</td>
+                        <td>{Object.keys(users).length}</td>
+                    </tr>
+                </table>
             </div>
             <div id={`${styles.bookReviews}`}>
-                <div>
-                    <span style={{fontWeight: 'bold'}}>Reviews</span>
-                    <span className={`${globalStyles.rightJustified} ${globalStyles.interactible}`} onClick={() => setCreatePopup(true)}>Write Review</span>
-                </div>
+                <div style={{fontWeight: 'bold', fontSize: '30px'}}>Reviews</div>
                 <div className={`${globalStyles.scrollable} ${globalStyles.center}`} style={{height:'150px'}}>{reviews}</div>
+                <div className={`${globalStyles.rightJustified} ${globalStyles.interactible}`} onClick={() => setCreatePopup(true)}>Write Review</div>
             </div>
 
             {createPopup && <ReviewCreate bookId={location.state.id}/>}

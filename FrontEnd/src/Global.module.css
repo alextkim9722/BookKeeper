@@ -13,7 +13,7 @@ purpose of this is to make CSS management easier and reduce repitition.
     margin:0 auto;
 }
 
-.dark-text {
+.darkText {
     color:sienna;
 }
 
@@ -51,6 +51,7 @@ purpose of this is to make CSS management easier and reduce repitition.
 
 .scrollable {
     overflow-y:scroll;
+    scrollbar-color: rgb(175, 175, 149) rgb(219, 219, 195);
 }
 
 .round {
