@@ -1,4 +1,5 @@
 import { useContext, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 import { UserContext } from '../ProfileShelf';
@@ -9,8 +10,6 @@ import styles from './ReviewCreate.module.css';
 export default function ReviewCreate(props) {
 
     const user = useContext(UserContext);
-
-    const [success, setSuccess] = useState(true);
 
     //Members below do not need re-render on change
     const MAXRATING = 10;
@@ -26,7 +25,7 @@ export default function ReviewCreate(props) {
         let day = formatNumber(today.getDay() + 1);
 
         let review = {
-            firstKey: 1,
+            firstKey: user,
             secondKey: props.bookId,
             description: description,
             rating: rating,
@@ -35,10 +34,9 @@ export default function ReviewCreate(props) {
           
 
         axios.post('https://localhost:7213/api/Review/AddReview', review)
-        .then(result => {
-            setSuccess(result.success);
-        })
         .catch(err => console.error(err));
+
+        props.popupBool();
     }
 
     const createOptions = () => {
@@ -58,16 +56,14 @@ export default function ReviewCreate(props) {
     return (
         <>
         <div id={styles.DimBackground}></div>
-        <form id={`${styles.ReviewForm}`} className={`${globalStyles.popupDialogue}`} style={{padding:'50px'}}>
-            <div>
-                <select name='rating' onChange={setRating}>
-                    {createOptions()}
-                </select>
-            </div>
-            <div style={{width:'100%', height:'50%', marginTop:'20px'}}>
-                <input id={`${styles.DescriptionBox}`} className={`${globalStyles.fillContainer}`} onChange={setDescription} type='text'/>
-            </div>
-            <div className={`${globalStyles.interactible}`} onClick={() => submitReview()}>Submit Review</div>
+        <form id={`${styles.ReviewForm}`} className={`${globalStyles.popupDialogue}`} style={{padding:'10px'}}>
+            <div style={{fontSize:'30px', fontWeight:'bold'}}>Create Review</div>
+            <select name='rating' onChange={setRating} style={{background:'rgb(220, 220, 200)', color:'black'}}>
+                {createOptions()}
+            </select>
+            <textarea id={`${styles.DescriptionBox}`} className={`${globalStyles.fillContainer} ${globalStyles.darkText}`} style={{width:'100%', height:'50%', marginTop:'10px'}} onChange={setDescription}/>
+            <div className={`${globalStyles.interactible}`} style={{float:'left', width:'fit-content', marginTop:'5px'}} onClick={props.popupBool}>Return</div>
+            <div className={`${globalStyles.interactible}`} style={{float:'right', width:'fit-content', marginTop:'5px'}} onClick={() => submitReview()}>Submit Review</div>
         </form>
         </>
     )

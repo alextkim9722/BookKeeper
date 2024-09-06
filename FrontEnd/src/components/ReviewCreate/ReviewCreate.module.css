@@ -1,8 +1,10 @@
 #ReviewForm {
     width:900px;
-    height:150px;
+    height:250px;
 
-    background-color: aliceblue;
+    background-color: rgb(255, 251, 239);
+
+    border-radius: 5px;
 }
 
 #DimBackground {
@@ -17,5 +19,7 @@
 }
 
 #DescriptionBox {
-    background-color: bisque;
+    resize:none;
+
+    background-color: rgb(220, 220, 200);
 }

@@ -50,7 +50,7 @@ export default function ProfileShelf()
     return (
         <>
         <div className={`${globalStyles.fillContainer} ${globalStyles.center}`}>
-            <UserContext.Provider>
+            <UserContext.Provider value='1'>
                 <Profile user={user}/>
                 <Bookshelf books={books}/>
             </UserContext.Provider>

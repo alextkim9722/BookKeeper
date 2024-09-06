@@ -3,10 +3,11 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import ReviewCrunched from '../ReviewCrunched/ReviewCrunched';
 import axios from 'axios';
 
+import GetRating from '../GetRating';
+import ReviewCreate from '../ReviewCreate/ReviewCreate';
+
 import globalStyles from '../../Global.module.css';
 import styles from './BookDetailed.module.css';
-import { createPortal } from 'react-dom';
-import ReviewCreate from '../ReviewCreate/ReviewCreate';
 
 export default function BookDetailed()
 {
@@ -83,25 +84,29 @@ export default function BookDetailed()
                 <div id={`${styles.bookFrame}`} className={`${globalStyles.left}`}>
                     <img className={`${globalStyles.bookCover}`}  style={{'--scale':'150px'}} src={book.cover} />
                 </div>
-                <table className={`${globalStyles.leftEnd} ${globalStyles.breakOverlap}`}>
+                <div id={`${styles.information}`} className={`${globalStyles.leftEnd}`}>
                     <h1>{book.title}</h1>
-                    <tr>
-                        <td>Rating:</td>
-                        <td>{book.rating}/10</td>
-                    </tr>
-                    <tr>
-                        <td>Authors:</td>
-                        <td>{authors}</td>
-                    </tr>
-                    <tr>
-                        <td>Genres:</td>
-                        <td>{genres}</td>
-                    </tr>
-                    <tr>
-                        <td>Readers:</td>
-                        <td>{Object.keys(users).length}</td>
-                    </tr>
-                </table>
+                    <table className={`${globalStyles.breakOverlap}`}>
+                        <tbody>
+                            <tr>
+                                <td>Rating:</td>
+                                <td>{GetRating(book.rating)}</td>
+                            </tr>
+                            <tr>
+                                <td>Authors:</td>
+                                <td>{authors}</td>
+                            </tr>
+                            <tr>
+                                <td>Genres:</td>
+                                <td>{genres}</td>
+                            </tr>
+                            <tr>
+                                <td>Readers:</td>
+                                <td>{Object.keys(users).length}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
             <div id={`${styles.bookReviews}`}>
                 <div style={{fontWeight: 'bold', fontSize: '30px'}}>Reviews</div>
@@ -109,7 +114,7 @@ export default function BookDetailed()
                 <div className={`${globalStyles.rightJustified} ${globalStyles.interactible}`} onClick={() => setCreatePopup(true)}>Write Review</div>
             </div>
 
-            {createPopup && <ReviewCreate bookId={location.state.id}/>}
+            {createPopup && <ReviewCreate bookId={location.state.id} popupBool={() => setCreatePopup(false)}/>}
         </div>
         </>
     )

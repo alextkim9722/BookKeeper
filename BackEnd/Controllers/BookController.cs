@@ -78,7 +78,17 @@ namespace BackEnd.Controllers
 		public string GetBooksByUser(int id)
 		{
 			var booksResult = _bookService.GetBooksByUser(id);
-			return JsonConvert.SerializeObject(booksResult);
+
+            foreach (var book in booksResult.payload)
+            {
+                var reviews = _reviewService.GetReviewByBookId(book.pKey);
+                if (!reviews.success) return JsonConvert.SerializeObject(reviews);
+
+                var ratingResult = _bookService.SetRating(book, reviews.payload);
+                if (!ratingResult.success) return JsonConvert.SerializeObject(ratingResult);
+            }
+
+            return JsonConvert.SerializeObject(booksResult);
 		}
 		[HttpPut("UpdateBook/{bookJson}")]
 		public string UpdateBook(string bookJson)
