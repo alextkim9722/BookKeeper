@@ -3,7 +3,7 @@
 
     float:left;
 
-    margin:0 25px;
+    margin:20px 10px;
 
     width:100px;
     height:150px;
@@ -11,9 +11,10 @@
 
 #bookTitle {
     position:relative;
-    top:-170px;
+    top:-30px;
 
     width:100%;
     
     text-align:center;
+    color:black;
 }

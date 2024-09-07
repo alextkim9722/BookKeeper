@@ -8,18 +8,20 @@ export function Profile (props)
             <img id={styles.profilePicture} className={`${globalStyles.round} ${globalStyles.center}`} src="/src/assets/default.png" />
             <h3> {props.user.username} </h3>
             <table>
-                <tr>
-                    <td> Date Joined </td>
-                    <td> {props.user.dateJoined} </td>
-                </tr>
-                <tr>
-                    <td> Books Read </td>
-                    <td> {props.user.booksRead} </td>
-                </tr>
-                <tr>
-                    <td> Pages Read </td>
-                    <td> {props.user.pagesRead} </td>
-                </tr>
+                <tbody>
+                    <tr>
+                        <td> Date Joined </td>
+                        <td> {props.user.dateJoined} </td>
+                    </tr>
+                    <tr>
+                        <td> Books Read </td>
+                        <td> {props.user.booksRead} Books</td>
+                    </tr>
+                    <tr>
+                        <td> Pages Read </td>
+                        <td> {props.user.pagesRead} Pages </td>
+                    </tr>
+                </tbody>
             </table>
             <div>
                 <p style={{flexGrow:'1', height:'200px', textAlign:'justify', wordBreak:'break-word'}}>{props.user.description}</p>
