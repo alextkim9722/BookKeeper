@@ -87,3 +87,14 @@ purpose of this is to make CSS management easier and reduce repitition.
     top:50%;
     transform: translate(-50%, -50%);
 }
+
+textarea {
+    resize:none;
+    background-color: rgb(220, 220, 200);
+    color: black;
+}
+
+input {
+    background-color: rgb(220, 220, 200);
+    color: black;
+}
