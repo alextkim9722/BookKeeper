@@ -49,7 +49,7 @@ export default function ProfileShelf()
 
     return (
         <>
-        <div className={`${globalStyles.fillContainer} ${globalStyles.center}`}>
+        <div className={`${globalStyles.pad} ${globalStyles.center}`} style={{display:'flex',flexDirection:'row',alignItems:'center',justifyContent:'center','--padding':'50px', '--width':'100%'}}>
             <UserContext.Provider value='1'>
                 <Profile user={user}/>
                 <Bookshelf books={books}/>
