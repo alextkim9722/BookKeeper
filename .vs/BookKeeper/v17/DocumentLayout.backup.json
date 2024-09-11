@@ -3,44 +3,12 @@
   "WorkspaceRootPath": "E:\\Programming\\BookKeeper\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{B0469DE7-217D-4453-AF0A-BBA7EA3519AC}|BackEnd\\BackEnd.csproj|e:\\programming\\bookkeeper\\backend\\controllers\\bookcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B0469DE7-217D-4453-AF0A-BBA7EA3519AC}|BackEnd\\BackEnd.csproj|solutionrelative:backend\\controllers\\bookcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B0469DE7-217D-4453-AF0A-BBA7EA3519AC}|BackEnd\\BackEnd.csproj|e:\\programming\\bookkeeper\\backend\\services\\errorhandling\\results.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B0469DE7-217D-4453-AF0A-BBA7EA3519AC}|BackEnd\\BackEnd.csproj|solutionrelative:backend\\services\\errorhandling\\results.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B0469DE7-217D-4453-AF0A-BBA7EA3519AC}|BackEnd\\BackEnd.csproj|e:\\programming\\bookkeeper\\backend\\services\\bookservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B0469DE7-217D-4453-AF0A-BBA7EA3519AC}|BackEnd\\BackEnd.csproj|solutionrelative:backend\\services\\bookservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B0469DE7-217D-4453-AF0A-BBA7EA3519AC}|BackEnd\\BackEnd.csproj|e:\\programming\\bookkeeper\\backend\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B0469DE7-217D-4453-AF0A-BBA7EA3519AC}|BackEnd\\BackEnd.csproj|solutionrelative:backend\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{B0469DE7-217D-4453-AF0A-BBA7EA3519AC}|BackEnd\\BackEnd.csproj|e:\\programming\\bookkeeper\\backend\\controllers\\reviewcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B0469DE7-217D-4453-AF0A-BBA7EA3519AC}|BackEnd\\BackEnd.csproj|solutionrelative:backend\\controllers\\reviewcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B0469DE7-217D-4453-AF0A-BBA7EA3519AC}|BackEnd\\BackEnd.csproj|e:\\programming\\bookkeeper\\backend\\model\\review.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B0469DE7-217D-4453-AF0A-BBA7EA3519AC}|BackEnd\\BackEnd.csproj|solutionrelative:backend\\model\\review.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B0469DE7-217D-4453-AF0A-BBA7EA3519AC}|BackEnd\\BackEnd.csproj|e:\\programming\\bookkeeper\\backend\\services\\reviewservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B0469DE7-217D-4453-AF0A-BBA7EA3519AC}|BackEnd\\BackEnd.csproj|solutionrelative:backend\\services\\reviewservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B0469DE7-217D-4453-AF0A-BBA7EA3519AC}|BackEnd\\BackEnd.csproj|e:\\programming\\bookkeeper\\backend\\services\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B0469DE7-217D-4453-AF0A-BBA7EA3519AC}|BackEnd\\BackEnd.csproj|solutionrelative:backend\\services\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{07790725-64D0-4824-AC4F-06F361D6F3E5}|BackEndTest\\BackEndTest.csproj|e:\\programming\\bookkeeper\\backendtest\\services\\randomgenerators\\testdatabasegenerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{07790725-64D0-4824-AC4F-06F361D6F3E5}|BackEndTest\\BackEndTest.csproj|solutionrelative:backendtest\\services\\randomgenerators\\testdatabasegenerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B0469DE7-217D-4453-AF0A-BBA7EA3519AC}|BackEnd\\BackEnd.csproj|e:\\programming\\bookkeeper\\backend\\model\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B0469DE7-217D-4453-AF0A-BBA7EA3519AC}|BackEnd\\BackEnd.csproj|solutionrelative:backend\\model\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{07790725-64D0-4824-AC4F-06F361D6F3E5}|BackEndTest\\BackEndTest.csproj|e:\\programming\\bookkeeper\\backendtest\\services\\randomgenerators\\populatetable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{07790725-64D0-4824-AC4F-06F361D6F3E5}|BackEndTest\\BackEndTest.csproj|solutionrelative:backendtest\\services\\randomgenerators\\populatetable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -50,128 +18,33 @@
       "DocumentGroups": [
         {
           "DockedWidth": 179,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "BookController.cs",
-              "DocumentMoniker": "E:\\Programming\\BookKeeper\\BackEnd\\Controllers\\BookController.cs",
-              "RelativeDocumentMoniker": "BackEnd\\Controllers\\BookController.cs",
-              "ToolTip": "E:\\Programming\\BookKeeper\\BackEnd\\Controllers\\BookController.cs",
-              "RelativeToolTip": "BackEnd\\Controllers\\BookController.cs",
-              "ViewState": "AgIAAEEAAAAAAAAAAAAkwGEAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-05T23:49:50.305Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "BookService.cs",
-              "DocumentMoniker": "E:\\Programming\\BookKeeper\\BackEnd\\Services\\BookService.cs",
-              "RelativeDocumentMoniker": "BackEnd\\Services\\BookService.cs",
-              "ToolTip": "E:\\Programming\\BookKeeper\\BackEnd\\Services\\BookService.cs",
-              "RelativeToolTip": "BackEnd\\Services\\BookService.cs",
-              "ViewState": "AgIAACgAAAAAAAAAAAAcwC4AAABYAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-05T23:52:14.286Z"
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "Results.cs",
-              "DocumentMoniker": "E:\\Programming\\BookKeeper\\BackEnd\\Services\\ErrorHandling\\Results.cs",
-              "RelativeDocumentMoniker": "BackEnd\\Services\\ErrorHandling\\Results.cs",
-              "ToolTip": "E:\\Programming\\BookKeeper\\BackEnd\\Services\\ErrorHandling\\Results.cs",
-              "RelativeToolTip": "BackEnd\\Services\\ErrorHandling\\Results.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-04T01:13:55.483Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "ReviewService.cs",
-              "DocumentMoniker": "E:\\Programming\\BookKeeper\\BackEnd\\Services\\ReviewService.cs",
-              "RelativeDocumentMoniker": "BackEnd\\Services\\ReviewService.cs",
-              "ToolTip": "E:\\Programming\\BookKeeper\\BackEnd\\Services\\ReviewService.cs",
-              "RelativeToolTip": "BackEnd\\Services\\ReviewService.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAAB4AAAA/AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-02T06:02:32.736Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Review.cs",
-              "DocumentMoniker": "E:\\Programming\\BookKeeper\\BackEnd\\Model\\Review.cs",
-              "RelativeDocumentMoniker": "BackEnd\\Model\\Review.cs",
-              "ToolTip": "E:\\Programming\\BookKeeper\\BackEnd\\Model\\Review.cs",
-              "RelativeToolTip": "BackEnd\\Model\\Review.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-02T04:14:27.861Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
               "Title": "ReviewController.cs",
               "DocumentMoniker": "E:\\Programming\\BookKeeper\\BackEnd\\Controllers\\ReviewController.cs",
               "RelativeDocumentMoniker": "BackEnd\\Controllers\\ReviewController.cs",
               "ToolTip": "E:\\Programming\\BookKeeper\\BackEnd\\Controllers\\ReviewController.cs",
               "RelativeToolTip": "BackEnd\\Controllers\\ReviewController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAADAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAZAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-02T04:05:55.478Z"
+              "WhenOpened": "2024-09-11T02:19:39.012Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "UserService.cs",
-              "DocumentMoniker": "E:\\Programming\\BookKeeper\\BackEnd\\Services\\UserService.cs",
-              "RelativeDocumentMoniker": "BackEnd\\Services\\UserService.cs",
-              "ToolTip": "E:\\Programming\\BookKeeper\\BackEnd\\Services\\UserService.cs",
-              "RelativeToolTip": "BackEnd\\Services\\UserService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACIAAABMAAAAAAAAAA==",
+              "DocumentIndex": 0,
+              "Title": "UserController.cs",
+              "DocumentMoniker": "E:\\Programming\\BookKeeper\\BackEnd\\Controllers\\UserController.cs",
+              "RelativeDocumentMoniker": "BackEnd\\Controllers\\UserController.cs",
+              "ToolTip": "E:\\Programming\\BookKeeper\\BackEnd\\Controllers\\UserController.cs",
+              "RelativeToolTip": "BackEnd\\Controllers\\UserController.cs",
+              "ViewState": "AgIAAD0AAAAAAAAAAAAcwFUAAAADAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-01T06:03:24.227Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "User.cs",
-              "DocumentMoniker": "E:\\Programming\\BookKeeper\\BackEnd\\Model\\User.cs",
-              "RelativeDocumentMoniker": "BackEnd\\Model\\User.cs",
-              "ToolTip": "E:\\Programming\\BookKeeper\\BackEnd\\Model\\User.cs",
-              "RelativeToolTip": "BackEnd\\Model\\User.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAA/AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-01T04:59:19.33Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "TestDatabaseGenerator.cs",
-              "DocumentMoniker": "E:\\Programming\\BookKeeper\\BackEndTest\\Services\\RandomGenerators\\TestDatabaseGenerator.cs",
-              "RelativeDocumentMoniker": "BackEndTest\\Services\\RandomGenerators\\TestDatabaseGenerator.cs",
-              "ToolTip": "E:\\Programming\\BookKeeper\\BackEndTest\\Services\\RandomGenerators\\TestDatabaseGenerator.cs",
-              "RelativeToolTip": "BackEndTest\\Services\\RandomGenerators\\TestDatabaseGenerator.cs",
-              "ViewState": "AgIAAIgAAAAAAAAAAAAQwKQAAAAZAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-31T05:21:38.624Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "PopulateTable.cs",
-              "DocumentMoniker": "E:\\Programming\\BookKeeper\\BackEndTest\\Services\\RandomGenerators\\PopulateTable.cs",
-              "RelativeDocumentMoniker": "BackEndTest\\Services\\RandomGenerators\\PopulateTable.cs",
-              "ToolTip": "E:\\Programming\\BookKeeper\\BackEndTest\\Services\\RandomGenerators\\PopulateTable.cs",
-              "RelativeToolTip": "BackEndTest\\Services\\RandomGenerators\\PopulateTable.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-31T05:17:50.694Z"
+              "WhenOpened": "2024-09-11T02:19:11.648Z",
+              "EditorCaption": ""
             }
           ]
         }

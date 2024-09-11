@@ -730,7 +730,7 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "reviewJson",
+        "Name": "review",
         "Type": "BackEnd.Model.Review",
         "IsRequired": true
       }
@@ -1046,19 +1046,14 @@
   {
     "ContainingType": "BackEnd.Controllers.UserController",
     "Method": "UpdateUser",
-    "RelativePath": "api/User/UpdateUser/{bookJson}",
+    "RelativePath": "api/User/UpdateUser",
     "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "userJson",
-        "Type": "System.String",
-        "IsRequired": false
-      },
-      {
-        "Name": "bookJson",
-        "Type": "",
+        "Name": "user",
+        "Type": "BackEnd.Model.User",
         "IsRequired": true
       }
     ],

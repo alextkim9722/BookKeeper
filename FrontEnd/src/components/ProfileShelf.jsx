@@ -9,26 +9,8 @@ export const UserContext = createContext(1);
 export default function ProfileShelf()
 {
     const [books, setBooks] = useState([]);
-    const [user, setUser] = useState({});
 
     useEffect(() => {
-        axios.get(`https://localhost:7213/api/User/GetUserById/${1}`)
-        .then(response => {
-            if(response.data.success)
-            {
-                let body = response.data.payload;
-                setUser({
-                    username: body.username,
-                    description: body.description,
-                    dateJoined: body.date_joined,
-                    picture: body.profile_picture,
-                    booksRead: body.booksRead,
-                    pagesRead: body.pagesRead
-                });
-            }
-        })
-        .catch(err => console.error(err))
-
         axios.get(`https://localhost:7213/api/Book/GetBooksByUser/${1}`)
         .then(response => {
             if(response.data.success)
@@ -52,7 +34,7 @@ export default function ProfileShelf()
         <>
         <div className={`${globalStyles.pad} ${globalStyles.center}`} style={{display:'flex',flexDirection:'row',alignItems:'center',justifyContent:'center','--padding':'50px', '--width':'100%'}}>
             <UserContext.Provider value='1'>
-                <Profile user={user}/>
+                <Profile />
                 <Bookshelf books={books}/>
             </UserContext.Provider>
         </div>
